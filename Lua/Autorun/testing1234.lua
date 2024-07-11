@@ -19,14 +19,16 @@ Hook.Add("chatMessage", "examples.getAfflictions", function (message, client)
 
     if character == nil then return end
 	
-	
+
 	local parameters = Level.Loaded.LevelData.GenerationParams
     parameters.AmbientLightColor = Color(200, 200, 0, 200)	
 
 	local hull = Hull.HullList
-	hull.AmbientLight = Color (200, 0, 0, 200)
+	hull.AmbientLightColor = Color (200, 0, 0, 200)
 
-	end)
+	
+    return true
+end)
 
 
 
