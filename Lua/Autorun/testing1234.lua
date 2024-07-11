@@ -11,7 +11,7 @@ function UpdateHumanEye(character)
 		HF.AddAfflictionLimb(character, "eyedamage", 20)
 		hull.AmbientLight = Color(255, 0, 0, 255)
 	end
-	return
+	return something idk yet dont run this
 end
 
 Hook.Add("chatMessage", "examples.giveAfflictions", function (message, client)
