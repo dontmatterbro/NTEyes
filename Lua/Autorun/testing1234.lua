@@ -6,12 +6,6 @@ if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the serv
 
 local burnPrefab = AfflictionPrefab.Prefabs["burn"]
 
-Hook.Add("makeRed", "make hull red", function()
-   for k, hull in pairs(Hull.HullList) do
-      hull.AmbientLight = Color(255, 0, 0, 255)
-   end
-end)
-
 Hook.Add("chatMessage", "examples.giveAfflictions", function (message, client)
     if message ~= "!giveaffliction" then return end
 
