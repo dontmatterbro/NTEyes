@@ -299,6 +299,10 @@
     </Fabricate>
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <!-- making the organ go kaputt if left outside of refrigeration -->
+      <StatusEffect type = "Always" target="This" thermalgoggles="True">
+        <StatusHUD thermalgoggles="True" range="3000" overlaycolor="175,0,0,100" showdeadcharacters="false">
+        </StatusEffect>
+      
       <StatusEffect type="Always" target="This" condition="-0.4" comparison="and">
         <Conditional hastag="neq refrigerated" targetcontainer="true" />
         <Conditional hastag="neq medicalfabricator" targetcontainer="true" />
