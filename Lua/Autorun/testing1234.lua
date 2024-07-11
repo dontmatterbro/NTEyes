@@ -2,6 +2,44 @@
     This example shows how to create a command that gives afflictions to a character.
 --]]
 
+
+
+if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the server-side, if it's multiplayer, doesn't let it run on the client, and if it's singleplayer, lets it run on the client.
+
+Hook.Add("chatMessage", "examples.getAfflictions", function (message, client)
+    if message ~= "!light" then return end
+
+    local character
+		
+    if SERVER then
+        character = client.Character
+    else
+        character = Character.Controlled
+    end
+
+    if character == nil then return end
+	
+	
+	local parameters = Level.Loaded.LevelData.GenerationParams
+    parameters.AmbientLightColor = Color(200, 200, 0, 200)	
+
+	local hull = Hull.HullList
+	hull.AmbientLight = Color (200, 0, 0, 200)
+
+	end)
+
+
+
+
+
+
+
+
+
+
+
+
+--[[
 if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the server-side, if it's multiplayer, doesn't let it run on the client, and if it's singleplayer, lets it run on the client.
 
 Hook.Add("chatMessage", "examples.getAfflictions", function (message, client)
@@ -26,6 +64,7 @@ hook.Add("text command", "make hulls bright red", function()
 				
 end)
 	end
+--]]
 
 
 
