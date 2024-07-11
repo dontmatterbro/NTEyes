@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
-
+  <Affliction name="" identifier="eyenight" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="this cant kill you." selfcauseofdeathdescription="how? this doesnt lower your vitality" isbuff="false" healableinmedicalclinic="false">
+    <Effect minstrength="0" maxstrength="2">
+      <StatValue stattype="WeaponsSkillBonus" value="1.25" />
+    </Effect>
+    <AfflictionOverlay texture="%ModDir%/nightvisionOverlay.png" />
+    <icon texture="%ModDir%/noeyes.png" ssourcerect="0,0,128,128" color="150,50,230,255" origin="0,0" />
+  </Affliction>
 </Afflictions>
