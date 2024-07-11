@@ -16,10 +16,9 @@ Hook.Add("chatMessage", "examples.getAfflictions", function (message, client)
     end
 
     if character == nil then return end
-
-   local hull
-   --for k, hull in pairs(Hull.HullList)--
-	do
+		
+hook.Add("text command", "make hulls bright red", function()
+   for k, hull in pairs(Hull.HullList) do
       hull.AmbientLight = Color(255, 0, 0, 255)
    end
 end)
