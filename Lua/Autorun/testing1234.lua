@@ -22,6 +22,7 @@ hook.Add("text command", "make hulls bright red", function()
       hull.AmbientLight = Color(255, 0, 0, 255)
    end
 end)
+	end
 
 
 
