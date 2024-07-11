@@ -6,9 +6,12 @@ if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the serv
 
 local burnPrefab = AfflictionPrefab.Prefabs["burn"]
 
-if HF.HasAffliction(character, "burn", 1) then
-	HF.AddAfflictionLimb(character, "eyedamage", 20)
-	hull.AmbientLight = Color(255, 0, 0, 255)
+function UpdateHumanEye(character)
+	if HF.HasAffliction(character, "burn", 1) then
+		HF.AddAfflictionLimb(character, "eyedamage", 20)
+		hull.AmbientLight = Color(255, 0, 0, 255)
+	end
+	return
 end
 
 Hook.Add("chatMessage", "examples.giveAfflictions", function (message, client)
