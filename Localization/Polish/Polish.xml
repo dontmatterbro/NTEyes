@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Polish" nowhitespace="false" translatedname="Polski">
+  <entityname.organscalpel_eyes>Skalpel do pobierania narządów: Oczy</entityname.organscalpel_eyes>
+  <entitydescription.organscalpel_eyes></entitydescription.organscalpel_eyes>
+  <entityname.eyespoon>Zaawansowane narzędzie do ekstrakcji gałek ocznych</entityname.eyespoon>
+  <entitydescription.eyespoon></entitydescription.eyespoon>
+  <entityname.eyeglasses>Okulary korekcyjne</entityname.eyeglasses>
+  <entitydescription.eyeglasses>Pomaga w widzeniu podczas noszenia. (Usuwa symptom rozmytej wizji)</entitydescription.eyeglasses>
+  <entityname.transplant_eyes>Przeszczep oczu</entityname.transplant_eyes>
+  <entitydescription.transplant_eyes>Prosto z czaszki człowiekia. Używane w przeszczepieniach.</entitydescription.transplant_eyes>
+  <entityname.transplant_eyes_monster>Oczy potwora</entityname.transplant_eyes_monster>
+  <entitydescription.transplant_eyes_monster>Prosto z czaski potwora. Nie najlepsze w widzeniu, ale użyteczne w tworzeniu.</entitydescription.transplant_eyes_monster>
+  <entityname.transplant_eyes_husk>Oczy skorupnika</entityname.transplant_eyes_husk>
+  <entitydescription.transplant_eyes_husk>Prosto z czaszki skorupnika. Nie może dostać obrażeń od wody, ulepsza twoje umiejętności, ale ma szansę na zarażenie cię.</entitydescription.transplant_eyes_husk>
+  <entityname.transplant_eyes_bionic>Bioniczne oczy</entityname.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>Metalowe, bardziej odporne oko, stworzone do przeszczepu. Poprawia jakość widzenia.</entitydescription.transplant_eyes_bionic>
+  <entityname.transplant_eyes_night>Oczy noktowizyjne</entityname.transplant_eyes_night>
+  <entitydescription.transplant_eyes_night>Para oczu, ale z wszczepionymi kamerami noktowizyjnymi.</entitydescription.transplant_eyes_night>
+  <entityname.transplant_eyes_infrared>Podczerwone oczy</entityname.transplant_eyes_infrared>
+  <entitydescription.transplant_eyes_infrared>Para oczu, ale z wszczepionymi kamerami na podczerwień. Nieznacznie poprawia umiejętności.</entitydescription.transplant_eyes_infrared>
+  <entityname.transplant_eyes_plastic>Plastikowe oczy</entityname.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>Para „oczu”. Niewiele lepsze niż bycie ślepym. Chociaż ledwo można nimi widzieć, przynajmniej są stosunkowo tanie w wykonaniu.</entitydescription.transplant_eyes_plastic>
+  <entityname.muscleconnectors>Łączniki mięśniowe</entityname.muscleconnectors>
+  <entitydescription.muscleconnectors>Używane w przeszczepach oczu. Użyj przed włożeniem oczu, razem z żelem ocznym.</entitydescription.muscleconnectors>
+  <entityname.eyedrops>Ochronne krople do oczu</entityname.eyedrops>
+  <entitydescription.eyedrops>Użyj na oczach, aby trochę szybciej się goiły.</entitydescription.eyedrops>
+  <entityname.eyegel>Żel oczny</entityname.eyegel>
+  <entitydescription.eyegel>Używane w przeszczepach oczu. Użyj przed włożeniem oczu, razem z łącznikami mięsniowymi.</entitydescription.eyegel>
+  <afflictionname.noeye>Usunięte oczy</afflictionname.noeye>
+  <afflictiondescription.noeye>Oczy pacjenta zniknęły, zamiast tego są tam puste, czerwone dziury.</afflictiondescription.noeye>
+  <afflictionname.eyedamage>Obrażenia oczu</afflictionname.eyedamage>
+  <afflictiondescription.eyedamage>Oczy pacjenta wyglądają płasko i ma on problemy z widzeniem.</afflictiondescription.eyedamage>
+  <afflictionname.eyeshock>Retinopatia autoimmunologiczna</afflictionname.eyeshock>
+  <afflictiondescription.eyeshock>Układ odpornościowy pacjenta nie zaakceptował oczu i zamiast tego je atakuje. Aby to zatrzymać, konieczne jest usunięcie oczu.</afflictiondescription.eyeshock>
+  <afflictionname.eyedrop>Gojące się oczy</afflictionname.eyedrop>
+  <afflictiondescription.eyedrop>Wzrosło tempo gojenia się oczu pacjenta. Spowodowane przez krople do oczu.</afflictiondescription.eyedrop>
+  <afflictionname.eyemuscle>Łączniki mięsniowe</afflictionname.eyemuscle>
+  <afflictiondescription.eyemuscle>Łączniki mięsniowe są gotowe. Pośpiesz się!</afflictiondescription.eyemuscle>
+  <afflictionname.eyegell>Żel oczny</afflictionname.eyegell>
+  <afflictiondescription.eyegell>Żel oczny jest gotowy. Pośpiesz się!</afflictiondescription.eyegell>
+  <afflictionname.eyelid>Przytrzymane powieki</afflictionname.eyelid>
+  <afflictiondescription.eyelid>Powieki zostały przytrzymane. Pośpiesz się!</afflictiondescription.eyelid>
+  <afflictionname.eyeone>Nieużyteczne oko</afflictionname.eyeone>
+  <afflictiondescription.eyeone>Pacjent stracił wzrok w jednym oku.</afflictiondescription.eyeone>
+  <afflictionname.eyesickness>Nowe oczy</afflictionname.eyesickness>
+  <afflictiondescription.eyesickness>Pacjent ma problemy z widzeniem z powodu niedawnego przeszczepu oczu. To powinno zniknąć w ciągu kilku minut.</afflictiondescription.eyesickness>
+  <afflictionname.eyecataract>Katarakta</afflictionname.eyecataract>
+  <afflictiondescription.eyecataract>Oczy pacjenta są mętne, a widzenie niewyraźne. Zalecana operacja oczu.</afflictiondescription.eyecataract>
+  <afflictionname.eyebionic>Bionic eyes</afflictionname.eyebionic>
+  <afflictiondescription.eyebionic>The patient has special eyes.</afflictiondescription.eyebionic>
+  <afflictionname.eyenight>Night eyes</afflictionname.eyenight>
+  <afflictiondescription.eyenight>The patient has special eyes.</afflictiondescription.eyenight>
+  <afflictionname.eyeinfrared>Infrared eyes</afflictionname.eyeinfrared>
+  <afflictiondescription.eyeinfrared>The patient has special eyes.</afflictiondescription.eyeinfrared>
+  <afflictionname.eyeplastic>Plastic eyes</afflictionname.eyeplastic>
+  <afflictiondescription.eyeplastic>The patient has special eyes.</afflictiondescription.eyeplastic>
+  <afflictionname.eyemonster>Monster eyes</afflictionname.eyemonster>
+  <afflictiondescription.eyemonster>The patient has special eyes.</afflictiondescription.eyemonster>
+  <afflictionname.eyehusk>Husk eyes</afflictionname.eyehusk>
+  <afflictiondescription.eyehusk>The patient has special eyes.</afflictiondescription.eyehusk>
+</infotexts>
