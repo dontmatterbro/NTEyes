@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NeuroEyes [fix]" steamworkshopid="2809712173" corepackage="false" modversion="1.0.9" gameversion="1.0.21.0" installtime="1687620825" expectedhash="4A6EB1AD776169EC329E2E74B4AC8ACA">
+<contentpackage name="NT CyberEyes" corepackage="false" modversion="1.0.9" gameversion="1.0.21.0">
   <Other file="%ModDir%/Lua/ForcedAutorun/init.lua" />
   <Other file="%ModDir%/Lua/Scripts/humanstuff.lua" />
   <Afflictions file="%ModDir%/afflictions.xml" />
