@@ -54,7 +54,6 @@
     <icon texture="%ModDir%/baseeye.png" ssourcerect="0,0,128,128" color="150,50,230,255" origin="0,0" />
   </Affliction>
   <Affliction iconcolors="150,50,230,255;150,50,230,255" name="Infrared Eyes" identifier="eyeinfrared" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="this cant kill you." selfcauseofdeathdescription="how? this doesnt lower your vitality" isbuff="false" healableinmedicalclinic="false">
-    <StatusHUD thermalgoggles="true"/ > <!--I gyatt to fix this, then test to see if it works -->
     <Effect minstrength="0" maxstrength="2" minskillmultiplier="1.08" maxskillmultiplier="1.08"></Effect>
     <AfflictionOverlay texture="%ModDir%/infraredoverlay.png" />
     <icon texture="%ModDir%/baseeye.png" ssourcerect="0,0,128,128" color="150,50,230,255" origin="0,0" />
