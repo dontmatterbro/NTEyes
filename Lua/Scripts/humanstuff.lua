@@ -4,15 +4,7 @@ local UpdateIntervalEye = 120
 local DeltaTimeEye = UpdateIntervalEye/60 -- Time in seconds that transpires between updates
 local debug = false
 
--- gets run once every two seconds
-function UpdateEye()
-  -- for every human
-  for _, character in pairs(Character.CharacterList) do
-    if (character.IsHuman and not character.IsDead) then
-      UpdateHumanEye(character)
-    end
-  end
-end
+
 
 Hook.Add("think", "updateeye", function()
   if SERVER or not Game.Paused then
@@ -77,7 +69,9 @@ function GetItemInSlot(character, slot)
   end
 end
 
+--Eye Damage Check Functions
 function UpdateHumanEye(character)
+print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
@@ -131,6 +125,68 @@ function UpdateHumanEye(character)
     end
   end
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
+end
+
+--Eye Effect Check Functionsw
+function UpdateHumanEyeEffect(character)
+if SERVER then return end
+print("debug:UpdateHumanEyeEffect")
+if HF.HasAffliction(Character.Controlled, "eyebionic") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(200, 200, 0, 200)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(200, 200, 0, 200) 
+        end
+end  
+if HF.HasAffliction(Character.Controlled, "eyenight") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(0, 150, 30, 175)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(0, 150, 0, 175) 
+        end
+end 
+if HF.HasAffliction(Character.Controlled, "eyeinfrared") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(50, 0, 200, 100)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(50, 200, 0, 100) 
+        end
+end 
+if HF.HasAffliction(Character.Controlled, "eyeplastic") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(0, 0, 0, 0)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(0, 0, 200, 10) 
+        end
+end 
+if HF.HasAffliction(Character.Controlled, "eyemonster") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(50, 0, 50, 25)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(116, 116, 70, 25) 
+        end
+end 
+if HF.HasAffliction(Character.Controlled, "eyehusk") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(0, 200, 0, 200)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(115, 0, 115, 75) 
+        end
+end 
+end
+
+-- gets run once every two seconds
+function UpdateEye()
+  -- for every human
+  for _, character in pairs(Character.CharacterList) do
+    if (character.IsHuman and not character.IsDead) then
+	  if Game.IsMultiplayer and CLIENT then 
+	  UpdateHumanEyeEffect(character)
+	  else
+	  UpdateHumanEye(character)
+	  end
+    end
+  end
 end
 
 --ONDAMAGE TESTING, COMMENT THIS OUT BEFORE THE NEW LUA UPDATE RELEASES

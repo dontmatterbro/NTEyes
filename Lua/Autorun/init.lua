@@ -11,7 +11,7 @@ NTCBE.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil and NTC.RegisterExpansion ~= nil then NTC.RegisterExpansion(NTCBE) end end,1)
 
 
-if Game.IsMultiplayer and CLIENT then return end
+--if Game.IsMultiplayer and CLIENT then return end
 
 local enabled = Game.GetEnabledContentPackages()
 local isEnabled = false
@@ -25,4 +25,6 @@ if isEnabled then
     local myModPath = table.pack(...)[1]
     dofile(myModPath .. "/Lua/Scripts/humanstuff.lua")
     dofile(myModPath .. "/Lua/Scripts/helperfunctions.lua")
+--	dofile(myModPath .. "/Lua/Scripts/newhumanstuff.lua")
+--	dofile(myModPath .. "/Lua/Scripts/ntcompat.lua")
 end
