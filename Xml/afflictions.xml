@@ -74,4 +74,17 @@
    <!-- <AfflictionOverlay texture="%ModDir%/Textures/huskoverlay.png" /> -->
     <icon texture="%ModDir%/Textures/baseeye.png" ssourcerect="0,0,128,128" color="150,50,230,255" origin="0,0" />
   </Affliction>
+  
+<Affliction iconcolors="255,0,0,255;255,0,0,255" name="" identifier="eyeterror" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+	<Effect minstrength="0" maxstrength="2" minskillmultiplier="0.1" maxskillmultiplier="0.1" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="0.5" minradialdistort="0.0" maxradialdistort="0.5" resistancefor="pressure, damage" minresistance="0" maxresistance="0.5" minscreenblur="0.0" maxscreenblur="0.1">
+		<StatValue stattype="WeaponsSkillBonus" value="400" />
+		<StatusEffect target="Character" targetlimb="Head">
+			<Conditional IsLocalPlayer="True" />
+			<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="5" camerashakerange="250"  screencolor="255,0,0,70" screencolorrange="1000" screencolorduration="0.22" />
+			<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.7" />
+		</StatusEffect>
+    </Effect>
+	<icon texture="%ModDir%/Textures/baseeye.png" ssourcerect="0,0,128,128" color="255,0,0,255" origin="0,0" />
+</Affliction>
+ 
 </Afflictions>
