@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
+  <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
+  <entitydescription.nightgoggles>Standard issue Coalition Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
+  
   <entityname.organscalpel_eyes>Organ procurement scalpel: Eyes</entityname.organscalpel_eyes>
   <entitydescription.organscalpel_eyes>PLACEHOLDER</entitydescription.organscalpel_eyes>
   <entityname.eyespoon>Advanced eyeball extraction device</entityname.eyespoon>

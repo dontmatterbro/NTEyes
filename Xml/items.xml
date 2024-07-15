@@ -445,4 +445,53 @@
       </StatusEffect>
     </Throwable>
   </Item>
+
+<!-- New Item//Night Vision Goggles -->	
+<Item name="" identifier="nightgoggles" scale="0.5" maxstacksize="1" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+	<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
+	<Sprite name="Night Vision Goggles" texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5"/>
+	<Body width="70" height="24" density="15" />
+	<Price baseprice="250" soldbydefault="true">
+      		<Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      		<Price storeidentifier="merchantcity" multiplier="1.2" />
+     		<Price storeidentifier="merchantresearch" />
+      		<Price storeidentifier="merchantmilitary" multiplier="1.25" />
+     		<Price storeidentifier="merchantmine" />
+	</Price>
+	<Fabricate suitablefabricatiors="" requiredtime="">
+		<RequiredSkill identifier="electrical" level="35" />
+		<RequiredSkill identifier="weapons" level="50" />
+		<RequiredItem identifier="fpga" />
+		<RequiredItem identifier="plastic" />
+		<RequiredItem identifier="fulgurium" />
+		<RequiredItem identifier="phosphorus" />
+	</Fabricate>
+	<Deconstruct time="15">
+		<Item identifier="copper" />
+        	<Item identifier="plastic" amount="2" />
+     		<Item identifier="fpga" />
+	</Deconstruct>
+	<Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      		<sprite name="Night Vision Goggles Wearable" texture="Content/Items/Jobgear/TalentGear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" sourcerect="1,192,64,31" origin="0.4,0.5" />
+    	</Wearable>
+	<LightComponent LightColor="0,100,0,150" range="2000" IsOn="true" castshadows="true" powerconsumption="1">
+          	<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+          	<StatusEffect type="OnWearing" target="This" Voltage="1.0" setvalue="true" comparison="AND">
+            		<Conditional IsDead="false" targetcontainer="true" />
+            		<Conditional hasstatustag="powered" />
+            		<Conditional IsLocalPlayer="true" targetcontainer="true" />
+          	</StatusEffect>
+        </LightComponent>
+	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      		<Containable items="mobilebattery" />
+    	</ItemContainer>
+    	<CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      		<GuiFrame relativesize="0.12,0.08" anchor="BottomLeft" absoluteoffset="20,98" style="ItemUI" />
+      	    <TickBox text="onoff">
+       		<StatusEffect type="OnUse" target="This" tags="powered" duration="0.2">
+         	<RequiredItem items="mobilebattery" type="Contained" />
+        	</StatusEffect>
+      	    </TickBox>
+    </CustomInterface>
+</Item>
 </Items>
