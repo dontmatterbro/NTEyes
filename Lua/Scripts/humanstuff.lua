@@ -48,8 +48,17 @@ Hook.Add('spoonUsed', 'test', function(effect, dt, item, targets, worldpos)
 			Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
             Entity.Spawner.AddItemToRemoveQueue(item)
         end, 1)
+    elseif v.SpeciesName == "Charybdis" or v.SpeciesName == "Latcher" then
+      if not HF.HasAffliction(v, "noeye") then
+        HF.AddAfflictionLimb(v, "noeye", 11, 2)
+        Timer.Wait(function()
+			local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_terror")
+			Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
+            Entity.Spawner.AddItemToRemoveQueue(item)
+        end, 1)
       end
     end
+  end
   end
 end)
 
@@ -71,7 +80,8 @@ end
 
 --Eye Damage Check Functions
 function UpdateHumanEye(character)
-print("debug:UpdateHumanEye")
+if Game.IsMultiplayer and CLIENT then return end
+--print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
@@ -127,52 +137,65 @@ print("debug:UpdateHumanEye")
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
 
---Eye Effect Check Functionsw
+--Eye Effect Check Functions
 function UpdateHumanEyeEffect(character)
 if SERVER then return end
-print("debug:UpdateHumanEyeEffect")
+--print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(200, 200, 0, 200)
+		parameters.AmbientLightColor = Color(50, 50, 0, 65)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(200, 200, 0, 200) 
+        hull.AmbientLight = Color(60, 60, 0, 65) 
         end
-end  
-if HF.HasAffliction(Character.Controlled, "eyenight") then
+  
+elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 150, 30, 175)
+		parameters.AmbientLightColor = Color(0, 150, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 150, 0, 175) 
+        hull.AmbientLight = Color(0, 150, 0, 200) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyeinfrared") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 100)
+		parameters.AmbientLightColor = Color(50, 0, 200, 70)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(50, 200, 0, 100) 
+        hull.AmbientLight = Color(50, 0, 200, 70) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyeplastic") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 0, 0, 0)
+		parameters.AmbientLightColor = Color(0, 0, 200, 0)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 0, 200, 10) 
+        hull.AmbientLight = Color(0, 0, 200, 0) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyemonster") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 25)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(116, 116, 70, 25) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyehusk") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 200, 0, 200)
+		parameters.AmbientLightColor = Color(115, 0, 115, 25)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 0, 115, 75) 
+        hull.AmbientLight = Color(115, 0, 115, 70) 
         end
-end 
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(255, 0, 0, 125)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(255, 0, 0, 125) 
+        end
+
+else	local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(0, 0, 0, 0)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(0, 0, 0, 0) 
+        end
+	end
 end
 
 -- gets run once every two seconds
@@ -180,11 +203,11 @@ function UpdateEye()
   -- for every human
   for _, character in pairs(Character.CharacterList) do
     if (character.IsHuman and not character.IsDead) then
-	  if Game.IsMultiplayer and CLIENT then 
+
 	  UpdateHumanEyeEffect(character)
-	  else
+
 	  UpdateHumanEye(character)
-	  end
+
     end
   end
 end
@@ -265,6 +288,8 @@ function GiveItemBasedOnEye(character, usingCharacter)
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_monster", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   elseif HF.HasAffliction(character, "eyehusk") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_husk", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
+  elseif HF.HasAffliction(character, "eyehusk") then
+    HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   else
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   end
@@ -287,7 +312,8 @@ function ClearCharacterEyeAfflictions(character)
     "eyeinfrared",
     "eyeplastic",
     "eyemonster",
-    "eyehusk"
+    "eyehusk",
+	"eyeterror"
   }
   for eyeaff in eyeaffs do
     -- Nuke eye afflictions on head and torso
@@ -420,6 +446,17 @@ Hook.Add("item.applyTreatment", "itemusedeye", function(item, usingCharacter, ta
         HF.SetAfflictionLimb(targetCharacter, "eyemonster", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
         if HF.Chance(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
+          HF.AddAfflictionLimb(targetCharacter, "eyeshock", 11, 1)
+        end
+        item.Condition = 0
+      end
+      if identifier =="transplant_eyes_terror" then
+        --print("terror eyes")
+        --print(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
+        ClearCharacterEyeAfflictions(targetCharacter)
+        HF.SetAfflictionLimb(targetCharacter, "eyeterror", 11, 2)
+        HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
+        if HF.Chance(0.3*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
           HF.AddAfflictionLimb(targetCharacter, "eyeshock", 11, 1)
         end
         item.Condition = 0

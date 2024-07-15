@@ -10,6 +10,8 @@
   <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
   <entityname.transplant_eyes_monster>Monster eyes</entityname.transplant_eyes_monster>
   <entitydescription.transplant_eyes_monster>Right out of a monster's skull. Not great for seeing things, but useful in crafting.</entitydescription.transplant_eyes_monster>
+  <entityname.transplant_eyes_terror>Eldritch eyes</entityname.transplant_eyes_terror>
+  <entitydescription.transplant_eyes_terror>An eye-like object that is unbeknownst to humanity. Proceed with caution.</entitydescription.transplant_eyes_terror>
   <entityname.transplant_eyes_husk>Husk eyes</entityname.transplant_eyes_husk>
   <entitydescription.transplant_eyes_husk>Right out of a husk's skull. Cannot be damaged by water, improves your skills, and has a small chance to give you husk infection.</entitydescription.transplant_eyes_husk>
   <entityname.transplant_eyes_bionic>Bionic eyes</entityname.transplant_eyes_bionic>
@@ -58,4 +60,6 @@
   <afflictiondescription.eyemonster>The patient has monster eyes.</afflictiondescription.eyemonster>
   <afflictionname.eyehusk>Husk eyes</afflictionname.eyehusk>
   <afflictiondescription.eyehusk>The patient has husk eyes.</afflictiondescription.eyehusk>
+  <afflictionname.eyeterror>KAR EN TUK</afflictionname.eyeterror>
+  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive.</afflictiondescription.eyeterror>
 </infotexts>
