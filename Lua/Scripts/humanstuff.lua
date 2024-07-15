@@ -48,8 +48,17 @@ Hook.Add('spoonUsed', 'test', function(effect, dt, item, targets, worldpos)
 			Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
             Entity.Spawner.AddItemToRemoveQueue(item)
         end, 1)
+    elseif v.SpeciesName == "Charybdis" or v.SpeciesName == "Latcher" then
+      if not HF.HasAffliction(v, "noeye") then
+        HF.AddAfflictionLimb(v, "noeye", 11, 2)
+        Timer.Wait(function()
+			local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_terror")
+			Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
+            Entity.Spawner.AddItemToRemoveQueue(item)
+        end, 1)
       end
     end
+  end
   end
 end)
 
@@ -71,7 +80,8 @@ end
 
 --Eye Damage Check Functions
 function UpdateHumanEye(character)
-print("debug:UpdateHumanEye")
+if Game.IsMultiplayer and CLIENT then return end
+--print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
@@ -130,7 +140,7 @@ end
 --Eye Effect Check Functions
 function UpdateHumanEyeEffect(character)
 if SERVER then return end
-print("debug:UpdateHumanEyeEffect")
+--print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(200, 200, 0, 200)
