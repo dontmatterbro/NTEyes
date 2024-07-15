@@ -458,7 +458,7 @@
       		<Price storeidentifier="merchantmilitary" multiplier="1.25" />
      		<Price storeidentifier="merchantmine" />
 	</Price>
-	<Fabricate suitablefabricatiors="" requiredtime="">
+	<Fabricate suitablefabricatiors="milfabricator" requiredtime="240">
 		<RequiredSkill identifier="electrical" level="35" />
 		<RequiredSkill identifier="weapons" level="50" />
 		<RequiredItem identifier="fpga" />
