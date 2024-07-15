@@ -127,7 +127,7 @@ print("debug:UpdateHumanEye")
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
 
---Eye Effect Check Functionsw
+--Eye Effect Check Functions
 function UpdateHumanEyeEffect(character)
 if SERVER then return end
 print("debug:UpdateHumanEyeEffect")
@@ -149,7 +149,7 @@ if HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 200, 100)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(50, 200, 0, 100) 
+        hull.AmbientLight = Color(50, 0, 200, 100) 
         end
 end 
 if HF.HasAffliction(Character.Controlled, "eyeplastic") then
