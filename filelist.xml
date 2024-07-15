@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT CyberEyes" corepackage="false" modversion="1.0.9" gameversion="1.0.21.0">
-  <Afflictions file="%ModDir%/Xml/afflictions.xml" /> 
+<contentpackage name="NT CyberEyes" modversion="1.0.10" corepackage="False" steamworkshopid="3289873915" gameversion="1.5.9.1">
+  <Afflictions file="%ModDir%/Xml/afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   <Other file="%ModDir%/Textures/baseaffliction.png" />
   <Other file="%ModDir%/Textures/cataract.png" />

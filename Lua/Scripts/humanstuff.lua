@@ -143,21 +143,21 @@ if SERVER then return end
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(200, 200, 0, 200)
+		parameters.AmbientLightColor = Color(50, 50, 0, 100)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(200, 200, 0, 200) 
+        hull.AmbientLight = Color(50, 50, 0, 100) 
         end
 end  
 if HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 150, 30, 175)
+		parameters.AmbientLightColor = Color(0, 150, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(0, 150, 0, 175) 
         end
 end 
 if HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 100)
+		parameters.AmbientLightColor = Color(50, 0, 200, 75)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(50, 0, 200, 100) 
         end
@@ -178,7 +178,7 @@ if HF.HasAffliction(Character.Controlled, "eyemonster") then
 end 
 if HF.HasAffliction(Character.Controlled, "eyehusk") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 200, 0, 200)
+		parameters.AmbientLightColor = Color(115, 0, 115, 25)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(115, 0, 115, 75) 
         end
@@ -189,7 +189,13 @@ if HF.HasAffliction(Character.Controlled, "eyeterror") then
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
-end  
+end
+if not  HF.HasAffliction(Character.Controlled, "eyeterror, eyehusk, eyemonster, eyeplastic, eyeinfrared, eyenight, eyebionic") then
+		local parameters = Level.Loaded.LevelData.GenerationParams
+		parameters.AmbientLightColor = Color(0, 0, 0, 0)
+		for k, hull in pairs(Hull.HullList) do
+        hull.AmbientLight = Color(0, 0, 0, 0) 
+        end
 end
 
 -- gets run once every two seconds
