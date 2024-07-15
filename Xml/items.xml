@@ -241,7 +241,7 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" sold="true" maxavailable="1" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="1" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="120">
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="180">
       <RequiredSkill identifier="medical" level="80" />
       <RequiredSkill identifier="mechanical" level="50" />
       <RequiredSkill identifier="electrical" level="50" />
@@ -278,9 +278,9 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" sold="true" maxavailable="1" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="1" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="90">
       <RequiredSkill identifier="electrical" level="35" />	
-      <RequiredSkill identifier="medical" level="50" />
+      <RequiredSkill identifier="medical" level="55" />
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="fpgacircuit" />
@@ -350,7 +350,7 @@
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30">
-      <RequiredSkill identifier="medical" level="20" />
+      <RequiredSkill identifier="medical" level="45" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
