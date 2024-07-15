@@ -143,59 +143,59 @@ if SERVER then return end
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 50, 0, 100)
+		parameters.AmbientLightColor = Color(50, 50, 0, 65)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(50, 50, 0, 100) 
+        hull.AmbientLight = Color(60, 60, 0, 65) 
         end
-end  
-if HF.HasAffliction(Character.Controlled, "eyenight") then
+  
+elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(0, 150, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 150, 0, 175) 
+        hull.AmbientLight = Color(0, 150, 0, 200) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyeinfrared") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 75)
+		parameters.AmbientLightColor = Color(50, 0, 200, 70)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(50, 0, 200, 100) 
+        hull.AmbientLight = Color(50, 0, 200, 70) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyeplastic") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 0, 0, 0)
+		parameters.AmbientLightColor = Color(0, 0, 200, 0)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 0, 200, 10) 
+        hull.AmbientLight = Color(0, 0, 200, 0) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyemonster") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 25)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(116, 116, 70, 25) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyehusk") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(115, 0, 115, 25)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 0, 115, 75) 
+        hull.AmbientLight = Color(115, 0, 115, 70) 
         end
-end 
-if HF.HasAffliction(Character.Controlled, "eyeterror") then
+ 
+elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
-end
-if not  HF.HasAffliction(Character.Controlled, "eyeterror, eyehusk, eyemonster, eyeplastic, eyeinfrared, eyenight, eyebionic") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
+
+else	local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(0, 0, 0, 0)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(0, 0, 0, 0) 
         end
+	end
 end
 
 -- gets run once every two seconds
