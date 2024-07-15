@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Brazilian Portuguese" nowhitespace="false" translatedname="Português brasileiro">
+  <entityname.organscalpel_eyes>Bisturi para Aquisição de Órgãos: Olhos</entityname.organscalpel_eyes>
+  <entitydescription.organscalpel_eyes></entitydescription.organscalpel_eyes>
+  <entityname.eyespoon>Dispositivo Avançado de Extração de Olhos</entityname.eyespoon>
+  <entitydescription.eyespoon></entitydescription.eyespoon>
+  <entityname.eyeglasses>Óculos de Grau</entityname.eyeglasses>
+  <entitydescription.eyeglasses>Quando usado, ajuda a enxergar um pouco melhor. (Remove a aflição de visão embaçada.)</entitydescription.eyeglasses>
+  <entityname.transplant_eyes>Transplante de Olhos</entityname.transplant_eyes>
+  <entitydescription.transplant_eyes>Direto do crânio de um humano. Usado para transplantes.</entitydescription.transplant_eyes>
+  <entityname.transplant_eyes_monster>Olhos de Monstro</entityname.transplant_eyes_monster>
+  <entitydescription.transplant_eyes_monster>Direto do crânio de um monstro. Não é bom para enxergar coisas, mas é útil para fabricação.</entitydescription.transplant_eyes_monster>
+  <entityname.transplant_eyes_husk>Olhos de Parasita-Carcaça</entityname.transplant_eyes_husk>
+  <entitydescription.transplant_eyes_husk>Direto do crânio de um parasita-carcaça. Não pode ser danificado pela água, melhora suas habilidades e tem uma pequena chance de levar a uma infecção de parasita-carcaça.</entitydescription.transplant_eyes_husk>
+  <entityname.transplant_eyes_bionic>Olhos Biônicos</entityname.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>Olhos de metal muito resistentes, feitos para transplante. Melhora a qualidade de visão.</entitydescription.transplant_eyes_bionic>
+  <entityname.transplant_eyes_night>Olhos de Visão Noturna</entityname.transplant_eyes_night>
+  <entitydescription.transplant_eyes_night>Um par de olhos, mas com câmeras de visão noturna implantadas.</entitydescription.transplant_eyes_night>
+  <entityname.transplant_eyes_infrared>Olhos de Visão Infravermelha</entityname.transplant_eyes_infrared>
+  <entitydescription.transplant_eyes_infrared>Um par de olhos, mas com câmeras de visão infravermelha. Aprimora habilidades levemente.</entitydescription.transplant_eyes_infrared>
+  <entityname.transplant_eyes_plastic>Olhos de Plástico</entityname.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>Um par de "olhos". Não tão melhor do que ser cego. Embora mal consiga enxergar com eles, pelo menos são relativamente baratos.</entitydescription.transplant_eyes_plastic>
+  <entityname.muscleconnectors>Conectores Musculares</entityname.muscleconnectors>
+  <entitydescription.muscleconnectors>Usados em transplante de olhos. Use antes de colocar os olhos, junto de gel ocular.</entitydescription.muscleconnectors>
+  <entityname.eyedrops>Colírio de Proteção</entityname.eyedrops>
+  <entitydescription.eyedrops>Use nos olhos para curá-los levemente mais rápido.</entitydescription.eyedrops>
+  <entityname.eyegel>Gel Ocular</entityname.eyegel>
+  <entitydescription.eyegel>Usado em transplante de olhos. Use antes de colocar os olhos, junto de conectores musculares.</entitydescription.eyegel>
+  <afflictionname.noeye>Olhos Removidos</afflictionname.noeye>
+  <afflictiondescription.noeye>Os olhos do paciente se foram, com buracos vermelhos vazios no seu lugar.</afflictiondescription.noeye>
+  <afflictionname.eyedamage>Dano nos Olhos</afflictionname.eyedamage>
+  <afflictiondescription.eyedamage>Os olhos do paciente parecem achatados e ele tem dificuldade para enxergar.</afflictiondescription.eyedamage>
+  <afflictionname.eyeshock>Retinopatia Autoimune</afflictionname.eyeshock>
+  <afflictiondescription.eyeshock>O sistema imunológico do paciente não aceitou o olho e o está atacando. A remoção do olho é necessária para pará-lo.</afflictiondescription.eyeshock>
+  <afflictionname.eyedrop>Olhos se Regenerando</afflictionname.eyedrop>
+  <afflictiondescription.eyedrop>A taxa de cura dos olhos do paciente aumentou. Causada por colírios.</afflictiondescription.eyedrop>
+  <afflictionname.eyemuscle>Conectores Musculares</afflictionname.eyemuscle>
+  <afflictiondescription.eyemuscle>Os conectores musculares estão prontos. Se apresse!</afflictiondescription.eyemuscle>
+  <afflictionname.eyegell>Gel Ocular</afflictionname.eyegell>
+  <afflictiondescription.eyegell>O gel ocular está pronto. Se apresse!</afflictiondescription.eyegell>
+  <afflictionname.eyelid>Pálpebras Abertas</afflictionname.eyelid>
+  <afflictiondescription.eyelid>As pálpebras estão abertas. Se apresse!</afflictiondescription.eyelid>
+  <afflictionname.eyeone>Olho sem Visão</afflictionname.eyeone>
+  <afflictiondescription.eyeone>O paciente perdeu toda a visão de um dos olhos.</afflictiondescription.eyeone>
+  <afflictionname.eyesickness>Dificuldade de Visão</afflictionname.eyesickness>
+  <afflictiondescription.eyesickness>O paciente tem dificuldade para enxergar por causa do recente transplante de olho. Isso deve se resolver em questão de minutos.</afflictiondescription.eyesickness>
+  <afflictionname.eyecataract>Catarata</afflictionname.eyecataract>
+  <afflictiondescription.eyecataract>Os olhos do paciente parecem opacos e sua visão está embaçada. Cirurgia ocular recomendada.</afflictiondescription.eyecataract>
+  <afflictionname.eyebionic>Olhos Biônicos</afflictionname.eyebionic>
+  <afflictiondescription.eyebionic>O paciente tem olhos especiais.</afflictiondescription.eyebionic>
+  <afflictionname.eyenight>Olhos de Visão Noturna</afflictionname.eyenight>
+  <afflictiondescription.eyenight>O paciente tem olhos especiais.</afflictiondescription.eyenight>
+  <afflictionname.eyeinfrared>Olhos de Visão Infravermelha</afflictionname.eyeinfrared>
+  <afflictiondescription.eyeinfrared>O paciente tem olhos especiais.</afflictiondescription.eyeinfrared>
+  <afflictionname.eyeplastic>Olhos de Plástico</afflictionname.eyeplastic>
+  <afflictiondescription.eyeplastic>O paciente tem olhos especiais.</afflictiondescription.eyeplastic>
+  <afflictionname.eyemonster>Olhos de Monstro</afflictionname.eyemonster>
+  <afflictiondescription.eyemonster>O paciente tem olhos especiais.</afflictiondescription.eyemonster>
+  <afflictionname.eyehusk>Olhos de Parasita-Carcaça</afflictionname.eyehusk>
+  <afflictiondescription.eyehusk>O paciente tem olhos especiais.</afflictiondescription.eyehusk>
+</infotexts>
