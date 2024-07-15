@@ -484,7 +484,7 @@
         		<Conditional hasstatustag="powered" targetcontainer="true" />
       		</StatusEffect>
       		<sprite name="Night Vision Goggles Wearable" texture="Content/Items/Jobgear/TalentGear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" sourcerect="1,192,64,31" origin="0.4,0.5">
-       		<LightComponent LightColor="100,100,100,150" range="2000" IsOn="true" castshadows="true" powerconsumption="1">
+       		<LightComponent LightColor="0,100,0,125" range="2000" IsOn="true" castshadows="true" powerconsumption="1">
           	   <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
           		<StatusEffect type="OnWearing" target="This" Voltage="1.0" setvalue="true" comparison="AND">
             			<Conditional IsDead="false" targetcontainer="true" />
