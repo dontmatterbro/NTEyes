@@ -461,7 +461,7 @@
 	<Fabricate suitablefabricatiors="milfabricator" requiredtime="240">
 		<RequiredSkill identifier="electrical" level="35" />
 		<RequiredSkill identifier="weapons" level="50" />
-		<RequiredItem identifier="fpga" />
+		<RequiredItem identifier="fpgacircuit" />
 		<RequiredItem identifier="plastic" />
 		<RequiredItem identifier="fulgurium" />
 		<RequiredItem identifier="phosphorus" />
