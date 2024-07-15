@@ -242,7 +242,9 @@
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="120">
-      <RequiredSkill identifier="medical" level="100" />
+      <RequiredSkill identifier="medical" level="80" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredSkill identifier="electrical" level="50" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
@@ -276,10 +278,9 @@
       <Price storeidentifier="merchantengineering" multiplier="0.9" sold="true" maxavailable="1" />
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="1" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="120">
-      <RequiredSkill identifier="medical" level="100" />
-      <RequiredItem identifier="steel" />
-      <RequiredItem identifier="steel" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
+      <RequiredSkill identifier="electrical" level="35" />	
+      <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="fpgacircuit" />
@@ -287,9 +288,7 @@
       <RequiredItem identifier="organicfiber" />
       <RequiredItem identifier="rubber" />
       <RequiredItem identifier="rubber" />
-      <RequiredItem identifier="rubber" />
-      <RequiredItem identifier="rubber" />
-      <RequiredItem identifier="rubber" />
+	<RequiredItem identifier="nightgoggles" />
     </Fabricate>
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <!-- making the organ go kaputt if left outside of refrigeration -->
@@ -315,9 +314,8 @@
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="120">
-      <RequiredSkill identifier="medical" level="100" />
-      <RequiredItem identifier="steel" />
-      <RequiredItem identifier="steel" />
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredSkill identifier="medical" level="60" />
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="fpgacircuit" />
@@ -325,8 +323,9 @@
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="organicfiber" />
       <RequiredItem identifier="copper" />
-      <RequiredItem identifier="copper" />
-      <RequiredItem identifier="copper" />
+      <RequiredItem identifier="thermalgoggles" />
+	    
+
     </Fabricate>
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <!-- making the organ go kaputt if left outside of refrigeration -->
@@ -351,7 +350,7 @@
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30">
-      <RequiredSkill identifier="medical" level="50" />
+      <RequiredSkill identifier="medical" level="20" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="plastic" />
@@ -446,7 +445,8 @@
     </Throwable>
   </Item>
 
-<!-- New Item//Night Vision Goggles -->	
+<!-- New Item//Night Vision Goggles -->
+<!-- Textures for this item are placeholder until Aidan designs new ones-->
 <Item name="" identifier="nightgoggles" scale="0.5" maxstacksize="1" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
 	<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
 	<Sprite name="Night Vision Goggles" texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5"/>
