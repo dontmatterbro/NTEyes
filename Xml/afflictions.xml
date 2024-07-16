@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Afflictions> <!-- sheetindex= " from left , from top " -->
+<Afflictions> <!-- sourcerect="top left pixel X, top left pixel Y , width , length" -->
 				<!-- DAMAGE AFFLICTIONS -->
 		<!-- NO EYES -->
 	<Affliction name="" identifier="noeye" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
