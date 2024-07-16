@@ -1,21 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT CyberEyes" modversion="1.0.11" corepackage="False" steamworkshopid="3289873915" gameversion="1.5.9.1">
+<contentpackage name="NT Eyes" modversion="1.0.11" corepackage="False" steamworkshopid="3289873915" gameversion="1.5.9.1">
   
   <!-- xml Files -->
   <Afflictions file="%ModDir%/Xml/afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   
-  
  <!-- Localization -->
-
-  <Text file="%ModDir%/Localization/Russian/Russian.xml" />
-  <Text file="%ModDir%/Localization/English/English.xml" />
-  <Text file="%ModDir%/Localization/Polish/Polish.xml" />
-  <Text file="%ModDir%/Localization/Brazilian Portuguese/Brazilian Portuguese.xml" />
-  
-  
+  <Text file="%ModDir%/Localization/English.xml" />
+  <Text file="%ModDir%/Localization/Turkish.xml" />
 
  <!-- Sound Files -->
+  <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
+	<!--	Why do these even exist? 
   <Other file="%ModDir%/Sounds/female_cough1.ogg" />
   <Other file="%ModDir%/Sounds/female_cough2.ogg" />
   <Other file="%ModDir%/Sounds/female_cough3.ogg" />
@@ -26,19 +22,19 @@
   <Other file="%ModDir%/Sounds/male_cough2.ogg" />
   <Other file="%ModDir%/Sounds/male_cough3.ogg" />
   <Other file="%ModDir%/Sounds/male_cough4.ogg" /> 
-  <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
+	-->
   
-  <!-- Overlays -->
-  <Other file="%ModDir%/Textures/blackoverlay.png" />
-  <Other file="%ModDir%/Textures/bionicoverlay.png" />
-  <Other file="%ModDir%/Textures/infraredoverlay.png" />
-  <Other file="%ModDir%/Textures/nightvisionOverlay.png" />
-  <Other file="%ModDir%/Textures/monsteroverlay.png" />
-  <Other file="%ModDir%/Textures/eyeoneoverlay.png" />
-  <Other file="%ModDir%/Textures/plasticoverlay.png" />
-  <Other file="%ModDir%/Textures/crackedglass.png" /> 
+  <!-- Overlays (these need a rework, most of them are unused.) -->
+  <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/bionicoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/infraredoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/nightvisionOverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/monsteroverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/crackedglass.png" /> 
   
-  <!-- Outdated 
+  <!-- Outdated remove on release
   <Other file="%ModDir%/Textures/icon.png" />
   <Other file="%ModDir%/Textures/noeyes.png" />
   <Other file="%ModDir%/Textures/eyedamage.png" />
