@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
+  <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
+  <entitydescription.nightgoggles>Standard issue Coalition Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
+  
   <entityname.organscalpel_eyes>Organ procurement scalpel: Eyes</entityname.organscalpel_eyes>
   <entitydescription.organscalpel_eyes>PLACEHOLDER</entitydescription.organscalpel_eyes>
+  
   <entityname.eyespoon>Advanced eyeball extraction device</entityname.eyespoon>
   <entitydescription.eyespoon>PLACEHOLDER </entitydescription.eyespoon>
+  
   <entityname.eyeglasses>Corrective glasses</entityname.eyeglasses>
   <entitydescription.eyeglasses>These unregistered prescription glasses may improve patient's vision.</entitydescription.eyeglasses>
+  
   <entityname.transplant_eyes>Eyes transplant</entityname.transplant_eyes>
   <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
+  
   <entityname.transplant_eyes_monster>Monster eyes</entityname.transplant_eyes_monster>
   <entitydescription.transplant_eyes_monster>Right out of a monster's skull. Not great for seeing things, but useful in crafting.</entitydescription.transplant_eyes_monster>
   <entityname.transplant_eyes_terror>Eldritch eyes</entityname.transplant_eyes_terror>

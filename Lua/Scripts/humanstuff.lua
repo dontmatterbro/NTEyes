@@ -164,16 +164,16 @@ elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
  
 elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 0, 200, 0)
+		parameters.AmbientLightColor = Color(0, 0, 255, 0)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 0, 200, 0) 
+        hull.AmbientLight = Color(0, 0, 255, 0) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 50, 25)
+		parameters.AmbientLightColor = Color(50, 0, 50, 0)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(116, 116, 70, 25) 
+        hull.AmbientLight = Color(160, 160, 70, 0) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
@@ -213,7 +213,7 @@ function UpdateEye()
 end
 
 --ONDAMAGE TESTING, COMMENT THIS OUT BEFORE THE NEW LUA UPDATE RELEASES
-
+-- ACID SHOULD DAMAGE EYES ADD THIS
 Hook.Add("character.applyDamage", "eyeOnDamage", function (characterHealth, attackResult, hitLimb)
   local character = characterHealth.Character
   if not character.IsDead then
@@ -288,7 +288,7 @@ function GiveItemBasedOnEye(character, usingCharacter)
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_monster", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   elseif HF.HasAffliction(character, "eyehusk") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_husk", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
-  elseif HF.HasAffliction(character, "eyehusk") then
+  elseif HF.HasAffliction(character, "eyeterror") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   else
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
