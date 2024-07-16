@@ -1,3 +1,5 @@
+//thank you guns for letting us use this ------ original: https://steamcommunity.com/sharedfiles/filedetails/?id=3241041855&searchtext=global+darkness
+
 using System;
 using System.Reflection;
 using Barotrauma;
