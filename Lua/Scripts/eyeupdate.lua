@@ -1,21 +1,21 @@
-NTCBE.UpdateCooldown = 0
-NTCBE.UpdateInterval = 120
-NTCBE.Deltatime = NT.UpdateInterval/60 -- Time in seconds that transpires between updates
+NTEYE.UpdateCooldown = 0
+NTEYE.UpdateInterval = 120
+NTEYE.Deltatime = NT.UpdateInterval/60 -- Time in seconds that transpires between updates
 
 
 -- This Hook triggers function updates.
-Hook.Add("think", "NTCBE.update", function()
+Hook.Add("think", "NTEYE.update", function()
     if HF.GameIsPaused() then return end
 
     NT.UpdateCooldown = NT.UpdateCooldown-1
-    if (NTCBE.UpdateCooldown <= 0) then
-        NTCBE.UpdateCooldown = NT.UpdateInterval
-        NTCBE.Update()
+    if (NTEYE.UpdateCooldown <= 0) then
+        NTEYE.UpdateCooldown = NT.UpdateInterval
+        NTEYE.Update()
     end
 end)
 
 -- Gets to run once every two seconds.
-function NTCBE.Update()
+function NTEYE.Update()
 
 		local updateHumanEyes = {}
 		local amountHumanEyes = 0
@@ -37,7 +37,7 @@ function NTCBE.Update()
         if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
             Timer.Wait(function ()
                 if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
-                NTCBE.UpdateHuman(value) end
+                NTEYE.UpdateHuman(value) end
             end, ((key + 1) / amountHumans) * NT.Deltatime * 1000)
         end
     end
@@ -45,13 +45,13 @@ end
 
 
 
-	NTCBE.Afflictions = {
+	NTEYE.Afflictions = {
 	
 	}
 	
 	
 	
-function NTCBE.UpdateHuman(character)
+function NTEYE.UpdateHuman(character)
 
 	-- pre humanupdate hooks
     for key, val in pairs(NTC.PreHumanUpdateHooks) do
