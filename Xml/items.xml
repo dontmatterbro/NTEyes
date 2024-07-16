@@ -509,7 +509,7 @@
 		<!-- NIGHT VISION GOGGLES -->
 <!-- Textures for this item are placeholder until Aidan designs new ones-->
 <Item name="" identifier="nightgoggles" scale="0.5" maxstacksize="1" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
-	<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
+	<InventoryIcon texture="%ModDir%/Textures/nvg.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
 	<Sprite name="Night Vision Goggles" texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5"/>
 	<Body width="70" height="24" density="15" />
 	
@@ -546,7 +546,7 @@
       	<StatusEffect type="OnWearing" target="Contained" Condition="-0.1">
         	<Conditional hasstatustag="powered" targetcontainer="true" />
       	</StatusEffect>
-		<sprite name="Night Vision Goggles Wearable" texture="Content/Items/Jobgear/TalentGear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" sourcerect="1,192,64,31" origin="0.4,0.5">
+		<sprite name="Night Vision Goggles Wearable" texture="%ModDir%/Textures/nvg_sprite.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" sourcerect="1,192,64,31" origin="0.4,0.5">
 			<LightComponent LightColor="0,100,0,125" range="2000" IsOn="true" castshadows="true" powerconsumption="1">
 				<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
 				<StatusEffect type="OnWearing" target="This" Voltage="1.0" setvalue="true" comparison="AND">
