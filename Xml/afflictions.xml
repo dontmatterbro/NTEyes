@@ -71,13 +71,13 @@
 			<!-- BIONIC EYE -->
 	<Affliction iconcolors="50,50,0,255;50,50,0,255" name="" identifier="eyebionic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
 		<Effect minstrength="0" maxstrength="2" minscreendistort="-3" maxscreendistort="-3" minscreenblur="-3" maxscreenblur="-3" minradialdistort="-1.5" maxradialdistort="-1.5" minchromaticaberration="-4" maxchromaticaberration="-4" minskillmultiplier="1.15" maxskillmultiplier="1.15"></Effect>
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,0,128,128"  origin="0,0" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- NIGHT VISION EYE-->
 	<Affliction iconcolors="0,150,30,255;0,150,30,255" name="" identifier="eyenight" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
 		<Effect minstrength="0" maxstrength="2"/>	
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,0,128,128"  origin="0,0" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- INFRARED EYE -->
@@ -96,7 +96,7 @@
 			<!-- MONSTER EYE -->
 	<Affliction iconcolors="50,0,50,255;50,0,50,255" name="" identifier="eyemonster" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
 		<Effect minstrength="0" maxstrength="2" minscreendistort="0.5" maxscreendistort="0.5" minscreenblur="0.1" maxscreenblur="0.1" minradialdistort="0.7" maxradialdistort="0.7" minchromaticaberration="0.4" maxchromaticaberration="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"></Effect>
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,0,128,128"  origin="0,0" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- HUSK EYE -->
