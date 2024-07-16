@@ -485,7 +485,7 @@
 	<Sprite name="Night Vision Goggles" texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5"/>
 	<Body width="70" height="24" density="15" />
 	
-	<Price baseprice="300" soldbydefault="true">
+	<Price baseprice="300" soldbydefault="false">
       	<Price storeidentifier="merchantmilitary" multiplier="1.5" />
      	<Price storeidentifier="merchantmine" />
 	</Price>
