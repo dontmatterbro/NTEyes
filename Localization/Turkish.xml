@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="Turkish">
+
+					<!-- WORK WILL BE IN PROGRESS AMK -->
+
+
+  <!-- Items -->
+  <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
+  <entitydescription.nightgoggles>Standard issue Coalition Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
+  
+  <entityname.organscalpel_eyes>Organ procurement scalpel: Eyes</entityname.organscalpel_eyes>
+  <entitydescription.organscalpel_eyes>A specialized scalpel for the removal of eyes.</entitydescription.organscalpel_eyes>
+  
+  <entityname.eyespoon>Advanced eyeball extraction device</entityname.eyespoon>
+  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of eyes.</entitydescription.eyespoon>
+  
+  <entityname.eyeglasses>Corrective glasses</entityname.eyeglasses>
+  <entitydescription.eyeglasses>These unregistered prescription glasses may improve patient's vision.</entitydescription.eyeglasses>
+  
+  
+  <!-- Surgery Items -->
+  <entityname.muscleconnectors>Muscle connectors</entityname.muscleconnectors>
+  <entitydescription.muscleconnectors>Used in eye transplants. Use before putting in the eye, along with eye gel.</entitydescription.muscleconnectors>
+  
+  <entityname.eyedrops>Protective eye drops</entityname.eyedrops>
+  <entitydescription.eyedrops>Use on the eyes to make them recover quicker.</entitydescription.eyedrops>
+  
+  <entityname.eyegel>Eye gel</entityname.eyegel>
+  <entitydescription.eyegel>Used in eye transplants. Use before putting in the eye, along with muscle connectors.</entitydescription.eyegel>
+  
+  
+  <!-- Eye Items -->
+  <entityname.transplant_eyes>Eyes transplant</entityname.transplant_eyes>
+  <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
+  
+  <entityname.transplant_eyes_monster>Monster eyes</entityname.transplant_eyes_monster>
+  <entitydescription.transplant_eyes_monster>Right out of a monster's skull. Not great for seeing things, but stylish at parties.</entitydescription.transplant_eyes_monster>
+  
+  <entityname.transplant_eyes_terror>Eldritch eyes</entityname.transplant_eyes_terror>
+  <entitydescription.transplant_eyes_terror>An eye-like object that is unbeknownst to humanity. Proceed with caution.</entitydescription.transplant_eyes_terror>
+  
+  <entityname.transplant_eyes_husk>Husk eyes</entityname.transplant_eyes_husk>
+  <entitydescription.transplant_eyes_husk>Right out of a husk's skull. Cannot be damaged by water, and has a chance to give the patient husk infection.</entitydescription.transplant_eyes_husk>
+  
+  <entityname.transplant_eyes_bionic>Bionic eyes</entityname.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>A metal, much more resistant eye, made for transplantation. Improves vision quality.</entitydescription.transplant_eyes_bionic>
+  
+  <entityname.transplant_eyes_night>Night vision eyes</entityname.transplant_eyes_night>
+  <entitydescription.transplant_eyes_night>A pair of eyes, that comes with night vision implants. Can't be turned off on demand.</entitydescription.transplant_eyes_night>
+  
+  <entityname.transplant_eyes_infrared>Infrared eyes</entityname.transplant_eyes_infrared>
+  <entitydescription.transplant_eyes_infrared>A pair of eyes with infrared implants. Slightly improves combat skill and vision.</entitydescription.transplant_eyes_infrared>
+  
+  <entityname.transplant_eyes_plastic>Plastic eyes</entityname.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>A pair of "eyes" Not much better than being blind. While the its hard to see clear with them, at least they look fashionable.</entitydescription.transplant_eyes_plastic>
+  
+  
+  <!-- AFFLICTIONS -->
+  <afflictionname.noeye>Eyes removed</afflictionname.noeye>
+  <afflictiondescription.noeye>The patient's eyes are gone, with empty, red holes being there instead.</afflictiondescription.noeye>
+  
+  <afflictionname.eyedamage>Eye damage</afflictionname.eyedamage>
+  <afflictiondescription.eyedamage>The patient's eyes look flat, and they have trouble seeing.</afflictiondescription.eyedamage>
+  
+  <afflictionname.eyeshock>Autoimmune retinopathy</afflictionname.eyeshock>
+  <afflictiondescription.eyeshock>The patient's immune system did not accept the eye, and is attacking it instead. Eye removal is required to stop it.</afflictiondescription.eyeshock>
+  
+  <afflictionname.eyedrop>Eye drops</afflictionname.eyedrop>
+  <afflictiondescription.eyedrop>The patient's eye healing rate has increased.</afflictiondescription.eyedrop>
+  
+  <afflictionname.eyeone>Dead eye</afflictionname.eyeone>
+  <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
+  
+  <afflictionname.eyesickness>Vision sickness</afflictionname.eyesickness>
+  <afflictiondescription.eyesickness>The patient has trouble seeing, likely because of a recent eye transplant.</afflictiondescription.eyesickness>
+  
+  <afflictionname.eyecataract>Cataract</afflictionname.eyecataract>
+  <afflictiondescription.eyecataract>The patient's eyes look cloudy, and their vision is blurred.</afflictiondescription.eyecataract>
+  
+  <afflictionname.eyemuscle>Muscle connectors</afflictionname.eyemuscle>
+  <afflictiondescription.eyemuscle>Muscle connectors are attached to the eye holes.</afflictiondescription.eyemuscle>
+  
+  <afflictionname.eyegell>Eye gel</afflictionname.eyegell>
+  <afflictiondescription.eyegell>Eye gel is applied to the eye holes.</afflictiondescription.eyegell>
+  
+  <afflictionname.eyelid>Held eyelids</afflictionname.eyelid>
+  <afflictiondescription.eyelid>The eyelids are held up.</afflictiondescription.eyelid>
+  
+  
+  <!-- EYE AFFLICTIONS -->
+  <afflictionname.eyebionic>Bionic eyes</afflictionname.eyebionic>
+  <afflictiondescription.eyebionic>The patient has bionic eyes.</afflictiondescription.eyebionic>
+  
+  <afflictionname.eyenight>Night Vision eyes</afflictionname.eyenight>
+  <afflictiondescription.eyenight>The patient has night vision eyes.</afflictiondescription.eyenight>
+  
+  <afflictionname.eyeinfrared>Infrared eyes</afflictionname.eyeinfrared>
+  <afflictiondescription.eyeinfrared>The patient has infrared eyes.</afflictiondescription.eyeinfrared>
+  
+  <afflictionname.eyeplastic>Plastic eyes</afflictionname.eyeplastic>
+  <afflictiondescription.eyeplastic>The patient has plastic eyes.</afflictiondescription.eyeplastic>
+  
+  <afflictionname.eyemonster>Monster eyes</afflictionname.eyemonster>
+  <afflictiondescription.eyemonster>The patient has monster eyes.</afflictiondescription.eyemonster>
+  
+  <afflictionname.eyehusk>Husk eyes</afflictionname.eyehusk>
+  <afflictiondescription.eyehusk>The patient has husk eyes.</afflictiondescription.eyehusk>
+  
+  <afflictionname.eyeterror>KAR EN TUK</afflictionname.eyeterror>
+  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You need to kill.</afflictiondescription.eyeterror>
+  
+  
+</infotexts>

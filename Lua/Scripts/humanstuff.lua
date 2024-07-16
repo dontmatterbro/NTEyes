@@ -29,7 +29,8 @@ Hook.Add('eyeDecomposition', 'eyedeco', function(effect, dt, item, targets, worl
   end
 end)
 
-Hook.Add('spoonUsed', 'test', function(effect, dt, item, targets, worldpos)
+Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, worldpos)
+if Game.IsMultiplayer and CLIENT then return end
   for k, v in pairs(targets) do
     if v.SpeciesName == "Mudraptor" or v.SpeciesName == "Crawler" or v.SpeciesName == "Hammerhead" or v.SpeciesName == "Spineling" then
       if not HF.HasAffliction(v, "noeye") then
@@ -47,7 +48,8 @@ Hook.Add('spoonUsed', 'test', function(effect, dt, item, targets, worldpos)
 			local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_husk")
 			Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
             Entity.Spawner.AddItemToRemoveQueue(item)
-        end, 1)
+        end, 1)	
+	end
     elseif v.SpeciesName == "Charybdis" or v.SpeciesName == "Latcher" then
       if not HF.HasAffliction(v, "noeye") then
         HF.AddAfflictionLimb(v, "noeye", 11, 2)
@@ -57,10 +59,9 @@ Hook.Add('spoonUsed', 'test', function(effect, dt, item, targets, worldpos)
             Entity.Spawner.AddItemToRemoveQueue(item)
         end, 1)
       end
-    end
-  end
-  end
-end)
+	end  
+  end 
+end) 
 
 function IsInDivingGear(character)
   local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
