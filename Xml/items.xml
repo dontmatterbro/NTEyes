@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
+
+<!-- Surgery Items -->
   <Item name="" identifier="organscalpel_eyes" category="Equipment" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2" />
     <PreferredContainer primary="locker" />
@@ -44,7 +46,7 @@
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="rubber" />
     </Fabricate>
-    <Sprite texture="%ModDir%/Textures/spoon.png" sourcerect="0,0,128,128" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,896,128,128" depth="0.55" origin="0.5,0.5" />
     <Body width="60" height="12" density="50" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="4" itemdamage="2" targetimpulse="2">
@@ -80,7 +82,7 @@
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="steel" />
     </Fabricate>
-    <InventoryIcon texture="%ModDir%/Textures/glasses.png" sourcerect="0,0,256,91" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,256,128" origin="0.5,0.5" />
     <Sprite name="Corrective glasses" texture="%ModDir%/Textures/glasses.png" sourcerect="0,0,256,91" depth="0.6" origin="0.5,0.5" />
     <Body width="30" height="15" density="30" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
@@ -88,7 +90,7 @@
     </Wearable>
   </Item>
   <Item name="" identifier="transplant_eyes" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/eye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="500" soldbydefault="false" buyingpricemodifier="2">
       <Price storeidentifier="merchantresearch" multiplier="0.9" sold="true" maxavailable="2" />
@@ -142,7 +144,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_monster" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/monstereye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Deconstruct />
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
@@ -173,7 +175,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_terror" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/terroreye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Deconstruct />
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
@@ -204,7 +206,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_husk" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/huskeye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Deconstruct />
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
@@ -272,7 +274,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_night" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_metal_light" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/nightvisioneye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="400" soldbydefault="false" buyingpricemodifier="2">
       <Price storeidentifier="merchantengineering" multiplier="0.9" sold="true" maxavailable="1" />
@@ -307,7 +309,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_infrared" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_metal_light" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/infrared.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="300" soldbydefault="false" buyingpricemodifier="2">
       <Price storeidentifier="merchantengineering" multiplier="0.9" sold="true" maxavailable="1" />
@@ -344,7 +346,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="transplant_eyes_plastic" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_metal_light" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/plasticeye.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="512,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="100" soldbydefault="false" buyingpricemodifier="2">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
@@ -375,7 +377,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="muscleconnectors" maxstacksize="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3">
-    <Sprite texture="%ModDir%/Textures/muscleconnectors.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="50" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -400,7 +402,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="eyedrops" maxstacksize="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/eyedrops.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="250" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
@@ -420,7 +422,7 @@
     </Throwable>
   </Item>
   <Item name="" identifier="eyegel" maxstacksize="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/eyegel.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="50" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
