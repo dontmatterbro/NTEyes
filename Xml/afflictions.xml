@@ -111,7 +111,7 @@
 			<StatValue stattype="WeaponsSkillBonus" value="400" />
 			<StatusEffect target="Character" targetlimb="Head">
 				<Conditional IsLocalPlayer="True" />
-				<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="7" camerashakerange="250"  screencolor="255,0,0,60" screencolorrange="1000" screencolorduration="0.22" />
+				<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="5" camerashakerange="250"  screencolor="255,0,0,60" screencolorrange="1000" screencolorduration="0.22" />
 				<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.9" />
 			</StatusEffect>
 		</Effect>
