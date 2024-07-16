@@ -38,7 +38,7 @@ function NTEYE.Update()
             Timer.Wait(function ()
                 if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
                 NTEYE.UpdateHuman(value) end
-            end, ((key + 1) / amountHumans) * NT.Deltatime * 1000)
+            end, ((key + 1) / amountHumanEyes) * NT.Deltatime * 1000)
         end
     end
 end

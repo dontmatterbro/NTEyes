@@ -1,7 +1,7 @@
 ---@diagnostic disable: lowercase-global, undefined-global
 local UpdateCooldownEye = 0
 local UpdateIntervalEye = 120
-local DeltaTimeEye = UpdateIntervalEye/60 -- Time in seconds that transpires between updates
+--local DeltaTimeEye = UpdateIntervalEye/60 -- Time in seconds that transpires between updates
 local debug = false
 
 
@@ -194,7 +194,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
 else	local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(10, 10, 10, 10)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(30, 30, 30, 30) 
+        hull.AmbientLight = Color(20, 20, 20, 20) 
         end
 	end
 end
@@ -204,10 +204,18 @@ function UpdateEye()
   -- for every human
   for _, character in pairs(Character.CharacterList) do
     if (character.IsHuman and not character.IsDead) then
-
-	  UpdateHumanEyeEffect(character)
-
-	  UpdateHumanEye(character)
+	
+	if CLIENT then 
+		UpdateHumanEyeEffect(character)
+	end
+	
+	if SERVER then
+		UpdateHumanEye(character)
+	end
+	
+	if CLIENT and not Game.IsMultiplayer then
+		UpdateHumanEye(character)
+	end
 
     end
   end
@@ -326,7 +334,7 @@ function ClearCharacterEyeAfflictions(character)
   end
 end
 
-Hook.Add("item.applyTreatment", "itemusedeye", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, targetCharacter, limb)
   local identifier = item.Prefab.Identifier
 
   -- sadly no switches in lua
