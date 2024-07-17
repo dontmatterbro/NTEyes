@@ -16,6 +16,8 @@ described and have its file name/directory known if possible.
 
 additions:
 
+just being in water does damage, that needs to be bind to pressure
+
 extra step for eye surgery (nerve)
 
 ai pathfinding for being blind if its possible

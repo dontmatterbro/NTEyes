@@ -146,21 +146,21 @@ if SERVER then return end
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 50, 0, 65)
+		parameters.AmbientLightColor = Color(50, 50, 0, 35)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(60, 60, 0, 75) 
         end
   
 elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 150, 30, 200)
+		parameters.AmbientLightColor = Color(20, 160, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 200, 0, 200) 
+        hull.AmbientLight = Color(20, 160, 20, 150) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 50)
+		parameters.AmbientLightColor = Color(25, 0, 75, 25)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(50, 0, 200, 75) 
         end
@@ -200,7 +200,7 @@ else	-- add a check to if alive
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
         end
-		if (character.IsHuman and not character.IsDead) then Character.Controlled.TeamID = 1 end
+		if character.IsHuman and not character.IsDead then (Character.Controlled.TeamID = 1) end
 	end
 end
 
