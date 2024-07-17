@@ -84,16 +84,18 @@ function UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
 --print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.8)
   end
-  if HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.2)
+  if HF.HasAffliction(character, "hypoxemia", 75) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then 
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
+	elseif HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
+	HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
   end
   if HF.HasAffliction(character, "stroke", 5) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
   end
   if HF.HasAffliction(character, "sepsis", 40) then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.5)
   end
   if HF.HasAffliction(character, "eyeshock") then
     HF.AddAfflictionLimb(character, "eyeshock", 11, 0.5)
@@ -128,7 +130,7 @@ if Game.IsMultiplayer and CLIENT then return end
     NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
   end
   if character.AnimController.HeadInWater and not IsInDivingGear(character) and not HF.HasAffliction(character, "eyemonster") and not HF.HasAffliction(character, "eyehusk") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.34)
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 6)
   elseif HF.HasAffliction(character, "eyedamage") and not HF.HasAffliction(character, "eyedamage", 45) or HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyedamage", 95) then
     HF.AddAfflictionLimb(character, "eyedamage", 11, -0.1)
     if HF.HasAffliction(character, "eyedrop") then
@@ -172,16 +174,16 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 50, 0)
+		parameters.AmbientLightColor = Color(50, 0, 50, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(160, 160, 70, 0) 
+        hull.AmbientLight = Color(160, 160, 70, 15) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(115, 0, 115, 0)
+		parameters.AmbientLightColor = Color(115, 115, 20, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 0, 115, 0) 
+        hull.AmbientLight = Color(115, 115, 30, 15) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then

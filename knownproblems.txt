@@ -5,4 +5,29 @@ described and have its file name/directory known if possible.
     Consistent error in debug menu, says that NVG item has a conflict inside vending machines.
     %ModDir%/xml/items.xml
 
-2. Placeholder
+2. Blindness overlay cover inventory (general overlay rework is needed)
+
+3. sound file size too big
+
+4. Nt surgery needs compatch
+
+
+
+
+additions:
+
+extra step for eye surgery (nerve)
+
+add cataract surgery
+
+more ways to get blinded
+
+fix pressure
+
+check for underwater damage (pressure stabilizer, being husk)
+
+stasis bag compatch for the rest of the values
+
+eye damage even though no eyes
+
+check all damage values

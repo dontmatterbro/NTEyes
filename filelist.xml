@@ -11,57 +11,11 @@
 
  <!-- Sound Files -->
   <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
-	<!--	Why do these even exist? 
-  <Other file="%ModDir%/Sounds/female_cough1.ogg" />
-  <Other file="%ModDir%/Sounds/female_cough2.ogg" />
-  <Other file="%ModDir%/Sounds/female_cough3.ogg" />
-  <Other file="%ModDir%/Sounds/female_cough4.ogg" />
-  <Other file="%ModDir%/Sounds/female_cough5.ogg" />
-  <Other file="%ModDir%/Sounds/female_cough6.ogg" />
-  <Other file="%ModDir%/Sounds/male_cough1.ogg" />
-  <Other file="%ModDir%/Sounds/male_cough2.ogg" />
-  <Other file="%ModDir%/Sounds/male_cough3.ogg" />
-  <Other file="%ModDir%/Sounds/male_cough4.ogg" /> 
-	-->
-  
+
   <!-- Overlays (these need a rework, most of them are unused.) -->
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/bionicoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/infraredoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/nightvisionOverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/monsteroverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/nvgoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/crackedglass.png" /> 
-  
-  <!-- Outdated remove on release
-  <Other file="%ModDir%/Textures/icon.png" />
-  <Other file="%ModDir%/Textures/noeyes.png" />
-  <Other file="%ModDir%/Textures/eyedamage.png" />
-  <Other file="%ModDir%/Textures/eyeshock.png" />
-  <Other file="%ModDir%/Textures/baseaffliction.png" />
-  <Other file="%ModDir%/Textures/cataract.png" />
-  <Other file="%ModDir%/Textures/cybereye.png" />
-  <Other file="%ModDir%/Textures/eye.png" />
-  <Other file="%ModDir%/Textures/eyegel.png" />
-  <Other file="%ModDir%/Textures/gel.png" />
-  <Other file="%ModDir%/Textures/infrared.png" />
-  <Other file="%ModDir%/Textures/monstereye.png" />
-  <Other file="%ModDir%/Textures/muscle.png" />
-  <Other file="%ModDir%/Textures/muscleconnectors.png" />
-  <Other file="%ModDir%/Textures/nightvisioneye.png" />
-  <Other file="%ModDir%/Textures/plasticeye.png" />
-  <Other file="%ModDir%/Textures/spoon.png" />
-  <Other file="%ModDir%/Textures/vision.png" />
-  <Other file="%ModDir%/Textures/baseeye.png" />
-  <Other file="%ModDir%/Textures/protection.png" />
-  <Other file="%ModDir%/Textures/cream.png" />
-  <Other file="%ModDir%/Textures/huskeye.png" />
-  <Other file="%ModDir%/Textures/huskoverlay.png" />
-  <Other file="%ModDir%/Textures/glasses.png" />
-  <Other file="%ModDir%/Textures/eyeretracted.png" />
-  <Other file="%ModDir%/Textures/eyedrop.png" />
-  <Other file="%ModDir%/Textures/eyedrops.png" />
-  <Other file="%ModDir%/Textures/eyeone.png" />
-   -->
+
 </contentpackage>
