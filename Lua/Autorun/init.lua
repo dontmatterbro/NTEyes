@@ -7,25 +7,25 @@ NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil then NTC.RegisterExpansion(NTEYE) end end,1)
 
+
 if SERVER or CLIENT then --we have CLIENT side features so it needs run on both, 
     Timer.Wait(function() --altough now that I think of it we should seperate those
-        if NTC == nil then
+        if SERVER and NTC == nil then
             print("Error loading NT Eyes: It SEEms Neurotrauma isn't loaded!")
             return
         end
 
         dofile(NTEYE.Path.."/Lua/Scripts/humanstuff.lua")
   --    dofile(NTEYE.Path.."/Lua/Scripts/NAMEGOESHERE.lua")
-
+		if SERVER then
         NTC.AddPreHumanUpdateHook(NTEYE.PreUpdateHuman) --idk what these do
         NTC.AddHumanUpdateHook(NTEYE.PostUpdateHuman) --gonna learn probably important
+		end
     end,1)
-
 end
 
 
---[[ fuck this lets properly get integrated to nt family
--- Checks if NT Eyes is enabled
+--[[
 local enabled = Game.GetEnabledContentPackages()
 local isEnabled = false
 for key, value in pairs(enabled) do

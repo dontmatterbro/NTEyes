@@ -155,7 +155,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(0, 150, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 150, 0, 200) 
+        hull.AmbientLight = Color(0, 200, 0, 200) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
@@ -187,13 +187,15 @@ elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
+		Character.Controlled.TeamID = 2
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
 
-else	local parameters = Level.Loaded.LevelData.GenerationParams
+else	Character.Controlled.TeamID = 1
+		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(10, 10, 10, 10)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
