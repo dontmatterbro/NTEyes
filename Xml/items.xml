@@ -501,7 +501,7 @@
      	<Price storeidentifier="merchantmine" />
 	</Price>
 	
-	<Fabricate suitablefabricatiors="milfabricator" requiredtime="160">
+	<Fabricate suitablefabricators="milfabricator" requiredtime="160">
 		<RequiredSkill identifier="electrical" level="35" />
 		<RequiredSkill identifier="weapons" level="50" />
 		<RequiredItem identifier="fpgacircuit" />
