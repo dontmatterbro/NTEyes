@@ -84,6 +84,7 @@
 	<Affliction iconcolors="16,116,179,255;16,116,179,255" name="" identifier="eyeinfrared" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
 		<Effect minstrength="0" maxstrength="2" minskillmultiplier="1.08" maxskillmultiplier="1.08"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,0,128,128"  origin="0,0" />
+		<StatusHUD drawhudwhenequipped="true" overlaycolor="176,0,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
 	</Affliction>
   
 			<!-- PLASTIC EYE -->
