@@ -9,7 +9,7 @@
   <entitydescription.organscalpel_eyes>A specialized scalpel for the removal of eyes.</entitydescription.organscalpel_eyes>
   
   <entityname.eyespoon>Advanced Eyeball Extraction Device</entityname.eyespoon>
-  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of eyes.</entitydescription.eyespoon>
+  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of donor eyes. Does not work on humans.</entitydescription.eyespoon>
   
   <entityname.eyeglasses>Corrective Glasses</entityname.eyeglasses>
   <entitydescription.eyeglasses>These unregistered prescription glasses may improve patient's vision.</entitydescription.eyeglasses>
@@ -17,13 +17,13 @@
   
   <!-- SURGERY ITEMS -->
   <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors>
-  <entitydescription.muscleconnectors>Used in eye transplants. Use before putting in the eye, along with eye gel.</entitydescription.muscleconnectors>
+  <entitydescription.muscleconnectors>Used in eye transplants, before putting in the eye, along with eye gel.</entitydescription.muscleconnectors>
   
   <entityname.eyedrops>Protective Eye Drops</entityname.eyedrops>
   <entitydescription.eyedrops>Use on the eyes to make them recover quicker.</entitydescription.eyedrops>
   
   <entityname.eyegel>Eye Gel</entityname.eyegel>
-  <entitydescription.eyegel>Used in eye transplants. Use before putting in the eye, along with muscle connectors.</entitydescription.eyegel>
+  <entitydescription.eyegel>Used in eye transplants, before putting in the eye, along with muscle connectors.</entitydescription.eyegel>
   
   
   <!-- EYE ITEMS -->
@@ -104,7 +104,7 @@
   <afflictiondescription.eyehusk>The patient has husk eyes.</afflictiondescription.eyehusk>
   
   <afflictionname.eyeterror>KAR EN TUK</afflictionname.eyeterror>
-  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You need to kill.</afflictiondescription.eyeterror>
+  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You must kill.</afflictiondescription.eyeterror>
   
   
 </infotexts>

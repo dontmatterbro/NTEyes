@@ -50,13 +50,13 @@
 				<!-- TRANSPLANT AFFLICTIONS -->
 			<!-- EYE MUSCLE -->
 	<Affliction name="" identifier="eyemuscle" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="0" strengthchange="-6" />
+		<Effect minstrength="0" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="0" strengthchange="-3" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="896,128,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- EYE GELL-->
 	<Affliction name="" identifier="eyegell" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="0" strengthchange="-8" />
+		<Effect minstrength="0" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="0" strengthchange="-4" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,128,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
   

@@ -27,6 +27,8 @@ end
 if isEnabled then
     local myModPath = table.pack(...)[1]
     dofile(myModPath .. "/Lua/Scripts/humanstuff.lua")
+    dofile(myModPath .. "/Lua/Scripts/eyesurgery.lua")
+    dofile(myModPath .. "/Lua/Scripts/eyeupdate.lua")
 --    dofile(myModPath .. "/Lua/Scripts/helperfunctions.lua") I don't we need this, lua probably can use the NT code
 --	dofile(myModPath .. "/Lua/Scripts/newhumanstuff.lua") <----- we will switch to this once the code is optimized
 end

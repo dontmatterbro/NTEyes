@@ -26,6 +26,7 @@ function GiveItemBasedOnEye(character, usingCharacter)
   end
 end
 
+
 --Clear Eye Effects for Surgery
 function ClearCharacterEyeAfflictions(character)
   eyeaffs = {
@@ -56,6 +57,7 @@ function ClearCharacterEyeAfflictions(character)
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)
   end
 end
+
 
 --This is the main bulk
 Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, targetCharacter, limb)
