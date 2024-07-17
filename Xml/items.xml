@@ -169,10 +169,10 @@
         <Item identifier="plastic" />
 	</Deconstruct>
     <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,256,128" origin="0.5,0.5" />
-    <Sprite name="Corrective glasses" texture="%ModDir%/Textures/glasses.png" sourcerect="0,0,256,91" depth="0.6" origin="0.5,0.5" />
+    <Sprite name="Corrective glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,256,128" depth="0.6" origin="0.5,0.5" />
     <Body width="30" height="15" density="30" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
-      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/glasses.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.25" sourcerect="0,0,256,91" origin="0.59,0.44" />
+      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.25" sourcerect="384,896,256,128" origin="0.59,0.44" />
     </Wearable>
   </Item>
   
@@ -501,7 +501,7 @@
      	<Price storeidentifier="merchantmine" />
 	</Price>
 	
-	<Fabricate suitablefabricatiors="fabricator" requiredtime="160">
+	<Fabricate suitablefabricatiors="milfabricator" requiredtime="160">
 		<RequiredSkill identifier="electrical" level="35" />
 		<RequiredSkill identifier="weapons" level="50" />
 		<RequiredItem identifier="fpgacircuit" />

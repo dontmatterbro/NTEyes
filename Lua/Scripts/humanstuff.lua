@@ -84,10 +84,10 @@ function UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
 --print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
   end
   if HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.2)
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
   end
   if HF.HasAffliction(character, "stroke", 5) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
