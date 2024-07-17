@@ -547,7 +547,7 @@
 		</sprite>
     </Wearable>
 	
-
+<StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.5" setvalue="true" disabledeltatime="true">
 	
     <CustomInterface canbeselected="true" drawhudwhenequipped="true">
       	<GuiFrame relativesize="0.12,0.08" anchor="BottomLeft" absoluteoffset="20,98" style="ItemUI" />
