@@ -12,3 +12,22 @@ described and have its file name/directory known if possible.
 4. Nt surgery needs compatch
 
 
+
+
+additions:
+
+extra step for eye surgery (nerve)
+
+add cataract surgery
+
+more ways to get blinded
+
+fix pressure
+
+check for underwater damage (pressure stabilizer, being husk)
+
+stasis bag compatch for the rest of the values
+
+eye damage even though no eyes
+
+check all damage values
