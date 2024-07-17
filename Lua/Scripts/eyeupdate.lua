@@ -65,11 +65,10 @@ end
 function NTEYE.UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
 print("debug:UpdateHumanEye")
-
+print(character)
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
-  print(character)
   if HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.2)
   end
@@ -108,7 +107,7 @@ print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "eyecataract", 50) then
     NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
   end
-  if NTEYE.GetItemInSlot(character, InvSlotType.Head) and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
+  if NTEYE.GetItemInSlot(character, InvSlotType.Head) and GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
     NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
   end
   if character.AnimController.HeadInWater and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character, "eyemonster") and not HF.HasAffliction(character, "eyehusk") then

@@ -5,7 +5,7 @@ local UpdateIntervalEye = 120
 local debug = false
 
 
---[[ moved to eyeupdate.lua
+
 Hook.Add("think", "updateeye", function()
   if SERVER or not Game.Paused then
     UpdateCooldownEye = UpdateCooldownEye-1
@@ -15,7 +15,6 @@ Hook.Add("think", "updateeye", function()
     end
   end
 end)
---]]
 
 function doStuffEye(unknown)
   return unknown.SpeciesName
@@ -64,7 +63,6 @@ if Game.IsMultiplayer and CLIENT then return end
   end 
 end) 
 
---[[ moved to eyeupdate.lua
 function IsInDivingGear(character)
   local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
   local headSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.Head)
@@ -75,17 +73,14 @@ function IsInDivingGear(character)
   return false
 end
 
-
 function GetItemInSlot(character, slot)
   if character and slot then
     return character.Inventory.GetItemInLimbSlot(slot)
   end
 end
---]]
 
---[[ moved to eyeupdate.lua
 --Eye Damage Check Functions
-function NTEYE.UpdateHumanEye(character)
+function UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
 --print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
@@ -142,11 +137,9 @@ if Game.IsMultiplayer and CLIENT then return end
   end
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
---]]
 
---[[ moved to eyeupdate.lua
 --Eye Effect Check Functions
-function NTEYE.UpdateHumanEyeEffect(character)
+function UpdateHumanEyeEffect(character)
 if SERVER then return end
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
@@ -205,9 +198,7 @@ else	local parameters = Level.Loaded.LevelData.GenerationParams
         end
 	end
 end
---]]
 
---[[moved to eyeupdate.lua
 -- gets run once every two seconds
 function UpdateEye()
   -- for every human
@@ -229,7 +220,6 @@ function UpdateEye()
     end
   end
 end
---]]
 
 --ONDAMAGE TESTING, COMMENT THIS OUT BEFORE THE NEW LUA UPDATE RELEASES
 -- ACID SHOULD DAMAGE EYES ADD THIS
@@ -294,8 +284,6 @@ Hook.Add("character.applyDamage", "eyeOnDamage", function (characterHealth, atta
 end)
 --end of ondamage testing
 
-
---[[ moved to eyesurgery.lua
 function GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -496,6 +484,4 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       end
     end
   end
-
 end)
---]]
