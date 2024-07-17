@@ -187,19 +187,20 @@ elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		Character.Controlled.TeamID = 2
+		Character.Controlled.TeamID = 2 -- add a check to if alive
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
 
-else	Character.Controlled.TeamID = 1
+else	-- add a check to if alive
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(10, 10, 10, 10)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
         end
+		if (character.IsHuman and not character.IsDead) then Character.Controlled.TeamID = 1 end
 	end
 end
 

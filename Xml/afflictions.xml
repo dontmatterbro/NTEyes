@@ -115,10 +115,19 @@
 			<StatusEffect target="Character" targetlimb="Head">
 				<Conditional IsLocalPlayer="True" />
 				<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="5" camerashakerange="250"  screencolor="255,0,0,60" screencolorrange="1000" screencolorduration="0.22" />
-				<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.6" />
+				<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.5" />
 			</StatusEffect>
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,128,128,128"  origin="0,0" />
 	</Affliction>
+ 
+ 				<!-- ITEM AFFLICTIONS -->
+			<!-- NIGHT VISION GOGGLES-->
+			<!--
+	<Affliction iconcolors="0,0,0,0;0,0,0,0" name="" identifier="NTEYEnvgoverlay" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" healableinmedicalclinic="false">
+		<Effect minstrength="0" maxstrength="2" strengthchange="-100"></Effect>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/smallnvgoverlay.png" />
+	</Affliction> -->
+ 
  
 </Afflictions>

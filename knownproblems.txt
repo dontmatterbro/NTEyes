@@ -18,6 +18,8 @@ additions:
 
 extra step for eye surgery (nerve)
 
+ai pathfinding for being blind if its possible
+
 add cataract surgery
 
 more ways to get blinded
