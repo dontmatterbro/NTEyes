@@ -531,7 +531,7 @@
     </ItemContainer>
 	
     <Wearable slots="Any,Head" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.5" setvalue="true" disabledeltatime="true">
+        <StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.5" setvalue="true" disabledeltatime="true" />
       	<StatusEffect type="OnWearing" target="Contained, Character" Condition="-0.6" comparison="And">
         	<Conditional hasstatustag="powered" targetcontainer="true" />
 			<Conditional IsDead="False" />
