@@ -1,7 +1,7 @@
 --Surgery may need a little rework
 
 
---This function gives eyes back after surgery
+--This function gives eyes back after removal surgery
 function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -22,6 +22,10 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
   end
 end
 
+function NTEYE.CanSurgery(character)
+	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) then
+	return true end
+end
 
 --Clear Eye Effects for Surgery
 function NTEYE.ClearCharacterEyeAfflictions(character)
@@ -56,15 +60,15 @@ end
 
 
 --This is the main bulk
-Hook.Add("item.applyTreatment", "NTEYE.eyesurgery", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "NTEYE.eyesurgerytransplant", function(item, usingCharacter, targetCharacter, limb)
   local identifier = item.Prefab.Identifier
 
   -- sadly no switches in lua
   limbtype = HF.NormalizeLimbType(limb.type)
-  if not NTEYE.IsInDivingGear(targetCharacter) then
+  if NTEYE.CanSurgery(targetCharacter) then
     if identifier=="organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-      if HF.HasAffliction(targetCharacter, "analgesia") and HF.HasAffliction(targetCharacter, "eyelid") or HF.HasAffliction(targetCharacter, "sym_unconsciousness") and HF.HasAffliction(targetCharacter, "eyelid") then
-        if HF.GetSurgerySkillRequirementMet(usingCharacter, 45) then
+      if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") then
+        if HF.GetSurgerySkillRequirementMet(usingCharacter, 50) then
           NTEYE.GiveItemBasedOnEye(targetCharacter, usingCharacter)
           NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
           HF.AddAfflictionLimb(targetCharacter, "noeye", 11, 2)

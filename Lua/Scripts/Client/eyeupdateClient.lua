@@ -14,7 +14,7 @@ end)
 
 --Eye Effect Check Functions shouldn't run on server
 function NTEYE.UpdateHumanEyeEffect(character)
-print("debug:UpdateHumanEyeEffect")
+--print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 50, 0, 35)
@@ -72,6 +72,8 @@ else	local parameters = Level.Loaded.LevelData.GenerationParams
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
         end
-		if (Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
+		if Character.Controlled ~= nil then 
+			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
+		end
 	end
 end

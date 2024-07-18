@@ -33,7 +33,7 @@ end
 
 --updates human eyes
 function NTEYE.UpdateHumanEye(character)
-print("debug:UpdateHumanEye")
+--print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
@@ -61,7 +61,7 @@ print("debug:UpdateHumanEye")
       HF.AddAfflictionLimb(character, "eyeone", 11, 2)
     end
     if HF.HasAffliction(character, "eyedamage", 99) then
-      ClearCharacterEyeAfflictions(character)
+      NTEYE.ClearCharacterEyeAfflictions(character)
       HF.AddAfflictionLimb(character, "noeye", 11, 2)
     end
   end
