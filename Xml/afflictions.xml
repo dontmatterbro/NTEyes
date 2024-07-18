@@ -70,7 +70,7 @@
 				<!-- EFFECT TYPE AFFLICTIONS 		MUST REWORK ALL EFFECTS --> 
 			<!-- BIONIC EYE -->
 	<Affliction iconcolors="211,211,84,255;211,211,84,255" name="" identifier="eyebionic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="-3" maxscreendistort="-3" minscreenblur="-3" maxscreenblur="-3" minradialdistort="-1.5" maxradialdistort="-1.5" minchromaticaberration="-4" maxchromaticaberration="-4" minskillmultiplier="1.15" maxskillmultiplier="1.15"></Effect>
+		<Effect minstrength="0" maxstrength="2" minscreendistort="-3" maxscreendistort="-3" minscreenblur="-3" maxscreenblur="-3" minradialdistort="-1.5" maxradialdistort="-1.5" minchromaticaberration="-4" maxchromaticaberration="-4" minskillmultiplier="1.1" maxskillmultiplier="1.1"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,128,128,128"  origin="0,0" />
 	</Affliction>
   
@@ -98,19 +98,19 @@
   
 			<!-- MONSTER EYE -->
 	<Affliction iconcolors="160,160,70,255;160,160,70,255" name="" identifier="eyemonster" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="0.6" maxscreendistort="0.6" minscreenblur="0.2" maxscreenblur="0.2" minradialdistort="0.9" maxradialdistort="0.9" minchromaticaberration="0.6" maxchromaticaberration="0.6" minskillmultiplier="0.8" maxskillmultiplier="0.8"></Effect>
+		<Effect minstrength="0" maxstrength="2" minscreendistort="0.7" maxscreendistort="0.7" minscreenblur="0.2" maxscreenblur="0.2" minradialdistort="1" maxradialdistort="1" minchromaticaberration="0.75" maxchromaticaberration="0.75" minskillmultiplier="0.8" maxskillmultiplier="0.8"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- HUSK EYE -->
 	<Affliction iconcolors="75,0,75,255;75,0,75,255" name="" identifier="eyehusk" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="0.5" maxscreendistort="0.5" minscreenblur="0.1" maxscreenblur="0.1" minradialdistort="0.5" maxradialdistort="0.5" minchromaticaberration="0.4" maxchromaticaberration="0.4" ></Effect>
+		<Effect minstrength="0" maxstrength="2" minscreendistort="0.5" maxscreendistort="0.5" minscreenblur="0.1" maxscreenblur="0.1" minradialdistort="0.5" maxradialdistort="0.5" minchromaticaberration="0.4" maxchromaticaberration="0.4" minskillmultiplier="0.9" maxskillmultiplier="0.9" ></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- TERROR EYE -->
 	<Affliction iconcolors="255,0,0,255;255,0,0,255" name="" identifier="eyeterror" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minskillmultiplier="0.1" maxskillmultiplier="0.1" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="0.5" minradialdistort="0.0" maxradialdistort="0.5" resistancefor="pressure, damage" minresistance="0" maxresistance="0.5" minscreenblur="0.0" maxscreenblur="0.1">
+		<Effect minstrength="0" maxstrength="2" minskillmultiplier="0.1" maxskillmultiplier="0.1" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="0.3" minradialdistort="0.0" maxradialdistort="0.5" resistancefor="pressure, damage" minresistance="0" maxresistance="0.5" minscreenblur="0.0" maxscreenblur="0.1">
 			<StatValue stattype="WeaponsSkillBonus" value="400" />
 			<StatusEffect target="Character" targetlimb="Head">
 				<Conditional IsLocalPlayer="True" />

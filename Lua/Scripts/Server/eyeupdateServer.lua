@@ -3,48 +3,6 @@ NTEYE.UpdateInterval = 120
 NTEYE.Deltatime = NTEYE.UpdateInterval/60 -- Time in seconds that transpires between updates
 
 
--- This Hook triggers function updates.
-Hook.Add("think", "NTEYE.update", function()
-    if HF.GameIsPaused() then return end
-
-    NTEYE.UpdateCooldown = NTEYE.UpdateCooldown-1
-    if (NTEYE.UpdateCooldown <= 0) then
-        NTEYE.UpdateCooldown = NTEYE.UpdateInterval
-        NTEYE.Update() 
-		NTEYE.UpdateHumanEye(character)
-    end
-end)
-
--- Gets to run once every two seconds.
-function NTEYE.Update()
-if CLIENT and Game.IsMultiplayer then return end -- so it doesnt run on client
-	print("eyeupdatetest")
-		local updateHumanEyes = {}
-		local amountHumanEyes = 0
-		
-		
-	--fetch character for update
-	for key, character in pairs(Character.CharacterList) do
-		if not character.IsDead then
-			if character.IsHuman then
-				table.insert(updateHumanEyes, character)
-				amountHumanEyes = amountHumanEyes + 1
-			end
-		end
-	end
-	
-	--spread the characters out over the duration of an update so that the load isnt done all at once
-    for key, value in pairs(updateHumanEyes) do
-        -- make sure theyre still alive and human
-        if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
-            Timer.Wait(function ()
-                if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
-                NTEYE.UpdateHumanEye(value) end
-            end, ((key + 1) / amountHumanEyes) * NTEYE.Deltatime * 1000)
-        end
-    end
-end
-
 --checks if character is in diving gear on demand
 function NTEYE.IsInDivingGear(character)
   local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
@@ -56,16 +14,17 @@ function NTEYE.IsInDivingGear(character)
   return false
 end
 
+-- registers slot for above check
 function NTEYE.GetItemInSlot(character, slot)
   if character and slot then
     return character.Inventory.GetItemInLimbSlot(slot)
   end
 end
 
+--updates human eyes
 function NTEYE.UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
-print("debug:UpdateHumanEye")
-print(character)
+--print("debug:UpdateHumanEye")
   if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
@@ -107,7 +66,7 @@ print(character)
   if HF.HasAffliction(character, "eyecataract", 50) then
     NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
   end
-  if NTEYE.GetItemInSlot(character, InvSlotType.Head) and GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
+  if NTEYE.GetItemInSlot(character, InvSlotType.Head) and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
     NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
   end
   if character.AnimController.HeadInWater and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character, "eyemonster") and not HF.HasAffliction(character, "eyehusk") then
@@ -121,68 +80,46 @@ print(character)
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
 
+-- This Hook triggers NTEYE.Update function.
+Hook.Add("think", "NTEYE.update", function()
+    if HF.GameIsPaused() then return end
 
-function NTEYE.UpdateHumanEyeEffect(character)
-if SERVER then return end -- this part only runs of client
-print("debug:UpdateHumanEyeEffect")
-if HF.HasAffliction(Character.Controlled, "eyebionic") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 50, 0, 65)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(60, 60, 0, 75) 
-        end
-  
-elseif HF.HasAffliction(Character.Controlled, "eyenight") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 150, 30, 200)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 150, 0, 200) 
-        end
- 
-elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 50)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(50, 0, 200, 75) 
-        end
- 
-elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 0, 255, 0)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 0, 255, 0) 
-        end
- 
-elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 50, 0)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(160, 160, 70, 0) 
-        end
- 
-elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(115, 0, 115, 0)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 0, 115, 0) 
-        end
- 
-elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(255, 0, 0, 125)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(255, 0, 0, 125) 
-        end
+    NTEYE.UpdateCooldown = NTEYE.UpdateCooldown-1
+    if (NTEYE.UpdateCooldown <= 0) then
+        NTEYE.UpdateCooldown = NTEYE.UpdateInterval
+        NTEYE.Update() 
+    end
+end)
 
-else	local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(10, 10, 10, 10)
-		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(20, 20, 20, 20) 
-        end
+-- Gets to run once every two seconds triggers NTEYE.UpdateHumanEye
+function NTEYE.Update()
+if CLIENT and Game.IsMultiplayer then return end -- so it doesnt run on client
+	--print("eyeupdatetest")
+		local updateHumanEyes = {}
+		local amountHumanEyes = 0
+		
+		
+	--fetch character for update
+	for key, character in pairs(Character.CharacterList) do
+		if not character.IsDead then
+			if character.IsHuman then
+				table.insert(updateHumanEyes, character)
+				amountHumanEyes = amountHumanEyes + 1
+			end
+		end
 	end
+	
+	--spread the characters out over the duration of an update so that the load isnt done all at once
+    for key, value in pairs(updateHumanEyes) do
+        -- make sure theyre still alive and human
+        if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
+            Timer.Wait(function ()
+                if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
+                NTEYE.UpdateHumanEye(value) end
+            end, ((key + 1) / amountHumanEyes) * NTEYE.Deltatime * 1000)
+        end
+    end
 end
-
-
 
 
 
