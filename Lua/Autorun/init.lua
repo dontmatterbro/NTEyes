@@ -15,7 +15,7 @@ Timer.Wait(function()
 		return
 	end
 	
-	if SERVER then
+	if SERVER or (CLIENT and not Game.IsMultiplayer) then
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeupdateServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyesurgeryServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeondamageServer.lua")

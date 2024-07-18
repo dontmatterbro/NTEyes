@@ -2,6 +2,16 @@ NTEYE.UpdateCooldown = 0
 NTEYE.UpdateInterval = 120
 NTEYE.Deltatime = NTEYE.UpdateInterval/60 -- Time in seconds that transpires between updates
 
+-- This Hook triggers NTEYE.Update function.
+Hook.Add("think", "NTEYE.updatetriggerserver", function()
+    if HF.GameIsPaused() then return end
+
+    NTEYE.UpdateCooldown = NTEYE.UpdateCooldown-1
+    if (NTEYE.UpdateCooldown <= 0) then
+        NTEYE.UpdateCooldown = NTEYE.UpdateInterval
+        NTEYE.Update() 
+    end
+end)
 
 --checks if character is in diving gear on demand
 function NTEYE.IsInDivingGear(character)
@@ -23,13 +33,14 @@ end
 
 --updates human eyes
 function NTEYE.UpdateHumanEye(character)
-if Game.IsMultiplayer and CLIENT then return end
---print("debug:UpdateHumanEye")
-  if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") then
+print("debug:UpdateHumanEye")
+  if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
   end
-  if HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.2)
+  if HF.HasAffliction(character, "hypoxemia", 75) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then 
+    HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
+	elseif HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
+	HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
   end
   if HF.HasAffliction(character, "stroke", 5) and not HF.HasAffliction(character, "eyebionic") then
     HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
@@ -80,20 +91,10 @@ if Game.IsMultiplayer and CLIENT then return end
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
 
--- This Hook triggers NTEYE.Update function.
-Hook.Add("think", "NTEYE.update", function()
-    if HF.GameIsPaused() then return end
 
-    NTEYE.UpdateCooldown = NTEYE.UpdateCooldown-1
-    if (NTEYE.UpdateCooldown <= 0) then
-        NTEYE.UpdateCooldown = NTEYE.UpdateInterval
-        NTEYE.Update() 
-    end
-end)
 
 -- Gets to run once every two seconds triggers NTEYE.UpdateHumanEye
 function NTEYE.Update()
-if CLIENT and Game.IsMultiplayer then return end -- so it doesnt run on client
 	--print("eyeupdatetest")
 		local updateHumanEyes = {}
 		local amountHumanEyes = 0
@@ -120,55 +121,3 @@ if CLIENT and Game.IsMultiplayer then return end -- so it doesnt run on client
         end
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	
-	
-	
---[[
-
-
-	NTEYE.Afflictions = {
-	
-	}
-
-function NTEYE.UpdateHuman(character)
-
-	-- pre humanupdate hooks
-    for key, val in pairs(NTC.PreHumanUpdateHooks) do
-        val(character)
-    end
-
-    local charData = {character=character,afflictions={},stats={}}
-
-    -- fetch all the current affliction data
-    for identifier,data in pairs(NT.Afflictions) do
-        local strength = HF.GetAfflictionStrength(character,identifier,data.default or 0)
-        charData.afflictions[identifier] = {prev=strength,strength=strength}
-    end
-end
---]]
