@@ -36,7 +36,7 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     "eyedrop",
     "eyemuscle",
     "eyegell",
-    "eyelid",
+--  "eyelid", annoying to do everytime might as well remove it
     "eyeone",
     "eyesickness",
     "eyecataract",
@@ -58,14 +58,14 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
   end
 end
 
-
+-- this needs to be rewritten to accomedate cataract surgery
 --This is the main bulk
 Hook.Add("item.applyTreatment", "NTEYE.eyesurgerytransplant", function(item, usingCharacter, targetCharacter, limb)
   local identifier = item.Prefab.Identifier
 
   -- sadly no switches in lua
   limbtype = HF.NormalizeLimbType(limb.type)
-  if NTEYE.CanSurgery(targetCharacter) then
+  if NTEYE.CanSurgery(targetCharacter) then 
     if identifier=="organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
       if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") then
         if HF.GetSurgerySkillRequirementMet(usingCharacter, 50) then
