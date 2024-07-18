@@ -98,13 +98,13 @@
   
 			<!-- MONSTER EYE -->
 	<Affliction iconcolors="160,160,70,255;160,160,70,255" name="" identifier="eyemonster" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="0.5" maxscreendistort="0.5" minscreenblur="0.1" maxscreenblur="0.1" minradialdistort="0.7" maxradialdistort="0.7" minchromaticaberration="0.4" maxchromaticaberration="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"></Effect>
+		<Effect minstrength="0" maxstrength="2" minscreendistort="0.6" maxscreendistort="0.6" minscreenblur="0.2" maxscreenblur="0.2" minradialdistort="0.9" maxradialdistort="0.9" minchromaticaberration="0.6" maxchromaticaberration="0.6" minskillmultiplier="0.8" maxskillmultiplier="0.8"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,128,128,128"  origin="0,0" />
 	</Affliction>
   
 			<!-- HUSK EYE -->
 	<Affliction iconcolors="75,0,75,255;75,0,75,255" name="" identifier="eyehusk" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="-0.5" maxscreendistort="-0.5" minscreenblur="-0.1" maxscreenblur="-0.1" minradialdistort="-0.7" maxradialdistort="-0.7" minchromaticaberration="-0.4" maxchromaticaberration="-0.4" minskillmultiplier="1.2" maxskillmultiplier="1.2"></Effect>
+		<Effect minstrength="0" maxstrength="2" minscreendistort="0.5" maxscreendistort="0.5" minscreenblur="0.1" maxscreenblur="0.1" minradialdistort="0.5" maxradialdistort="0.5" minchromaticaberration="0.4" maxchromaticaberration="0.4" ></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,128,128,128"  origin="0,0" />
 	</Affliction>
   
@@ -128,6 +128,9 @@
 		<Effect minstrength="0" maxstrength="2" strengthchange="-100"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/smallnvgoverlay.png" />
 	</Affliction> -->
- 
- 
+	<Affliction identifier="infeyetest">
+		<StatusHUD drawhudwhenequipped="true" overlaycolor="176,0,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" >
+		<Hook name="infeyetest" custom="thing" />
+		</StatusHUD>
+	</Affliction>
 </Afflictions>

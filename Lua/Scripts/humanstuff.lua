@@ -173,34 +173,35 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
+		Character.Controlled.TeamID = 0
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(160, 160, 70, 15) 
+        hull.AmbientLight = Color(160, 160, 70, 25) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
+		Character.Controlled.TeamID = 4 
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(115, 115, 20, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 115, 30, 15) 
+        hull.AmbientLight = Color(115, 115, 30, 30) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		Character.Controlled.TeamID = 2 -- add a check to if alive
+		Character.Controlled.TeamID = 2 
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
 
-else	-- add a check to if alive
-		local parameters = Level.Loaded.LevelData.GenerationParams
+else	local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(10, 10, 10, 10)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
         end
-		if character.IsHuman and not character.IsDead then (Character.Controlled.TeamID = 1) end
+		if (character.IsHuman and not character.IsDead) then Character.Controlled.TeamID = 1 end
 	end
 end
 
