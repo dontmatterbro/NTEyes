@@ -1,12 +1,8 @@
 --Surgery may need a little rework
 
 
-
-
-
-
---This function gives eyes back after surgery
-function GiveItemBasedOnEye(character, usingCharacter)
+--This function gives eyes back after removal surgery
+function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   elseif HF.HasAffliction(character, "eyenight") then
@@ -20,15 +16,19 @@ function GiveItemBasedOnEye(character, usingCharacter)
   elseif HF.HasAffliction(character, "eyehusk") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_husk", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   elseif HF.HasAffliction(character, "eyeterror") then
-    HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 100 - 10 + HF.GetAfflictionStrength(character, "eyedamage", 0))
+    HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 90 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   else
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   end
 end
 
+function NTEYE.CanSurgery(character)
+	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) then
+	return true end
+end
 
 --Clear Eye Effects for Surgery
-function ClearCharacterEyeAfflictions(character)
+function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
     "noeye",
     "eyedamage",
@@ -36,7 +36,7 @@ function ClearCharacterEyeAfflictions(character)
     "eyedrop",
     "eyemuscle",
     "eyegell",
-    "eyelid",
+--  "eyelid", annoying to do everytime might as well remove it
     "eyeone",
     "eyesickness",
     "eyecataract",
@@ -58,19 +58,19 @@ function ClearCharacterEyeAfflictions(character)
   end
 end
 
-
+-- this needs to be rewritten to accomedate cataract surgery
 --This is the main bulk
-Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "NTEYE.eyesurgerytransplant", function(item, usingCharacter, targetCharacter, limb)
   local identifier = item.Prefab.Identifier
 
   -- sadly no switches in lua
   limbtype = HF.NormalizeLimbType(limb.type)
-  if not IsInDivingGear(targetCharacter) then
+  if NTEYE.CanSurgery(targetCharacter) then 
     if identifier=="organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-      if HF.HasAffliction(targetCharacter, "analgesia") and HF.HasAffliction(targetCharacter, "eyelid") or HF.HasAffliction(targetCharacter, "sym_unconsciousness") and HF.HasAffliction(targetCharacter, "eyelid") then
-        if HF.GetSurgerySkillRequirementMet(usingCharacter, 45) then
-          GiveItemBasedOnEye(targetCharacter, usingCharacter)
-          ClearCharacterEyeAfflictions(targetCharacter)
+      if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") then
+        if HF.GetSurgerySkillRequirementMet(usingCharacter, 50) then
+          NTEYE.GiveItemBasedOnEye(targetCharacter, usingCharacter)
+          NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
           HF.AddAfflictionLimb(targetCharacter, "noeye", 11, 2)
         else
           for i=1, 2 do
@@ -83,8 +83,8 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
           HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
           HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)
           if HF.Chance(0.5) then
-            GiveItemBasedOnEye(targetCharacter, usingCharacter)
-            ClearCharacterEyeAfflictions(targetCharacter)
+            NTEYE.GiveItemBasedOnEye(targetCharacter, usingCharacter)
+            NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
             HF.AddAfflictionLimb(targetCharacter, "noeye", 11, 2)
           end
         end
@@ -116,7 +116,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes" then
         --print("normal eyes")
         --print(0.3*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
         --multiply default chance by 1 to 0 depending on surgery skill linearly 0.5 defaut chance from 100
@@ -128,7 +128,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_bionic" then
         --print("bionic eyes")
         --print(0.1*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyebionic", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
@@ -140,7 +140,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_night" then
         --print("night vis eyes")
         --print(0.3*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyenight", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
@@ -152,7 +152,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_infrared" then
         --print("infrared eyes")
         --print(0.3*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyeinfrared", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
@@ -164,7 +164,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_plastic" then
         --print("plastic eyes")
         --print(0.5*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyeplastic", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
@@ -176,7 +176,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_monster" then
         --print("monster eyes")
         --print(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyemonster", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
@@ -188,7 +188,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_terror" then
         --print("terror eyes")
         --print(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyeterror", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
         if HF.Chance(0.3*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
@@ -199,7 +199,7 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
       if identifier =="transplant_eyes_husk" then
         --print("husk eyes")
         --print(0.6*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1))
-        ClearCharacterEyeAfflictions(targetCharacter)
+        NTEYE.ClearCharacterEyeAfflictions(targetCharacter)
         HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
         HF.SetAfflictionLimb(targetCharacter, "eyehusk", 11, 2)
         HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)

@@ -1,11 +1,12 @@
+--[[ irrelevant now
 ---@diagnostic disable: lowercase-global, undefined-global
 local UpdateCooldownEye = 0
 local UpdateIntervalEye = 120
 --local DeltaTimeEye = UpdateIntervalEye/60 -- Time in seconds that transpires between updates
 local debug = false
+--]]
 
-
-
+--[[ now exists in eyeupdateServer.lua 
 Hook.Add("think", "updateeye", function()
   if SERVER or not Game.Paused then
     UpdateCooldownEye = UpdateCooldownEye-1
@@ -15,7 +16,9 @@ Hook.Add("think", "updateeye", function()
     end
   end
 end)
+--]]
 
+--[[ moved to spoonServer.lua
 function doStuffEye(unknown)
   return unknown.SpeciesName
 end
@@ -62,7 +65,9 @@ if Game.IsMultiplayer and CLIENT then return end
 	end  
   end 
 end) 
+--]]
 
+--[[ diving gear moved to eyeupdateServer.lua
 function IsInDivingGear(character)
   local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
   local headSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.Head)
@@ -78,7 +83,9 @@ function GetItemInSlot(character, slot)
     return character.Inventory.GetItemInLimbSlot(slot)
   end
 end
+--]]
 
+--[[ update human eye moved to eyeupdateServer.lua
 --Eye Damage Check Functions
 function UpdateHumanEye(character)
 if Game.IsMultiplayer and CLIENT then return end
@@ -139,28 +146,29 @@ if Game.IsMultiplayer and CLIENT then return end
   end
   HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
 end
-
+--]]
+--[[ update human eye effect moved to eyeupdateClient.lua
 --Eye Effect Check Functions
 function UpdateHumanEyeEffect(character)
 if SERVER then return end
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 50, 0, 65)
+		parameters.AmbientLightColor = Color(50, 50, 0, 35)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(60, 60, 0, 75) 
         end
   
 elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 150, 30, 200)
+		parameters.AmbientLightColor = Color(20, 160, 30, 200)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 200, 0, 200) 
+        hull.AmbientLight = Color(20, 160, 20, 150) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(50, 0, 200, 50)
+		parameters.AmbientLightColor = Color(25, 0, 75, 25)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(50, 0, 200, 75) 
         end
@@ -173,36 +181,39 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
+		Character.Controlled.TeamID = 0
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(160, 160, 70, 15) 
+        hull.AmbientLight = Color(160, 160, 70, 25) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
+		Character.Controlled.TeamID = 4 
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(115, 115, 20, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(115, 115, 30, 15) 
+        hull.AmbientLight = Color(115, 115, 30, 30) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		Character.Controlled.TeamID = 2
+		Character.Controlled.TeamID = 2 
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(255, 0, 0, 125) 
         end
 
-else	Character.Controlled.TeamID = 1
-		local parameters = Level.Loaded.LevelData.GenerationParams
+else	local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(10, 10, 10, 10)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(20, 20, 20, 20) 
         end
+		if (character.IsHuman and not character.IsDead) then Character.Controlled.TeamID = 1 end
 	end
 end
-
+--]]
+--[[ update eye moved to eyeupdateServer.lua
 -- gets run once every two seconds
 function UpdateEye()
   -- for every human
@@ -224,9 +235,9 @@ function UpdateEye()
     end
   end
 end
+--]]
 
---ONDAMAGE TESTING, COMMENT THIS OUT BEFORE THE NEW LUA UPDATE RELEASES
--- ACID SHOULD DAMAGE EYES ADD THIS
+--[[ moved to eyeondamageServer.lua
 Hook.Add("character.applyDamage", "eyeOnDamage", function (characterHealth, attackResult, hitLimb)
   local character = characterHealth.Character
   if not character.IsDead then
@@ -286,8 +297,9 @@ Hook.Add("character.applyDamage", "eyeOnDamage", function (characterHealth, atta
     end
   end
 end)
---end of ondamage testing
+--]]
 
+--[[ moved to eyesurgeryServer.lua
 function GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -307,7 +319,9 @@ function GiveItemBasedOnEye(character, usingCharacter)
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   end
 end
+--]]
 
+--[[ moved to eyesurgeryServer.lua
 function ClearCharacterEyeAfflictions(character)
   eyeaffs = {
     "noeye",
@@ -337,13 +351,15 @@ function ClearCharacterEyeAfflictions(character)
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)
   end
 end
+--]]
 
+--[[ moved to eyesurgeryServer.lua
 Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, targetCharacter, limb)
   local identifier = item.Prefab.Identifier
 
   -- sadly no switches in lua
   limbtype = HF.NormalizeLimbType(limb.type)
-  if not IsInDivingGear(targetCharacter) then
+  if not NTEYE.IsInDivingGear(targetCharacter) then
     if identifier=="organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
       if HF.HasAffliction(targetCharacter, "analgesia") and HF.HasAffliction(targetCharacter, "eyelid") or HF.HasAffliction(targetCharacter, "sym_unconsciousness") and HF.HasAffliction(targetCharacter, "eyelid") then
         if HF.GetSurgerySkillRequirementMet(usingCharacter, 45) then
@@ -489,3 +505,4 @@ Hook.Add("item.applyTreatment", "eyesurgery", function(item, usingCharacter, tar
     end
   end
 end)
+--]]

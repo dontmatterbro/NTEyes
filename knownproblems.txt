@@ -1,13 +1,6 @@
 This is the known problems page. If there is a persistent issue, it should be numbered based on priority,
 described and have its file name/directory known if possible.
 
-1. Error on nvg spawn.
-    Consistent error in debug menu, says that NVG item has a conflict inside vending machines.
-    %ModDir%/xml/items.xml
-
-2. Blindness overlay cover inventory (general overlay rework is needed)
-
-3. sound file size too big
 
 4. Nt surgery needs compatch
 
@@ -16,7 +9,11 @@ described and have its file name/directory known if possible.
 
 additions:
 
+just being in water does damage, that needs to be bind to pressure
+
 extra step for eye surgery (nerve)
+
+ai pathfinding for being blind if its possible
 
 add cataract surgery
 

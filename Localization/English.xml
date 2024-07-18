@@ -16,14 +16,17 @@
   
   
   <!-- SURGERY ITEMS -->
-  <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors>
-  <entitydescription.muscleconnectors>Used in eye transplants, before putting in the eye, along with eye gel.</entitydescription.muscleconnectors>
-  
   <entityname.eyedrops>Protective Eye Drops</entityname.eyedrops>
   <entitydescription.eyedrops>Use on the eyes to make them recover quicker.</entitydescription.eyedrops>
   
+  <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors> 
+  <entitydescription.muscleconnectors>Used in eye transplants, before putting in the eye, along with eye gel.</entitydescription.muscleconnectors>
+ 
   <entityname.eyegel>Eye Gel</entityname.eyegel>
   <entitydescription.eyegel>Used in eye transplants, before putting in the eye, along with muscle connectors.</entitydescription.eyegel>
+  
+  <entityname.eyelens>Eye Lens</entityname.eyelens>
+  <entitydescription.eyelens>PLACEHOLDER</entitydescription.eyelens>
   
   
   <!-- EYE ITEMS -->
@@ -82,6 +85,18 @@
   
   <afflictionname.eyelid>Held Eyelids</afflictionname.eyelid>
   <afflictiondescription.eyelid>The eyelids are held up.</afflictiondescription.eyelid>
+  
+  <afflictionname.eyepopped>Popped Eyeballs</afflictionname.eyepopped>
+  <afflictiondescription.eyepopped>The eyeballs have popped outside.</afflictiondescription.eyepopped>
+  
+  <afflictionname.corneaincision>Cornea Incision</afflictionname.corneaincision>
+  <afflictiondescription.corneaincision>An incision into cornea.</afflictiondescription.corneaincision>
+  
+  <afflictionname.emulsification>Emulsification</afflictionname.emulsification>
+  <afflictiondescription.emulsification>The lens has been broken up.</afflictiondescription.emulsification>
+  
+  <afflictionname.lasersurgery>Laser Surgery</afflictionname.lasersurgery>
+  <afflictiondescription.lasersurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasersurgery>
   
   
   <!-- EYE AFFLICTIONS -->
