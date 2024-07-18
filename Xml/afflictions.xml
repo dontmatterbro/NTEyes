@@ -85,7 +85,7 @@
 		<Effect minstrength="0" maxstrength="2" >
 		<StatValue stattype="WeaponsSkillBonus" value="15" />
 		</Effect>
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,0,128,128"  origin="0,0" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,0,128,128"  origin="0,0" />
 		
 	</Affliction>
   
