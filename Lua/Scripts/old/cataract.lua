@@ -1,5 +1,6 @@
 --cataract surgery WORKS move to eyesurgery when ready
 
+--affliction clear for cataract
 function NTEYE.CataractClearAfflictions(character)
 	cateyeaffs = {
 		"corneaincision",
@@ -12,8 +13,9 @@ function NTEYE.CataractClearAfflictions(character)
 	character.CharacterHealth.ReduceAfflictionOnAllLimbs(cateyeaff, 1000)
 	end
 end
-				 
-Hook.Add("item.applyTreatment", "NTEYE.eyesurgerycataract", function(item, usingCharacter, targetCharacter, limb)
+
+--cataract surgery
+Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharacter, targetCharacter, limb)
 	local identifier = item.Prefab.identifier
 
 	limbtype = HF.NormalizeLimbType(limb.type)

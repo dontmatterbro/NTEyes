@@ -9,22 +9,50 @@ described and have its file name/directory known if possible.
 
 additions:
 
-just being in water does damage, that needs to be bind to pressure
+client side lua detector
 
-extra step for eye surgery (nerve)
+add indicator to workshop page for people to turn wall opaque
+
+DONE 																just being in water does damage, that needs to be bind to pressure 
+
+DONE 																extra step for eye surgery (nerve)
 
 ai pathfinding for being blind if its possible
 
-add cataract surgery
+DONE																add cataract surgery
 
 more ways to get blinded
 
-fix pressure
+add blood pressure damage?
 
-check for underwater damage (pressure stabilizer, being husk)
+DONE																check for underwater damage (pressure stabilizer, being husk)
 
-stasis bag compatch for the rest of the values
+DONE																stasis bag compatch for the rest of the values
 
-eye damage even though no eyes
+DONE 																eye damage even though no eyes
 
-check all damage values
+DONE? 	check all damage values
+
+
+
+affliction sprites needed:
+
+DONE				EYES DEAD
+
+DONE				EYE POPPED
+
+DONE				CORNEA INCISION
+
+DONE				EMULSIFICATION
+
+DONE				LASER SURGERY
+
+
+
+item sprites needed:
+
+DONE			LASER SURGERY DEVICE
+
+DONE?			NERVE CONNECTORS
+
+DONE? 			EYE LENS

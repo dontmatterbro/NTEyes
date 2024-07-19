@@ -93,6 +93,32 @@
     </MeleeWeapon>
   </Item>
   
+		<!-- EYE LASER TOOL -->
+    <Item name="" identifier="eye_laser_tool" scale="0.27" category="Equipment" tags="smallitem,tool,medical" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+      <Price baseprice="600">
+        <Price storeidentifier="merchantresearch" multiplier="1.25"/>
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+        <Price storeidentifier="merchantmedical" minavailable="1" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="aluminium" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="31">
+        <RequiredSkill identifier="medical" level="80" />
+        <RequiredItem identifier="fpgacircuit" />
+		<RequiredItem identifier="incendium" />
+        <RequiredItem identifier="aluminium" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,896,64,64" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,896,64,64" depth="0.6" origin="0.5,0.5" />
+      <Body width="112" height="96" density="25" />
+      <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-15" aimpos="100,0" handle1="-13,0" handle2="-13,0" msg="ItemMsgPickUpSelect"/>
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+        <Containable items="mobilebattery" />
+        <StatusEffect type="Always" target="This" Voltage="-0.5" />
+      </ItemContainer>
+    </Item>
+
 			<!-- MUSCLE CONNECTORS -->
   <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
@@ -103,6 +129,29 @@
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="12">
       <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="rubber" />
+	  <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+			<!-- NERVE CONNECTORS -->
+  <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,64,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="100" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="14">
+      <RequiredSkill identifier="medical" level="60" />
+      <RequiredItem identifier="potassium" />
 	  <RequiredItem identifier="organicfiber" amount="2" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
@@ -127,7 +176,7 @@
       <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="antibloodloss1" />
 	  <RequiredItem identifier="carbon" />
-	  <RequiredItem identifier="potassium" />
+	  <RequiredItem identifier="phosphorus" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
       <RequiredSkill identifier="medical" level="50" />
@@ -142,7 +191,7 @@
 
 		<!-- EYE LENS -->
   <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,64,64" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -370,6 +419,7 @@
       <RequiredItem identifier="plastic" amount="3" />
       <RequiredItem identifier="fpgacircuit" amount="2" />
       <RequiredItem identifier="fulgurium" amount="3" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
       <RequiredItem identifier="transplant_eyes" mincondition="0.8" usecondition="false" />
     </Fabricate>
 	<Deconstruct time="20">
@@ -545,7 +595,7 @@
 	
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       	<Containable items="mobilebattery" />
-		<SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+<!--	<SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" /> -->
     </ItemContainer>
 	
     <Wearable slots="Any,Head" msg="ItemMsgPickUpSelect">

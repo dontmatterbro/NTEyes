@@ -33,64 +33,104 @@ end
 
 --updates human eyes
 function NTEYE.UpdateHumanEye(character)
---print("debug:UpdateHumanEye")
-  if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
-  end
-  if HF.HasAffliction(character, "hypoxemia", 75) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then 
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
-	elseif HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
-	HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
-  end
-  if HF.HasAffliction(character, "stroke", 5) and not HF.HasAffliction(character, "eyebionic") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
-  end
-  if HF.HasAffliction(character, "sepsis", 40) then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
-  end
-  if HF.HasAffliction(character, "eyeshock") then
-    HF.AddAfflictionLimb(character, "eyeshock", 11, 0.5)
-    if HF.HasAffliction(character, "eyeshock", 80) then
-      HF.AddAfflictionLimb(character, "eyedamage", 11, 0.8)
-    end
-  end
-  if HF.HasAffliction(character, "eyedamage", 40) then
-    NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.05)
-    if HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyeone") then
-      HF.AddAfflictionLimb(character, "eyeone", 11, 2)
-    end
-    if HF.HasAffliction(character, "eyedamage", 99) then
-      NTEYE.ClearCharacterEyeAfflictions(character)
-      HF.AddAfflictionLimb(character, "noeye", 11, 2)
-    end
-  end
-  if HF.Chance(0.0005) and HF.HasAffliction(character, "eyedamage", 20) then
-    HF.AddAfflictionLimb(character, "eyecataract", 11, 1)
-  end
-  if HF.HasAffliction(character, "eyecataract") then
-    HF.AddAfflictionLimb(character, "eyecataract", 11, 0.4)
-  end
-  if HF.HasAffliction(character, "eyehusk") and HF.Chance(0.001) then
-    HF.AddAffliction(character, "huskinfection", 1)
-  end
-  if HF.HasAffliction(character, "eyecataract", 50) then
-    NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
-  end
-  if NTEYE.GetItemInSlot(character, InvSlotType.Head) and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
-    NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
-  end
-  if character.AnimController.HeadInWater and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character, "eyemonster") and not HF.HasAffliction(character, "eyehusk") then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, 0.34)
-  elseif HF.HasAffliction(character, "eyedamage") and not HF.HasAffliction(character, "eyedamage", 45) or HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyedamage", 95) then
-    HF.AddAfflictionLimb(character, "eyedamage", 11, -0.1)
-    if HF.HasAffliction(character, "eyedrop") then
-      HF.AddAfflictionLimb(character, "eyedamage", 11, -0.2)
-    end
-  end
-  HF.AddAfflictionLimb(character, "eyedrop", 11, -0.8)
-end
+	if not HF.HasAffliction(character, "noeye") or not HF.HasAffliction(character, "eyesdead") or not HF.HasAffliction(targetCharacter, "th_amputation") then
+		if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+		end
+		  
+		if HF.HasAffliction(character, "hypoxemia", 75) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then 
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
+		elseif HF.HasAffliction(character, "hypoxemia", 40) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
+		end
+		  
+		if HF.HasAffliction(character, "stroke", 5) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
+		end
+		  
+		if HF.HasAffliction(character, "sepsis", 40) and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+		end
+		  
+		if HF.HasAffliction(character, "eyeshock") and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyeshock", 11, 0.5)
+			if HF.HasAffliction(character, "eyeshock", 70) and not HF.HasAffliction(character, "stasis") then
+				HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
+			end
+		end
+		  
+		if HF.HasAffliction(character, "eyeshock") and not HF.HasAffliction(character, "immunity", 10) then
+			HF.AddAfflictionLimb(character, "eyeshock", 11, -1000) --removes eye shock if immunity is below 10
+		end
+		  
+		if HF.HasAffliction(character, "eyedamage", 25) then
+			NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
+			if HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyeone") then
+			  HF.AddAfflictionLimb(character, "eyeone", 11, 2)
+			end
+			if HF.HasAffliction(character, "eyedamage", 99) then
+			  NTEYE.ClearCharacterEyeAfflictions(character)
+			  HF.AddAfflictionLimb(character, "eyesdead", 11, 2)
+			end
+		end
+		  
+		if HF.Chance(0.001) and HF.HasAffliction(character, "eyedamage", 10) then
+			HF.AddAfflictionLimb(character, "eyecataract", 11, 1)
+		end
+		  
+		if HF.HasAffliction(character, "eyecataract", 0.1) and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyecataract", 11, 0.4)
+		end
+		  
+		if HF.HasAffliction(character, "eyehusk") and HF.Chance(0.001) then
+			HF.AddAffliction(character, "huskinfection", 5)
+		end
+		  
+		if HF.HasAffliction(character, "eyecataract", 40) then
+			NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
+		end
+		  
+		if NTEYE.GetItemInSlot(character, InvSlotType.Head) and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
+			NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
+		end
+		  
+		if character.AnimController.HeadInWater and HF.HasAffliction(character, "pressure") and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character, "eyemonster") and not HF.HasAffliction(character, "eyeterror") and not HF.HasAffliction(character, "eyehusk") and not HF.HasAffliction(character, "huskinfection", 70) and not HF.HasAffliction(character, "pressureresistance") and not HF.HasAffliction(character, "stasis") then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 4)
+		end
+		  
+		if HF.HasAffliction(character, "eyedamage") and not HF.HasAffliction(character, "eyedamage", 50) then 
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.05)
+		end
 
+		if HF.HasAffliction(character, "eyedamage", 51) and not HF.HasAffliction(character, "eyedamage", 95) then 
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.05)
+		end
+		  
+		if HF.HasAffliction(character, "eyedrop") and not HF.HasAffliction(character, "eyedamage", 50) then -- I will let surgery and drops stack
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.2)
+		end
+
+		if HF.HasAffliction(character, "eyedrop") and HF.HasAffliction(character, "eyedamage", 51) and not HF.HasAffliction(character, "eyedamage", 95) then -- I will let surgery and drops stack
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.2)
+		end
+
+		if HF.HasAffliction(character, "lasereyesurgery") and not HF.HasAffliction(character, "eyedamage", 50) then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.8)
+		end
+
+		if HF.HasAffliction(character, "lasereyesurgery") and HF.HasAffliction(character, "eyedamage", 51) and not HF.HasAffliction(character, "eyedamage", 95) then
+			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.8)
+		end
+
+		if HF.HasAffliction(character, "lasereyesurgery") then
+			HF.AddAfflictionLimb(character, "lasereyesurgery", 11, -2)
+		end
+		
+		if HF.HasAffliction(character, "eyedrop") then
+			HF.AddAfflictionLimb(character, "eyedrop", 11, -2)
+		end
+	end
+end 
 
 
 -- Gets to run once every two seconds triggers NTEYE.UpdateHumanEye

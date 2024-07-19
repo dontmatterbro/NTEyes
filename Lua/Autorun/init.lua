@@ -7,7 +7,7 @@ NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil then NTC.RegisterExpansion(NTEYE) end end,1)
 
-------------------------------------- SINGLEPLAY CURRENTLY NOT COMPATIBLE FIX THIS
+-- singleplayer bit buggy due to client only features, maybe a add-on patch later on? why not just make a local server like minecraft barodevs :( ???
 
 Timer.Wait(function() 
 	if SERVER and NTC == nil then
@@ -18,7 +18,6 @@ Timer.Wait(function()
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeupdateServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyesurgeryServer.lua")
-		dofile(NTEYE.Path.."/Lua/Scripts/Server/cataract.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeondamageServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/spoonServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
