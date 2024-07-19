@@ -9,6 +9,8 @@ described and have its file name/directory known if possible.
 
 additions:
 
+client side lua detector
+
 add indicator to workshop page for people to turn wall opaque
 
 DONE 																just being in water does damage, that needs to be bind to pressure 
@@ -37,7 +39,7 @@ affliction sprites needed:
 
 DONE				EYES DEAD
 
-EYE POPPED
+DONE				EYE POPPED
 
 DONE				CORNEA INCISION
 
@@ -49,8 +51,8 @@ DONE				LASER SURGERY
 
 item sprites needed:
 
-LASER SURGERY DEVICE
+DONE			LASER SURGERY DEVICE
 
-NERVE CONNECTORS
+DONE?			NERVE CONNECTORS
 
-EYE LENS
+DONE? 			EYE LENS

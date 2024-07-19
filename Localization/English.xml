@@ -62,7 +62,7 @@
   
   <!-- AFFLICTIONS -->
   <afflictionname.noeye>Eyes Removed</afflictionname.noeye>
-  <afflictiondescription.noeye>The patient's eyes are gone, with empty, red holes being there instead. Horrific.</afflictiondescription.noeye>
+  <afflictiondescription.noeye>The patient's eyes have been surgically removed, with empty, red holes taking their place. Horrific.</afflictiondescription.noeye>
   
   <afflictionname.eyedamage>Eye Damage</afflictionname.eyedamage>
   <afflictiondescription.eyedamage>The patient's eyes look flat, and they have trouble seeing.</afflictiondescription.eyedamage>
@@ -76,8 +76,8 @@
   <afflictionname.eyeone>Dead Eye</afflictionname.eyeone>
   <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
   
-  <afflictionname.eyesdead>Dead Eye</afflictionname.eyesdead>
-  <afflictiondescription.eyesdead>The patient has lost all vision in one of the eyes.</afflictiondescription.eyesdead>
+  <afflictionname.eyesdead>Dead Eyes</afflictionname.eyesdead>
+  <afflictiondescription.eyesdead>The patient has lost all vision and their eyes are unresponsive.</afflictiondescription.eyesdead>
   
   <afflictionname.eyesickness>Vision Sickness</afflictionname.eyesickness>
   <afflictiondescription.eyesickness>The patient has trouble seeing, likely because of a recent eye transplant. Should wear off in time.</afflictiondescription.eyesickness>

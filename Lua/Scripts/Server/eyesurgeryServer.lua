@@ -268,7 +268,7 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 		if identifier == "organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "eyepopped") and not HF.HasAffliction(targetCharacter, "th_amputation") then
 			if HF.GetSurgerySkillRequirementMet(usingCharacter, 40) then
 				if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") then
-				HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 2)			
+				HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 100)			
 				end
 			else
 				for i=1, 2 do
@@ -316,7 +316,7 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 	if NTEYE.CanSurgery(targetCharacter) then
 		if identifier == "eye_laser_tool" and (limbtype == 11) and HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") and not HF.HasAffliction(targetCharacter, "corneaincision") and not HF.HasAffliction(targetCharacter, "eyepopped") then
 			if item.OwnInventory.GetItemAt(0)==nil then return end	
-				if item.OwnInventory.GetItemAt(0).Condition = 100 then
+				if item.OwnInventory.GetItemAt(0).Condition >= 99 then
 					HF.GiveItem(targetCharacter,"ntsfx_selfscan")
 					item.OwnInventory.GetItemAt(0).Condition = item.OwnInventory.GetItemAt(0).Condition-100
 						if HF.GetSurgerySkillRequirementMet(usingCharacter, 80) then

@@ -109,8 +109,8 @@
 		<RequiredItem identifier="incendium" />
         <RequiredItem identifier="aluminium" />
       </Fabricate>
-      <InventoryIcon texture="%ModDir:Neurotrauma%/Images/InventoryItemIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
-      <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="768,0,128,128" depth="0.6" origin="0.5,0.5" />
+      <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,896,64,64" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,896,64,64" depth="0.6" origin="0.5,0.5" />
       <Body width="112" height="96" density="25" />
       <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-15" aimpos="100,0" handle1="-13,0" handle2="-13,0" msg="ItemMsgPickUpSelect"/>
       <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -144,7 +144,7 @@
 
 			<!-- NERVE CONNECTORS -->
   <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,64,64" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -191,7 +191,7 @@
 
 		<!-- EYE LENS -->
   <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,64,64" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -419,6 +419,7 @@
       <RequiredItem identifier="plastic" amount="3" />
       <RequiredItem identifier="fpgacircuit" amount="2" />
       <RequiredItem identifier="fulgurium" amount="3" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
       <RequiredItem identifier="transplant_eyes" mincondition="0.8" usecondition="false" />
     </Fabricate>
 	<Deconstruct time="20">
