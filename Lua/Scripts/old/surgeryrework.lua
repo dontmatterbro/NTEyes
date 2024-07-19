@@ -5,6 +5,7 @@ function NTEYE.CanSurgery(character)
 	return true end
 end
 
+
 --removes eye afflictions after surgery (better than doing it individually i suppose)
 function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
@@ -38,6 +39,7 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
   end
 end
 
+
 --This function gives eyes back after removal surgery
 function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
@@ -58,6 +60,7 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   end
 end
+
 
 --eye removal surgery
 Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharacter, targetCharacter, limb)
@@ -231,5 +234,48 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 			end
 			item.Condition = 0
 		end
+	end
+end)
+
+
+--laser surgery and eye drops
+Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter, targetCharacter, limb)
+	local identifier = item.Prefab.Identifier
+	limbtype = HF.NormalizeLimbType(limb.type)
+
+	--laser surgery
+	if NTEYE.CanSurgery(targetCharacter) then
+		if identifier == "eye_laser_tool" and (limbtype == 11) and HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") and not HF.HasAffliction(targetCharacter, "corneaincision") and not HF.HasAffliction(targetCharacter, "eyepopped") then
+			if item.OwnInventory.GetItemAt(0)==nil then return end	
+				if item.OwnInventory.GetItemAt(0).Condition > 0 then
+					HF.GiveItem(targetCharacter,"ntsfx_selfscan")
+					item.OwnInventory.GetItemAt(0).Condition = item.OwnInventory.GetItemAt(0).Condition-50
+						if HF.GetSurgerySkillRequirementMet(usingCharacter, 80) then
+							HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 100)
+						else
+							for i=1, 2 do
+								Timer.Wait(function()
+									HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 5)
+									HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100)
+									HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
+									HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 10)
+								end, 1000 * i)
+							end
+							HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 20)
+							HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 50)
+							HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	
+							if HF.Chance(0.2) then
+								HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 50)
+							end
+						end
+				end
+		end
+	
+		--eye drops
+		if identifier == "eyedrops" then
+			HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
+			item.Condition = item.Condition - 25
+		end
+		
 	end
 end)

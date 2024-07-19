@@ -93,6 +93,32 @@
     </MeleeWeapon>
   </Item>
   
+		<!-- EYE LASER TOOL -->
+    <Item name="" identifier="eye_laser_tool" scale="0.27" category="Equipment" tags="smallitem,tool,medical" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+      <Price baseprice="600">
+        <Price storeidentifier="merchantresearch" multiplier="1.25"/>
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+        <Price storeidentifier="merchantmedical" minavailable="1" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="aluminium" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="31">
+        <RequiredSkill identifier="medical" level="80" />
+        <RequiredItem identifier="fpgacircuit" />
+		<RequiredItem identifier="incendium" />
+        <RequiredItem identifier="aluminium" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir:Neurotrauma%/Images/InventoryItemIconAtlas.png" sourcerect="448,64,64,64" origin="0.5,0.5" />
+      <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="768,0,128,128" depth="0.6" origin="0.5,0.5" />
+      <Body width="112" height="96" density="25" />
+      <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-15" aimpos="100,0" handle1="-13,0" handle2="-13,0" msg="ItemMsgPickUpSelect"/>
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+        <Containable items="mobilebattery" />
+        <StatusEffect type="Always" target="This" Voltage="-0.5" />
+      </ItemContainer>
+    </Item>
+
 			<!-- MUSCLE CONNECTORS -->
   <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
@@ -568,7 +594,7 @@
 	
 	<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       	<Containable items="mobilebattery" />
-		<SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" />
+<!--	<SlotIcon slotindex="0" texture="Content/UI/WeaponUI.png" sourcerect="64,961,32,22" origin="0.5,0.45" /> -->
     </ItemContainer>
 	
     <Wearable slots="Any,Head" msg="ItemMsgPickUpSelect">

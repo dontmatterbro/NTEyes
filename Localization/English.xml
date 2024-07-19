@@ -31,6 +31,9 @@
   <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
   <entitydescription.nerveconnectors>PLACEHOLDER</entitydescription.nerveconnectors>
   
+  <entityname.eye_laser_tool>Laser Eye Surgery Tool</entityname.eye_laser_tool>
+  <entitydescription.eye_laser_tool>PLACEHOLDER</entitydescription.eye_laser_tool>
+  
   <!-- EYE ITEMS -->
   <entityname.transplant_eyes>Eyes Transplant</entityname.transplant_eyes>
   <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
@@ -89,16 +92,16 @@
   <afflictiondescription.eyelid>The eyelids are held up.</afflictiondescription.eyelid>
   
   <afflictionname.eyepopped>Popped Eyeballs</afflictionname.eyepopped>
-  <afflictiondescription.eyepopped>The eyeballs have popped outside.</afflictiondescription.eyepopped>
+  <afflictiondescription.eyepopped>The eyeballs have popped outside the skull and are hanging.</afflictiondescription.eyepopped>
   
   <afflictionname.corneaincision>Cornea Incision</afflictionname.corneaincision>
   <afflictiondescription.corneaincision>An incision into cornea.</afflictiondescription.corneaincision>
   
   <afflictionname.emulsification>Emulsification</afflictionname.emulsification>
-  <afflictiondescription.emulsification>The lens has been broken up.</afflictiondescription.emulsification>
+  <afflictiondescription.emulsification>The eye lens has been broken up.</afflictiondescription.emulsification>
   
-  <afflictionname.lasersurgery>Laser Surgery</afflictionname.lasersurgery>
-  <afflictiondescription.lasersurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasersurgery>
+  <afflictionname.lasereyesurgery>Laser Surgery</afflictionname.lasereyesurgery>
+  <afflictiondescription.lasereyesurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasereyesurgery>
   
   <afflictionname.eyenerve>Nerve Connectors</afflictionname.eyenerve>
   <afflictiondescription.eyenerve>Nerve connectors are attached to the eye holes.</afflictiondescription.eyenerve>
