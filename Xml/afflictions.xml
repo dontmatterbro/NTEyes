@@ -17,7 +17,7 @@
 	</Affliction>
   
 		<!-- EYE SHOCK -->
-	<Affliction name="" identifier="eyeshock" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="20" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false">
+	<Affliction name="" identifier="eyeshock" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="80" showinhealthscannerthreshold="20" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false">
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="896,0,128,128"  origin="0,0" />
 	</Affliction>
   
@@ -31,6 +31,13 @@
 		<Effect minstrength="0" maxstrength="2"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
+	</Affliction>
+	
+		<!-- EYES DEAD 											NEEDS SPRITE 		-->
+	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
+		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25"></Effect>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,256,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- EYE SICKNESS -->

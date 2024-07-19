@@ -11,22 +11,22 @@ additions:
 
 add indicator to workshop page for people to turn wall opaque
 
-just being in water does damage, that needs to be bind to pressure
+DONE 																just being in water does damage, that needs to be bind to pressure 
 
-extra step for eye surgery (nerve)
+DONE 																extra step for eye surgery (nerve)
 
 ai pathfinding for being blind if its possible
 
-add cataract surgery
+DONE																add cataract surgery
 
 more ways to get blinded
 
-fix pressure
+add blood pressure damage?
 
-check for underwater damage (pressure stabilizer, being husk)
+DONE																check for underwater damage (pressure stabilizer, being husk)
 
-stasis bag compatch for the rest of the values
+DONE																stasis bag compatch for the rest of the values
 
-eye damage even though no eyes
+DONE 																eye damage even though no eyes
 
-check all damage values
+DONE? 	check all damage values
