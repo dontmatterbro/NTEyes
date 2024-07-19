@@ -9,6 +9,8 @@ described and have its file name/directory known if possible.
 
 additions:
 
+add indicator to workshop page for people to turn wall opaque
+
 just being in water does damage, that needs to be bind to pressure
 
 extra step for eye surgery (nerve)

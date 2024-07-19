@@ -1,6 +1,6 @@
 --Surgery may need a little rework
 
-
+--[[
 --This function gives eyes back after removal surgery
 function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
   if HF.HasAffliction(character, "eyebionic") then
@@ -21,12 +21,14 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
     HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
   end
 end
-
+--]]
+--[[
 function NTEYE.CanSurgery(character)
 	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) then
 	return true end
 end
-
+--]]
+--[[
 --Clear Eye Effects for Surgery
 function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
@@ -57,7 +59,10 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)
   end
 end
+--]]
 
+
+--[[
 -- this needs to be rewritten to accomedate cataract surgery
 --This is the main bulk
 Hook.Add("item.applyTreatment", "NTEYE.eyesurgerytransplant", function(item, usingCharacter, targetCharacter, limb)
@@ -211,3 +216,4 @@ Hook.Add("item.applyTreatment", "NTEYE.eyesurgerytransplant", function(item, usi
     end
   end
 end)
+--]]

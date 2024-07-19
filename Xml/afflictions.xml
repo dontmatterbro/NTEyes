@@ -50,13 +50,19 @@
 				<!-- SURGERY AFFLICTIONS -->
 			<!-- EYE MUSCLE -->
 	<Affliction name="" identifier="eyemuscle" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" strengthchange="-3" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="896,128,128,128"  origin="0,0" />
 	</Affliction>
   
-		<!-- EYE GELL-->
+		<!-- EYE GELL -->
 	<Affliction name="" identifier="eyegell" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" strengthchange="-4" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,128,128,128" color="0,0,255,255" origin="0,0" />
+	</Affliction>
+	
+		<!-- NERVE CONNECTION -->
+	<Affliction name="" identifier="eyenerve" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,128,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
   
@@ -67,7 +73,7 @@
 	</Affliction>
 		<!-- EYE POPPED NEEDS CODE AND SPRITE-->
   	<Affliction name="" identifier="eyepopped" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" strengthchange="-6" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25"/>
+		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- CORNEA INCISION NEEDS SPRITE -->
