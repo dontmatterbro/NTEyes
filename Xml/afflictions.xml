@@ -78,7 +78,7 @@
 	</Affliction>
 		<!-- CORNEA INCISION NEEDS SPRITE -->
   	<Affliction name="" identifier="corneaincision" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="2" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
+		<Effect minstrength="0" maxstrength="100" strengthchange="-1" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- EMULSIFICATION NEEDS SPRITE -->
@@ -155,9 +155,4 @@
 		<Effect minstrength="0" maxstrength="2" strengthchange="-100"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/smallnvgoverlay.png" />
 	</Affliction> -->
-	<Affliction identifier="infeyetest">
-		<StatusHUD drawhudwhenequipped="true" overlaycolor="176,0,0,120" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" >
-		<Hook name="infeyetest" custom="thing" />
-		</StatusHUD>
-	</Affliction>
 </Afflictions>

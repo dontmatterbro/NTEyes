@@ -14,7 +14,8 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     "eyedrop",
     "eyemuscle",
     "eyegell",
---  "eyelid", annoying to do everytime might as well remove it
+    "eyenerve",
+	"eyelid", 
     "eyeone",
     "eyesickness",
     "eyecataract",
@@ -59,7 +60,7 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 end
 
 --eye removal surgery
-Hook.Add("itemapplyTreatment", "eyeremovalsurgery", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharacter, targetCharacter, limb)
 	local identifier = item.Prefab.Identifier
 	
 	limbtype = HF.NormalizeLimbType(limb.type)
@@ -111,7 +112,7 @@ end)
 
 
 --eye transplant surgery
-Hook.Add("itemapplyTreatment", "eyetransplantsurgery", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingCharacter, targetCharacter, limb)
 	local identifier = item.Prefab.Identifier
 	
 	limbtype = HF.NormalizeLimbType(limb.type)
@@ -217,14 +218,14 @@ Hook.Add("itemapplyTreatment", "eyetransplantsurgery", function(item, usingChara
 			item.Condition = 0
 		end
 	
-		if identifier == "muscleconnectors" and HF.HasAffliction(targetCharacter, "noeye") and HF.HasAffliction(targetCharacter, "eyegel") and HF.HasAffliction(targetCharacter, "eyelid") then  
+		if identifier == "muscleconnectors" and HF.HasAffliction(targetCharacter, "noeye") and HF.HasAffliction(targetCharacter, "eyegell") and HF.HasAffliction(targetCharacter, "eyelid") then  
 			if HF.GetSurgerySkillRequirementMet(usingCharacter, 50) then
 				HF.AddAfflictionLimb(targetCharacter, "eyemuscle", 11, 100)
 			end
 			item.Condition = 0
 		end
 	
-		if identifier == "nerveconnectors" and HF.HasAffliction(targetCharacter, "noeye") and HF.HasAffliction(targetCharacter, "eyegel") and HF.HasAffliction(targetCharacter, "eyemuscle") and HF.HasAffliction(targetCharacter, "eyelid") then  
+		if identifier == "nerveconnectors" and HF.HasAffliction(targetCharacter, "noeye") and HF.HasAffliction(targetCharacter, "eyegell") and HF.HasAffliction(targetCharacter, "eyemuscle") and HF.HasAffliction(targetCharacter, "eyelid") then  
 			if HF.GetSurgerySkillRequirementMet(usingCharacter, 50) then
 				HF.AddAfflictionLimb(targetCharacter, "eyenerve", 11, 100)
 			end

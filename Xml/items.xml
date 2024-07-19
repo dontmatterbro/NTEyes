@@ -103,7 +103,7 @@
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="12">
       <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="rubber" />
-	  <RequiredItem identifier="organicfiber" amount="2" />
+	  <RequiredItem identifier="organicfiber" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
       <RequiredSkill identifier="medical" level="50" />
@@ -120,12 +120,12 @@
   <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
-    <Price baseprice="75" soldbydefault="false">
+    <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="12">
-      <RequiredSkill identifier="medical" level="50" />
-      <RequiredItem identifier="rubber" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="14">
+      <RequiredSkill identifier="medical" level="60" />
+      <RequiredItem identifier="potassium" />
 	  <RequiredItem identifier="organicfiber" amount="2" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
@@ -150,7 +150,7 @@
       <RequiredSkill identifier="medical" level="50" />
       <RequiredItem identifier="antibloodloss1" />
 	  <RequiredItem identifier="carbon" />
-	  <RequiredItem identifier="potassium" />
+	  <RequiredItem identifier="phosphorus" />
     </Fabricate>
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
       <RequiredSkill identifier="medical" level="50" />

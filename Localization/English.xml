@@ -28,6 +28,8 @@
   <entityname.eyelens>Eye Lens</entityname.eyelens>
   <entitydescription.eyelens>PLACEHOLDER</entitydescription.eyelens>
   
+  <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
+  <entitydescription.nerveconnectors>PLACEHOLDER</entitydescription.nerveconnectors>
   
   <!-- EYE ITEMS -->
   <entityname.transplant_eyes>Eyes Transplant</entityname.transplant_eyes>
@@ -77,7 +79,7 @@
   <afflictionname.eyecataract>Cataract</afflictionname.eyecataract>
   <afflictiondescription.eyecataract>The patient's eyes look cloudy, and their vision is blurred.</afflictiondescription.eyecataract>
   
-  <afflictionname.eyemuscle>Muscle Sonnectors</afflictionname.eyemuscle>
+  <afflictionname.eyemuscle>Muscle Connectors</afflictionname.eyemuscle>
   <afflictiondescription.eyemuscle>Muscle connectors are attached to the eye holes.</afflictiondescription.eyemuscle>
   
   <afflictionname.eyegell>Eye Gel</afflictionname.eyegell>
@@ -98,6 +100,8 @@
   <afflictionname.lasersurgery>Laser Surgery</afflictionname.lasersurgery>
   <afflictiondescription.lasersurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasersurgery>
   
+  <afflictionname.eyenerve>Nerve Connectors</afflictionname.eyenerve>
+  <afflictiondescription.eyenerve>Nerve connectors are attached to the eye holes.</afflictiondescription.eyenerve>
   
   <!-- EYE AFFLICTIONS -->
   <afflictionname.eyebionic>Bionic Eyes</afflictionname.eyebionic>
