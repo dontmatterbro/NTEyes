@@ -30,3 +30,27 @@ DONE																stasis bag compatch for the rest of the values
 DONE 																eye damage even though no eyes
 
 DONE? 	check all damage values
+
+
+
+affliction sprites needed:
+
+DONE				EYES DEAD
+
+EYE POPPED
+
+DONE				CORNEA INCISION
+
+DONE				EMULSIFICATION
+
+DONE				LASER SURGERY
+
+
+
+item sprites needed:
+
+LASER SURGERY DEVICE
+
+NERVE CONNECTORS
+
+EYE LENS
