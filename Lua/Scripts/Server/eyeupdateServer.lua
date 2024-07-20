@@ -81,7 +81,7 @@ function NTEYE.UpdateHumanEye(character)
 		end
 		
 		  
-		if HF.Chance(0.001) and HF.HasAffliction(character, "eyedamage", 10) then
+		if HF.Chance(0.002) and HF.HasAffliction(character, "eyedamage", 10) then
 			HF.AddAfflictionLimb(character, "eyecataract", 11, 1)
 		end
 		  

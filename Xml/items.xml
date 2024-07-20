@@ -344,7 +344,7 @@
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
 		<Explosion range="100" force="300" smoke="false" sparks="false" flames="false" shockwave="true" underwaterbubble="true"  decal="fruitsplatter1" decalsize="1.5" camerashake="65" camerashakerange="6000"  screencolor="255,0,0,100" screencolorrange="3000" screencolorduration="1" />
-        <ParticleEmitter particle="redgoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
         <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
       </StatusEffect>
       <!-- making the organ go kaputt if left outside of refrigeration -->

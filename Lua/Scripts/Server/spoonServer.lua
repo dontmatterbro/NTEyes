@@ -3,9 +3,9 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, worldpo
 
 
   for k, v in pairs(targets) do
+  --item.Condition == math.random(80,90) 
   
-  
-    if v.SpeciesName == "Mudraptor" or v.SpeciesName == "Crawler" or v.SpeciesName == "Hammerhead" or v.SpeciesName == "Spineling" then
+    if v.SpeciesName == "Mudraptor" or v.SpeciesName == "Crawler" or v.SpeciesName == "Hammerhead" then
 		if not HF.HasAffliction(v, "noeye") then
 			HF.AddAfflictionLimb(v, "noeye", 11, 2)
 			Timer.Wait(function()
@@ -36,10 +36,7 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, worldpo
 				Entity.Spawner.AddItemToRemoveQueue(item)
 			end, 1)
 		end
-	end  
-  
-  
-  
+	end
   
   
   
