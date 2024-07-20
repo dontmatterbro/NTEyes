@@ -71,7 +71,7 @@
   </Item>
   
 		<!-- EYE DROPS -->
-  <Item name="" identifier="eyedrops" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
+  <Item name="" identifier="eyedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="100" soldbydefault="false">
@@ -120,7 +120,7 @@
     </Item>
 
 			<!-- MUSCLE CONNECTORS -->
-  <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
+  <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
@@ -143,7 +143,7 @@
   </Item>
 
 			<!-- NERVE CONNECTORS -->
-  <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
+  <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,64,64" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="100" soldbydefault="false">
@@ -166,7 +166,7 @@
   </Item>
 
 		<!-- EYE GEL -->
-  <Item name="" identifier="eyegel" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
+  <Item name="" identifier="eyegel" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="50" soldbydefault="false">
@@ -190,7 +190,7 @@
   </Item>
 
 		<!-- EYE LENS -->
-  <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
+  <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,64,64" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
@@ -344,7 +344,7 @@
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
 		<Explosion range="100" force="300" smoke="false" sparks="false" flames="false" shockwave="true" underwaterbubble="true"  decal="fruitsplatter1" decalsize="1.5" camerashake="65" camerashakerange="6000"  screencolor="255,0,0,100" screencolorrange="3000" screencolorduration="1" />
-        <ParticleEmitter particle="redgoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
         <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
       </StatusEffect>
       <!-- making the organ go kaputt if left outside of refrigeration -->

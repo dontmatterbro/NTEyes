@@ -19,6 +19,8 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     "eyenerve",
 	"eyelid", 
     "eyeone",
+    "lefteyegone",
+    "righteyegone",
     "eyesdead",
     "eyesickness",
     "eyecataract",

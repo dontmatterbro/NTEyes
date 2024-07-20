@@ -31,7 +31,7 @@
   <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
   <entitydescription.nerveconnectors>Connects the eye nerves, use after muscle connectors and before putting the eyes in.</entitydescription.nerveconnectors>
   
-  <entityname.eye_laser_tool>Eye Surgery Laser</entityname.eye_laser_tool>
+  <entityname.eye_laser_tool>Laser Surgery Tool</entityname.eye_laser_tool>
   <entitydescription.eye_laser_tool>A compact surgery tool for treating imperfections of the cornea. Requires high amounts of skill to operate.</entitydescription.eye_laser_tool>
   
   <!-- EYE ITEMS -->

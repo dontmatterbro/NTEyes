@@ -27,10 +27,22 @@
 	</Affliction>
  
 		<!-- EYE ONE -->
-	<Affliction name="" identifier="eyeone" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" iconcolors="255,80,0,255;255,80,0,255">
+	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" iconcolors="255,80,0,255;255,80,0,255">
 		<Effect minstrength="0" maxstrength="2"></Effect>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
+	<!--	<AfflictionOverlay texture="%ModDir%/Textures/Overlays/eyeoneoverlay.png"/> -->
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
+	</Affliction>
+	
+		<!-- LEFT EYE GONE -->
+	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"></Effect>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
+	</Affliction>
+	
+		<!-- RIGHT EYE GONE -->
+	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"></Effect>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
 	
 		<!-- EYES DEAD -->
@@ -56,45 +68,45 @@
 				
 				<!-- SURGERY AFFLICTIONS -->
 			<!-- EYE MUSCLE -->
-	<Affliction name="" identifier="eyemuscle" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="eyemuscle" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="896,128,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- EYE GELL -->
-	<Affliction name="" identifier="eyegell" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="eyegell" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,128,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 	
 		<!-- NERVE CONNECTION -->
-	<Affliction name="" identifier="eyenerve" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="eyenerve" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-1" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="896,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
   
 		<!-- EYE LIDS HELD -->
-	<Affliction name="" identifier="eyelid" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="eyelid" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- EYE POPPED -->
-  	<Affliction name="" identifier="eyepopped" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+  	<Affliction name="" identifier="eyepopped" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- CORNEA INCISION -->
-  	<Affliction name="" identifier="corneaincision" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+  	<Affliction name="" identifier="corneaincision" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-1" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- EMULSIFICATION -->
-	<Affliction name="" identifier="emulsification" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="emulsification" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="2" minscreenblur="90" maxscreenblur="90" minskillmultiplier="0.25" maxskillmultiplier="0.25"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- LASER SURGERY -->
-	<Affliction name="" identifier="lasereyesurgery" description="" type="mus" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+	<Affliction name="" identifier="lasereyesurgery" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,384,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
