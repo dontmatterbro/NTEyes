@@ -9,6 +9,9 @@ described and have its file name/directory known if possible.
 
 additions:
 
+spoon extract human eyes but damages them
+
+
 client side lua detector
 
 add indicator to workshop page for people to turn wall opaque
