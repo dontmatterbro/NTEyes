@@ -31,7 +31,7 @@ function NTEYE.GetItemInSlot(character, slot)
   end
 end
 
---updates human eyes
+--updates human eyes		ORGANIZE THIS LATER ON
 function NTEYE.UpdateHumanEye(character)
 	if not HF.HasAffliction(character, "noeye") or not HF.HasAffliction(character, "eyesdead") or not HF.HasAffliction(targetCharacter, "th_amputation") then
 		if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
@@ -76,7 +76,7 @@ function NTEYE.UpdateHumanEye(character)
 		end
 		
 		if HF.HasAffliction(character, "eyedamage", 99) then
-			NTEYE.ClearCharacterEyeAfflictions(character)
+			NTEYE.ClearCharacterEyeAfflictions(character) -- in eyesurgeryServer.lua
 			HF.AddAfflictionLimb(character, "eyesdead", 11, 2)
 		end
 		
@@ -89,7 +89,7 @@ function NTEYE.UpdateHumanEye(character)
 			HF.AddAfflictionLimb(character, "eyecataract", 11, 0.4)
 		end
 		  
-		if HF.HasAffliction(character, "eyehusk") and HF.Chance(0.001) then
+		if HF.HasAffliction(character, "eyehusk") and HF.Chance(0.003) then
 			HF.AddAffliction(character, "huskinfection", 5)
 		end
 		  
@@ -136,7 +136,13 @@ function NTEYE.UpdateHumanEye(character)
 		if HF.HasAffliction(character, "eyedrop") then
 			HF.AddAfflictionLimb(character, "eyedrop", 11, -2)
 		end
+	
+		if HF.HasAffliction(character, "eyeone") and not HF.HasAffliction(character, "lefteyegone") and not HF.HasAffliction(character, "righteyegone") then 
+			if math.random(1,2) == 1 then HF.AddAfflictionLimb(character, "lefteyegone", 11, 2) else HF.AddAfflictionLimb(character, "righteyegone", 11, 2)	end
+		end
+	
 	end
+	
 end 
 
 

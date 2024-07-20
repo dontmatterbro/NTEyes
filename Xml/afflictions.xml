@@ -34,15 +34,15 @@
 	</Affliction>
 	
 		<!-- LEFT EYE GONE -->
-	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2">
+	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
 		<Effect minstrength="0" maxstrength="2"></Effect>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/red.png"/>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
 	</Affliction>
 	
 		<!-- RIGHT EYE GONE -->
-	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2">
+	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
 		<Effect minstrength="0" maxstrength="2"></Effect>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blue.png"/>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
 	
 		<!-- EYES DEAD -->
