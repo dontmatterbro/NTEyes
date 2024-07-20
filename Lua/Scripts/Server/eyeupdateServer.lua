@@ -63,16 +63,23 @@ function NTEYE.UpdateHumanEye(character)
 			HF.AddAfflictionLimb(character, "eyeshock", 11, -1000) --removes eye shock if immunity is below 10
 		end
 		  
-		if HF.HasAffliction(character, "eyedamage", 25) then
+		if HF.HasAffliction(character, "eyedamage", 37) and not HF.HasAffliction(character, "eyeone") then
 			NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
-			if HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyeone") then
-			  HF.AddAfflictionLimb(character, "eyeone", 11, 2)
-			end
-			if HF.HasAffliction(character, "eyedamage", 99) then
-			  NTEYE.ClearCharacterEyeAfflictions(character)
-			  HF.AddAfflictionLimb(character, "eyesdead", 11, 2)
-			end
 		end
+		
+		if HF.HasAffliction(character, "eyedamage", 50) and not HF.HasAffliction(character, "eyeone") then
+			HF.AddAfflictionLimb(character, "eyeone", 11, 2)
+		end
+		
+		if HF.HasAffliction(character, "eyedamage", 75) then
+			NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
+		end
+		
+		if HF.HasAffliction(character, "eyedamage", 99) then
+			NTEYE.ClearCharacterEyeAfflictions(character)
+			HF.AddAfflictionLimb(character, "eyesdead", 11, 2)
+		end
+		
 		  
 		if HF.Chance(0.001) and HF.HasAffliction(character, "eyedamage", 10) then
 			HF.AddAfflictionLimb(character, "eyecataract", 11, 1)

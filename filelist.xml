@@ -16,5 +16,7 @@
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+  <Other file="%ModDir%/Textures/Overlays/red.png" />
+  <Other file="%ModDir%/Textures/Overlays/blue.png" />
 
 </contentpackage>

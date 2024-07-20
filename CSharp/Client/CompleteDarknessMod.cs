@@ -1,4 +1,4 @@
-//thank you guns for letting us use this ------ original: https://steamcommunity.com/sharedfiles/filedetails/?id=3241041855&searchtext=global+darkness
+//thank you Heelge for letting us use this ------ original: https://steamcommunity.com/sharedfiles/filedetails/?id=3241041855
 
 using System;
 using System.Reflection;
