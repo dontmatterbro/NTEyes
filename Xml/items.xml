@@ -239,7 +239,7 @@
     <Sprite name="Corrective glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,640,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="30" height="15" density="30" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
-      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.25" sourcerect="0,640,128,128" origin="0.59,0.44" />
+      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.29" sourcerect="0,640,128,128" origin="0.525,0.51" />
     </Wearable>
   </Item>
   
@@ -256,7 +256,12 @@
     <Sprite name="Aviator Glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,640,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="30" height="15" density="30" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
-      <sprite name="Aviator Glasses Wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.25" sourcerect="128,640,128,128" origin="0.59,0.44" />
+		<SkillModifier skillidentifier="helm" skillvalue="45" />
+		<SkillModifier skillidentifier="weapons" skillvalue="-45" />
+		<SkillModifier skillidentifier="medical" skillvalue="-45" />
+		<SkillModifier skillidentifier="electrical" skillvalue="-45" />
+		<SkillModifier skillidentifier="mechanical" skillvalue="-45" />
+		<sprite name="Aviator Glasses Wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.29" sourcerect="128,640,128,128" origin="0.52,0.525" />
     </Wearable>
   </Item>
   
