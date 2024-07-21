@@ -5,6 +5,11 @@ function NTEYE.CanSurgery(character)
 	return true end
 end
 
+function NTEYE.HasEyes(targetCharacter)
+	if not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") 
+	then return true
+	end
+end
 
 --removes eye afflications after surgery
 function NTEYE.ClearCharacterEyeAfflictions(character)
@@ -61,7 +66,7 @@ end
 
 --This function gives eyes back after removal surgery
 function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
-	if not HF.HasAffliction(character, "noeye") or not HF.HasAffliction(character, "eyesdead") or not HF.HasAffliction(targetCharacter, "th_amputation") then
+	if not HF.HasAffliction(character, "noeye") and not HF.HasAffliction(character, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") then
 		if HF.HasAffliction(character, "eyebionic") then
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
 		elseif HF.HasAffliction(character, "eyenight") then
@@ -103,14 +108,14 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 						end, 1000 * i)
 					end
 					HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
-					HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 5)	
+					if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 5) end
 					if HF.Chance(0.5) then
 						HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
 					end
 				end
 			end
 		end
-		
+
 		if identifier == "organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
 			if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and HF.HasAffliction(targetCharacter, "eyepopped") then
 				if HF.GetSurgerySkillRequirementMet(usingCharacter, 55) then
@@ -125,7 +130,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 						end, 1000 * i)
 					end
 					HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
-					HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	
+					if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	end
 					if HF.Chance(0.5) then
 						HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
 					end
@@ -281,11 +286,11 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 					Timer.Wait(function()
 						HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 5)
 						HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 40)
-						HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 12)
+						if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 12) end
 					end, 1000 * i)
 				end
 				HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100) 
-				HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 20)
+				if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 20) end
 				if HF.Chance(0.3) then
 				HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 2)
 				end
@@ -333,12 +338,12 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 									HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 5)
 									HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100)
 									HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
-									HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 10)
+									if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 10) end
 								end, 1000 * i)
 							end
 							HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 20)
 							HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 50)
-							HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	
+							if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	end
 							if HF.Chance(0.2) then
 								HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 50)
 							end
