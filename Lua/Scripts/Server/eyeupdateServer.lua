@@ -31,7 +31,7 @@ function NTEYE.GetItemInSlot(character, slot)
   end
 end
 
---updates human eyes		ORGANIZE THIS LATER ON
+--updates human eyes		horrendous code format, I am gonna fix this later on, works for now tho
 function NTEYE.UpdateHumanEye(character)
 	if not HF.HasAffliction(character, "noeye") or not HF.HasAffliction(character, "eyesdead") or not HF.HasAffliction(targetCharacter, "th_amputation") then
 		if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then

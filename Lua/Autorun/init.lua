@@ -10,11 +10,12 @@ Timer.Wait(function() if NTC ~= nil then NTC.RegisterExpansion(NTEYE) end end,1)
 -- singleplayer bit buggy due to client only features, maybe a add-on patch later on? why not just make a local server like minecraft barodevs :( ???
 
 Timer.Wait(function() 
-	if SERVER and NTC == nil then
+	if SERVER and NTC == nil then --checks if NT is installed
 		print("Error loading NT Eyes: It SEEms Neurotrauma isn't loaded!")
 		return
 	end
 	
+		--server side scripts
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeupdateServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyesurgeryServer.lua")
@@ -23,6 +24,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
 	end
 		
+		--client side scripts
 	if CLIENT then
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua") 
 	end

@@ -1,5 +1,5 @@
 
-Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, worldpos)
+Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetCharacter, worldpos)
 
 
   for k, v in pairs(targets) do
@@ -37,8 +37,14 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, worldpo
 			end, 1)
 		end
 	end
-  
-  
-  
+
+--[[ add humans to spoon  
+	if not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
+		if HF.CanPerformSurgeryOn(targetCharacter) then
+			NTEYE.GiveItemBasedOnEye(targetCharacter)
+		end
+	end
+--]]  
+
   end 
 end) 
