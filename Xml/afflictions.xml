@@ -28,20 +28,16 @@
  
 		<!-- EYE ONE -->
 	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" iconcolors="255,80,0,255;255,80,0,255">
-		<Effect minstrength="0" maxstrength="2"></Effect>
-	<!--	<AfflictionOverlay texture="%ModDir%/Textures/Overlays/eyeoneoverlay.png"/> -->
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
 	</Affliction>
 	
 		<!-- LEFT EYE GONE -->
 	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
-		<Effect minstrength="0" maxstrength="2"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
 	</Affliction>
 	
 		<!-- RIGHT EYE GONE -->
 	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
-		<Effect minstrength="0" maxstrength="2"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
 	
