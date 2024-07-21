@@ -48,10 +48,10 @@
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,384,128,128"  origin="0,0" />
 	</Affliction>
   
-		<!-- EYE SICKNESS -->
+		<!-- VISION SICKNESS -->
 	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">
 		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8" strengthchange="-0.4"></Effect>
-		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="1" minscreenblur="0.4" maxscreenblur="0.5" minradialdistort="0.1" maxradialdistort="0.2" minchromaticaberration="1" maxchromaticaberration="2" minskillmultiplier="0.8" maxskillmultiplier="0.5" strengthchange="-1"></Effect>
+		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="1" minscreenblur="0.4" maxscreenblur="0.5" minradialdistort="0.1" maxradialdistort="0.2" minchromaticaberration="1" maxchromaticaberration="2" minskillmultiplier="1" maxskillmultiplier="0.5" strengthchange="-1"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,0,128,128"  origin="0,0" />
 	</Affliction>
   

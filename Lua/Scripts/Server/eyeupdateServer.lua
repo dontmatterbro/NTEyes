@@ -35,7 +35,7 @@ end
 function NTEYE.UpdateHumanEye(character)
 	if not HF.HasAffliction(character, "noeye") or not HF.HasAffliction(character, "eyesdead") or not HF.HasAffliction(targetCharacter, "th_amputation") then
 		if HF.HasAffliction(character, "cerebralhypoxia", 60) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
-			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
 		end
 		  
 		if HF.HasAffliction(character, "hypoxemia", 75) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then 
@@ -48,7 +48,7 @@ function NTEYE.UpdateHumanEye(character)
 			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
 		end
 		  
-		if HF.HasAffliction(character, "sepsis", 40) and not HF.HasAffliction(character, "stasis") then
+		if HF.HasAffliction(character, "sepsis", 40) and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "stasis") then
 			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
 		end
 		  
@@ -113,11 +113,11 @@ function NTEYE.UpdateHumanEye(character)
 			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.05)
 		end
 		  
-		if HF.HasAffliction(character, "eyedrop") and not HF.HasAffliction(character, "eyedamage", 50) then -- I will let surgery and drops stack
+		if HF.HasAffliction(character, "eyedrop") and not HF.HasAffliction(character, "eyebionic") and not HF.HasAffliction(character, "eyedamage", 50) then -- I will let surgery and drops stack
 			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.2)
 		end
 
-		if HF.HasAffliction(character, "eyedrop") and HF.HasAffliction(character, "eyedamage", 51) and not HF.HasAffliction(character, "eyedamage", 95) then -- I will let surgery and drops stack
+		if HF.HasAffliction(character, "eyedrop") and HF.HasAffliction(character, "eyedamage", 51) and not HF.HasAffliction(character, "eyedamage", 95) and not HF.HasAffliction(character, "eyebionic") then -- I will let surgery and drops stack
 			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.2)
 		end
 

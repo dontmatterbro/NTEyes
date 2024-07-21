@@ -276,15 +276,15 @@
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="2" />
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" maxavailable="2" minavailable="1" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="70">
-      <RequiredSkill identifier="medical" level="70" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="85">
+      <RequiredSkill identifier="medical" level="80" />
       <RequiredItem identifier="transplant_eyes_monster" mincondition="0.80" usecondition="false" />
       <RequiredItem identifier="antibloodloss1" amount="3"/>
       <RequiredItem identifier="alienblood" />
       <RequiredItem identifier="chlorine" amount="3"/>
     </Fabricate>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
-      <RequiredSkill identifier="medical" level="60" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="75">
+      <RequiredSkill identifier="medical" level="70" />
       <RequiredItem identifier="transplant_eyes_husk" mincondition="0.80" usecondition="false" />
       <RequiredItem identifier="antibloodloss1" amount="3"/>
       <RequiredItem identifier="alienblood" />

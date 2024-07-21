@@ -76,6 +76,7 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_husk", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
 		elseif HF.HasAffliction(character, "eyeterror") then
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 90 - HF.GetAfflictionStrength(character, "eyedamage", 0))
+			NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 6)
 		else
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
 		end
@@ -206,6 +207,7 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 				HF.SetAfflictionLimb(targetCharacter, "eyemonster", 11, 2)
 				HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
 				if HF.Chance(0.8*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
+				NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 4)
 					HF.AddAfflictionLimb(targetCharacter, "eyeshock", 11, 10)
 				end
 				item.Condition = 0
@@ -216,6 +218,7 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 				HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
 				HF.SetAfflictionLimb(targetCharacter, "eyehusk", 11, 2)
 				HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
+				NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 4)
 				if HF.Chance(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
 					HF.AddAfflictionLimb(targetCharacter, "eyeshock", 11, 10)
 				end
@@ -227,6 +230,7 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 				HF.SetAfflictionLimb(targetCharacter, "eyesickness", 11, 100)
 				HF.SetAfflictionLimb(targetCharacter, "eyeterror", 11, 2)
 				HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
+				NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 6)
 				if HF.Chance(0.5*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) then
 					HF.AddAfflictionLimb(targetCharacter, "eyeshock", 11, 25)
 				end
