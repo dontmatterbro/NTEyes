@@ -12,7 +12,7 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
 end)
 
 
---Eye Effect Check Functions shouldn't run on server
+--Eye Effect Check Functions only runs on client
 function NTEYE.UpdateHumanEyeEffect(character)
 --print("debug:UpdateHumanEyeEffect")
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
@@ -38,9 +38,9 @@ elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
  
 elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(0, 0, 255, 0)
+		parameters.AmbientLightColor = Color(0, 0, 255, 5)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(0, 0, 255, 0) 
+        hull.AmbientLight = Color(0, 0, 255, 5) 
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
@@ -68,12 +68,14 @@ elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
         end
 
 else	local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(10, 10, 10, 10)
+		parameters.AmbientLightColor = Color(10, 10, 10, 25)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(20, 20, 20, 20) 
+        hull.AmbientLight = Color(20, 20, 20, 35) 
         end
+		
 		if Character.Controlled ~= nil then 
 			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
 		end
+		
 	end
 end

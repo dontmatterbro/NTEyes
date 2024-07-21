@@ -98,7 +98,7 @@ then return end
 				HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength)
 
 
-			--explode eyes (old code made sense, kept it)
+			--explode eyes (old code made sense, enhanced it)
 			elseif v.Identifier == "explosiondamage" then
 				HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength * math.random(1,10))
 			print(v.Strength)

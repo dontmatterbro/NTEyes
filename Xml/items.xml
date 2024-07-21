@@ -22,8 +22,8 @@
       <Price locationtype="military" multiplier="1.2" sold="false" />
       <Price locationtype="mine" multiplier="1.3" sold="false" />
     </Price>
-    <InventoryIcon texture="%ModDir:Neurotrauma%/Images/InventoryItemIconAtlas.png" sourcerect="448,128,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="131,203,122,8" depth="0.55" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,768,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="129,887,122,8" depth="0.55" origin="0.5,0.5" />
     <Body width="65" height="15" density="50" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-7,-5" holdangle="60" reload="1.0">
       <!-- extracting organ -->
@@ -78,7 +78,7 @@
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="5">
-      <RequiredSkill identifier="medical" level="10" />
+      <RequiredSkill identifier="medical" level="30" />
       <RequiredItem identifier="pomegrenadeextract" />
       <RequiredItem identifier="antibloodloss1" />
     </Fabricate>
@@ -144,7 +144,7 @@
 
 			<!-- NERVE CONNECTORS -->
   <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,64,64" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -191,7 +191,7 @@
 
 		<!-- EYE LENS -->
   <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,64,64" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
@@ -235,13 +235,37 @@
 		<Item identifier="iron" />
         <Item identifier="plastic" />
 	</Deconstruct>
-    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,256,128" origin="0.5,0.5" />
-    <Sprite name="Corrective glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,256,128" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="384,896,128,128" origin="0.5,0.5" />
+    <Sprite name="Corrective glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,640,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="30" height="15" density="30" />
     <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
-      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.25" sourcerect="384,896,256,128" origin="0.59,0.44" />
+      <sprite name="Corrective glasses wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.29" sourcerect="0,640,128,128" origin="0.525,0.51" />
     </Wearable>
   </Item>
+  
+		<!-- AVIATOR GLASSES 						CHECK THIS OUT, make it rarely findable (barotraumatic code i guess?? -->
+  <Item name="" identifier="aviatorglasses" scale="0.17" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+    <Price baseprice="750" soldeverywhere="false">
+      <Price locationtype="military" multiplier="3" />
+    </Price>
+	<Deconstruct time="7">
+		<Item identifier="iron" />
+        <Item identifier="plastic" />
+	</Deconstruct>
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="512,896,128,128" origin="0.5,0.5" />
+    <Sprite name="Aviator Glasses" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,640,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="15" density="30" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+		<SkillModifier skillidentifier="helm" skillvalue="45" />
+		<SkillModifier skillidentifier="weapons" skillvalue="-45" />
+		<SkillModifier skillidentifier="medical" skillvalue="-45" />
+		<SkillModifier skillidentifier="electrical" skillvalue="-45" />
+		<SkillModifier skillidentifier="mechanical" skillvalue="-45" />
+		<sprite name="Aviator Glasses Wearable" texture="%ModDir%/Textures/ItemIcons.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.29" sourcerect="128,640,128,128" origin="0.52,0.525" />
+    </Wearable>
+  </Item>
+  
+  
   
 			<!-- EYE ITEMS -->
 		<!-- REGULAR EYES -->
@@ -252,15 +276,15 @@
       <Price storeidentifier="merchantresearch" multiplier="1.2" sold="true" maxavailable="2" />
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" maxavailable="2" minavailable="1" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="70">
-      <RequiredSkill identifier="medical" level="70" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="85">
+      <RequiredSkill identifier="medical" level="80" />
       <RequiredItem identifier="transplant_eyes_monster" mincondition="0.80" usecondition="false" />
       <RequiredItem identifier="antibloodloss1" amount="3"/>
       <RequiredItem identifier="alienblood" />
       <RequiredItem identifier="chlorine" amount="3"/>
     </Fabricate>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
-      <RequiredSkill identifier="medical" level="60" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="75">
+      <RequiredSkill identifier="medical" level="70" />
       <RequiredItem identifier="transplant_eyes_husk" mincondition="0.80" usecondition="false" />
       <RequiredItem identifier="antibloodloss1" amount="3"/>
       <RequiredItem identifier="alienblood" />

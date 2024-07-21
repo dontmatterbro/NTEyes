@@ -14,7 +14,6 @@
 
   <!-- Overlays (these need a rework, most of them are unused.) -->
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/eyeoneoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/leftblind.png" />
   <Other file="%ModDir%/Textures/Overlays/rightblind.png" />
