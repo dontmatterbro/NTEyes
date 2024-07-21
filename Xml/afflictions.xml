@@ -10,7 +10,7 @@
 	</Affliction>
   
 		<!-- EYE DAMAGE -->
-	<Affliction name="" identifier="eyedamage" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="25" showinhealthscannerthreshold="1" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="50,50,0,255;255,50,50,255">
+	<Affliction name="" identifier="eyedamage" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="25" showinhealthscannerthreshold="10" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="50,50,0,255;255,50,50,255">
 		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8"></Effect>
 		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="15" minscreenblur="0.4" maxscreenblur="100" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="0.8" maxskillmultiplier="0.25"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,0,128,128"  origin="0,0" />
@@ -27,37 +27,39 @@
 	</Affliction>
  
 		<!-- EYE ONE -->
-	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" iconcolors="255,80,0,255;255,80,0,255">
+	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" showinhealthscannerthreshold="100" iconcolors="255,80,0,255;255,80,0,255">
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
 	</Affliction>
 	
 		<!-- LEFT EYE GONE -->
-	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
+	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"/>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
 	</Affliction>
 	
 		<!-- RIGHT EYE GONE -->
-	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="101" showinhealthscannerthreshold="101" maxstrength="2">
+	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"/>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
 	
 		<!-- EYES DEAD -->
-	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
+	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
 		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25"></Effect>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,384,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- VISION SICKNESS -->
-	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">
+	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">
 		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8" strengthchange="-0.4"></Effect>
 		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="1" minscreenblur="0.4" maxscreenblur="0.5" minradialdistort="0.1" maxradialdistort="0.2" minchromaticaberration="1" maxchromaticaberration="2" minskillmultiplier="1" maxskillmultiplier="0.5" strengthchange="-1"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,0,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- EYE CATARACT-->
-	<Affliction name="" identifier="eyecataract" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="80" showinhealthscannerthreshold="10" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="250,211,211,255;250,211,211,255">
-		<Effect minstrength="0" maxstrength="100" minscreendistort="0" maxscreendistort="0.2" minscreenblur="0" maxscreenblur="1" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0.1" minskillmultiplier="1.0" maxskillmultiplier="0.9"></Effect>
+	<Affliction name="" identifier="eyecataract" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="80" showinhealthscannerthreshold="20" maxstrength="100" isbuff="false" healableinmedicalclinic="false" iconcolors="250,211,211,255;250,211,211,255">
+		<Effect minstrength="20" maxstrength="100" minscreendistort="0" maxscreendistort="0.2" minscreenblur="0" maxscreenblur="0.7" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0.1" minskillmultiplier="1.0" maxskillmultiplier="0.9"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,0,128,128"  origin="0,0" />
 	</Affliction>
 	

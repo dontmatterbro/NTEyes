@@ -22,8 +22,8 @@
       <Price locationtype="military" multiplier="1.2" sold="false" />
       <Price locationtype="mine" multiplier="1.3" sold="false" />
     </Price>
-    <InventoryIcon texture="%ModDir:Neurotrauma%/Images/InventoryItemIconAtlas.png" sourcerect="448,128,64,64" origin="0.5,0.5" />
-    <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="131,203,122,8" depth="0.55" origin="0.5,0.5" />
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,768,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="129,887,122,8" depth="0.55" origin="0.5,0.5" />
     <Body width="65" height="15" density="50" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-7,-5" holdangle="60" reload="1.0">
       <!-- extracting organ -->
@@ -78,7 +78,7 @@
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="5">
-      <RequiredSkill identifier="medical" level="10" />
+      <RequiredSkill identifier="medical" level="30" />
       <RequiredItem identifier="pomegrenadeextract" />
       <RequiredItem identifier="antibloodloss1" />
     </Fabricate>

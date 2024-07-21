@@ -94,7 +94,7 @@ function NTEYE.UpdateHumanEye(character)
 		end
 		  
 		if HF.HasAffliction(character, "eyecataract", 40) then
-			NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
+			NTC.SetSymptomTrue(character, "sym_blurredvision", 4)
 		end
 		  
 		if NTEYE.GetItemInSlot(character, InvSlotType.Head) and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" then
@@ -105,7 +105,7 @@ function NTEYE.UpdateHumanEye(character)
 			HF.AddAfflictionLimb(character, "eyedamage", 11, 4)
 		end
 		  
-		if HF.HasAffliction(character, "eyedamage") and not HF.HasAffliction(character, "eyedamage", 50) then 
+		if HF.HasAffliction(character, "eyedamage") and not HF.HasAffliction(character, "eyedamage", 51) then 
 			HF.AddAfflictionLimb(character, "eyedamage", 11, -0.05)
 		end
 

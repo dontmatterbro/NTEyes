@@ -68,9 +68,9 @@ elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
         end
 
 else	local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(10, 10, 10, 15)
+		parameters.AmbientLightColor = Color(10, 10, 10, 25)
 		for k, hull in pairs(Hull.HullList) do
-        hull.AmbientLight = Color(20, 20, 20, 25) 
+        hull.AmbientLight = Color(20, 20, 20, 35) 
         end
 		
 		if Character.Controlled ~= nil then 
