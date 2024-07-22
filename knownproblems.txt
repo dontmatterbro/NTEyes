@@ -11,6 +11,7 @@ additions:
 
 spoon extract human eyes but damages them
 
+eye patch to ease blur
 
 client side lua detector
 
