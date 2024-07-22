@@ -31,7 +31,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyenight") then
  
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
-		parameters.AmbientLightColor = Color(25, 0, 75, 25)
+		parameters.AmbientLightColor = Color(25, 0, 75, 40)
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(50, 0, 200, 75) 
         end

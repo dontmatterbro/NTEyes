@@ -130,7 +130,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 						end, 1000 * i)
 					end
 					HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
-					if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	end
+					if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 12)	end
 					if HF.Chance(0.5) then
 						HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
 					end

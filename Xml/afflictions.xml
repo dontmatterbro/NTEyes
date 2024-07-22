@@ -11,8 +11,8 @@
   
 		<!-- EYE DAMAGE -->
 	<Affliction name="" identifier="eyedamage" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="25" showinhealthscannerthreshold="10" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="50,50,0,255;255,50,50,255">
-		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8"></Effect>
-		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="15" minscreenblur="0.4" maxscreenblur="100" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="0.8" maxskillmultiplier="0.25"></Effect>
+		<Effect minstrength="0" maxstrength="51" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.9"></Effect>
+		<Effect minstrength="52" maxstrength="100" minscreendistort="0.5" maxscreendistort="15" minscreenblur="0.4" maxscreenblur="100" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="0.8" maxskillmultiplier="0.35"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,0,128,128"  origin="0,0" />
 	</Affliction>
   

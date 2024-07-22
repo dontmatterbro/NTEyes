@@ -74,8 +74,8 @@
   <Item name="" identifier="eyedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
-    <Price baseprice="100" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="1" />
+    <Price baseprice="70" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="4" />
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="5">
       <RequiredSkill identifier="medical" level="30" />
