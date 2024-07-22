@@ -1,6 +1,6 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.0"
+NTEYE.Version = "A1.0.0"
 NTEYE.VersionNum = 01000000
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401

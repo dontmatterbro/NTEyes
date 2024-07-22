@@ -5,7 +5,7 @@
   <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
   <entitydescription.nightgoggles>Standard Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
   
-  <entityname.organscalpel_eyes>Organ Procurement Scalpel: Eyes</entityname.organscalpel_eyes>
+  <entityname.organscalpel_eyes>Precision Eye Scalpel</entityname.organscalpel_eyes>
   <entitydescription.organscalpel_eyes>A specialized scalpel used in eye surgeries.</entitydescription.organscalpel_eyes>
   
   <entityname.eyespoon>Advanced Eyeball Extraction Device</entityname.eyespoon>
@@ -13,6 +13,9 @@
   
   <entityname.eyeglasses>Corrective Glasses</entityname.eyeglasses>
   <entitydescription.eyeglasses>An outdated device used in temporairly relieving vision problems.</entitydescription.eyeglasses>
+  
+  <entityname.aviatorglasses>Aviator Glasses</entityname.aviatorglasses>
+  <entitydescription.aviatorglasses>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.</entitydescription.aviatorglasses>
   
   
   <!-- SURGERY ITEMS -->
@@ -31,7 +34,7 @@
   <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
   <entitydescription.nerveconnectors>Connects the eye nerves, use after muscle connectors and before putting the eyes in.</entitydescription.nerveconnectors>
   
-  <entityname.eye_laser_tool>Eye Surgery Laser</entityname.eye_laser_tool>
+  <entityname.eye_laser_tool>Laser Surgery Tool</entityname.eye_laser_tool>
   <entitydescription.eye_laser_tool>A compact surgery tool for treating imperfections of the cornea. Requires high amounts of skill to operate.</entitydescription.eye_laser_tool>
   
   <!-- EYE ITEMS -->
@@ -62,7 +65,7 @@
   
   <!-- AFFLICTIONS -->
   <afflictionname.noeye>Eyes Removed</afflictionname.noeye>
-  <afflictiondescription.noeye>The patient's eyes are gone, with empty, red holes being there instead. Horrific.</afflictiondescription.noeye>
+  <afflictiondescription.noeye>The patient's eyes have been surgically removed, with empty, red holes taking their place. Horrific.</afflictiondescription.noeye>
   
   <afflictionname.eyedamage>Eye Damage</afflictionname.eyedamage>
   <afflictiondescription.eyedamage>The patient's eyes look flat, and they have trouble seeing.</afflictiondescription.eyedamage>
@@ -77,7 +80,7 @@
   <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
   
   <afflictionname.eyesdead>Dead Eyes</afflictionname.eyesdead>
-  <afflictiondescription.eyesdead>The patient has lost all vision.</afflictiondescription.eyesdead>
+  <afflictiondescription.eyesdead>The patient has lost all vision and their eyes are unresponsive.</afflictiondescription.eyesdead>
   
   <afflictionname.eyesickness>Vision Sickness</afflictionname.eyesickness>
   <afflictiondescription.eyesickness>The patient has trouble seeing, likely because of a recent eye transplant. Should wear off in time.</afflictiondescription.eyesickness>
