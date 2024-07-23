@@ -2,20 +2,20 @@
 <infotexts language="Turkish" nowhitespace="false" translatedname="Türkçe">
 
   <!-- ITEMS -->
-  <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
-  <entitydescription.nightgoggles>Standard Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
+  <entityname.nightgoggles>Gece Görüşü Gözlüğü</entityname.nightgoggles>
+  <entitydescription.nightgoggles>Standart Gece Görüşü Gözlüğü. Pil ile çalışır.</entitydescription.nightgoggles>
   
-  <entityname.organscalpel_eyes>Precision Eye Scalpel</entityname.organscalpel_eyes>
-  <entitydescription.organscalpel_eyes>A specialized scalpel used in eye surgeries.</entitydescription.organscalpel_eyes>
+  <entityname.organscalpel_eyes>Cerrahi Göz Neşteri</entityname.organscalpel_eyes>
+  <entitydescription.organscalpel_eyes>Göz ameliyatlarında kullanılması için özelleştirilmiş bir neşter.</entitydescription.organscalpel_eyes>
   
-  <entityname.eyespoon>Advanced Eyeball Extraction Device</entityname.eyespoon>
-  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of donor eyes. Does not work on humans.</entitydescription.eyespoon>
+  <entityname.eyespoon>Gelişmiş Göz Nakil Cihazı</entityname.eyespoon>
+  <entitydescription.eyespoon>Nakil gözlerin bedenlerden çıkarılabilmesi geliştirilmiş ileri düzey bir cihaz. İnsan üzerinde işlevsiz.</entitydescription.eyespoon>
   
-  <entityname.eyeglasses>Corrective Glasses</entityname.eyeglasses>
-  <entitydescription.eyeglasses>An outdated device used in temporairly relieving vision problems.</entitydescription.eyeglasses>
+  <entityname.eyeglasses>Numaralı Gözlük</entityname.eyeglasses>
+  <entitydescription.eyeglasses>Görme bozukluklarını geçiçi olarak önleyebilen çağ dışı bir cihaz.</entitydescription.eyeglasses>
   
-  <entityname.aviatorglasses>Aviator Glasses</entityname.aviatorglasses>
-  <entitydescription.aviatorglasses>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.</entitydescription.aviatorglasses>
+  <entityname.aviatorglasses>Pilot Gözlükleri</entityname.aviatorglasses>
+  <entitydescription.aviatorglasses>Uçan araç kumandanlarının taktığı antik bir aksesuar. Özgüveni ciddi derecede arttırıyor.</entitydescription.aviatorglasses>
   
   
   <!-- SURGERY ITEMS -->
