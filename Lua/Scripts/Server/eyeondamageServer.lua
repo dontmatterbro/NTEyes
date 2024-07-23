@@ -25,85 +25,88 @@ then return end
 				
 				--bullet hit both eyes (lmao)
 				if HF.Chance(0.001 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(80, 95))
-				end
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(500,1000)/1000 * v.Strength)
 				
 				--bullet hit eye
-				if HF.Chance(0.003 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(50, 60))
-				end
+				elseif HF.Chance(0.0025 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(250,500)/1000 * v.Strength)
 				
 				--bullet grazed eye
-				if HF.Chance(0.01 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(1, 40))
+				elseif HF.Chance(0.004 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(100,250)/1000 * v.Strength)
 				end
+			end
 			
 			
 			--scratch eye
-			elseif v.Identifier == "lacerations" then
+			if v.Identifier == "lacerations" then
 				
 				--blade hit both eyes (lmao x2)
-				if HF.Chance(0.002 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(80,95))
-				end
+				if HF.Chance(0.001 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(500,1000)/1000 * v.Strength)
+				
 				
 				--blade hit eye
-				if HF.Chance(0.006 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(50, 60))
-				end
+				elseif HF.Chance(0.003 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(250,500)/1000 * v.Strength)
+				
 				
 				--blade grazed eye
-				if HF.Chance(0.02 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(1, 40))
+				elseif HF.Chance(0.009 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(100,250)/1000 * v.Strength)
 				end
-		
+			end
+			
+			
 			--bite eye (yummy)
-			elseif v.Identifier == "bitewounds" then
+			if v.Identifier == "bitewounds" then
 				
 				--bite bit both eyes (lmao x3)
 				if HF.Chance(0.002 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(80,95))
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(500,1000)/1000 * v.Strength)
 				end
 				
 				--bite bit eye
-				if HF.Chance(0.008 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(50, 60))
+				if HF.Chance(0.004 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(250,500)/1000 * v.Strength)
 				end
 				
 				--bite grazed eye
-				if HF.Chance(0.04 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(1, 40))
+				if HF.Chance(0.01 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(100,250)/1000 * v.Strength)
 				end
-
+			end
+			
+			
 			--blunttrauma eye
-			elseif v.Identifier == "blunttrauma" then
+			if v.Identifier == "blunttrauma" then
 				
 				--object hit both eyes (lmao x4)
 				if HF.Chance(0.001 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(80,95))
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(500,1000)/1000 * v.Strength)
 				end
 				
 				--object hit eye
 				if HF.Chance(0.002 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(50, 60))
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(250,500)/1000 * v.Strength)
 				end
 				
 				--object grazed eye
-				if HF.Chance(0.01 * v.Strength) then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(1, 40))
+				if HF.Chance(0.004 * v.Strength) then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(100,250)/1000 * v.Strength)
 				end
-
+			end
+		
 			--burn eyes (old code made sense, kept it)
-			elseif v.Identifier == "burn" then
+			if v.Identifier == "burn" then
 				HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength)
-
+			end
 
 			--explode eyes (old code made sense, enhanced it)
-			elseif v.Identifier == "explosiondamage" then
-				HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength * math.random(1,10))
-			print(v.Strength)
-		
+			if v.Identifier == "explosiondamage" then
+				HF.AddAfflictionLimb(character, "eyedamage", 11, math.random(100,1000)/1000 * v.Strength)
 			end
+		
 		end
 	end
 end)
