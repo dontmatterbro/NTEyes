@@ -44,7 +44,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
-		Character.Controlled.TeamID = 0
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 0 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 5)
 		for k, hull in pairs(Hull.HullList) do
@@ -52,7 +52,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
-		Character.Controlled.TeamID = 4 
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 4 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(115, 115, 20, 5)
 		for k, hull in pairs(Hull.HullList) do
@@ -60,7 +60,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		Character.Controlled.TeamID = 2 
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 2 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do
