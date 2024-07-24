@@ -19,23 +19,24 @@
   
   
   <!-- SURGERY ITEMS -->
-  <entityname.eyedrops>Eye Drops</entityname.eyedrops>
-  <entitydescription.eyedrops>Hastens the recovery of eyes.</entitydescription.eyedrops>
+  <entityname.eyedrops>Göz Damlası</entityname.eyedrops>
+  <entitydescription.eyedrops>Gözlerin iyileşmesini hızlandırır..</entitydescription.eyedrops>
   
-  <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors> 
-  <entitydescription.muscleconnectors>Connects the eye muscles, use after eye gel and before nerve connectors.</entitydescription.muscleconnectors>
+  <entityname.muscleconnectors>Kas Bağlayıcıları</entityname.muscleconnectors> 
+  <entitydescription.muscleconnectors>Göz kası bağlantılarını kurar, göz jelinden sonra sinir bağlantılarından önce uygulanır.</entitydescription.muscleconnectors>
  
-  <entityname.eyegel>Eye Gel</entityname.eyegel>
-  <entitydescription.eyegel>Moisturizes the eye holes, use before muscle connectors.</entitydescription.eyegel>
+  <entityname.eyegel>Göz Jeli</entityname.eyegel>
+  <entitydescription.eyegel>Göz yuvalarını nemlendirir, kas bağlayıcılarından önce kullanılır.</entitydescription.eyegel>
   
-  <entityname.eyelens>Eye Lens</entityname.eyelens>
-  <entitydescription.eyelens>Used in cataract surgeries, put in after emulsification.</entitydescription.eyelens>
+  <entityname.nerveconnectors>Sinir Bağlayıcı</entityname.nerveconnectors>
+  <entitydescription.nerveconnectors>Göz sinirlerini beyine bağlar, kas bağlayıcılarından sonra uygulanır.</entitydescription.nerveconnectors>
   
-  <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
-  <entitydescription.nerveconnectors>Connects the eye nerves, use after muscle connectors and before putting the eyes in.</entitydescription.nerveconnectors>
+  <entityname.eyelens>Göz Lensi</entityname.eyelens>
+  <entitydescription.eyelens>Katarakt ameliyatlarında göz lensinin çıkarılmasından sonra uygulanır.</entitydescription.eyelens>
   
-  <entityname.eye_laser_tool>Laser Surgery Tool</entityname.eye_laser_tool>
-  <entitydescription.eye_laser_tool>A compact surgery tool for treating imperfections of the cornea. Requires high amounts of skill to operate.</entitydescription.eye_laser_tool>
+  
+  <entityname.eye_laser_tool>Lazer Ameliyat Cihazı</entityname.eye_laser_tool>
+  <entitydescription.eye_laser_tool>Lazer göz ameliyatlarında kullanılan kompakt bir cihaz. İleri seviye yetenek gerektirir.</entitydescription.eye_laser_tool>
   
   <!-- EYE ITEMS -->
   <entityname.transplant_eyes>Human Eyes Transplant</entityname.transplant_eyes>

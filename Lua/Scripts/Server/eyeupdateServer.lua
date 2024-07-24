@@ -52,12 +52,12 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		  
 		if 		--hypoxemia damage
-					HF.HasAffliction(character, "hypoxemia", 75) 
+					HF.HasAffliction(character, "hypoxemia", 80) 
 			and not HF.HasAffliction(character, "eyebionic") 
 			and not HF.HasAffliction(character, "stasis")
 		then
 		
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
 					
 		elseif
 					HF.HasAffliction(character, "hypoxemia", 40) 
