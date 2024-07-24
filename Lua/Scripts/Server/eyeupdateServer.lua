@@ -52,12 +52,12 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		  
 		if 		--hypoxemia damage
-					HF.HasAffliction(character, "hypoxemia", 75) 
+					HF.HasAffliction(character, "hypoxemia", 80) 
 			and not HF.HasAffliction(character, "eyebionic") 
 			and not HF.HasAffliction(character, "stasis")
 		then
 		
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 1.2)
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
 					
 		elseif
 					HF.HasAffliction(character, "hypoxemia", 40) 
@@ -228,7 +228,7 @@ function NTEYE.UpdateHumanEye(character)
 
 		if 		--passive healing above 51 damage
 					HF.HasAffliction(character, "eyedamage", 51) 
-			and not HF.HasAffliction(character, "eyedamage", 95) 
+			and not HF.HasAffliction(character, "eyedamage", 80) 
 
 		then 
 					HF.AddAfflictionLimb(character, "eyedamage", 11, -0.05)
@@ -238,6 +238,7 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--eyedrop healing below 51 damage
 					HF.HasAffliction(character, "eyedrop") 
 			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyeplastic") 
 			and not HF.HasAffliction(character, "eyedamage", 51) 
 
 		then 	--I will let surgery and drops stack
@@ -248,8 +249,9 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--eyedrop healing above 51 damage
 					HF.HasAffliction(character, "eyedrop") 
 				and HF.HasAffliction(character, "eyedamage", 51) 
-			and not HF.HasAffliction(character, "eyedamage", 95) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyedamage", 80) 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 
 		then 
 					HF.AddAfflictionLimb(character, "eyedamage", 11, -0.1)
@@ -276,7 +278,7 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--laser healing above 51 damage
 					HF.HasAffliction(character, "lasereyesurgery") 
 				and HF.HasAffliction(character, "eyedamage", 51) 
-			and not HF.HasAffliction(character, "eyedamage", 95) 
+			and not HF.HasAffliction(character, "eyedamage", 80) 
 
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, -0.4)

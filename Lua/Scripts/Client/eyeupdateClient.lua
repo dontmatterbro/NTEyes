@@ -1,10 +1,10 @@
 NTEYE.ClientUpdateCooldown = 0
 NTEYE.ClientUpdateInterval = 120
 
--- updates NTEYE.UpdateHumanEyeEffect every 2 seconds
+-- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
     if HF.GameIsPaused() or not Level.Loaded then return end
-    NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateCooldown-1
+    NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateCooldown-4
     if (NTEYE.ClientUpdateCooldown <= 0) then
         NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateInterval
         NTEYE.UpdateHumanEyeEffect(character)
@@ -44,7 +44,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
-		Character.Controlled.TeamID = 0
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 0 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(50, 0, 50, 5)
 		for k, hull in pairs(Hull.HullList) do
@@ -52,7 +52,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
-		Character.Controlled.TeamID = 4 
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 4 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(115, 115, 20, 5)
 		for k, hull in pairs(Hull.HullList) do
@@ -60,7 +60,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
         end
  
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
-		Character.Controlled.TeamID = 2 
+		if Game.IsMultiplayer then Character.Controlled.TeamID = 2 end
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(255, 0, 0, 125)
 		for k, hull in pairs(Hull.HullList) do

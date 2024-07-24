@@ -17,6 +17,8 @@
   <entityname.aviatorglasses>Aviator Glasses</entityname.aviatorglasses>
   <entitydescription.aviatorglasses>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.</entitydescription.aviatorglasses>
   
+  <entityname.eyejar>Eye Regeneration Jar</entityname.eyejar>
+  <entitydescription.eyejar>A jar that utilises stem cell regeneration to mend eyes slowly. Will not fully restore eyes.</entitydescription.eyejar>
   
   <!-- SURGERY ITEMS -->
   <entityname.eyedrops>Eye Drops</entityname.eyedrops>
