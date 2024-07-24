@@ -1,7 +1,7 @@
 NTEYE.ClientUpdateCooldown = 0
 NTEYE.ClientUpdateInterval = 120
 
--- updates NTEYE.UpdateHumanEyeEffect every 2 seconds
+-- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
     if HF.GameIsPaused() or not Level.Loaded then return end
     NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateCooldown-4

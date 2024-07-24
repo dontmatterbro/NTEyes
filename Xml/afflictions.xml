@@ -46,7 +46,7 @@
 		<!-- EYES DEAD -->
 	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
 		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5"></Effect>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blind.png" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,384,128,128"  origin="0,0" />
 	</Affliction>
   

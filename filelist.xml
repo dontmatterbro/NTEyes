@@ -9,4 +9,5 @@
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/leftblind.png" />
   <Other file="%ModDir%/Textures/Overlays/rightblind.png" />
+  <Other file="%ModDir%/Textures/Overlays/blind.png" />
 </contentpackage>
