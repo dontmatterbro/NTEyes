@@ -320,6 +320,13 @@
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
+	  
+	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
+      </StatusEffect>
     </Throwable>
   </Item>
   
@@ -354,6 +361,12 @@
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
+      </StatusEffect>
+	  	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
       </StatusEffect>
     </Throwable>
   </Item>
@@ -391,6 +404,12 @@
       <StatusEffect type="OnBroken" target="This">
         <Remove/>
       </StatusEffect>
+	  	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
+      </StatusEffect>
     </Throwable>
   </Item>
   
@@ -425,6 +444,12 @@
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
+      </StatusEffect>
+	  	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
       </StatusEffect>
     </Throwable>
   </Item>
@@ -504,6 +529,12 @@
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
+	  	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
+      </StatusEffect>
     </Throwable>
   </Item>
   
@@ -542,6 +573,12 @@
       <StatusEffect type="OnFire" target="This" Condition="-5.0" />
       <StatusEffect type="OnBroken" target="This">
         <Remove />
+      </StatusEffect>
+	  	  <!-- EYE JAR HEALING -->
+	  <StatusEffect type="OnContained" target="This" condition="0.07" comparison="and">
+        <Conditional condition="gte 20" />
+		<Conditional condition="lte 60" />
+        <Conditional hastag="eyecontainer" targetcontainer="true" />
       </StatusEffect>
     </Throwable>
   </Item>
@@ -650,5 +687,30 @@
     </CustomInterface>
 	
 </Item>
+
+
+
+			<!-- EYE REGEN JAR -->
+  <Item name="" identifier="eyejar" category="Equipment" tags="mediumitem,eyecontainer,refrigerated" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.4" fireproof="true" description="" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medcab" />
+    <Deconstruct time="20">
+      <Item identifier="silicon" />
+	  <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+	<RequiredSkill identifier="medical" level="65" />
+      <Item identifier="silicon" />
+      <Item identifier="steel" />
+    </Fabricate>
+    <Price baseprice="160" soldbydefault="false"></Price>
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,768,128,128" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" depth="0.51" sourcerect="768,768,128,128" origin="0.5,0.5" />
+    <Body width="45" height="80" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-70" handle1="0,45" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="1" hideitems="false">
+      <Containable items="transplant_eyes,transplant_eyes_monster,transplant_eyes_terror,transplant_eyes_husk,transplant_eyes_night,transplant_eyes_infrared" />
+    </ItemContainer>
+  </Item>
+
 
 </Items>
