@@ -344,7 +344,7 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 							HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 20)
 							HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 50)
 							if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	end
-							if HF.Chance(0.2) then
+							if HF.Chance(0.1) then
 								HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 50)
 							end
 						end

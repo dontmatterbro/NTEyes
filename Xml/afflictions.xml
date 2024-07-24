@@ -88,19 +88,34 @@
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- EYE POPPED -->
+		<!-- EYE POPPED ts without table -->
   	<Affliction name="" identifier="eyepopped" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25"/>
+		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25">
+			<StatusEffect target="Character" comparison="and">
+				<Conditional table="eq 0" sym_unconsciousness="lte 0.1" />
+				<Affliction identifier="traumaticshock" amount="1.5" />
+			</StatusEffect>
+		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- CORNEA INCISION -->
+		<!-- CORNEA INCISION ts without opioids-->
   	<Affliction name="" identifier="corneaincision" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="100" strengthchange="-1" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
+		<Effect minstrength="0" maxstrength="100" strengthchange="-1" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8">
+			<StatusEffect target="Character" comparison="and">
+			  <Conditional analgesia="lte 0.5" anesthesia="lte 0.5" afadrenaline="lte 0.5" sym_unconsciousness="lte 0.1" />
+			  <Affliction identifier="traumaticshock" amount="2" />
+			</StatusEffect>
+		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- EMULSIFICATION -->
+		<!-- EMULSIFICATION ts without table -->
 	<Affliction name="" identifier="emulsification" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="2" minscreenblur="90" maxscreenblur="90" minskillmultiplier="0.25" maxskillmultiplier="0.25"/>
+		<Effect minstrength="0" maxstrength="2" minscreenblur="90" maxscreenblur="90" minskillmultiplier="0.25" maxskillmultiplier="0.25">
+			<StatusEffect target="Character" comparison="and">
+				<Conditional table="eq 0" sym_unconsciousness="lte 0.1" />
+				<Affliction identifier="traumaticshock" amount="1.5" />
+			</StatusEffect>
+		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
 		<!-- LASER SURGERY -->
@@ -130,7 +145,6 @@
 		<StatValue stattype="WeaponsSkillBonus" value="15" />
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,0,128,128"  origin="0,0" />
-		
 	</Affliction>
   
 			<!-- PLASTIC EYE -->

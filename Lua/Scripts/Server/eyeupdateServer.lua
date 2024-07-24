@@ -57,7 +57,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "stasis")
 		then
 		
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 1)
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.8)
 					
 		elseif
 					HF.HasAffliction(character, "hypoxemia", 40) 
@@ -65,7 +65,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "stasis") 
 			
 		then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.5)
 		end
 		  
 		  

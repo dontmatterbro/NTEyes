@@ -696,7 +696,7 @@
       <Item identifier="silicon" />
 	  <Item identifier="iron" />
     </Deconstruct>
-    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="100">
 	<RequiredSkill identifier="medical" level="68" />
       <Item identifier="silicon" /> 
       <Item identifier="steel" />
