@@ -17,6 +17,8 @@
   <entityname.aviatorglasses>Pilot Gözlükleri</entityname.aviatorglasses>
   <entitydescription.aviatorglasses>Uçan araç kumandanlarının taktığı antik bir aksesuar. Özgüveni ciddi derecede arttırıyor.</entitydescription.aviatorglasses>
   
+  <entityname.eyejar>Göz Yenileme Kavanoz</entityname.eyejar>
+  <entitydescription.eyejar>Kök hücreleri kullanarak gözleri yenileyebilen bir kavanoz. Gözleri olarak iyileştiremiyor.</entitydescription.eyejar>
   
   <!-- SURGERY ITEMS -->
   <entityname.eyedrops>Göz Damlası</entityname.eyedrops>
@@ -39,101 +41,101 @@
   <entitydescription.eye_laser_tool>Lazer göz ameliyatlarında kullanılan kompakt bir cihaz. İleri seviye yetenek gerektirir.</entitydescription.eye_laser_tool>
   
   <!-- EYE ITEMS -->
-  <entityname.transplant_eyes>Human Eyes Transplant</entityname.transplant_eyes>
-  <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
+  <entityname.transplant_eyes>İnsan Gözleri</entityname.transplant_eyes>
+  <entitydescription.transplant_eyes>İnsan kafatasından fırlama gözler. Nakilde kullanılır.</entitydescription.transplant_eyes>
   
-  <entityname.transplant_eyes_monster>Monster Eyes Transplant</entityname.transplant_eyes_monster>
-  <entitydescription.transplant_eyes_monster>Right out of a monster's skull. Not great for seeing things, but stylish at parties.</entitydescription.transplant_eyes_monster>
+  <entityname.transplant_eyes_monster>Canavar Gözleri</entityname.transplant_eyes_monster>
+  <entitydescription.transplant_eyes_monster>Canavar kafatasından fırlama gözler. Görüşü pek iyi değil ama görünüşü havalı.</entitydescription.transplant_eyes_monster>
   
-  <entityname.transplant_eyes_terror>Eldritch Eyes</entityname.transplant_eyes_terror>
-  <entitydescription.transplant_eyes_terror>An eye-like object that is unbeknownst to humanity. Proceed with caution.</entitydescription.transplant_eyes_terror>
+  <entityname.transplant_eyes_terror>Tanımlanamayan Gözler</entityname.transplant_eyes_terror>
+  <entitydescription.transplant_eyes_terror>Ne olduğu anlaşılamayan gözvari bir cisim. Tehlikeli olabilir.</entitydescription.transplant_eyes_terror>
   
-  <entityname.transplant_eyes_husk>Husk Eyes Transplant</entityname.transplant_eyes_husk>
-  <entitydescription.transplant_eyes_husk>Right out of a husk's skull. Cannot be damaged by water, and has a chance to give the patient husk infection.</entitydescription.transplant_eyes_husk>
+  <entityname.transplant_eyes_husk>Husk Gözleri</entityname.transplant_eyes_husk>
+  <entitydescription.transplant_eyes_husk>Bir husk'tan elde edilmiş gözler. Su basıncı tarafından zarar görmüyor ama husk paraziti taşıma riski var.</entitydescription.transplant_eyes_husk>
   
-  <entityname.transplant_eyes_bionic>Bionic Eyes Transplant</entityname.transplant_eyes_bionic>
-  <entitydescription.transplant_eyes_bionic>A metal, much more resilient eye, made for transplantation. Can't be damaged by oxygen deprivation. Slightly increases vision quality.</entitydescription.transplant_eyes_bionic>
+  <entityname.transplant_eyes_bionic>Biyonik Gözler</entityname.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>Metal yapılmış, çok dayanıklı gözler. Oksijen yetmezliğinden hasar görmez. Görüş kalitesini biraz arttırır.</entitydescription.transplant_eyes_bionic>
   
-  <entityname.transplant_eyes_night>Night Vision Eyes Transplant</entityname.transplant_eyes_night>
-  <entitydescription.transplant_eyes_night>A pair of eyes, that comes with night vision implants. Can't be turned off on demand.</entitydescription.transplant_eyes_night>
+  <entityname.transplant_eyes_night>Gece Görüşü Gözleri</entityname.transplant_eyes_night>
+  <entitydescription.transplant_eyes_night>Gece görüşü eklentileri içeren gözler. Eklentiler isteğe bağlı kapatılamıyor.</entitydescription.transplant_eyes_night>
   
-  <entityname.transplant_eyes_infrared>Infrared Eyes Transplant</entityname.transplant_eyes_infrared>
-  <entitydescription.transplant_eyes_infrared>A pair of eyes with infrared implants. Slightly improves combat skill and vision in dark.</entitydescription.transplant_eyes_infrared>
+  <entityname.transplant_eyes_infrared>Kızılötesi Görüş Gözleri</entityname.transplant_eyes_infrared>
+  <entitydescription.transplant_eyes_infrared>Kızılötesi görüş eklentileri içeren gözler. Silah kullanımını ve karanlıkta görüşü arttırıyor.</entitydescription.transplant_eyes_infrared>
   
-  <entityname.transplant_eyes_plastic>Plastic Eyes Transplant</entityname.transplant_eyes_plastic>
-  <entitydescription.transplant_eyes_plastic>A pair of "eyes", not much better than being blind. While the its hard to see clear with them, at least they look fashionable.</entitydescription.transplant_eyes_plastic>
+  <entityname.transplant_eyes_plastic>Plastik Gözler</entityname.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>"Göz" demeye bin şahit, körlükten pek farkı yok. Bunlarla görmek çok zor olsada en azından şık duruyorlar.</entitydescription.transplant_eyes_plastic>
   
   
   <!-- AFFLICTIONS -->
-  <afflictionname.noeye>Eyes Removed</afflictionname.noeye>
-  <afflictiondescription.noeye>The patient's eyes have been surgically removed, with empty, red holes taking their place. Horrific.</afflictiondescription.noeye>
+  <afflictionname.noeye>Gözler Çıkarıldı</afflictionname.noeye>
+  <afflictiondescription.noeye>Hastanın gözleri cerrahi olarak kafatasından çıkarıldı.</afflictiondescription.noeye>
   
-  <afflictionname.eyedamage>Eye Damage</afflictionname.eyedamage>
-  <afflictiondescription.eyedamage>The patient's eyes look flat, and they have trouble seeing.</afflictiondescription.eyedamage>
+  <afflictionname.eyedamage>Göz Hasarı</afflictionname.eyedamage>
+  <afflictiondescription.eyedamage>Hastanın gözleri zedelenmiş duruyor ve iyi göremediklerini belirtiyorlar.</afflictiondescription.eyedamage>
   
-  <afflictionname.eyeshock>Autoimmune Retinopathy</afflictionname.eyeshock>
-  <afflictiondescription.eyeshock>The patient's immune system did not accept the eye, and is attacking it instead. Eye removal or immunosuppressants are required to stop it.</afflictiondescription.eyeshock>
+  <afflictionname.eyeshock>Bağışıklık Şoku</afflictionname.eyeshock>
+  <afflictiondescription.eyeshock>Hastanın bağışıklık sistemi gözü kabul etmedi ve öldürmeye çalışıyor. Gözü çıkararak veya bağışıklık baskılayıcı ilaçlar vererek düzeltilebilir.</afflictiondescription.eyeshock>
   
-  <afflictionname.eyedrop>Eye Drops</afflictionname.eyedrop>
-  <afflictiondescription.eyedrop>The patient's eye healing rate has increased.</afflictiondescription.eyedrop>
+  <afflictionname.eyedrop>Göz Damlası</afflictionname.eyedrop>
+  <afflictiondescription.eyedrop>Hastanın göz iyileşme hızı yükseldi.</afflictiondescription.eyedrop>
   
-  <afflictionname.eyeone>Dead Eye</afflictionname.eyeone>
-  <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
+  <afflictionname.eyeone>Ölü Göz</afflictionname.eyeone>
+  <afflictiondescription.eyeone>Hastanın gözlerinden biri ölmüş ve işlevsiz durumda.</afflictiondescription.eyeone>
   
-  <afflictionname.eyesdead>Dead Eyes</afflictionname.eyesdead>
-  <afflictiondescription.eyesdead>The patient has lost all vision and their eyes are unresponsive.</afflictiondescription.eyesdead>
+  <afflictionname.eyesdead>Ölü Gözler</afflictionname.eyesdead>
+  <afflictiondescription.eyesdead>Hastanın iki gözüde ölü ve işlevsiz durumdalar.</afflictiondescription.eyesdead>
   
-  <afflictionname.eyesickness>Vision Sickness</afflictionname.eyesickness>
-  <afflictiondescription.eyesickness>The patient has trouble seeing, likely because of a recent eye transplant. Should wear off in time.</afflictiondescription.eyesickness>
+  <afflictionname.eyesickness>Görüş Rahatsızlığı</afflictionname.eyesickness>
+  <afflictiondescription.eyesickness>Hasta görme sorunları yaşıyor, muhtemel olarak yakın zamanlı bir göz naklinden dolayı. Geçici.</afflictiondescription.eyesickness>
   
-  <afflictionname.eyecataract>Cataracts</afflictionname.eyecataract>
-  <afflictiondescription.eyecataract>The patient's eyes look cloudy, and their vision is blurred. Surgery advised.</afflictiondescription.eyecataract>
+  <afflictionname.eyecataract>Katarakt</afflictionname.eyecataract>
+  <afflictiondescription.eyecataract>Hastanın gözleri grileşmiş ve görme zorluğu yaşıyorlar. Katarakt ameliyatı önerilir.</afflictiondescription.eyecataract>
   
-  <afflictionname.eyemuscle>Muscle Connectors</afflictionname.eyemuscle>
-  <afflictiondescription.eyemuscle>Muscle connectors are attached to the eye holes.</afflictiondescription.eyemuscle>
+  <afflictionname.eyemuscle>Kas Bağlayıcıları</afflictionname.eyemuscle>
+  <afflictiondescription.eyemuscle>Kas bağlayıcıları göz boşluklarına yerleştirildi.</afflictiondescription.eyemuscle>
   
-  <afflictionname.eyegell>Eye Gel</afflictionname.eyegell>
-  <afflictiondescription.eyegell>Eye gel is applied to the eye holes.</afflictiondescription.eyegell>
+  <afflictionname.eyegell>Göz Jeli</afflictionname.eyegell>
+  <afflictiondescription.eyegell>Göz jeli göz boşluklarına uygulandı.</afflictiondescription.eyegell>
   
-  <afflictionname.eyelid>Held Eyelids</afflictionname.eyelid>
-  <afflictiondescription.eyelid>The eyelids are held up.</afflictiondescription.eyelid>
+  <afflictionname.eyelid>Göz Kapakları Açık</afflictionname.eyelid>
+  <afflictiondescription.eyelid>Göz kapakları açık tutuluyor.</afflictiondescription.eyelid>
   
-  <afflictionname.eyepopped>Popped Eyeballs</afflictionname.eyepopped>
-  <afflictiondescription.eyepopped>The eyeballs have popped outside the skull and are hanging.</afflictiondescription.eyepopped>
+  <afflictionname.eyepopped>Fırlamış Gözler</afflictionname.eyepopped>
+  <afflictiondescription.eyepopped>Göz bebekleri kafatasından fırlamış ve dışarı sarkıyor.</afflictiondescription.eyepopped>
   
-  <afflictionname.corneaincision>Cornea Incision</afflictionname.corneaincision>
-  <afflictiondescription.corneaincision>An incision into the cornea has been made.</afflictiondescription.corneaincision>
+  <afflictionname.corneaincision>Kornea kesiği</afflictionname.corneaincision>
+  <afflictiondescription.corneaincision>Kornea içine bir kesik açıldı.</afflictiondescription.corneaincision>
   
-  <afflictionname.emulsification>Emulsification</afflictionname.emulsification>
-  <afflictiondescription.emulsification>The eye lens has been removed.</afflictiondescription.emulsification>
+  <afflictionname.emulsification>Lens Çıkarıldı</afflictionname.emulsification>
+  <afflictiondescription.emulsification>Göz lensi çıkarıldı.</afflictiondescription.emulsification>
   
-  <afflictionname.lasereyesurgery>Laser Surgery</afflictionname.lasereyesurgery>
-  <afflictiondescription.lasereyesurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasereyesurgery>
+  <afflictionname.lasereyesurgery>Lazer Ameliyatı</afflictionname.lasereyesurgery>
+  <afflictiondescription.lasereyesurgery>Hasta yakın zamanda lazer ameliyatı geçirmiş ve gözleri daha hızlı iyileşiyor.</afflictiondescription.lasereyesurgery>
   
-  <afflictionname.eyenerve>Nerve Connectors</afflictionname.eyenerve>
-  <afflictiondescription.eyenerve>Eye-brain nerve connection is established.</afflictiondescription.eyenerve>
+  <afflictionname.eyenerve>Sinir Bağlayıcıları</afflictionname.eyenerve>
+  <afflictiondescription.eyenerve>Göz-beyin bağlantıları kuruldu.</afflictiondescription.eyenerve>
   
   <!-- EYE AFFLICTIONS -->
-  <afflictionname.eyebionic>Bionic Eyes</afflictionname.eyebionic>
-  <afflictiondescription.eyebionic>The patient has bionic eyes.</afflictiondescription.eyebionic>
+  <afflictionname.eyebionic>Biyonik Gözler</afflictionname.eyebionic>
+  <afflictiondescription.eyebionic>Hastanın biyonik gözleri var.</afflictiondescription.eyebionic>
   
-  <afflictionname.eyenight>Night Vision Eyes</afflictionname.eyenight>
-  <afflictiondescription.eyenight>The patient has night vision eyes.</afflictiondescription.eyenight>
+  <afflictionname.eyenight>Gece Görüşü Gözleri</afflictionname.eyenight>
+  <afflictiondescription.eyenight>Hastanın gece görüşü gözleri var.</afflictiondescription.eyenight>
   
-  <afflictionname.eyeinfrared>Infrared Eyes</afflictionname.eyeinfrared>
-  <afflictiondescription.eyeinfrared>The patient has infrared eyes.</afflictiondescription.eyeinfrared>
+  <afflictionname.eyeinfrared>Kızılötesi Görüş Gözleri</afflictionname.eyeinfrared>
+  <afflictiondescription.eyeinfrared>Hastanın kızılötesi görüş gözleri var.</afflictiondescription.eyeinfrared>
   
-  <afflictionname.eyeplastic>Plastic Eyes</afflictionname.eyeplastic>
-  <afflictiondescription.eyeplastic>The patient has plastic eyes.</afflictiondescription.eyeplastic>
+  <afflictionname.eyeplastic>Plastik Gözler</afflictionname.eyeplastic>
+  <afflictiondescription.eyeplastic>Hastanın plastik gözleri var.</afflictiondescription.eyeplastic>
   
-  <afflictionname.eyemonster>Monster Eyes</afflictionname.eyemonster>
-  <afflictiondescription.eyemonster>The patient has monster eyes.</afflictiondescription.eyemonster>
+  <afflictionname.eyemonster>Canavar Gözleri</afflictionname.eyemonster>
+  <afflictiondescription.eyemonster>Hastanın biyonik gözleri var.</afflictiondescription.eyemonster>
   
-  <afflictionname.eyehusk>Husk Eyes</afflictionname.eyehusk>
-  <afflictiondescription.eyehusk>The patient has husk eyes.</afflictiondescription.eyehusk>
+  <afflictionname.eyehusk>Husk Gözleri</afflictionname.eyehusk>
+  <afflictiondescription.eyehusk>Hastanın husk gözleri var.</afflictiondescription.eyehusk>
   
-  <afflictionname.eyeterror>EYES OF THE BEAST</afflictionname.eyeterror>
-  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You must kill. KAR EN TUK</afflictiondescription.eyeterror>
+  <afflictionname.eyeterror>CANAVARIN GÖZLERİ</afflictionname.eyeterror>
+  <afflictiondescription.eyeterror>Rahatlatıcı bir kanasusamışlık ve güç hissediyorsun. Daha dayanıklısın. Hayattasın. Öldürmelisin. KAR EN TUK</afflictiondescription.eyeterror>
   
   
 </infotexts>
