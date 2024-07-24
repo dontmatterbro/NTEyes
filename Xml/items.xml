@@ -689,7 +689,6 @@
 </Item>
 
 
-
 			<!-- EYE REGEN JAR -->
   <Item name="" identifier="eyejar" category="Equipment" tags="mediumitem,eyecontainer,refrigerated" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.4" fireproof="true" description="" impactsoundtag="impact_soft">
     <PreferredContainer primary="medcab" />
@@ -697,12 +696,14 @@
       <Item identifier="silicon" />
 	  <Item identifier="iron" />
     </Deconstruct>
-    <Fabricate suitablefabricators="fabricator" requiredtime="30">
-	<RequiredSkill identifier="medical" level="65" />
-      <Item identifier="silicon" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="100">
+	<RequiredSkill identifier="medical" level="68" />
+      <Item identifier="silicon" /> 
       <Item identifier="steel" />
+      <Item identifier="tonicliquid" />
+	  <Item identifier="potassium" amount="2" />
     </Fabricate>
-    <Price baseprice="160" soldbydefault="false"></Price>
+    <Price baseprice="1350" soldbydefault="false"></Price>
     <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,768,128,128" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" depth="0.51" sourcerect="768,768,128,128" origin="0.5,0.5" />
     <Body width="45" height="80" density="15" />
