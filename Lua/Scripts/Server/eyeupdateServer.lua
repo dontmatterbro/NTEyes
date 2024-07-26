@@ -133,9 +133,11 @@ function NTEYE.UpdateHumanEye(character)
 		end
 		
 
-		if 		--give cataract over 10 damage 
+		if 		--give cataract over 10 damage at a chance
 					HF.Chance(0.002) 
 				and HF.HasAffliction(character, "eyedamage", 10) 
+			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyeplastic") 
 
 		then
 					HF.AddAfflictionLimb(character, "eyecataract", 11, 1)
