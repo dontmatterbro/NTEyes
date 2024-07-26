@@ -4,9 +4,55 @@
 				<!-- DAMAGE AFFLICTIONS -->
 		<!-- NO EYES -->
 	<Affliction name="" identifier="noeye" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5"> </Effect>
+	
+		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5"> 
+		
+			<StatusEffect target="Character">
+				<TriggerAnimation Type="Walk" filename="DrunkenWalk" priority="6" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="Run" filename="DrunkenRun" priority="6" ExpectedSpecies="Human" />
+			</StatusEffect>
+			
+		</Effect>
+		
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
+		
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,256,128,128"  origin="0,0" />
+		
+	</Affliction>
+  
+		<!-- EYES DEAD -->
+	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
+	
+		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5">
+	
+			<StatusEffect target="Character">
+				<TriggerAnimation Type="Walk" filename="DrunkenWalk" priority="6" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="Run" filename="DrunkenRun" priority="6" ExpectedSpecies="Human" />
+			</StatusEffect>
+		
+		</Effect>
+		
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blind.png" />
+		
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,384,128,128"  origin="0,0" />
+		
+	</Affliction>
+  
+		<!-- EYE ONE -->
+	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" showinhealthscannerthreshold="100" iconcolors="255,80,0,255;255,80,0,255">
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
+	</Affliction>
+	
+		<!-- LEFT EYE GONE -->
+	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"/>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
+	</Affliction>
+	
+		<!-- RIGHT EYE GONE -->
+	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"/>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
   
 		<!-- EYE DAMAGE -->
@@ -26,30 +72,6 @@
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,0,128,128"  origin="0,0" />
 	</Affliction>
  
-		<!-- EYE ONE -->
-	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" showinhealthscannerthreshold="100" iconcolors="255,80,0,255;255,80,0,255">
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="640,0,128,128"  origin="0,0" />
-	</Affliction>
-	
-		<!-- LEFT EYE GONE -->
-	<Affliction name="" identifier="lefteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
-		<Effect minstrength="0" maxstrength="2"/>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/leftblind.png"/>
-	</Affliction>
-	
-		<!-- RIGHT EYE GONE -->
-	<Affliction name="" identifier="righteyegone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
-		<Effect minstrength="0" maxstrength="2"/>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
-	</Affliction>
-	
-		<!-- EYES DEAD -->
-	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
-		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5"></Effect>
-		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/blind.png" />
-		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,384,128,128"  origin="0,0" />
-	</Affliction>
-  
 		<!-- VISION SICKNESS -->
 	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">
 		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8" strengthchange="-0.4"></Effect>
