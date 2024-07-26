@@ -13,7 +13,7 @@ spoon extract human eyes but damages them
 
 eye patch to ease blur
 
-client side lua detector
+SCRAPPED not our problem, least they can do is read the description - client side lua detector
 
 add indicator to workshop page for people to turn wall opaque
 
