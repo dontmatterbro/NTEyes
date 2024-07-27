@@ -67,12 +67,13 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 
 --[[ add humans to spoon  
 	if not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-		if HF.CanPerformSurgeryOn(targetCharacter) then
-			NTEYE.GiveItemBasedOnEye(targetCharacter)
-			100 - math.random(10, 50) - HF.GetAfflictionStrength(character, "eyedamage", 0) this wont work but i cant be bothered rn
+		if NTEYE.CanSurgery(targetCharacter) then
+			Entity.Spawner.AddItemToSpawnQueue(NTEYE.GiveItemBasedOnEye(targetCharacter), item.WorldPosition, nil, nil, function(item) end) 
+			Entity.Spawner.AddItemToRemoveQueue(item)
+		
 		end
 	end
---]]  
+ --]]
 
 	end 
 end) 
