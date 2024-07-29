@@ -1,6 +1,7 @@
 NTEYE.ClientUpdateCooldown = 0
 NTEYE.ClientUpdateInterval = 120
 
+
 -- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
     if HF.GameIsPaused() or not Level.Loaded then return end
@@ -9,6 +10,25 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
         NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateInterval
         NTEYE.UpdateHumanEyeEffect(character)
     end
+end)
+
+
+-- infrared eye thermal effect
+Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
+
+		if not HF.HasAffliction(Character.Controlled, "eyeinfrared") then return end
+		
+		if thermalHUD==nil then
+			for item in Item.ItemList do
+				if item.Prefab.Identifier == "eyethermalHUDitem" then
+					thermalHUD = item.GetComponentString("StatusHUD")
+					break
+				end
+			end
+		end
+
+		thermalHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled)
+
 end)
 
 
@@ -35,7 +55,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		for k, hull in pairs(Hull.HullList) do
         hull.AmbientLight = Color(50, 0, 200, 75) 
         end
- 
+
 elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		local parameters = Level.Loaded.LevelData.GenerationParams
 		parameters.AmbientLightColor = Color(0, 0, 255, 5)
@@ -76,6 +96,9 @@ else	local parameters = Level.Loaded.LevelData.GenerationParams
 		if Character.Controlled ~= nil then 
 			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
 		end
+
 		
 	end
 end
+
+

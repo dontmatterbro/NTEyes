@@ -84,15 +84,12 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 			
 		elseif HF.HasAffliction(character, "eyemonster") then --monster
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_monster", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
-			NTC.SetSymptomTrue(character, "sym_unconsciousness", 4)
 			
 		elseif HF.HasAffliction(character, "eyehusk") then --husk
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_husk", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
-			NTC.SetSymptomTrue(character, "sym_unconsciousness", 2)
 			
 		elseif HF.HasAffliction(character, "eyeterror") then --terror
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_terror", 90 - HF.GetAfflictionStrength(character, "eyedamage", 0))
-			NTC.SetSymptomTrue(character, "sym_unconsciousness", 6)
 			
 		else --this needs to be on the bottom and /else/ - regular eyes don't have an affliction
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -340,6 +337,8 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 					
 					HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
 					
+					NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 4)
+					
 					if --eyeshock check
 						HF.Chance(0.8*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) 
 					then
@@ -361,6 +360,8 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 					
 					HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
 					
+					NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 4)
+					
 					if --eyeshock check
 						HF.Chance(0.7*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) 
 					then
@@ -381,6 +382,8 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 					HF.SetAfflictionLimb(targetCharacter, "eyeterror", 11, 2)
 					
 					HF.SetAfflictionLimb(targetCharacter, "eyedamage", 11, 100 - item.Condition)
+					
+					NTC.SetSymptomTrue(targetCharacter, "sym_unconsciousness", 6)
 					
 					if --eyeshock check
 						HF.Chance(0.5*HF.Clamp((1-(0.5*(HF.GetSurgerySkill(usingCharacter)/100))),0,1)) 

@@ -15,13 +15,13 @@ eye patch to ease blur
 
 SCRAPPED not our problem, least they can do is read the description - client side lua detector
 
-add indicator to workshop page for people to turn wall opaque
+DONE add indicator to workshop page for people to turn wall opaque
 
 DONE 																just being in water does damage, that needs to be bind to pressure 
 
 DONE 																extra step for eye surgery (nerve)
 
-ai pathfinding for being blind if its possible
+DONE? not exactly pathfinding but custom walk animation and slowness for being belind - ai pathfinding for being blind if its possible
 
 DONE																add cataract surgery
 

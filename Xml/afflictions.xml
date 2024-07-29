@@ -146,7 +146,8 @@
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,384,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
   
-  
+		<!-- EYE HUD -->
+	<Affliction identifier="eyehud" />
   
 				<!-- EFFECT TYPE AFFLICTIONS 		MUST REWORK ALL EFFECTS --> 
 			<!-- BIONIC EYE -->

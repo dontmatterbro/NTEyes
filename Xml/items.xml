@@ -119,7 +119,7 @@
       </ItemContainer>
     </Item>
 
-			<!-- MUSCLE CONNECTORS -->
+		<!-- MUSCLE CONNECTORS -->
   <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
@@ -142,7 +142,7 @@
     </MeleeWeapon>
   </Item>
 
-			<!-- NERVE CONNECTORS -->
+		<!-- NERVE CONNECTORS -->
   <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
@@ -267,7 +267,7 @@
   
   
   
-			<!-- EYE ITEMS -->
+			<!-- EYE TRANSPLANT ITEMS -->
 		<!-- REGULAR EYES -->
   <Item name="" identifier="transplant_eyes" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
@@ -689,7 +689,7 @@
 </Item>
 
 
-			<!-- EYE REGEN JAR -->
+		<!-- EYE REGEN JAR -->
   <Item name="" identifier="eyejar" category="Equipment" tags="mediumitem,eyecontainer,refrigerated" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.4" fireproof="true" description="" impactsoundtag="impact_soft">
     <PreferredContainer primary="medcab" />
     <Deconstruct time="20">
@@ -713,5 +713,12 @@
     </ItemContainer>
   </Item>
 
+	<!-- THERMAL VISION ITEM (ghost item used for lua hook) -->
+  <Item identifier="eyethermalHUDitem">
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,64,31" depth="0.6" origin="0.5,0.5" />
+    <Body width="70" height="24" density="15" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" range="300000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+  </Item>
 
 </Items>

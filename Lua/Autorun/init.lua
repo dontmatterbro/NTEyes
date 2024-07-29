@@ -22,6 +22,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeondamageServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/spoonServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
+		dofile(NTEYE.Path.."/Lua/Scripts/Server/itemspawnServer.lua")
 	end
 		
 		--client side scripts
