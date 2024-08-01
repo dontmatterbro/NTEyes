@@ -714,7 +714,7 @@
   </Item>
 
 	<!-- THERMAL VISION ITEM (ghost item used for lua hook) -->
-  <Item identifier="eyethermalHUDitem">
+  <Item identifier="eyethermalHUDitem" noninteractable="true">
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,64,31" depth="0.6" origin="0.5,0.5" />
     <Body width="70" height="24" density="15" />
