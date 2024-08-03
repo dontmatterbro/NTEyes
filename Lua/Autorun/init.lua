@@ -1,6 +1,6 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.0.2"
+NTEYE.Version = "A1.0.5"
 NTEYE.VersionNum = 01000000
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
@@ -22,6 +22,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeondamageServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/spoonServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
+		dofile(NTEYE.Path.."/Lua/Scripts/Server/itemspawnServer.lua")
 	end
 		
 		--client side scripts

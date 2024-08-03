@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Eyes" modversion="1.0.2" corepackage="False" steamworkshopid="3294574390" gameversion="1.5.9.1">
+<contentpackage name="NT Eyes" modversion="1.0.5" corepackage="False" steamworkshopid="3294574390" gameversion="1.5.9.1">
   <Afflictions file="%ModDir%/Xml/afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   <Text file="%ModDir%/Localization/English.xml" />
   <Text file="%ModDir%/Localization/Turkish.xml" />
+  <Text file="%ModDir%/Localization/Polish.xml" />
   <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
