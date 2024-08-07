@@ -318,7 +318,7 @@ function NTEYE.Update()
 	--fetch character for update
 	for key, character in pairs(Character.CharacterList) do
 		if not character.IsDead then
-			if character.IsHuman then
+			if character.IsHuman and not HF.HasAffliction(character, "robotspawned") then
 				table.insert(updateHumanEyes, character)
 				amountHumanEyes = amountHumanEyes + 1
 			end

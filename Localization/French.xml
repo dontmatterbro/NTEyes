@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<infotexts language="English" nowhitespace="false" translatedname="English">
+<infotexts language="French" nowhitespace="false" translatedname="Français">
 
-  <!-- ITEMS -->
-  <entityname.nightgoggles>Night Vision Goggles</entityname.nightgoggles>
-  <entitydescription.nightgoggles>Standard Night Vision Goggles. Requires Batteries.</entitydescription.nightgoggles>
+  <!-- ITEMS // MISC ARTICLES-->
+  <entityname.nightgoggles>Lunettes de Vision Nocturne</entityname.nightgoggles>
+  <entitydescription.nightgoggles>Lunettes de vision nocturne Coalition standard. Il lui faut des piles.</entitydescription.nightgoggles>
   
-  <entityname.organscalpel_eyes>Precision Eye Scalpel</entityname.organscalpel_eyes>
-  <entitydescription.organscalpel_eyes>A specialized scalpel used in eye surgeries.</entitydescription.organscalpel_eyes>
+  <entityname.organscalpel_eyes>Scalpel Oculaire de Précision</entityname.organscalpel_eyes>
+  <entitydescription.organscalpel_eyes>Un scalpel spécialisé utilisé dans les chirurgies oculaires.</entitydescription.organscalpel_eyes>
   
-  <entityname.eyespoon>Advanced Eyeball Extraction Device</entityname.eyespoon>
-  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of donor eyes. Does not work on humans.</entitydescription.eyespoon>
+  <entityname.eyespoon>Dispositif d'Extraction des Yeux</entityname.eyespoon>
+  <entitydescription.eyespoon>Un gadget médical spécialisé pour les extractions oculaires traumatiques. Cela ne fonctionne pas sur les humains.</entitydescription.eyespoon>
   
-  <entityname.eyeglasses>Corrective Glasses</entityname.eyeglasses>
-  <entitydescription.eyeglasses>An outdated device used in temporairly relieving vision problems.</entitydescription.eyeglasses>
+  <entityname.eyeglasses>Lunettes Correctrices</entityname.eyeglasses>
+  <entitydescription.eyeglasses>Un ancien appareil utilisé pour soulager temporairement les problèmes de vision.</entitydescription.eyeglasses>
   
-  <entityname.aviatorglasses>Aviator Glasses</entityname.aviatorglasses>
-  <entitydescription.aviatorglasses>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.</entitydescription.aviatorglasses>
+  <entityname.aviatorglasses>Lunettes de Pilote</entityname.aviatorglasses>
+  <entitydescription.aviatorglasses>Un accessoire ancien utilisé uniquement par les commandants d'avion. Ils donnent beaucoup de confiance.</entitydescription.aviatorglasses>
   
-  <entityname.eyejar>Eye Regeneration Jar</entityname.eyejar>
-  <entitydescription.eyejar>A jar that utilises stem cell regeneration to mend eyes slowly. Will not fully restore eyes.</entitydescription.eyejar>
+  <entityname.eyejar>Pot de Régénération des Yeux</entityname.eyejar>
+  <entitydescription.eyejar>Un pot qui utilise la régénération des cellules souches pour réparer lentement les yeux. Cela ne restaurera pas complètement les yeux.</entitydescription.eyejar>
   
-  <!-- SURGERY ITEMS -->
-  <entityname.eyedrops>Eye Drops</entityname.eyedrops>
-  <entitydescription.eyedrops>Hastens the recovery of eyes.</entitydescription.eyedrops>
+  <!-- SURGERY ITEMS // ARTICLES DE CHIRURGIE -->
+  <entityname.eyedrops>Gouttes pour les Yeux</entityname.eyedrops>
+  <entitydescription.eyedrops>Accélère la récupération des yeux.</entitydescription.eyedrops>
   
-  <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors> 
-  <entitydescription.muscleconnectors>Connects the eye muscles, use after eye gel and before nerve connectors.</entitydescription.muscleconnectors>
+  <entityname.muscleconnectors>Connecteurs Musculaires</entityname.muscleconnectors> 
+  <entitydescription.muscleconnectors>Relie les muscles oculaires, à utiliser après le gel pour les yeux et avant les connecteurs nerveux.</entitydescription.muscleconnectors>
  
-  <entityname.eyegel>Eye Gel</entityname.eyegel>
-  <entitydescription.eyegel>Moisturizes the eye holes, use before muscle connectors.</entitydescription.eyegel>
+  <entityname.eyegel>Gel pour les Yeux</entityname.eyegel>
+  <entitydescription.eyegel>Il hydrate les trous des yeux. Utilisez-le avant les connecteurs musculaires.</entitydescription.eyegel>
   
-  <entityname.eyelens>Eye Lens</entityname.eyelens>
-  <entitydescription.eyelens>Used in cataract surgeries, put in after emulsification.</entitydescription.eyelens>
+  <entityname.eyelens>Lentille Oculaire</entityname.eyelens>
+  <entitydescription.eyelens>Utilisé dans les chirurgies de la cataracte, mis en place après émulsification.</entitydescription.eyelens>
   
-  <entityname.nerveconnectors>Nerve Connectors</entityname.nerveconnectors>
-  <entitydescription.nerveconnectors>Connects the eye nerves, use after muscle connectors and before putting the eyes in.</entitydescription.nerveconnectors>
+  <entityname.nerveconnectors>Connecteurs Nerveux</entityname.nerveconnectors>
+  <entitydescription.nerveconnectors>Relie les nerfs oculaires, à utiliser après les connecteurs musculaires et avant d'insérer les yeux.</entitydescription.nerveconnectors>
   
-  <entityname.eye_laser_tool>Laser Surgery Tool</entityname.eye_laser_tool>
-  <entitydescription.eye_laser_tool>A compact surgery tool for treating imperfections of the cornea. Requires high amounts of skill to operate.</entitydescription.eye_laser_tool>
+  <entityname.eye_laser_tool>Outil de Chirurgie au Laser</entityname.eye_laser_tool>
+  <entitydescription.eye_laser_tool>Un outil chirurgical compact pour traiter les imperfections de la cornée. Son fonctionnement nécessite de grandes compétences.</entitydescription.eye_laser_tool>
   
-  <!-- EYE ITEMS -->
+  <!-- EYE ITEMS // ARTICLES DES YEUX  -->
   <entityname.transplant_eyes>Human Eyes Transplant</entityname.transplant_eyes>
   <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
   
@@ -62,10 +62,10 @@
   <entitydescription.transplant_eyes_infrared>A pair of eyes with infrared implants. Slightly improves combat skill and vision in dark.</entitydescription.transplant_eyes_infrared>
   
   <entityname.transplant_eyes_plastic>Plastic Eyes Transplant</entityname.transplant_eyes_plastic>
-  <entitydescription.transplant_eyes_plastic>A pair of "eyes", not much better than being blind. While its hard to see clear with them, at least they look fashionable.</entitydescription.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>A pair of "eyes", not much better than being blind. While the its hard to see clear with them, at least they look fashionable.</entitydescription.transplant_eyes_plastic>
   
   
-  <!-- AFFLICTIONS -->
+  <!-- AFFLICTIONS // -->
   <afflictionname.noeye>Eyes Removed</afflictionname.noeye>
   <afflictiondescription.noeye>The patient's eyes have been surgically removed, with empty, red holes taking their place. Horrific.</afflictiondescription.noeye>
   

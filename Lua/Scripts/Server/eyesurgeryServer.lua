@@ -1,7 +1,7 @@
 
 --checks if the eyes are interactable
 function NTEYE.CanSurgery(character)
-	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) then
+	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) and not HF.HasAffliction(character, "robotspawned") then
 	return true end
 end
 

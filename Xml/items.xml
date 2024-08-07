@@ -714,11 +714,32 @@
   </Item>
 
 	<!-- THERMAL VISION ITEM (ghost item used for lua hook) -->
-  <Item identifier="eyethermalHUDitem" noninteractable="true">
+  <Item name="EYETHERMALITEM" identifier="eyethermalHUDitem" noninteractable="true">
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
-    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,64,31" depth="0.6" origin="0.5,0.5" />
-    <Body width="70" height="24" density="15" />
-    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" range="300000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="480,520,1,1" depth="0.6" origin="0.5,0.5" />
+    <Body width="70" height="24" density="100" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" range="5000000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
   </Item>
+
+	<!-- MEDICAL VISION ITEM (ghost item used for lua hook) yet to be implemented -->
+  <Item name="EYEMEDICALITEM" identifier="eyemedicalHUDitem" noninteractable="true">
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="480,520,1,1" depth="0.6" origin="0.5,0.5" />
+    <Body width="70" height="24" density="100" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" />
+	<Wearable/>
+	<MeleeWeapon slots="Any,RightHand,LeftHand"/>
+  </Item>
+  
+  	<!-- ELECTRICAL VISION ITEM (ghost item used for lua hook) yet to be implemented -->
+  <Item name="EYEELECTRICALITEM" identifier="eyeelectricalHUDitem" noninteractable="true">
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="480,520,1,1" depth="0.6" origin="0.5,0.5" />
+    <Body width="70" height="24" density="100" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" debugwiring="true" showtexts="false" />
+	<Wearable/>
+	<MeleeWeapon slots="Any,RightHand,LeftHand"/>
+  </Item>
+
 
 </Items>
