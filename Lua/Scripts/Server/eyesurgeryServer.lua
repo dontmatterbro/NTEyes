@@ -37,7 +37,9 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     "eyeplastic",
     "eyemonster",
     "eyehusk",
-	"eyeterror"
+	"eyeterror",
+	"medicallens",
+	"electricallens"
   }
   for eyeaff in eyeaffs do
     -- Nuke eye afflictions on head and torso
