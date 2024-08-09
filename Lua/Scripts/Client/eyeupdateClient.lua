@@ -7,7 +7,7 @@ thermalHUDActive = nil
 medicalHUDActive = nil
 electricalHUDActive = nil
 eyeHUD = nil
-
+HoverTextHUD = false
 
 -- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
@@ -18,6 +18,12 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
         NTEYE.UpdateHumanEyeEffect(character)
     end
 end)
+
+--deletes player text for medical hud
+Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
+	ptable.PreventExecution = HoverTextHUD
+	return nil
+end, Hook.HookMethodType.Before)
 
 
 -- infrared eye thermal hud
@@ -52,11 +58,13 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 					item.Equip(Character.Controlled)
 					eyeHUD = item.GetComponentString("StatusHUD")
 					medicalHUDActive = 1
+					HoverTextHUD = true
 					break
 				end
 			end
 		end
-
+		
+		
 		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled)
 
 end)
@@ -108,6 +116,7 @@ function NTEYE.disableHUDs(character)
 			if item.Prefab.Identifier == "eyemedicalHUDitem" then
 				item.Unequip(Character.Controlled)	
 				medicalHUDActive = nil
+				HoverTextHUD = false
 			end
 			
 			if item.Prefab.Identifier == "eyeelectricalHUDitem" then
