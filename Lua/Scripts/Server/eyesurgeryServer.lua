@@ -126,6 +126,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 					HF.GetSurgerySkillRequirementMet(usingCharacter, 25) 
 				then
 					HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
+					NTEYE.LensRemoval(targetCharacter, usingCharacter)
 				else
 				
 					for i=1, 2 do
@@ -147,6 +148,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 						HF.Chance(0.5) 
 					then
 						HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
+						NTEYE.LensRemoval(targetCharacter, usingCharacter)
 					end
 				
 				end
@@ -549,8 +551,13 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 	end
 end)
 
---bionic lens surgery needs extraction method
+
+--bionic lens surgery needs extraction method check the function for removal
 Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter, targetCharacter, limb)
+
+	local identifier = item.Prefab.Identifier
+	
+	limbtype = HF.NormalizeLimbType(limb.type)
 
 	if 
 		NTEYE.CanSurgery(targetCharacter) 
@@ -558,6 +565,7 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 		if 
 			(limbtype == 11) 
 			and HF.HasAffliction(targetCharacter, "eyelid") 
+			and HF.HasAffliction(targetCharacter, "eyepopped")
 			and HF.HasAffliction(targetCharacter, "eyebionic")
 			and not HF.HasAffliction(targetCharacter, "medicallens")
 			and not HF.HasAffliction(targetCharacter, "electricallens")
@@ -567,6 +575,8 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 				identifier=="medicallensitem"
 			then
 				HF.SetAfflictionLimb(targetCharacter, "medicallens", 11, 2)
+				
+				item.Condition = 0
 			end
 
 
@@ -574,10 +584,35 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 				identifier=="electricallensitem"
 			then
 				HF.SetAfflictionLimb(targetCharacter, "electricallens", 11, 2)
+				
+				item.Condition = 0
 			end
+		end
+
+	end
+	
+end)
+
+--removing bionic lenses when eyepopped
+function NTEYE.LensRemoval(targetCharacter, usingCharacter)
+	
+	if 
+		HF.HasAffliction(targetCharacter, "eyebionic") 
+	then
+	
+		if 
+			HF.HasAffliction(targetCharacter, "medicallens") 
+		then
+			HF.GiveItemAtCondition(usingCharacter, "medicallensitem", 100)
+			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("medicallens", 1000)
 			
+		elseif
+			HF.HasAffliction(targetCharacter, "electricallens") 
+		then
+			HF.GiveItemAtCondition(usingCharacter, "electricallensitem", 100)
+			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("electricallens", 1000)
 		end
 		
 	end
 	
-end)
+end
