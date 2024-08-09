@@ -465,12 +465,25 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 
 	limbtype = HF.NormalizeLimbType(limb.type)
 	
-	if NTEYE.CanSurgery(targetCharacter) then
+	if 
+		NTEYE.CanSurgery(targetCharacter) 
+	then
 
-		if identifier == "organscalpel_eyes" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "eyepopped") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-			if HF.GetSurgerySkillRequirementMet(usingCharacter, 40) then
-				if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") then
-				HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 100)			
+		if 
+			identifier == "organscalpel_eyes" 
+			and not HF.HasAffliction(targetCharacter, "noeye") 
+			and not HF.HasAffliction(targetCharacter, "eyesdead") 
+			and not HF.HasAffliction(targetCharacter, "eyepopped") 
+			and not HF.HasAffliction(targetCharacter, "th_amputation") 
+		then
+			if 
+				HF.GetSurgerySkillRequirementMet(usingCharacter, 40) 
+			then
+				if 
+					HF.CanPerformSurgeryOn(targetCharacter) 
+					and HF.HasAffliction(targetCharacter, "eyelid") 
+				then
+					HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 100)			
 				end
 			else
 				for i=1, 2 do
@@ -480,10 +493,17 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 						if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 12) end
 					end, 1000 * i)
 				end
+				
 				HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100) 
-				if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 20) end
-				if HF.Chance(0.3) then
-				HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 2)
+				if 
+					NTEYE.HasEyes(targetCharacter) 
+				then 
+					HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 20) 
+				end
+				if 
+					HF.Chance(0.3) 
+				then
+					HF.AddAfflictionLimb(targetCharacter, "corneaincision", 11, 2)
 				end
 			end
 		end
@@ -593,7 +613,7 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 	
 end)
 
---removing bionic lenses when eyepopped
+--removing bionic lenses when eyepopped check twezeers usage
 function NTEYE.LensRemoval(targetCharacter, usingCharacter)
 	
 	if 
