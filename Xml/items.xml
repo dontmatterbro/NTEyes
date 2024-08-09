@@ -214,6 +214,56 @@
     </MeleeWeapon>
   </Item>
 
+		<!-- MEDICAL LENS NEEDS CRAFTING RECIPE-->
+  <Item name="" identifier="medicallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="75" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="3">
+      <RequiredSkill identifier="medical" level="40" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+	<Deconstruct time="3">
+        <Item identifier="silicon" />
+	</Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+		<!-- ELECTRICAL LENS NEEDS CRAFTING RECIPE-->
+  <Item name="" identifier="electricallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="75" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="3">
+      <RequiredSkill identifier="medical" level="40" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+	<Deconstruct time="3">
+        <Item identifier="silicon" />
+	</Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
 		<!-- GLASSES -->
   <Item name="" identifier="eyeglasses" scale="0.17" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
     <Price baseprice="150" soldeverywhere="false">
@@ -728,7 +778,7 @@
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="480,520,1,1" depth="0.6" origin="0.5,0.5" />
     <Body width="70" height="24" density="100" />
-    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="0,0,0,0" showtexts="false" />
 	<Wearable/>
 	<MeleeWeapon slots="Any,RightHand,LeftHand"/>
   </Item>

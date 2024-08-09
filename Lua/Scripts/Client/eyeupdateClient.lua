@@ -89,9 +89,8 @@ function NTEYE.checkHUDs()
 		   thermalHUDActive == 1
 		or medicalHUDActive == 1
 		or electricalHUDActive == 1
-		
-	then return true end
 	
+	then return true end
 end
 
 --disables HUDs if they are enabled
@@ -100,26 +99,25 @@ function NTEYE.disableHUDs(character)
 	if NTEYE.checkHUDs() then 
 	
 		for item in Item.ItemList do
-		
+			
 			if item.Prefab.Identifier == "eyethermalHUDitem" then
-				item.Unequip(Character.Controlled)	
+				item.Unequip(Character.Controlled)
+				thermalHUDActive = nil
 			end
-		
+			
 			if item.Prefab.Identifier == "eyemedicalHUDitem" then
 				item.Unequip(Character.Controlled)	
+				medicalHUDActive = nil
 			end
 			
 			if item.Prefab.Identifier == "eyeelectricalHUDitem" then
 				item.Unequip(Character.Controlled)	
+				electricalHUDActive = nil
 			end
-			
-			thermalHUDActive = nil
-			medicalHUDActive = nil
-			electricalHUDActive = nil
 
 			eyeHUD = nil
 			
-			break
+			--break
 		end
 	
 	end

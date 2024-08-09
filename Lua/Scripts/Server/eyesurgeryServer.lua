@@ -1,7 +1,7 @@
 
 --checks if the eyes are interactable
 function NTEYE.CanSurgery(character)
-	if not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) and not HF.HasAffliction(character, "robotspawned") then
+	if HF.CanPerformSurgeryOn(character) and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) and not HF.HasAffliction(character, "robotspawned") then
 	return true end
 end
 
@@ -547,4 +547,37 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 		end
 		
 	end
+end)
+
+--bionic lens surgery needs extraction method
+Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter, targetCharacter, limb)
+
+	if 
+		NTEYE.CanSurgery(targetCharacter) 
+	then
+		if 
+			(limbtype == 11) 
+			and HF.HasAffliction(targetCharacter, "eyelid") 
+			and HF.HasAffliction(targetCharacter, "eyebionic")
+			and not HF.HasAffliction(targetCharacter, "medicallens")
+			and not HF.HasAffliction(targetCharacter, "electricallens")
+		then
+		
+			if 
+				identifier=="medicallensitem"
+			then
+				HF.SetAfflictionLimb(targetCharacter, "medicallens", 11, 2)
+			end
+
+
+			if 
+				identifier=="electricallensitem"
+			then
+				HF.SetAfflictionLimb(targetCharacter, "electricallens", 11, 2)
+			end
+			
+		end
+		
+	end
+	
 end)

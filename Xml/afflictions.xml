@@ -146,15 +146,19 @@
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,384,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
   
-		<!-- EYE HUD -->
-	<Affliction identifier="eyehud" />
   
-				<!-- EFFECT TYPE AFFLICTIONS 		MUST REWORK ALL EFFECTS --> 
+				<!-- EFFECT TYPE AFFLICTIONS --> 
 			<!-- BIONIC EYE -->
 	<Affliction iconcolors="211,211,84,255;211,211,84,255" name="" identifier="eyebionic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
 		<Effect minstrength="0" maxstrength="2" minscreendistort="-3" maxscreendistort="-3" minscreenblur="-3" maxscreenblur="-3" minradialdistort="-1.5" maxradialdistort="-1.5" minchromaticaberration="-4" maxchromaticaberration="-4" minskillmultiplier="1.1" maxskillmultiplier="1.1"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,128,128,128"  origin="0,0" />
 	</Affliction>
+  
+  		<!-- MEDICAL HUD -->
+	<Affliction identifier="medicallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" />
+	
+			<!-- ELECTRICAL HUD -->
+	<Affliction identifier="electricallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" />
   
 			<!-- NIGHT VISION EYE-->
 	<Affliction iconcolors="42,194,47,255;42,194,47,255" name="" identifier="eyenight" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
