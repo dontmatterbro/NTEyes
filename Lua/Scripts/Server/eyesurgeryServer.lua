@@ -126,7 +126,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 					HF.GetSurgerySkillRequirementMet(usingCharacter, 25) 
 				then
 					HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
-					NTEYE.LensRemoval(targetCharacter, usingCharacter)
+					--NTEYE.LensRemoval(targetCharacter, usingCharacter) i dont like this, this will be moved elsewhere
 				else
 				
 					for i=1, 2 do
@@ -148,7 +148,7 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 						HF.Chance(0.5) 
 					then
 						HF.AddAfflictionLimb(targetCharacter, "eyepopped", 11, 100)
-						NTEYE.LensRemoval(targetCharacter, usingCharacter)
+						--NTEYE.LensRemoval(targetCharacter, usingCharacter)
 					end
 				
 				end
@@ -498,7 +498,7 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 				if 
 					NTEYE.HasEyes(targetCharacter) 
 				then 
-					HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 20) 
+					HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 10) 
 				end
 				if 
 					HF.Chance(0.3) 
@@ -582,7 +582,7 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 	if 
 		NTEYE.CanSurgery(targetCharacter) 
 	then
-		if 
+		if 	--lense application
 			(limbtype == 11) 
 			and HF.HasAffliction(targetCharacter, "eyelid") 
 			and HF.HasAffliction(targetCharacter, "eyepopped")
@@ -591,6 +591,7 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 			and not HF.HasAffliction(targetCharacter, "electricallens")
 		then
 		
+			
 			if 
 				identifier=="medicallensitem"
 			then
@@ -609,17 +610,39 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 			end
 		end
 
+
+		if 	--lense removal
+			identifier=="wrench" 
+			and (limbtype == 11) 
+			and HF.HasAffliction(targetCharacter, "eyelid") 
+			and HF.HasAffliction(targetCharacter, "eyepopped")
+			and HF.HasAffliction(targetCharacter, "eyebionic")
+			and ( HF.HasAffliction(targetCharacter, "medicallens") or HF.HasAffliction(targetCharacter, "electricallens") )
+		then
+			if
+				HF.GetSurgerySkillRequirementMet(usingCharacter, 65) 
+			then
+				NTEYE.LensRemoval(targetCharacter, usingCharacter)
+			else
+			
+				for i=1, 2 do
+					Timer.Wait(function()
+						HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 5)
+						HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 40)
+						HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 12)
+					end, 1000 * i)
+				end			
+				
+				if HF.Chance(0.25) then NTEYE.LensRemoval(targetCharacter, usingCharacter) end
+
+			end
+		end
 	end
-	
 end)
 
 --removing bionic lenses when eyepopped check twezeers usage
 function NTEYE.LensRemoval(targetCharacter, usingCharacter)
-	
-	if 
-		HF.HasAffliction(targetCharacter, "eyebionic") 
-	then
-	
+
 		if 
 			HF.HasAffliction(targetCharacter, "medicallens") 
 		then
@@ -633,6 +656,5 @@ function NTEYE.LensRemoval(targetCharacter, usingCharacter)
 			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("electricallens", 1000)
 		end
 		
-	end
-	
+		
 end

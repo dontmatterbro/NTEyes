@@ -7,7 +7,7 @@ thermalHUDActive = nil
 medicalHUDActive = nil
 electricalHUDActive = nil
 eyeHUD = nil
-HoverTextHUD = false
+DisableHoverTextHUD = false
 
 -- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
@@ -19,9 +19,10 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
     end
 end)
 
+
 --deletes player text for medical hud
 Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
-	ptable.PreventExecution = HoverTextHUD
+	ptable.PreventExecution = DisableHoverTextHUD
 	return nil
 end, Hook.HookMethodType.Before)
 
@@ -58,7 +59,7 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 					item.Equip(Character.Controlled)
 					eyeHUD = item.GetComponentString("StatusHUD")
 					medicalHUDActive = 1
-					HoverTextHUD = true
+					DisableHoverTextHUD = true --disables text hud
 					break
 				end
 			end
@@ -116,7 +117,7 @@ function NTEYE.disableHUDs(character)
 			if item.Prefab.Identifier == "eyemedicalHUDitem" then
 				item.Unequip(Character.Controlled)	
 				medicalHUDActive = nil
-				HoverTextHUD = false
+				DisableHoverTextHUD = false
 			end
 			
 			if item.Prefab.Identifier == "eyeelectricalHUDitem" then
@@ -141,11 +142,32 @@ local parameters = Level.Loaded.LevelData.GenerationParams
 
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 
-		parameters.AmbientLightColor = Color(50, 50, 0, 35)
+		parameters.AmbientLightColor = Color(50, 50, 25, 35)
 		
 		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(60, 60, 0, 75) 
+			hull.AmbientLight = Color(60, 60, 30, 75) 
 		end
+		
+		if HF.HasAffliction(Character.Controlled, "medicallens") then
+			
+			parameters.AmbientLightColor = Color(50, 0, 0, 35)
+		
+			for k, hull in pairs(Hull.HullList) do
+				hull.AmbientLight = Color(60, 0, 0, 75)
+			end
+
+		elseif HF.HasAffliction(Character.Controlled, "electricallens") then
+			
+			parameters.AmbientLightColor = Color(50, 50, 0, 35)
+		
+			for k, hull in pairs(Hull.HullList) do
+				hull.AmbientLight = Color(60, 60, 0, 75)
+			end
+		
+		else
+			NTEYE.disableHUDs()
+		end
+  
   
 elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 

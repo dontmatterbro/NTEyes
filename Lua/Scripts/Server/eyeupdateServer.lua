@@ -109,7 +109,7 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		if 		--immunity check for eyeshock
 					HF.HasAffliction(character, "eyeshock") 
-			and not HF.HasAffliction(character, "immunity", 10) 
+			and (not HF.HasAffliction(character, "immunity", 10)) or HF.HasAffliction(character, "eyebionic")
 
 		then
 					HF.AddAfflictionLimb(character, "eyeshock", 11, -1000) 
