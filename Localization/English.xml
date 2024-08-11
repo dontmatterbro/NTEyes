@@ -59,7 +59,7 @@
   <entitydescription.transplant_eyes_husk>Right out of a husk's skull. Cannot be damaged by water, and has a chance to give the patient husk infection.</entitydescription.transplant_eyes_husk>
   
   <entityname.transplant_eyes_bionic>Bionic Eyes Transplant</entityname.transplant_eyes_bionic>
-  <entitydescription.transplant_eyes_bionic>A metal, much more resilient eye, made for transplantation. Can't be damaged by oxygen deprivation. Slightly increases vision quality.</entitydescription.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>A metal, much more resilient eye, made for transplantation. Can't be damaged by bodily afflictions and needs to repaired manually. Slightly increases vision quality. Can be upgraded using special lenses.</entitydescription.transplant_eyes_bionic>
   
   <entityname.transplant_eyes_night>Night Vision Eyes Transplant</entityname.transplant_eyes_night>
   <entitydescription.transplant_eyes_night>A pair of eyes, that comes with night vision implants. Can't be turned off on demand.</entitydescription.transplant_eyes_night>
