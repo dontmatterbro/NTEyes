@@ -74,7 +74,7 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 	
 		if HF.HasAffliction(character, "eyebionic") then --bionic
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
-			NTEYE.LensRemoval(targetCharacter, usingCharacter)
+			NTEYE.LensRemoval(character, usingCharacter)
 			
 		elseif HF.HasAffliction(character, "eyenight") then --night
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_night", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -674,7 +674,7 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 end)
 
 --removing bionic lenses when eyepopped check twezeers usage
-function NTEYE.LensRemoval(targetCharacter, usingCharacter)
+function NTEYE.LensRemoval(usingCharacter, targetCharacter)
 
 		if 
 			HF.HasAffliction(targetCharacter, "medicallens") 

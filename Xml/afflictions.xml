@@ -115,7 +115,7 @@
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25">
 			<StatusEffect target="Character" comparison="and">
 				<Conditional table="eq 0" sym_unconsciousness="lte 0.1" />
-				<Affliction identifier="traumaticshock" amount="1.5" />
+				<Affliction identifier="traumaticshock" amount="3" />
 			</StatusEffect>
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,256,128,128" color="0,0,255,255" origin="0,0" />

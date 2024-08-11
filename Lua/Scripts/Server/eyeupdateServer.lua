@@ -31,7 +31,7 @@ function NTEYE.GetItemInSlot(character, slot)
   end
 end
 
---updates human eyes		horrendous code format, I am gonna fix this later on, works for now tho
+--updates human eyes		horrendous code format, I am gonna fix this later on when I learn proper lua programming, works for now tho
 function NTEYE.UpdateHumanEye(character)
 
 	if  	--checks if there are eyes
@@ -43,7 +43,8 @@ function NTEYE.UpdateHumanEye(character)
 	
 		if 		--neurotrauma damage
 					HF.HasAffliction(character, "cerebralhypoxia", 60) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
 			
 		then
@@ -53,7 +54,8 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		if 		--hypoxemia damage
 					HF.HasAffliction(character, "hypoxemia", 80) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
 		then
 		
@@ -61,7 +63,8 @@ function NTEYE.UpdateHumanEye(character)
 					
 		elseif
 					HF.HasAffliction(character, "hypoxemia", 40) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
 			
 		then
@@ -71,7 +74,8 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		if 		--stroke damage
 					HF.HasAffliction(character, "stroke", 5) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
 			
 		then
@@ -81,11 +85,23 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		if 		--sepsis damage
 					HF.HasAffliction(character, "sepsis", 20) 
-			and not HF.HasAffliction(character, "eyebionic") 
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+		end
+		  
+		  
+		if 		--blood pressure damage
+					HF.HasAffliction(character, "bloodpressure", 150)
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
+			and not HF.HasAffliction(character, "stasis") 
+			
+		then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
 		end
 		  
 		  
@@ -220,8 +236,9 @@ function NTEYE.UpdateHumanEye(character)
 
 
 		if 		--give eye back below 50 damage (for bionic primarily)
-					HF.HasAffliction(character, "eyeone") 
-			and not	HF.HasAffliction(character, "eyedamage", 50) 
+					HF.HasAffliction(character, "eyeone")
+				and	HF.HasAffliction(character, "eyebionic")
+			and not	HF.HasAffliction(character, "eyedamage", 50)
 			
 		then
 					character.CharacterHealth.ReduceAfflictionOnAllLimbs("eyeone", 1000)
