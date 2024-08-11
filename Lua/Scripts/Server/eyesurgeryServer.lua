@@ -74,6 +74,7 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 	
 		if HF.HasAffliction(character, "eyebionic") then --bionic
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_bionic", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
+			NTEYE.LensRemoval(targetCharacter, usingCharacter)
 			
 		elseif HF.HasAffliction(character, "eyenight") then --night
 			HF.GiveItemAtCondition(usingCharacter, "transplant_eyes_night", 100 - HF.GetAfflictionStrength(character, "eyedamage", 0))
@@ -573,7 +574,7 @@ end)
 
 
 --bionic lens surgery needs extraction method check the function for removal
-Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter, targetCharacter, limb)
+Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharacter, targetCharacter, limb)
 
 	local identifier = item.Prefab.Identifier
 	
@@ -612,7 +613,7 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 
 
 		if 	--lense removal
-			identifier=="wrench" 
+			(identifier=="screwdriver" or identifier=="screwdriverhardened" or identifier=="screwdriverdementonite")  		
 			and (limbtype == 11) 
 			and HF.HasAffliction(targetCharacter, "eyelid") 
 			and HF.HasAffliction(targetCharacter, "eyepopped")
@@ -633,10 +634,42 @@ Hook.Add("item.applyTreatment", "eyelenssurgery", function(item, usingCharacter,
 					end, 1000 * i)
 				end			
 				
-				if HF.Chance(0.25) then NTEYE.LensRemoval(targetCharacter, usingCharacter) end
+				if 
+					HF.Chance(0.25) 
+				then 
+					NTEYE.LensRemoval(targetCharacter, usingCharacter) 
+				end
 
 			end
 		end
+	
+
+		if --bionic eye repair
+			identifier=="fpgacircuit"
+			and (limbtype == 11)
+			and HF.HasAffliction(targetCharacter, "eyelid")
+			and HF.HasAffliction(targetCharacter, "eyepopped")
+			and HF.HasAffliction(targetCharacter, "eyebionic")
+			--and HF.HasAffliction(targetCharacter, "eyedamage", 10)
+			and not HF.HasAffliction(targetCharacter, "eyedamage", 80)
+		then
+			if
+				HF.GetSurgerySkillRequirementMet(usingCharacter, 65)
+			then
+				targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", 20)
+				item.Condition = 0
+			else
+				if 
+					HF.Chance(0.2) 
+				then
+					targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", 15)
+				end
+				
+				item.Condition = 0
+			end
+			
+		end
+			
 	end
 end)
 

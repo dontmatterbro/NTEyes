@@ -141,13 +141,7 @@ function NTEYE.UpdateHumanEyeEffect(character)
 local parameters = Level.Loaded.LevelData.GenerationParams
 
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
-
-		parameters.AmbientLightColor = Color(50, 50, 25, 35)
-		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(60, 60, 30, 75) 
-		end
-		
+	
 		if HF.HasAffliction(Character.Controlled, "medicallens") then
 			
 			parameters.AmbientLightColor = Color(50, 0, 0, 35)
@@ -161,11 +155,17 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 			parameters.AmbientLightColor = Color(50, 50, 0, 35)
 		
 			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(60, 60, 0, 75)
+				hull.AmbientLight = Color(75, 75, 0, 75)
 			end
 		
 		else
 			NTEYE.disableHUDs()
+			
+			parameters.AmbientLightColor = Color(50, 50, 25, 35)
+		
+			for k, hull in pairs(Hull.HullList) do
+				hull.AmbientLight = Color(60, 60, 30, 75) 
+			end
 		end
   
   

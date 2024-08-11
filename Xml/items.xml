@@ -214,16 +214,19 @@
     </MeleeWeapon>
   </Item>
 
-		<!-- MEDICAL LENS NEEDS CRAFTING RECIPE-->
+		<!-- MEDICAL LENS -->
   <Item name="" identifier="medicallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,640,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="3">
-      <RequiredSkill identifier="medical" level="40" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="14">
+      <RequiredSkill identifier="medical" level="75" />
+      <RequiredSkill identifier="mechanical" level="40" />
       <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="aluminum" />
     </Fabricate>
 	<Deconstruct time="3">
         <Item identifier="silicon" />
@@ -239,16 +242,19 @@
     </MeleeWeapon>
   </Item>
 
-		<!-- ELECTRICAL LENS NEEDS CRAFTING RECIPE-->
+		<!-- ELECTRICAL LENS -->
   <Item name="" identifier="electricallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,512,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     <Price baseprice="75" soldbydefault="false">
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="3">
-      <RequiredSkill identifier="medical" level="40" />
-      <RequiredItem identifier="plastic" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="12">
+      <RequiredSkill identifier="medical" level="65" />
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="fulgurium" />
     </Fabricate>
 	<Deconstruct time="3">
         <Item identifier="silicon" />
@@ -792,6 +798,105 @@
 	<Wearable/>
 	<MeleeWeapon slots="Any,RightHand,LeftHand"/>
   </Item>
+
+
+
+
+
+
+	<!-- VANILLA OVERRIDES -->
+
+		<!-- SCREWDRIVER (overriding screwdriver for surgery, lets hope that it doesn't cause comp issues)-->
+<Override>
+  <Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool,screwdriveritem" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+    <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer primary="engcab" secondary="reactorcab"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.2"/>  
+    <PreferredContainer primary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.5"/>
+    <PreferredContainer primary="wreckreactorcab,abandonedreactorcab,piratereactorcab" amount="1" spawnprobability="0.5"/>   
+    <PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.3"/>
+    <PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.1" />
+    <Price baseprice="10" minavailable="10">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" minavailable="5"  />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" minavailable="10" multiplier="0.9"/>
+    </Price>
+    <Deconstruct time="20">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="iron" amount="2" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,188,64,14" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="12" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="0" itemdamage="2" targetimpulse="2">
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="bleeding" strength="2" />
+        <Affliction identifier="stun" strength="0.05" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="RepairSpeed" value="0.1"/>
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>	
+</Override>
+	
+		<!-- FPGA CIRCUIT (overriding screwdriver for surgery, lets hope that it doesn't cause comp issues)-->
+<Override>
+  <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+    <Price baseprice="80">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" sold="false"/>
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="engcab"/>
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <Deconstruct time="5">
+      <Item identifier="copper" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="electrical" level="15" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="copper" amount="2" />
+      <RequiredItem identifier="tin" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true" amount="2" displayname="cheapitem">
+      <RequiredSkill identifier="electrical" level="15" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="copper" amount="2" />
+      <RequiredItem identifier="tin" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
+    <Body width="36" height="36" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used (not used by the vanilla game) -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+</Override>
 
 
 </Items>

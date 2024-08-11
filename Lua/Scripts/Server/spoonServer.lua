@@ -65,15 +65,26 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 		
 		end
 
---[[ add humans to spoon  
-	if not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-		if NTEYE.CanSurgery(targetCharacter) then
-			Entity.Spawner.AddItemToSpawnQueue(NTEYE.GiveItemBasedOnEye(targetCharacter), item.WorldPosition, nil, nil, function(item) end) 
-			Entity.Spawner.AddItemToRemoveQueue(item)
-		
+--[[
+	if v.SpeciesName == "Human" then
+		if 
+			not HF.HasAffliction(v, "noeye") 
+			and not HF.HasAffliction(v, "th_amputation") 
+			
+		then print("1")
+			if 
+				--HF.CanPerformSurgeryOn(targetCharacter) 
+				not NTEYE.IsInDivingGear(v) 
+				and not HF.HasAffliction(v,"stasis",0.1) 
+				and not HF.HasAffliction(v, "robotspawned") 
+				
+			then print("2")
+				Entity.Spawner.AddItemToSpawnQueue(NTEYE.GiveItemBasedOnEye(v), item.WorldPosition, nil, nil, function(item) end) 
+				Entity.Spawner.AddItemToRemoveQueue(item)
+			print("3")
+			end
 		end
-	end
- --]]
+	end --]]
 
 	end 
 end) 
