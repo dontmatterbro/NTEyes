@@ -1,13 +1,12 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.1.0"
-NTEYE.VersionNum = 01010000
+NTEYE.Version = "A1.1.1"
+NTEYE.VersionNum = 01010100
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil then NTC.RegisterExpansion(NTEYE) end end,1)
 
--- singleplayer bit buggy due to client only features, maybe a add-on patch later on? why not just make a local server like minecraft barodevs :( ???
 
 Timer.Wait(function() 
 	if SERVER and NTC == nil then --checks if NT is installed
@@ -17,12 +16,22 @@ Timer.Wait(function()
 	
 		--server side scripts
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
+		
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeupdateServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyesurgeryServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeondamageServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/spoonServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/itemspawnServer.lua")
+		
+		--Robotrauma Compatibility Patch
+		for package in ContentPackageManager.EnabledPackages.All do
+				if tostring(package.UgcId) == "2948488019" then
+					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/robotraumaComp.lua")
+					print("NT Eyes - Robotrauma Integrated Compatibility Patch")
+				break
+			end
+		end
 	end
 		
 		--client side scripts
@@ -31,3 +40,5 @@ Timer.Wait(function()
 	end
 
 end,1)
+
+

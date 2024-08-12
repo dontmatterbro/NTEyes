@@ -12,9 +12,7 @@ if -- invalid attack data or no eyes, don't do anything (from neurotrauma)
 	#attackResult.Afflictions <= 0 or
 	hitLimb == nil or
 	hitLimb.IsSevered or
-	HF.HasAffliction(targetCharacter, "noeye") or
-	HF.HasAffliction(targetCharacter, "eyesdead") or
-	HF.HasAffliction(targetCharacter, "robotspawned") --robotrauma comp
+	not NTEYE.HasEyes(character)
 then return end
 
 

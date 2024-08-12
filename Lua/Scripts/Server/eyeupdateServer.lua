@@ -21,7 +21,7 @@ function NTEYE.IsInDivingGear(character)
   if outerSlot and outerSlot.HasTag("diving") or outerSlot and outerSlot.HasTag("deepdiving") or headSlot and headSlot.HasTag("diving") or headSlot and headSlot.HasTag("deepdiving") then
     return true
   end
-  return false
+--  return false
 end
 
 -- registers slot for above check
@@ -35,9 +35,7 @@ end
 function NTEYE.UpdateHumanEye(character)
 
 	if  	--checks if there are eyes
-			not HF.HasAffliction(character, "noeye") 
-		and not HF.HasAffliction(character, "eyesdead") 
-		and not HF.HasAffliction(targetCharacter, "th_amputation")
+		NTEYE.HasEyes(character)
 	then
 	
 	
@@ -115,11 +113,11 @@ function NTEYE.UpdateHumanEye(character)
 				
 				
 		if 		--eyeshock damage
-					HF.HasAffliction(character, "eyeshock", 50) 
+					HF.HasAffliction(character, "eyeshock", 60) 
 			and not HF.HasAffliction(character, "stasis") 
 			
 		then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 3)
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 2)
 		end
 		  
 		  
@@ -187,15 +185,16 @@ function NTEYE.UpdateHumanEye(character)
 		  
 		  
 		if 		--barotrauma damage
-					character.AnimController.HeadInWater 
-				and HF.HasAffliction(character, "pressure") 
-			and not NTEYE.IsInDivingGear(character) 
-			and not HF.HasAffliction(character, "eyemonster") 
-			and not HF.HasAffliction(character, "eyeterror") 
-			and not HF.HasAffliction(character, "eyehusk") 
+					character.AnimController.HeadInWater
+				and	character.InPressure
+			and not NTEYE.IsInDivingGear(character)
+			and not HF.HasAffliction(character, "eyemonster")
+			and not HF.HasAffliction(character, "eyeterror")
+			and not HF.HasAffliction(character, "eyehusk")
+			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "huskinfection", 70) 
-			and not HF.HasAffliction(character, "pressureresistance") 
-			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "pressureresistance")
+			and not HF.HasAffliction(character, "stasis")
 
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 4)
@@ -354,7 +353,7 @@ function NTEYE.Update()
 	--fetch character for update
 	for key, character in pairs(Character.CharacterList) do
 		if not character.IsDead then
-			if character.IsHuman and not HF.HasAffliction(character, "robotspawned") then
+			if character.IsHuman then
 				table.insert(updateHumanEyes, character)
 				amountHumanEyes = amountHumanEyes + 1
 			end
