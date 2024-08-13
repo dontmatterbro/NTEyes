@@ -91,6 +91,7 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
 end)
 
+
 --checks if any HUDs are enabled
 function NTEYE.checkHUDs()
 
@@ -101,6 +102,7 @@ function NTEYE.checkHUDs()
 	
 	then return true end
 end
+
 
 --disables HUDs if they are enabled
 function NTEYE.disableHUDs(character)
@@ -135,7 +137,7 @@ function NTEYE.disableHUDs(character)
 end		
 
 
---Eye Effect Check Functions only runs on client
+--Eye Effect Check Functions
 function NTEYE.UpdateHumanEyeEffect(character)
 
 local parameters = Level.Loaded.LevelData.GenerationParams
