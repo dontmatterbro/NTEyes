@@ -2,6 +2,7 @@
 <Items>
 
 			<!-- SURGERY ITEMS -->
+			
 		<!-- ORGANSCALPEL EYES -->
   <Item name="" identifier="organscalpel_eyes" category="Equipment" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2" />
@@ -226,7 +227,7 @@
       <RequiredSkill identifier="mechanical" level="40" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="fpgacircuit" />
-      <RequiredItem identifier="aluminum" />
+      <RequiredItem identifier="aluminium" />
     </Fabricate>
 	<Deconstruct time="3">
         <Item identifier="silicon" />
@@ -324,6 +325,7 @@
   
   
 			<!-- EYE TRANSPLANT ITEMS -->
+			
 		<!-- REGULAR EYES -->
   <Item name="" identifier="transplant_eyes" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ">
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
@@ -674,6 +676,7 @@
 
 
 			<!-- MISC ITEMS -->
+			
 		<!-- NIGHT VISION GOGGLES -->
 <!-- Textures for this item are placeholder until Aidan designs new ones-->
 <Item name="" identifier="nightgoggles" scale="0.5" maxstacksize="1" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
@@ -769,6 +772,9 @@
     </ItemContainer>
   </Item>
 
+
+			<!-- GHOST ITEMS -->
+			
 	<!-- THERMAL VISION ITEM (ghost item used for lua hook) -->
   <Item name="EYETHERMALITEM" identifier="eyethermalHUDitem" noninteractable="true">
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,224,63,31" origin="0.5,0.5" />
@@ -801,10 +807,7 @@
 
 
 
-
-
-
-	<!-- VANILLA OVERRIDES -->
+			<!-- VANILLA OVERRIDES -->
 
 		<!-- SCREWDRIVER (overriding screwdriver for surgery, lets hope that it doesn't cause comp issues)-->
 <Override>
@@ -856,6 +859,66 @@
     </Quality>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>	
+</Override>
+	
+		<!-- SCREWDRIVER DEMENTONITE -->
+<Override>
+  <Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" allowasextracargo="true" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4" useinhealthinterface="True">
+    <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
+    <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab"  spawnprobability="0"/>
+    <PreferredContainer primary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
+    <PreferredContainer primary="wreckreactorcab,abandonedreactorcab,piratereactorcab" spawnprobability="0" />
+    <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+    <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+    <Price baseprice="450" sold="false" canbespecial="false" />
+    <Deconstruct>
+      <Item identifier="iron" />
+      <Item identifier="dementonite" />
+    </Deconstruct>
+    <Fabricate />
+    <MeleeWeapon reload="*0.9">
+      <Attack targetimpulse="8">
+        <Affliction identifier="lacerations" strength="7.5" />
+        <Affliction identifier="psychosis" strength="5" />
+        <Affliction identifier="stun" strength="0.05" />
+      </Attack>
+      <StatusEffect type="OnFailure" target="Character">
+        <Sound file="Content/Items/Alien/AlienTurret1.ogg" range="500" />
+        <Affliction identifier="psychosis" strength="10" />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+</Override>
+	
+		<!-- SCREWDRIVER HARDENED -->
+<Override>
+  <Item name="" identifier="screwdriverhardened" variantof="screwdriver" allowasextracargo="true" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110" addedrepairspeedmultiplier="0.25" useinhealthinterface="True">
+    <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
+    <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab"  spawnprobability="0"/>
+    <PreferredContainer primary="wreckengcab,abandonedengcab,pirateengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
+    <PreferredContainer primary="wreckreactorcab,abandonedreactorcab,piratereactorcab" spawnprobability="0" />
+    <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+    <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+    <Price baseprice="200" sold="false" />
+    <Deconstruct>
+      <Item identifier="iron" />
+      <Item identifier="depletedfuel" />
+    </Deconstruct>
+    <Fabricate requiresrecipe="true">
+      <RequiredItem identifier="depletedfuel" amount="2" />
+      <RequiredItem identifier="screwdriver" />
+    </Fabricate>
+    <MeleeWeapon>
+      <Attack targetimpulse="8" penetration="0.25">
+        <Affliction identifier="lacerations" strength="7" />
+        <Affliction identifier="radiationsickness" strength="1" />
+        <Affliction identifier="stun" strength="0.08" />
+        <Affliction identifier="bleeding" strength="2" />
+      </Attack>
+    </MeleeWeapon>
+  </Item>
 </Override>
 	
 		<!-- FPGA CIRCUIT (overriding screwdriver for surgery, lets hope that it doesn't cause comp issues)-->
