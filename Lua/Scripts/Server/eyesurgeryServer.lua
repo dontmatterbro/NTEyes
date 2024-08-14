@@ -536,6 +536,12 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 	local identifier = item.Prefab.Identifier
 	limbtype = HF.NormalizeLimbType(limb.type)
 
+	--eye drops
+	if identifier == "eyedrops" then
+		HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
+		item.Condition = item.Condition - 25
+	end
+
 	--laser surgery
 	if NTEYE.CanSurgery(targetCharacter) then
 		if identifier == "eye_laser_tool" and (limbtype == 11) and HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") and not HF.HasAffliction(targetCharacter, "corneaincision") and not HF.HasAffliction(targetCharacter, "eyepopped") then
@@ -563,13 +569,7 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 						end
 				end
 		end
-	
-		--eye drops
-		if identifier == "eyedrops" then
-			HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
-			item.Condition = item.Condition - 25
-		end
-		
+
 	end
 end)
 
