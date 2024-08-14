@@ -3,7 +3,7 @@
 	zSpeed=0.02 -- speed for when smoothZoom=true
 	zMin=0.5 -- minimum zoom modifier
 	zMax=9 -- maximum zoom modifier
-	zStart=1.5 -- default zoom level
+	zStart=1 -- default zoom level
 
 	decreaseZoomKey=Keys.Subtract -- decrease zoom key
 	increaseZoomKey=Keys.Add -- increase zoom key
@@ -40,48 +40,60 @@ end,Hook.HookMethodType.After)
 
 Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,ptable)
 
-if 
-	not HF.HasAffliction(Character.Controlled, "zoomlens")
-then
-	ptable.cam.globalZoomScale=zStart
-return end
-
-	gzsUpd=false
-	
-	if 
-		not gzsDefault
+	if
+		HF.HasAffliction(Character.Controlled, "zoomlens")
 	then
-		ptable.cam.CreateMatrices()
-	else
-		if 
-			not Character.DisableControls 
-			and Character.Controlled 
-		then
-
-				if --Decrease Zoom
-					PlayerInput.KeyDown(decreaseZoomKey) 
-				then
-					gzsNew=math.max(gzsMin,gzsNew*(1-zSpeed))
-					gzsUpd=true
-				else
-					dHeld=false
-				end
-				
-				
-				
-				if --Increase Zoom
-					PlayerInput.KeyDown(increaseZoomKey) 
-				then
-					gzsNew=math.min(gzsMax,gzsNew*(1+zSpeed))
-					gzsUpd=true
-				else
-					iHeld=false
-				end
-		end
 		
-		if gzsUpd then
-			ptable.cam.globalZoomScale=zoomOn and gzsNew or gzsDefault
+		gzsUpd=false
+		
+		if
+			not gzsDefault
+		then
+			ptable.cam.CreateMatrices()
+		else
+			if 
+				not Character.DisableControls 
+				and Character.Controlled 
+			then
+
+					if --Decrease Zoom
+						PlayerInput.KeyDown(decreaseZoomKey) 
+					then
+						gzsNew=math.max(gzsMin,gzsNew*(1-zSpeed))
+						gzsUpd=true
+					else
+						dHeld=false
+					end
+					
+					
+					
+					if --Increase Zoom
+						PlayerInput.KeyDown(increaseZoomKey) 
+					then
+						gzsNew=math.min(gzsMax,gzsNew*(1+zSpeed))
+						gzsUpd=true
+					else
+						iHeld=false
+					end
+			end
+			
+			if gzsUpd then
+				ptable.cam.globalZoomScale=zoomOn and gzsNew or gzsDefault
+			end
 		end
-	end
+			
+	elseif 
+		HF.HasAffliction(Character.Controlled, "eyeplastic")
+	then
+		ptable.cam.globalZoomScale=1.6
 	
+	elseif 
+		HF.HasAffliction(Character.Controlled, "hasglasses")
+	then
+		ptable.cam.globalZoomScale=1
+		
+	else
+		ptable.cam.globalZoomScale=1+HF.GetAfflictionStrength(Character.Controlled,"eyedamage",0)/150
+	end
+
 end,Hook.HookMethodType.After) 

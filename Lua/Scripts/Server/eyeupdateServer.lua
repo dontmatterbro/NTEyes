@@ -129,7 +129,7 @@ function NTEYE.UpdateHumanEye(character)
 					HF.AddAfflictionLimb(character, "eyeshock", 11, -1000) 
 		end
 		  
-		  
+		--[[ unneeded bloat i dont like it
 		if 		--two eye blur
 					HF.HasAffliction(character, "eyedamage", 37) 
 			and not HF.HasAffliction(character, "eyeone") 
@@ -145,7 +145,7 @@ function NTEYE.UpdateHumanEye(character)
 		then
 					NTC.SetSymptomTrue(character, "sym_blurredvision", 2)
 		end
-		
+		--]]
 
 		if 		--give cataract over 10 damage at a chance
 					HF.Chance(0.002) 
@@ -174,16 +174,19 @@ function NTEYE.UpdateHumanEye(character)
 					NTC.SetSymptomTrue(character, "sym_blurredvision", 4)
 		end
 		  
-		  
-		if 		--glasses remove blur
+		
+		if 		--glasses check for eyezoomClient.lua
 					NTEYE.GetItemInSlot(character, InvSlotType.Head) 
 				and NTEYE.GetItemInSlot(character, InvSlotType.Head).Prefab.identifier == "eyeglasses" 
 
 		then
+					HF.AddAfflictionLimb(character, "hasglasses", 11, 2)
 					NTC.SetSymptomFalse(character, "sym_blurredvision", 2)
+		else
+					HF.AddAfflictionLimb(character, "hasglasses", 11, -1000)
 		end
-		  
-		  
+		
+		
 		if 		--barotrauma damage
 					character.AnimController.HeadInWater
 				and	character.InPressure
@@ -197,7 +200,13 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "stasis")
 
 		then
-					HF.AddAfflictionLimb(character, "eyedamage", 11, 5)
+			if
+				HF.HasAffliction(character, "eyebionic")
+			then
+				HF.AddAfflictionLimb(character, "eyedamage", 11, 8)
+			else
+				HF.AddAfflictionLimb(character, "eyedamage", 11, 5)
+			end
 		end
 		  
 		  

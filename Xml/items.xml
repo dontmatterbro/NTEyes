@@ -330,7 +330,7 @@
   
 		<!-- AVIATOR GLASSES 						CHECK THIS OUT, make it rarely findable (barotraumatic code i guess?? -->
   <Item name="" identifier="aviatorglasses" scale="0.17" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
-    <Price baseprice="750" soldeverywhere="false">
+    <Price baseprice="1250" soldeverywhere="false">
       <Price locationtype="military" multiplier="3" />
     </Price>
 	<Deconstruct time="7">
