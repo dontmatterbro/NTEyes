@@ -289,9 +289,9 @@ function NTEYE.UpdateHumanEye(character)
 
 
 		if 		--eyedrop healing above 51 damage
-					HF.HasAffliction(character, "eyedrop") 
-				and HF.HasAffliction(character, "eyedamage", 51) 
-			and not HF.HasAffliction(character, "eyedamage", 80) 
+					HF.HasAffliction(character, "eyedrop")
+				and HF.HasAffliction(character, "eyedamage", 51)
+			and not HF.HasAffliction(character, "eyedamage", 80)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 
