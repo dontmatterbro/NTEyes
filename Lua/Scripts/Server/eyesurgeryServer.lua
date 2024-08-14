@@ -39,7 +39,8 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
     "eyehusk",
 	"eyeterror",
 	"medicallens",
-	"electricallens"
+	"electricallens",
+	"zoomlens"
   }
   for eyeaff in eyeaffs do
     -- Nuke eye afflictions on head and torso
@@ -590,6 +591,7 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 			and HF.HasAffliction(targetCharacter, "eyebionic")
 			and not HF.HasAffliction(targetCharacter, "medicallens")
 			and not HF.HasAffliction(targetCharacter, "electricallens")
+			and not HF.HasAffliction(targetCharacter, "zoomlens")
 		then
 		
 			
@@ -609,16 +611,26 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 				
 				item.Condition = 0
 			end
+		
+		
+			if 
+				identifier=="zoomlensitem"
+			then
+				HF.SetAfflictionLimb(targetCharacter, "zoomlens", 11, 2)
+				
+				item.Condition = 0
+			end
+		
 		end
 
 
 		if 	--lense removal
 			(identifier=="screwdriver" or identifier=="screwdriverhardened" or identifier=="screwdriverdementonite")  		
-			and (limbtype == 11) 
+			and (limbtype == 11)
 			and HF.HasAffliction(targetCharacter, "eyelid") 
 			and HF.HasAffliction(targetCharacter, "eyepopped")
 			and HF.HasAffliction(targetCharacter, "eyebionic")
-			and ( HF.HasAffliction(targetCharacter, "medicallens") or HF.HasAffliction(targetCharacter, "electricallens") )
+			--and ( HF.HasAffliction(targetCharacter, "medicallens") or HF.HasAffliction(targetCharacter, "electricallens") or HF.HasAffliction(targetCharacter, "zoomlens"))
 		then
 			if
 				HF.GetSurgerySkillRequirementMet(usingCharacter, 65) 
@@ -674,20 +686,27 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 end)
 
 --removing bionic lenses when eyepopped check twezeers usage
-function NTEYE.LensRemoval(usingCharacter, targetCharacter)
+function NTEYE.LensRemoval(targetCharacter, usingCharacter)
 
 		if 
 			HF.HasAffliction(targetCharacter, "medicallens") 
 		then
 			HF.GiveItemAtCondition(usingCharacter, "medicallensitem", 100)
 			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("medicallens", 1000)
-			
-		elseif
+		end
+		
+		if
 			HF.HasAffliction(targetCharacter, "electricallens") 
 		then
 			HF.GiveItemAtCondition(usingCharacter, "electricallensitem", 100)
 			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("electricallens", 1000)
 		end
 		
-		
+		if
+			HF.HasAffliction(targetCharacter, "zoomlens")
+		then
+			HF.GiveItemAtCondition(usingCharacter, "zoomlensitem", 100)
+			targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("zoomlens", 1000)
+		end
+	
 end

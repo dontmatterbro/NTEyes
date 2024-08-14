@@ -35,6 +35,10 @@
   
   <entityname.electricallensitem>Bionic Electrical Lens</entityname.electricallensitem>
   <entitydescription.electricallensitem>An upgrade that can be applied to bionic eyes to give the patient electrical scanner vision.</entitydescription.electricallensitem>
+ 
+  <entityname.zoomlensitem>Bionic Magnification Lens</entityname.zoomlensitem>
+  <entitydescription.zoomlensitem>An upgrade that can be applied to bionic eyes to give the patient visual magnification ability.</entitydescription.zoomlensitem>
+  
   
   <entityname.eyelens>Eye Lens</entityname.eyelens>
   <entitydescription.eyelens>Used in cataract surgeries, put in after emulsification.</entitydescription.eyelens>

@@ -271,6 +271,34 @@
     </MeleeWeapon>
   </Item>
 
+		<!-- ZOOM LENS -->
+  <Item name="" identifier="zoomlensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,384,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="75" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="16">
+      <RequiredSkill identifier="medical" level="65" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="dementonite" amount="2" />
+    </Fabricate>
+	<Deconstruct time="3">
+        <Item identifier="silicon" />
+	</Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
 		<!-- GLASSES -->
   <Item name="" identifier="eyeglasses" scale="0.17" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
     <Price baseprice="150" soldeverywhere="false">
@@ -921,7 +949,7 @@
   </Item>
 </Override>
 	
-		<!-- FPGA CIRCUIT (overriding screwdriver for surgery, lets hope that it doesn't cause comp issues)-->
+		<!-- FPGA CIRCUIT (overriding FPGA for surgery, lets hope that it doesn't cause comp issues)-->
 <Override>
   <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
     <Price baseprice="80">

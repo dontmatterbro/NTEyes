@@ -97,8 +97,22 @@ then return end
 			end
 		
 			--burn eyes (old code made sense, kept it)
-			if v.Identifier == "burn" then
-				HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength)
+			if 
+				v.Identifier == "burn" 
+			then
+				if 
+					HF.HasAffliction(character, "eyeplastic")
+				then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength*4)
+				
+				elseif
+					HF.HasAffliction(character, "eyebionic")
+				then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength*0.5)
+				
+				else
+					HF.AddAfflictionLimb(character, "eyedamage", 11, v.Strength)
+				end
 			end
 
 			--explode eyes (old code made sense, enhanced it)

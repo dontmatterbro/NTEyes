@@ -159,6 +159,14 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 			for k, hull in pairs(Hull.HullList) do
 				hull.AmbientLight = Color(75, 75, 0, 75)
 			end
+			
+		elseif HF.HasAffliction(Character.Controlled, "zoomlens") then --zoom has seperate file
+			
+			parameters.AmbientLightColor = Color(0, 17, 50, 35)
+		
+			for k, hull in pairs(Hull.HullList) do
+				hull.AmbientLight = Color(0, 20, 60, 75)
+			end
 		
 		else
 			NTEYE.disableHUDs()

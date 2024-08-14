@@ -1,7 +1,7 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.1.3"
-NTEYE.VersionNum = 01010300
+NTEYE.Version = "A1.1.4"
+NTEYE.VersionNum = 01010400
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
@@ -45,7 +45,8 @@ Timer.Wait(function()
 		
 		--client side scripts
 	if CLIENT then
-        dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua") 
+        dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua")
+        dofile(NTEYE.Path.."/Lua/Scripts/Client/eyezoomClient.lua")
 	end
 
 end,1)
