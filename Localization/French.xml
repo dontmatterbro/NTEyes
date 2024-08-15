@@ -40,101 +40,101 @@
   <entitydescription.eye_laser_tool>Un outil chirurgical compact pour traiter les imperfections de la cornée. Son fonctionnement nécessite de grandes compétences.</entitydescription.eye_laser_tool>
   
   <!-- EYE ITEMS // ARTICLES DES YEUX  -->
-  <entityname.transplant_eyes>Human Eyes Transplant</entityname.transplant_eyes>
-  <entitydescription.transplant_eyes>Right out of a human's skull. Used for transplants.</entitydescription.transplant_eyes>
+  <entityname.transplant_eyes>Greffe d'Yeux Humain</entityname.transplant_eyes>
+  <entitydescription.transplant_eyes>Les yeux d'une crâne humaine. Ils sont normale.</entitydescription.transplant_eyes>
   
-  <entityname.transplant_eyes_monster>Monster Eyes Transplant</entityname.transplant_eyes_monster>
-  <entitydescription.transplant_eyes_monster>Right out of a monster's skull. Not great for seeing things, but stylish at parties.</entitydescription.transplant_eyes_monster>
+  <entityname.transplant_eyes_monster>Greffe d'Yeux de Monstre</entityname.transplant_eyes_monster>
+  <entitydescription.transplant_eyes_monster>Les yeux d'une crâne monstre. La vision est mauvaise, mais ils sont élégants pour les fêtes.</entitydescription.transplant_eyes_monster>
   
-  <entityname.transplant_eyes_terror>Eldritch Eyes</entityname.transplant_eyes_terror>
-  <entitydescription.transplant_eyes_terror>An eye-like object that is unbeknownst to humanity. Proceed with caution.</entitydescription.transplant_eyes_terror>
+  <entityname.transplant_eyes_terror>Greffe d'Yeux de la Sombre</entityname.transplant_eyes_terror>
+  <entitydescription.transplant_eyes_terror>Une paire d’objets ressemblant à des yeux. Ils brillent en rouge. Procédez avec prudence.</entitydescription.transplant_eyes_terror>
   
-  <entityname.transplant_eyes_husk>Husk Eyes Transplant</entityname.transplant_eyes_husk>
-  <entitydescription.transplant_eyes_husk>Right out of a husk's skull. Cannot be damaged by water, and has a chance to give the patient husk infection.</entitydescription.transplant_eyes_husk>
+  <entityname.transplant_eyes_husk>Greffe d'Yeux du Parasite</entityname.transplant_eyes_husk>
+  <entitydescription.transplant_eyes_husk>Les yeux sortis du crâne d'une victime de parasite. </entitydescription.transplant_eyes_husk>
   
-  <entityname.transplant_eyes_bionic>Bionic Eyes Transplant</entityname.transplant_eyes_bionic>
-  <entitydescription.transplant_eyes_bionic>A metal, much more resilient eye, made for transplantation. Can't be damaged by oxygen deprivation. Slightly increases vision quality.</entitydescription.transplant_eyes_bionic>
+  <entityname.transplant_eyes_bionic>Greffe d'Yeux Bionique</entityname.transplant_eyes_bionic>
+  <entitydescription.transplant_eyes_bionic>Une paire d'yeux en métal résistant, conçue pour la transplantation. Ils ne peuvent pas être endommagés par le manque d’oxygène. Ils améliorent votre vision.</entitydescription.transplant_eyes_bionic>
   
-  <entityname.transplant_eyes_night>Night Vision Eyes Transplant</entityname.transplant_eyes_night>
-  <entitydescription.transplant_eyes_night>A pair of eyes, that comes with night vision implants. Can't be turned off on demand.</entitydescription.transplant_eyes_night>
+  <entityname.transplant_eyes_night>Greffe d'Yeux de Vision Nocturne</entityname.transplant_eyes_night>
+  <entitydescription.transplant_eyes_night>Une paire d'yeux capables de vision nocturne. Ils ne peuvent pas être désactivés.</entitydescription.transplant_eyes_night>
   
-  <entityname.transplant_eyes_infrared>Infrared Eyes Transplant</entityname.transplant_eyes_infrared>
-  <entitydescription.transplant_eyes_infrared>A pair of eyes with infrared implants. Slightly improves combat skill and vision in dark.</entitydescription.transplant_eyes_infrared>
+  <entityname.transplant_eyes_infrared>Greffe d'Yeux Infrarouge</entityname.transplant_eyes_infrared>
+  <entitydescription.transplant_eyes_infrared>Une paire d'yeux capables de vision infrarouge. Améliore légèrement les compétences de combat et la vision dans l'obscurité.</entitydescription.transplant_eyes_infrared>
   
-  <entityname.transplant_eyes_plastic>Plastic Eyes Transplant</entityname.transplant_eyes_plastic>
-  <entitydescription.transplant_eyes_plastic>A pair of "eyes", not much better than being blind. While the its hard to see clear with them, at least they look fashionable.</entitydescription.transplant_eyes_plastic>
+  <entityname.transplant_eyes_plastic>Greffe d'Yeux en Plastique</entityname.transplant_eyes_plastic>
+  <entitydescription.transplant_eyes_plastic>Une paire d'yeux en plastique. Pas beaucoup mieux que d'être aveugle. Au moins, ils ont l'air à la mode.</entitydescription.transplant_eyes_plastic>
   
   
   <!-- AFFLICTIONS // -->
-  <afflictionname.noeye>Eyes Removed</afflictionname.noeye>
-  <afflictiondescription.noeye>The patient's eyes have been surgically removed, with empty, red holes taking their place. Horrific.</afflictiondescription.noeye>
+  <afflictionname.noeye>Yeux Enlevés</afflictionname.noeye>
+  <afflictiondescription.noeye>Les yeux du patient ont été retirés chirurgicalement et des trous rouges vides ont été remplacés. Horrible.</afflictiondescription.noeye>
   
-  <afflictionname.eyedamage>Eye Damage</afflictionname.eyedamage>
-  <afflictiondescription.eyedamage>The patient's eyes look flat, and they have trouble seeing.</afflictiondescription.eyedamage>
+  <afflictionname.eyedamage>Yeux Endommagés</afflictionname.eyedamage>
+  <afflictiondescription.eyedamage>Les yeux du patient semblent plats et il a du mal à voir.</afflictiondescription.eyedamage>
   
-  <afflictionname.eyeshock>Autoimmune Retinopathy</afflictionname.eyeshock>
-  <afflictiondescription.eyeshock>The patient's immune system did not accept the eye, and is attacking it instead. Eye removal or immunosuppressants are required to stop it.</afflictiondescription.eyeshock>
+  <afflictionname.eyeshock>Rétinopathie Auto-Immune</afflictionname.eyeshock>
+  <afflictiondescription.eyeshock>Le système immunitaire du patient n’a pas accepté l’œil et l’attaque à la place.</afflictiondescription.eyeshock>
   
-  <afflictionname.eyedrop>Eye Drops</afflictionname.eyedrop>
-  <afflictiondescription.eyedrop>The patient's eye healing rate has increased.</afflictiondescription.eyedrop>
+  <afflictionname.eyedrop>Gouttes Pour Les Yeux</afflictionname.eyedrop>
+  <afflictiondescription.eyedrop>L'œil du patient récupère rapidement.</afflictiondescription.eyedrop>
   
-  <afflictionname.eyeone>Dead Eye</afflictionname.eyeone>
-  <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
+  <afflictionname.eyeone>Un Yeux Mort</afflictionname.eyeone>
+  <afflictiondescription.eyeone>Le patient a perdu toute vision d’un des yeux.</afflictiondescription.eyeone>
   
-  <afflictionname.eyesdead>Dead Eyes</afflictionname.eyesdead>
-  <afflictiondescription.eyesdead>The patient has lost all vision and their eyes are unresponsive.</afflictiondescription.eyesdead>
+  <afflictionname.eyesdead>Yeux Morts</afflictionname.eyesdead>
+  <afflictiondescription.eyesdead>Le patient a perdu toute vision et ses yeux ne répondent plus.</afflictiondescription.eyesdead>
   
-  <afflictionname.eyesickness>Vision Sickness</afflictionname.eyesickness>
-  <afflictiondescription.eyesickness>The patient has trouble seeing, likely because of a recent eye transplant. Should wear off in time.</afflictiondescription.eyesickness>
+  <afflictionname.eyesickness>Mal de la Vue</afflictionname.eyesickness>
+  <afflictiondescription.eyesickness>Le patient a du mal à voir, probablement à cause d’une récente transplantation oculaire.</afflictiondescription.eyesickness>
   
-  <afflictionname.eyecataract>Cataracts</afflictionname.eyecataract>
-  <afflictiondescription.eyecataract>The patient's eyes look cloudy, and their vision is blurred. Surgery advised.</afflictiondescription.eyecataract>
+  <afflictionname.eyecataract>Cataractes</afflictionname.eyecataract>
+  <afflictiondescription.eyecataract>Les yeux du patient semblent troubles et sa vision est floue. Chirurgie conseillée.</afflictiondescription.eyecataract>
   
-  <afflictionname.eyemuscle>Muscle Connectors</afflictionname.eyemuscle>
-  <afflictiondescription.eyemuscle>Muscle connectors are attached to the eye holes.</afflictiondescription.eyemuscle>
+  <afflictionname.eyemuscle>Connecteurs Musculaire</afflictionname.eyemuscle>
+  <afflictiondescription.eyemuscle>Les connecteurs musculaires sont attachés aux trous pour les yeux.</afflictiondescription.eyemuscle>
   
-  <afflictionname.eyegell>Eye Gel</afflictionname.eyegell>
-  <afflictiondescription.eyegell>Eye gel is applied to the eye holes.</afflictiondescription.eyegell>
+  <afflictionname.eyegell>Gel Pour Les Yeux</afflictionname.eyegell>
+  <afflictiondescription.eyegell>le gel pour les yeux est appliqué sur les trous des yeux.</afflictiondescription.eyegell>
   
-  <afflictionname.eyelid>Held Eyelids</afflictionname.eyelid>
-  <afflictiondescription.eyelid>The eyelids are held up.</afflictiondescription.eyelid>
+  <afflictionname.eyelid>Paupières Tenues</afflictionname.eyelid>
+  <afflictiondescription.eyelid>Les paupières restent ouvertes.</afflictiondescription.eyelid>
   
-  <afflictionname.eyepopped>Popped Eyeballs</afflictionname.eyepopped>
-  <afflictiondescription.eyepopped>The eyeballs have popped outside the skull and are hanging.</afflictiondescription.eyepopped>
+  <afflictionname.eyepopped>Yeux Écarquillés</afflictionname.eyepopped>
+  <afflictiondescription.eyepopped>Les globes oculaires sont sortis du crâne et pendent.</afflictiondescription.eyepopped>
   
-  <afflictionname.corneaincision>Cornea Incision</afflictionname.corneaincision>
-  <afflictiondescription.corneaincision>An incision into the cornea has been made.</afflictiondescription.corneaincision>
+  <afflictionname.corneaincision>Incision de la Cornée</afflictionname.corneaincision>
+  <afflictiondescription.corneaincision>Une incision a été pratiquée dans la cornée.</afflictiondescription.corneaincision>
   
-  <afflictionname.emulsification>Emulsification</afflictionname.emulsification>
-  <afflictiondescription.emulsification>The eye lens has been removed.</afflictiondescription.emulsification>
+  <afflictionname.emulsification>Lentille Émulsionnée</afflictionname.emulsification>
+  <afflictiondescription.emulsification>Le cristallin a été retiré.</afflictiondescription.emulsification>
   
-  <afflictionname.lasereyesurgery>Laser Surgery</afflictionname.lasereyesurgery>
-  <afflictiondescription.lasereyesurgery>Patient's eyes are rapidly healing due to recent laser surgery.</afflictiondescription.lasereyesurgery>
+  <afflictionname.lasereyesurgery>Chirurgie au Laser</afflictionname.lasereyesurgery>
+  <afflictiondescription.lasereyesurgery>Les yeux du patient guérissent rapidement grâce à une récente opération au laser.</afflictiondescription.lasereyesurgery>
   
-  <afflictionname.eyenerve>Nerve Connectors</afflictionname.eyenerve>
-  <afflictiondescription.eyenerve>Eye-brain nerve connection is established.</afflictiondescription.eyenerve>
+  <afflictionname.eyenerve>Connecteurs Nerveux</afflictionname.eyenerve>
+  <afflictiondescription.eyenerve>La connexion nerveuse œil-cerveau est établie.</afflictiondescription.eyenerve>
   
   <!-- EYE AFFLICTIONS -->
-  <afflictionname.eyebionic>Bionic Eyes</afflictionname.eyebionic>
-  <afflictiondescription.eyebionic>The patient has bionic eyes.</afflictiondescription.eyebionic>
+  <afflictionname.eyebionic>Yeux Bionique</afflictionname.eyebionic>
+  <afflictiondescription.eyebionic>Le patient a les yeux bionique.</afflictiondescription.eyebionic>
   
-  <afflictionname.eyenight>Night Vision Eyes</afflictionname.eyenight>
-  <afflictiondescription.eyenight>The patient has night vision eyes.</afflictiondescription.eyenight>
+  <afflictionname.eyenight>Yeux de Vision Nocturne</afflictionname.eyenight>
+  <afflictiondescription.eyenight>Le patient a les yeux de vision nocturne.</afflictiondescription.eyenight>
   
-  <afflictionname.eyeinfrared>Infrared Eyes</afflictionname.eyeinfrared>
-  <afflictiondescription.eyeinfrared>The patient has infrared eyes.</afflictiondescription.eyeinfrared>
+  <afflictionname.eyeinfrared>Yeux Infrarouge</afflictionname.eyeinfrared>
+  <afflictiondescription.eyeinfrared>Le patient a les yeux infrarouge.</afflictiondescription.eyeinfrared>
   
-  <afflictionname.eyeplastic>Plastic Eyes</afflictionname.eyeplastic>
-  <afflictiondescription.eyeplastic>The patient has plastic eyes.</afflictiondescription.eyeplastic>
+  <afflictionname.eyeplastic>Yeux en Plastique</afflictionname.eyeplastic>
+  <afflictiondescription.eyeplastic>Le patient a les yeux en plastique.</afflictiondescription.eyeplastic>
   
-  <afflictionname.eyemonster>Monster Eyes</afflictionname.eyemonster>
-  <afflictiondescription.eyemonster>The patient has monster eyes.</afflictiondescription.eyemonster>
+  <afflictionname.eyemonster>Yeux de Monstre</afflictionname.eyemonster>
+  <afflictiondescription.eyemonster>Le patient a les yeux de monstre.</afflictiondescription.eyemonster>
   
-  <afflictionname.eyehusk>Husk Eyes</afflictionname.eyehusk>
-  <afflictiondescription.eyehusk>The patient has husk eyes.</afflictiondescription.eyehusk>
+  <afflictionname.eyehusk>Yeux du Parasite</afflictionname.eyehusk>
+  <afflictiondescription.eyehusk>Le patient a les yeux du parasite.</afflictiondescription.eyehusk>
   
-  <afflictionname.eyeterror>EYES OF THE BEAST</afflictionname.eyeterror>
-  <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You must kill. KAR EN TUK</afflictiondescription.eyeterror>
+  <afflictionname.eyeterror>Yeux de la Sombre</afflictionname.eyeterror>
+  <afflictiondescription.eyeterror>Déchirer et déchirer. La sombre attend.</afflictiondescription.eyeterror>
   
   
 </infotexts>
