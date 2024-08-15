@@ -90,10 +90,10 @@ Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,pt
 	elseif 
 		HF.HasAffliction(Character.Controlled, "hasglasses")
 	then
-		ptable.cam.globalZoomScale=1.33
+		ptable.cam.globalZoomScale=1
 		
 	else
-		ptable.cam.globalZoomScale=1.33+HF.GetAfflictionStrength(Character.Controlled,"eyedamage",0)/150
+		ptable.cam.globalZoomScale=1+HF.GetAfflictionStrength(Character.Controlled,"eyedamage",0)/150
 	end
 
 end,Hook.HookMethodType.After) 
