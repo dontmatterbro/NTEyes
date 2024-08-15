@@ -40,60 +40,61 @@ end,Hook.HookMethodType.After)
 
 Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,ptable)
 
-	if
+if
+	not gzsDefault
+then
+	ptable.cam.CreateMatrices()
+end
+
+	if --Zoom Lens
 		HF.HasAffliction(Character.Controlled, "zoomlens")
 	then
 		
 		gzsUpd=false
-		
-		if
-			not gzsDefault
-		then
-			ptable.cam.CreateMatrices()
-		else
-			if 
-				not Character.DisableControls 
-				and Character.Controlled 
-			then
 
-					if --Decrease Zoom
-						PlayerInput.KeyDown(decreaseZoomKey) 
-					then
-						gzsNew=math.max(gzsMin,gzsNew*(1-zSpeed))
-						gzsUpd=true
-					else
-						dHeld=false
-					end
+		if 
+			not Character.DisableControls 
+			and Character.Controlled 
+		then
+
+				if --Decrease Zoom
+					PlayerInput.KeyDown(decreaseZoomKey) 
+				then
+					gzsNew=math.max(gzsMin,gzsNew*(1-zSpeed))
+					gzsUpd=true
+				else
+					dHeld=false
+				end
 					
 					
 					
-					if --Increase Zoom
-						PlayerInput.KeyDown(increaseZoomKey) 
-					then
-						gzsNew=math.min(gzsMax,gzsNew*(1+zSpeed))
-						gzsUpd=true
-					else
-						iHeld=false
-					end
-			end
-			
-			if gzsUpd then
-				ptable.cam.globalZoomScale=zoomOn and gzsNew or gzsDefault
-			end
+				if --Increase Zoom
+					PlayerInput.KeyDown(increaseZoomKey) 
+				then
+					gzsNew=math.min(gzsMax,gzsNew*(1+zSpeed))
+					gzsUpd=true
+				else
+					iHeld=false
+				end
 		end
 			
-	elseif 
+		if gzsUpd then
+			ptable.cam.globalZoomScale=zoomOn and gzsNew or gzsDefault
+		end
+		
+			
+	elseif --Plastic Eyes
 		HF.HasAffliction(Character.Controlled, "eyeplastic")
 	then
-		ptable.cam.globalZoomScale=1.7
+		ptable.cam.globalZoomScale=gzsDefault+0.7
 	
-	elseif 
+	elseif --Glasses
 		HF.HasAffliction(Character.Controlled, "hasglasses")
 	then
-		ptable.cam.globalZoomScale=1
+		ptable.cam.globalZoomScale=gzsDefault
 		
-	else
-		ptable.cam.globalZoomScale=1+HF.GetAfflictionStrength(Character.Controlled,"eyedamage",0)/150
+	else --Eye Damage
+		ptable.cam.globalZoomScale=gzsDefault+HF.GetAfflictionStrength(Character.Controlled,"eyedamage",0)/135
 	end
 
 end,Hook.HookMethodType.After) 
