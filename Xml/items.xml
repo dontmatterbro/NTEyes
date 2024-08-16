@@ -563,7 +563,7 @@
      	<Item identifier="copper" />
 	</Deconstruct>
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-      <!-- making the organ go kaputt if left outside of refrigeration -->
+      <!-- making the organ go kaputt if left outside of refrigeration 
       <StatusEffect type="Always" target="This" condition="-0.025" comparison="and">
         <Conditional hastag="neq refrigerated" targetcontainer="true" />
         <Conditional hastag="neq medicalfabricator" targetcontainer="true" />
@@ -571,8 +571,8 @@
       <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
         <Conditional condition="gte 90" />
         <Conditional hastag="refrigerated" targetcontainer="true" />
-      </StatusEffect>
-      <StatusEffect type="OnFire" target="This" Condition="-5.0" />
+      </StatusEffect> -->
+      <StatusEffect type="OnFire" target="This" Condition="-2" />
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>

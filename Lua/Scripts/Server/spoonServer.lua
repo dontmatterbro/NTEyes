@@ -9,6 +9,7 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 		if	--human eyes
 			spoontarget.IsHuman
 		then 
+
 			if --has eyes
 					not HF.HasAffliction(spoontarget, "noeye") 
 				and not HF.HasAffliction(spoontarget, "th_amputation")  
@@ -27,7 +28,6 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 				Entity.Spawner.AddItemToSpawnQueue(spoonEyeType, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
 				
 				Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
-				print(spoonEyeDamage)
 				
 			elseif --dead eyes
 						HF.HasAffliction(spoontarget, "eyesdead") 
@@ -120,14 +120,24 @@ end)
 
 function NTEYE.SpoonEyeDetect(character)
 
+	if --check for eye damage
+		character.CharacterHealth.GetAffliction("eyedamage")
+	then
+	eyeDamageAffliction = character.CharacterHealth.GetAffliction("eyedamage")
+	eyeDamageValue = eyeDamageAffliction.Strength
+	
+	else
+	eyeDamageValue = 0
+	end
+	
+	
 	if --eye condition value
 		not character.IsDead
 	then --alive
-	spoonEyeDamage = 100 - HF.GetAfflictionStrength(character, "eyedamage", 0) - math.random(10,35)
+		spoonEyeDamage = 100 - eyeDamageValue - math.random(10,35)
 	
 	else --dead
-	spoonEyeDamage = 100 - HF.GetAfflictionStrength(character, "eyedamage", 0) - math.random(10,70)
-	print("dead")
+		spoonEyeDamage = 100 - eyeDamageValue - math.random(10,70)
 	end
 	
 	
