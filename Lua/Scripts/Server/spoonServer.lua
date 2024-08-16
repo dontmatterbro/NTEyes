@@ -12,11 +12,16 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 				and	not NTEYE.IsInDivingGear(spoontarget) 
 				and not HF.HasAffliction(spoontarget,"stasis",0.1) 
 			then
+				NTEYE.GiveItemBasedOnEye(spoontarget, spoontarget) --this need to be rewritten over here
+				
+				NTEYE.ClearCharacterEyeAfflictions(spoontarget)
 				HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
 				HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 50)
-				HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,50))
+				HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,25))
+
 				
-				--item.Condition = 10
+				Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
+				
 			end
 
 
