@@ -39,7 +39,6 @@
   <entityname.zoomlensitem>Bionic Magnification Lens</entityname.zoomlensitem>
   <entitydescription.zoomlensitem>An upgrade that can be applied to bionic eyes to give the patient visual magnification ability.</entitydescription.zoomlensitem>
   
-  
   <entityname.eyelens>Eye Lens</entityname.eyelens>
   <entitydescription.eyelens>Used in cataract surgeries, put in after emulsification.</entitydescription.eyelens>
   
@@ -146,5 +145,12 @@
   <afflictionname.eyeterror>EYES OF THE BEAST</afflictionname.eyeterror>
   <afflictiondescription.eyeterror>You feel a comforting sense of bloodlust and strength. You are more resilient. You are alive. You must kill. KAR EN TUK</afflictiondescription.eyeterror>
   
+  <!-- LOADING TIPS -->
+  <loadingscreentip>Latchers and Charybdis' see the world different.</loadingscreentip>
+  <loadingscreentip>Corrective Glasses may improve sight.</loadingscreentip>
+  <loadingscreentip>Husk Eyes have can give the patient husk infection.</loadingscreentip>
+  <loadingscreentip>Laser Surgery Tool consumes high amounts of power.</loadingscreentip>
+  <loadingscreentip>Eye Regeneration Jar can regenerate a dead eye.</loadingscreentip>
+  <loadingscreentip>Cataract causes blurry vision, use glasses.</loadingscreentip>
   
 </infotexts>
