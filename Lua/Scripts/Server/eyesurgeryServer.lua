@@ -1,15 +1,26 @@
 
 --checks if the eyes are interactable
 function NTEYE.CanSurgery(character)
-	if HF.CanPerformSurgeryOn(character) and not NTEYE.IsInDivingGear(character) and not HF.HasAffliction(character,"stasis",0.1) then
+
+	if 
+				HF.CanPerformSurgeryOn(character) 
+		and not NTEYE.IsInDivingGear(character) 
+		and not HF.HasAffliction(character,"stasis",0.1) 
+	then
 	return true end
 end
 
 --checks if the eyes are alive
 function NTEYE.HasEyes(targetCharacter)
-	if not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") 
-	then return true
-	end
+
+	if 
+			not HF.HasAffliction(targetCharacter, "noeye") 
+		and not HF.HasAffliction(targetCharacter, "eyesdead") 
+		and not HF.HasAffliction(targetCharacter, "th_amputation") 
+		and not HF.HasAffliction(targetCharacter, "sh_amputation")	
+	then 
+	return true end
+	
 end
 
 --removes eye afflications after surgery

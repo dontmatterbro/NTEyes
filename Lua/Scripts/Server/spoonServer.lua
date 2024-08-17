@@ -9,45 +9,73 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 		if	--human eyes
 			spoontarget.IsHuman
 		then 
-
-			if --has eyes
-					not HF.HasAffliction(spoontarget, "noeye") 
-				and not HF.HasAffliction(spoontarget, "th_amputation")  
-				and not HF.HasAffliction(spoontarget,"stasis",0.1) 
-				and	not NTEYE.IsInDivingGear(spoontarget)
+			if --alive
+				not spoontarget.IsDead
 			then
-				--NTEYE.GiveItemBasedOnEye(spoontarget, spoontarget) --this need to be rewritten over here
-				NTEYE.SpoonEyeDetect(spoontarget)
-				
-				NTEYE.ClearCharacterEyeAfflictions(spoontarget)
-				
-				HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
-				HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 50)
-				HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,25))
+				if --has eyes
+						not HF.HasAffliction(spoontarget, "noeye") 
+					and not HF.HasAffliction(spoontarget, "th_amputation")  
+					and not HF.HasAffliction(spoontarget, "sh_amputation")  
+					and not HF.HasAffliction(spoontarget,"stasis",0.1) 
+					and	not NTEYE.IsInDivingGear(spoontarget)
+				then
+					NTEYE.SpoonEyeDetect(spoontarget)
+					
+					NTEYE.ClearCharacterEyeAfflictions(spoontarget)
+					
+					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
+					HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 50)
+					HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,25))
 
-				Entity.Spawner.AddItemToSpawnQueue(spoonEyeType, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+					Entity.Spawner.AddItemToSpawnQueue(spoonEyeType, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+					
+					Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
+					
+				elseif --has dead eyes
+							HF.HasAffliction(spoontarget, "eyesdead")
+					and not HF.HasAffliction(spoontarget, "th_amputation")
+					and not HF.HasAffliction(spoontarget, "sh_amputation")
+					and not HF.HasAffliction(spoontarget,"stasis",0.1)
+					and	not NTEYE.IsInDivingGear(spoontarget)
+				then
+					NTEYE.ClearCharacterEyeAfflictions(spoontarget)
 				
-				Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
+					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
+					HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 15)
+					HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,10))
 				
-			elseif --dead eyes
-						HF.HasAffliction(spoontarget, "eyesdead") 
-				and not HF.HasAffliction(spoontarget, "th_amputation")  
-				and not HF.HasAffliction(spoontarget,"stasis",0.1)
-				and	not NTEYE.IsInDivingGear(spoontarget)
-			then
-				NTEYE.ClearCharacterEyeAfflictions(spoontarget)
+					Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
+				end
 			
-				HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
-				HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 15)
-				HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,10))
+			else --dead
+				if --has functional eyes
+						not HF.HasAffliction(spoontarget, "noeye") 
+					and	not HF.HasAffliction(spoontarget, "eyesdead") 
+					and not HF.HasAffliction(spoontarget, "th_amputation")
+					and not HF.HasAffliction(spoontarget, "sh_amputation")
+					and	not NTEYE.IsInDivingGear(spoontarget)
+				then
+					NTEYE.SpoonEyeDetect(spoontarget)
+					
+					NTEYE.ClearCharacterEyeAfflictions(spoontarget)
+								
+					local prefab = AfflictionPrefab.Prefabs["noeye"]
+					local affliction = prefab.Instantiate(3)
+					
+					spoontarget.CharacterHealth.ApplyAffliction(spoontarget.AnimController.GetLimb(LimbType.Torso), affliction, false)
+
+					Entity.Spawner.AddItemToSpawnQueue(spoonEyeType, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+					
+					Entity.Spawner.AddItemToRemoveQueue(item)
+				end
 			
-				Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
 			end
 
 
 		else --non human eyes
 
-		  
+			spoonEyeDamage = math.random(0,100)
+			
 			if --monster eyes
 				spoontarget.SpeciesName == "Mudraptor" 
 				or spoontarget.SpeciesName == "Crawler" 
@@ -61,9 +89,13 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
 						
 					Timer.Wait(function()
+					
 						local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_monster")
-						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
+						
+						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+						
 						Entity.Spawner.AddItemToRemoveQueue(item)
+						
 					end, 1)
 						
 				end
@@ -81,9 +113,13 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
 						
 					Timer.Wait(function()
+						
 						local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_husk")
-						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
+						
+						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+						
 						Entity.Spawner.AddItemToRemoveQueue(item)
+						
 					end, 1)
 						
 				end
@@ -101,9 +137,13 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
 						
 					Timer.Wait(function()
+						
 						local prefab = ItemPrefab.GetItemPrefab("transplant_eyes_terror")
-						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(item) end)
+						
+						Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
+						
 						Entity.Spawner.AddItemToRemoveQueue(item)
+						
 					end, 1)
 				end
 				

@@ -54,9 +54,6 @@
     <Body width="60" height="12" density="50" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="4" itemdamage="2" targetimpulse="2">
-        <Affliction identifier="lacerations" strength="2" />
-        <Affliction identifier="bleeding" strength="1" />
-        <Affliction identifier="stun" strength="10" />
         <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
         <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
         <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
