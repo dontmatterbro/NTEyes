@@ -47,6 +47,7 @@ Timer.Wait(function()
 	if CLIENT then
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyezoomClient.lua")
+        dofile(NTEYE.Path.."/Lua/Scripts/Client/medicaleyes.lua")
 	end
 
 end,1)
