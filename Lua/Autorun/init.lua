@@ -23,6 +23,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/spoonServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/itemspawnServer.lua")
+		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeNetworkServer.lua")
 		
 		--Robotrauma Compatibility Patch
 		for package in ContentPackageManager.EnabledPackages.All do
@@ -47,7 +48,7 @@ Timer.Wait(function()
 	if CLIENT then
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyezoomClient.lua")
-        dofile(NTEYE.Path.."/Lua/Scripts/Client/medicaleyes.lua")
+        dofile(NTEYE.Path.."/Lua/Scripts/Client/medicaleyes.lua") -- testing purpouses
 	end
 
 end,1)
