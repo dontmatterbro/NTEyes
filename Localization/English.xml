@@ -31,13 +31,13 @@
   <entitydescription.eyegel>Moisturizes the eye holes, use before muscle connectors.</entitydescription.eyegel>
   
   <entityname.medicallensitem>Bionic Medical Lens</entityname.medicallensitem>
-  <entitydescription.medicallensitem>An upgrade that can be applied to bionic eyes to give the patient medical scanner vision.</entitydescription.medicallensitem>
+  <entitydescription.medicallensitem>An upgrade that can be applied to bionic eyes to give the patient medical scanner vision.‖color:120,200,120‖ Press F to scan.‖color:end‖</entitydescription.medicallensitem>
   
   <entityname.electricallensitem>Bionic Electrical Lens</entityname.electricallensitem>
   <entitydescription.electricallensitem>An upgrade that can be applied to bionic eyes to give the patient electrical scanner vision.</entitydescription.electricallensitem>
  
   <entityname.zoomlensitem>Bionic Magnification Lens</entityname.zoomlensitem>
-  <entitydescription.zoomlensitem>An upgrade that can be applied to bionic eyes to give the patient visual magnification ability.</entitydescription.zoomlensitem>
+  <entitydescription.zoomlensitem>An upgrade that can be applied to bionic eyes to give the patient visual magnification ability.‖color:100,100,200‖ Press - or + to zoom.‖color:end‖</entitydescription.zoomlensitem>
   
   <entityname.eyelens>Eye Lens</entityname.eyelens>
   <entitydescription.eyelens>Used in cataract surgeries, put in after emulsification.</entitydescription.eyelens>

@@ -8,6 +8,7 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 		
 		if	--human eyes
 			spoontarget.IsHuman
+			and (spoontarget.IsMale or spoontarget.IsFemale)
 		then 
 			if --alive
 				not spoontarget.IsDead
@@ -24,9 +25,11 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 					NTEYE.ClearCharacterEyeAfflictions(spoontarget)
 					
 					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
-					HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 50)
+					HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, math.random(15,50))
 					HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,25))
-
+					
+					NTEYE.PlayScream(spoontarget)
+					
 					Entity.Spawner.AddItemToSpawnQueue(spoonEyeType, item.WorldPosition, spoonEyeDamage, nil, function(item) end)
 					
 					Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
@@ -43,7 +46,9 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 					HF.AddAfflictionLimb(spoontarget, "noeye", 11, 2)
 					HF.AddAfflictionLimb(spoontarget, "traumaticshock", 11, 15)
 					HF.AddAfflictionLimb(spoontarget, "bleeding", 11, math.random(1,10))
-				
+					
+					NTEYE.PlayScream(spoontarget)
+					
 					Entity.Spawner.AddItemToRemoveQueue(item) --remove spoon after use
 				end
 			
@@ -153,9 +158,7 @@ Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetC
 		
 	end 
 	
-end) 
-
-
+end)
 
 
 function NTEYE.SpoonEyeDetect(character)
@@ -226,4 +229,19 @@ function NTEYE.SpoonEyeDetect(character)
 	else
 		spoonEyeType = ItemPrefab.GetItemPrefab("transplant_eyes")
 	end
+end
+
+function NTEYE.PlayScream(character)
+
+	if 
+		character.IsMale
+	then
+		HF.GiveItem(character,"nteye_male_scream")
+
+	elseif 
+		character.IsFemale
+	then
+		HF.GiveItem(character,"nteye_female_scream")
+	end
+
 end

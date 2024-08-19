@@ -20,7 +20,7 @@ Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,pt
 			
 			local scannerUser = Character.Controlled
 			
-			local limbInxed = CharacterHealth.OpenHealthWindow.selectedLimbIndex
+			local limbIndex = CharacterHealth.OpenHealthWindow.selectedLimbIndex
 
 			if --Which Character to scan
 				Character.Controlled.SelectedCharacter ~= nil
@@ -31,40 +31,49 @@ Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,pt
 				scannerTarget = Character.Controlled
 			end
 
-			if --limb index, there probably an easier way to do this
-				limbInxed == 0
-				and not (scannerUser == scannerTarget)
+			if --client can't scan own head
+				limbIndex == 0
+				and (scannerUser == scannerTarget)
 			then 
+			    HF.DMClient(HF.CharacterToClient(usingCharacter), "‖color:255,100,100‖".."You can't see your own head.".."‖color:end‖")
+				ScannerActive = 1
+				Timer.Wait(function() ScannerActive = 0 end, 500)
+			return end
+			
+			if --limb index, there probably an easier way to do this
+				limbIndex == 0
+			then
 				limb = LimbType.Head
 
 			elseif
-				limbInxed == 1
+				limbIndex == 1
 			then
 				limb = LimbType.Torso
 			
 			elseif
-				limbInxed == 2
+				limbIndex == 2
 			then
 				limb = LimbType.LeftArm
 			
 			elseif
-				limbInxed == 3
+				limbIndex == 3
 			then
 				limb = LimbType.RightArm
 			
 			elseif
-				limbInxed == 4
+				limbIndex == 4
 			then
 				limb = LimbType.LeftLeg
 			
 			elseif
-				limbInxed == 5
+				limbIndex == 5
 			then
 				limb = LimbType.RightLeg
 			else
 			return end
 			
 			ScannerActive = 1
+			
 			NTEYE.HealthScanner(scannerUser, scannerTarget, limb)
 			
 		end
@@ -271,9 +280,9 @@ function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb)
 			
 					) 
 		ScannerActive = 0
-        end, 2600)
+        end, 2000)
 		
-end
+end 
 
 function NTEYE.PlayScannerSound()
 

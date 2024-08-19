@@ -1,4 +1,4 @@
-
+----------------- RECEIVE --------------------------------------
 Networking.Receive("PlayScannerSound", function(message, client)
 
 	for key, character in pairs(Character.CharacterList) do
@@ -10,3 +10,11 @@ Networking.Receive("PlayScannerSound", function(message, client)
 	end
 	 
 end)
+
+
+
+
+
+
+
+----------------- SEND --------------------------------------
