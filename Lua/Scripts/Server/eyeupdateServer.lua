@@ -38,7 +38,8 @@ function NTEYE.UpdateHumanEye(character)
 		NTEYE.HasEyes(character)
 	then
 	
-	
+	--print(character.PressureProtection)
+	--print(character.IsImmuneToPressure)
 		if 		--neurotrauma damage
 					HF.HasAffliction(character, "cerebralhypoxia", 60) 
 			and not HF.HasAffliction(character, "eyebionic")
@@ -190,13 +191,12 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--barotrauma damage
 					character.AnimController.HeadInWater
 				and	character.InPressure
+			and not character.IsImmuneToPressure
 			and not NTEYE.IsInDivingGear(character)
 			and not HF.HasAffliction(character, "eyemonster")
 			and not HF.HasAffliction(character, "eyeterror")
 			and not HF.HasAffliction(character, "eyehusk")
 			and not HF.HasAffliction(character, "eyeplastic")
-			and not HF.HasAffliction(character, "huskinfection", 70) 
-			and not HF.HasAffliction(character, "pressureresistance")
 			and not HF.HasAffliction(character, "stasis")
 
 		then
