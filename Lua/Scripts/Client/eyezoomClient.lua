@@ -22,12 +22,21 @@ dHeld=false
 iHeld=false
 zHeld=false
 
+
+
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Camera"],"globalZoomScale")
 LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.Camera"],"CreateMatrices")
 
 Hook.HookMethod("Barotrauma.Camera","CreateMatrices",function(instance,ptable)
+	
+	if 
+		NTEYE.EICompPatch
+	then
+		gzsDefault=EI.Config.Calculated.CameraZoom
+	else
+		gzsDefault=instance.globalZoomScale
+	end
 
-	gzsDefault=instance.globalZoomScale
 	gzsDefaultMin=instance.MinZoom
 	gzsDefaultMax=instance.MaxZoom
 	gzsMin=math.max(zMin,gzsDefault*zMin)

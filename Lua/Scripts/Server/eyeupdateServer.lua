@@ -24,6 +24,23 @@ function NTEYE.IsInDivingGear(character)
 --  return false
 end
 
+--checks if character is wearing eye protection
+function NTEYE.HasEyeProtection(character)
+	local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
+	local headSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.Head)
+
+	if 
+		outerSlot and outerSlot.HasTag("diving")
+		or outerSlot and outerSlot.HasTag("deepdiving")
+		or headSlot and headSlot.HasTag("diving")
+		or headSlot and headSlot.HasTag("deepdiving")
+		or headSlot and headSlot.HasTag()
+	then
+	
+	return true	end
+
+end
+
 -- registers slot for above check
 function NTEYE.GetItemInSlot(character, slot)
   if character and slot then
@@ -93,7 +110,7 @@ function NTEYE.UpdateHumanEye(character)
 		end
 		  
 		  
-		if 		--blood pressure damage
+		if 		--blood pressure damage 
 					HF.HasAffliction(character, "bloodpressure", 150)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
@@ -103,6 +120,21 @@ function NTEYE.UpdateHumanEye(character)
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
 		end
 		  
+		if		--radiation damage
+					HF.HasAffliction(character, "radiationsickness", 60)
+			and not HF.HasAffliction(character, "eyebionic")
+		  	and not HF.HasAffliction(character, "eyeplastic")
+			and not HF.HasAffliction(character, "stasis")
+		then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
+					
+		elseif
+					HF.HasAffliction(character, "radiationsickness", 60)
+				and HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "stasis")
+		then
+					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
+		end
 		  
 		if 		--eyeshock progression
 					HF.HasAffliction(character, "eyeshock") 

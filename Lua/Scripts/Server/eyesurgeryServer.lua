@@ -55,8 +55,8 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
   }
   for eyeaff in eyeaffs do
     -- Nuke eye afflictions on head and torso
-    HF.SetAffliction(character, eyeaff, 0)
-    HF.SetAfflictionLimb(character, eyeaff, 11, 0)
+    --HF.SetAffliction(character, eyeaff, 0)
+    --HF.SetAfflictionLimb(character, eyeaff, 11, 0)
     -- Nuke eye afflictions on all limbs
     -- Wrong way of doing stuff, but fixes things, gross
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)

@@ -52,7 +52,7 @@
 	</Deconstruct>
     <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,896,128,128" depth="0.55" origin="0.5,0.5" />
     <Body width="60" height="12" density="50" />
-    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="15" combatpriority="7" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="4" itemdamage="2" targetimpulse="2">
         <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
         <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
@@ -60,8 +60,9 @@
         <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
         <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+		<Affliction identifier="lacerations" amount="2" />
       </Attack>
-      <StatusEffect type="OnUse" target="UseTarget">
+      <StatusEffect type="OnUse" target="Limb" targetLimb="Head">
         <LuaHook name="spoonUsed" />
       </StatusEffect>
     </MeleeWeapon>
@@ -225,6 +226,7 @@
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="incendium" amount="2"/>
     </Fabricate>
 	<Deconstruct time="3">
         <Item identifier="silicon" />
@@ -1018,5 +1020,31 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
+			<!-- SELFSCAN -->
+  <Item identifier="nteye_selfscan" hideinmenus="true" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5" />
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sounds/eye_healthscanner.ogg" range="400" volume="2" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+ </Item>
 
+			<!-- FAIL-->
+  <Item identifier="nteye_fail" hideinmenus="true" noninteractable="true">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5" />
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sounds/eye_error.ogg" range="400" volume="0.5" />
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+ </Item>
 </Items>

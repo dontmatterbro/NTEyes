@@ -37,6 +37,7 @@ Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,pt
 			then 
 			    HF.DMClient(HF.CharacterToClient(usingCharacter), "‖color:255,100,100‖".."You can't see your own head.".."‖color:end‖")
 				ScannerActive = 1
+				NTEYE.PlayScannerSound(scannerTarget)
 				Timer.Wait(function() ScannerActive = 0 end, 500)
 			return end
 			
@@ -72,10 +73,12 @@ Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,pt
 			else
 			return end
 			
-			ScannerActive = 1
+			
+			
 			
 			NTEYE.HealthScanner(scannerUser, scannerTarget, limb)
 			
+			ScannerActive = 1
 		end
 	
 	end
@@ -85,7 +88,7 @@ end,Hook.HookMethodType.After)
 function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb) 
 
 		local limbtype = HF.NormalizeLimbType(limb)
-		NTEYE.PlayScannerSound()
+		NTEYE.PlayScannerSound(targetCharacter)
 		
         -- print readout of afflictions
 		
@@ -280,16 +283,26 @@ function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb)
 			
 					) 
 		ScannerActive = 0
-        end, 2000)
+        end, 1000)
 		
 end 
 
-function NTEYE.PlayScannerSound()
+function NTEYE.PlayScannerSound(soundTarget)
 
-     local message = Networking.Start("PlayScannerSound")
-	 
-     message.WriteString(Character.Controlled)
-	 
-     Networking.Send(message)
-	 
+	if ScannerActive==1 then
+	
+		local message = Networking.Start("PlayScannerSoundFail")
+
+		message.WriteString(soundTarget.ID)
+
+		Networking.Send(message)
+	else
+		local message = Networking.Start("PlayScannerSound")
+
+		message.WriteString(soundTarget.ID)
+
+		Networking.Send(message)
+	end
+
+
 end

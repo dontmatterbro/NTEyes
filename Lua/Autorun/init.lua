@@ -42,6 +42,9 @@ Timer.Wait(function()
 				break
 			end
 		end
+
+
+		
 	end
 		
 		--client side scripts
@@ -49,6 +52,16 @@ Timer.Wait(function()
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyezoomClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/medicaleyes.lua") -- testing purpouses
+		
+		--Enhanced Immersion Compatibility Patch
+		for package in ContentPackageManager.EnabledPackages.All do
+				if tostring(package.UgcId) == "2968896556" then
+					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/enhancedimmersionComp.lua")
+					print("NT Eyes - Enhanced Immersion Integrated Compatibility Patch")
+				break
+			end
+		end
+		
 	end
 
 end,1)
