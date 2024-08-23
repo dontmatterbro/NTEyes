@@ -230,6 +230,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyehusk")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "huskinfection", 75)
 
 		then
 			if
