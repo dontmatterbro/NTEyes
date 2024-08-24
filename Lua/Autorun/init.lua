@@ -1,7 +1,7 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.1.12"
-NTEYE.VersionNum = 010101200
+NTEYE.Version = "A1.1.13"
+NTEYE.VersionNum = 010101300
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
@@ -27,7 +27,11 @@ Timer.Wait(function()
 		
 		--Robotrauma Compatibility Patch
 		for package in ContentPackageManager.EnabledPackages.All do
-				if tostring(package.UgcId) == "2948488019" then
+				if 
+					   tostring(package.UgcId) == "2948488019" --Robotrauma
+					or tostring(package.UgcId) == "2952546076" --Robo-Trauma-
+					or tostring(package.UgcId) == "3227815460" --Robotrauma (Afflictions Override)
+				then
 					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/robotraumaComp.lua")
 					print("NT Eyes - Robotrauma Integrated Compatibility Patch")
 				break
@@ -36,7 +40,9 @@ Timer.Wait(function()
 		
 		--Immersive Diving Gear Compatibility Patch
 		for package in ContentPackageManager.EnabledPackages.All do
-				if tostring(package.UgcId) == "3074045632" then
+				if 
+					tostring(package.UgcId) == "3074045632" 
+				then
 					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/immersivedivingComp.lua")
 					print("NT Eyes - Immersive Diving Gear Integrated Compatibility Patch")
 				break
@@ -55,7 +61,9 @@ Timer.Wait(function()
 		
 		--Enhanced Immersion Compatibility Patch
 		for package in ContentPackageManager.EnabledPackages.All do
-				if tostring(package.UgcId) == "2968896556" then
+				if 
+					tostring(package.UgcId) == "2968896556" 
+				then
 					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/enhancedimmersionComp.lua")
 					print("NT Eyes - Enhanced Immersion Integrated Compatibility Patch")
 				break

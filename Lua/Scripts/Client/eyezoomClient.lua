@@ -1,12 +1,14 @@
 
-	zStep=0.5 -- step size for when smoothZoom=false
-	zSpeed=0.02 -- speed for when smoothZoom=true
+	zSpeed=0.02 -- zoom speed
 	zMin=0.5 -- minimum zoom modifier
 	zMax=9 -- maximum zoom modifier
 	zStart=1 -- default zoom level
 
-	decreaseZoomKey=Keys.Subtract -- decrease zoom key
-	increaseZoomKey=Keys.Add -- increase zoom key
+	decreaseZoomKey1=Keys.Subtract -- decrease zoom key
+	increaseZoomKey1=Keys.Add -- increase zoom key 
+	
+	decreaseZoomKey2=Keys.OemMinus -- decrease zoom key
+	increaseZoomKey2=Keys.OemPlus -- increase zoom key
 
 zoomOn=true
 gzsDefault=false
@@ -67,7 +69,8 @@ end
 		then
 
 				if --Decrease Zoom
-					PlayerInput.KeyDown(decreaseZoomKey) 
+					   PlayerInput.KeyDown(decreaseZoomKey1) 
+					or PlayerInput.KeyDown(decreaseZoomKey2) 
 				then
 					gzsNew=math.max(gzsMin,gzsNew*(1-zSpeed))
 					gzsUpd=true
@@ -78,7 +81,8 @@ end
 					
 					
 				if --Increase Zoom
-					PlayerInput.KeyDown(increaseZoomKey) 
+					   PlayerInput.KeyDown(increaseZoomKey1) 
+					or PlayerInput.KeyDown(increaseZoomKey2) 
 				then
 					gzsNew=math.min(gzsMax,gzsNew*(1+zSpeed))
 					gzsUpd=true
