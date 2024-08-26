@@ -31,13 +31,9 @@ LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.Camera"],"CreateMatrice
 
 Hook.HookMethod("Barotrauma.Camera","CreateMatrices",function(instance,ptable)
 	
-	if 
-		NTEYE.EICompPatch
-	then
-		gzsDefault=EI.Config.Calculated.CameraZoom
-	else
-		gzsDefault=instance.globalZoomScale
-	end
+
+	gzsDefault=instance.globalZoomScale
+
 
 	gzsDefaultMin=instance.MinZoom
 	gzsDefaultMax=instance.MaxZoom

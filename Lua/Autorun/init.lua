@@ -1,7 +1,7 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.1.13"
-NTEYE.VersionNum = 010101300
+NTEYE.Version = "A1.1.14"
+NTEYE.VersionNum = 010101400
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]
@@ -58,17 +58,6 @@ Timer.Wait(function()
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyeupdateClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/eyezoomClient.lua")
         dofile(NTEYE.Path.."/Lua/Scripts/Client/medicaleyes.lua") -- testing purpouses
-		
-		--Enhanced Immersion Compatibility Patch
-		for package in ContentPackageManager.EnabledPackages.All do
-				if 
-					tostring(package.UgcId) == "2968896556" 
-				then
-					dofile(NTEYE.Path.."/Lua/Scripts/Compatibility/enhancedimmersionComp.lua")
-					print("NT Eyes - Enhanced Immersion Integrated Compatibility Patch")
-				break
-			end
-		end
 		
 	end
 
