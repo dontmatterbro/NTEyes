@@ -136,9 +136,12 @@ function NTEYE.disableHUDs(character)
 
 end		
 
+function NTEYE.RobotraumaClientPatch() end
 
 --Eye Effect Check Functions
 function NTEYE.UpdateHumanEyeEffect(character)
+
+NTEYE.RobotraumaClientPatch(character)
 
 local parameters = Level.Loaded.LevelData.GenerationParams
 
