@@ -16,7 +16,7 @@
     <Deconstruct time="10">
       <Item identifier="zinc" mincondition="0.1" outcondition="0.5" />
     </Deconstruct>
-    <Price baseprice="35" soldeverywhere="true">
+    <Price baseprice="35" soldeverywhere="false">
       <Price locationtype="outpost" multiplier="1.2" sold="false" />
       <Price locationtype="city" multiplier="1.3" sold="false" />
       <Price locationtype="research" multiplier="1" sold="true" minavailable="1" />

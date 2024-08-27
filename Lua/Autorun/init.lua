@@ -24,6 +24,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyedecoServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/itemspawnServer.lua")
 		dofile(NTEYE.Path.."/Lua/Scripts/Server/eyeNetworkServer.lua")
+		dofile(NTEYE.Path.."/Lua/Scripts/Server/LosModeServer.lua")
 		
 		--Robotrauma Compatibility Patch
 		for package in ContentPackageManager.EnabledPackages.All do

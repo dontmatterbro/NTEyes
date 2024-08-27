@@ -13,7 +13,7 @@ Hook.Add("think", "NTEYE.updatetriggerserver", function()
     end
 end)
 
---checks if character is in diving gear on demand
+--checks if character is in diving gear on demand  (old code breaks when I touch it)
 function NTEYE.IsInDivingGear(character)
   local outerSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.OuterClothes)
   local headSlot = character.Inventory.GetItemInLimbSlot(InvSlotType.Head)

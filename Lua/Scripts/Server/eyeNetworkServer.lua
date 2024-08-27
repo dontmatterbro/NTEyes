@@ -38,7 +38,4 @@ Networking.Receive("PlayScannerSoundFail", function(message, client)
 end)
 
 
-
-
-
 ----------------- SEND --------------------------------------
