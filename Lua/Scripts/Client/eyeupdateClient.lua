@@ -15,7 +15,7 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
     NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateCooldown-4
     if (NTEYE.ClientUpdateCooldown <= 0) then
         NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateInterval
-        NTEYE.UpdateHumanEyeEffect(character)
+        NTEYE.UpdateHumanEyeEffect()
     end
 end)
 
@@ -105,7 +105,7 @@ end
 
 
 --disables HUDs if they are enabled
-function NTEYE.disableHUDs(character)
+function NTEYE.disableHUDs()
 
 	if NTEYE.checkHUDs() then 
 	
@@ -139,9 +139,7 @@ end
 function NTEYE.RobotraumaClientPatch() end
 
 --Eye Effect Check Functions
-function NTEYE.UpdateHumanEyeEffect(character)
-
-NTEYE.RobotraumaClientPatch(character)
+function NTEYE.UpdateHumanEyeEffect()
 
 local parameters = Level.Loaded.LevelData.GenerationParams
 
@@ -250,7 +248,7 @@ else
 			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
 		end
 
-		
+		NTEYE.RobotraumaClientPatch()
 	end
 end
 
