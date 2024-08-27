@@ -1,5 +1,9 @@
+
+----------------------------------------------------------------------SERVER----------------------------------------------------------------
 --warns the players if LOS isn't opaque
 Hook.Add("roundStart", "LosModeWarning", function()
+
+	if CLIENT then return end --ensure this doesnt run on singleplayer
 
 	if Game.ServerSettings==nil then return end
 
@@ -41,6 +45,8 @@ end)
 
 --sets the los to opaque if the client has perms
 Hook.Add("chatMessage", "setLosCommand", function (message, client)
+	
+	if CLIENT then return end --ensure this doesnt run on singleplayer
 	
 	if 
 		   message=="!los" 
@@ -93,3 +99,7 @@ Hook.Add("chatMessage", "setLosCommand", function (message, client)
 	end
 
 end)
+
+
+----------------------------------------------------------------------CLIENT----------------------------------------------------------------
+--yet to be implemented, I dont know how to do it tho
