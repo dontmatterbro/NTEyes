@@ -38,6 +38,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
       </StatusEffect>
     </MeleeWeapon>
+	<SkillRequirementHint identifier="medical" level="55" />
   </Item>
   
 		<!-- EYE SPOON -->
@@ -116,6 +117,7 @@
         <Containable items="mobilebattery" />
         <StatusEffect type="Always" target="This" Voltage="-0.5" />
       </ItemContainer>
+	  <SkillRequirementHint identifier="medical" level="80" />
     </Item>
 
 		<!-- MUSCLE CONNECTORS -->
@@ -139,6 +141,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+	<SkillRequirementHint identifier="medical" level="40" />
   </Item>
 
 		<!-- NERVE CONNECTORS -->
@@ -162,6 +165,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+	<SkillRequirementHint identifier="medical" level="50" />
   </Item>
 
 		<!-- EYE GEL -->
@@ -186,6 +190,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+	<SkillRequirementHint identifier="medical" level="35" />
   </Item>
 
 		<!-- EYE LENS -->
@@ -886,6 +891,7 @@
     </Quality>
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>	
+  <SkillRequirementHint identifier="medical" level="65" />
 </Override>
 	
 		<!-- SCREWDRIVER DEMENTONITE -->
@@ -916,6 +922,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
+  <SkillRequirementHint identifier="medical" level="65" />
 </Override>
 	
 		<!-- SCREWDRIVER HARDENED -->
@@ -946,6 +953,7 @@
       </Attack>
     </MeleeWeapon>
   </Item>
+  <SkillRequirementHint identifier="medical" level="65" />
 </Override>
 	
 		<!-- FPGA CIRCUIT (overriding FPGA for surgery, lets hope that it doesn't cause comp issues)-->

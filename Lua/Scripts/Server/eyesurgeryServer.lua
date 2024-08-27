@@ -23,7 +23,7 @@ function NTEYE.HasEyes(targetCharacter)
 	
 end
 
---removes eye afflications after surgery
+--nukes eye afflications after surgery
 function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
     "noeye",
@@ -54,11 +54,6 @@ function NTEYE.ClearCharacterEyeAfflictions(character)
 	"zoomlens"
   }
   for eyeaff in eyeaffs do
-    -- Nuke eye afflictions on head and torso
-    --HF.SetAffliction(character, eyeaff, 0)
-    --HF.SetAfflictionLimb(character, eyeaff, 11, 0)
-    -- Nuke eye afflictions on all limbs
-    -- Wrong way of doing stuff, but fixes things, gross
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)
   end
 end
@@ -421,7 +416,7 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 		then 
 		
 			if 
-				HF.GetSurgerySkillRequirementMet(usingCharacter, 50) 
+				HF.GetSurgerySkillRequirementMet(usingCharacter, 35) 
 			then
 				HF.AddAfflictionLimb(targetCharacter, "eyegell", 11, 100)
 			end
@@ -439,7 +434,7 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 		then  
 		
 			if 
-				HF.GetSurgerySkillRequirementMet(usingCharacter, 50) 
+				HF.GetSurgerySkillRequirementMet(usingCharacter, 40) 
 			then
 				HF.AddAfflictionLimb(targetCharacter, "eyemuscle", 11, 100)
 			end
