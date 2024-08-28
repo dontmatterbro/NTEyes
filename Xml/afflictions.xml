@@ -54,6 +54,12 @@
 		<Effect minstrength="0" maxstrength="2"/>
 		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/rightblind.png"/>
 	</Affliction>
+	
+			<!-- EYE LOW BLOOD PRESSURE -->
+	<Affliction name="" identifier="eyelowbloodpressure" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="100" showinhealthscannerthreshold="100" maxstrength="2">
+		<Effect minstrength="0" maxstrength="2"/>
+		<AfflictionOverlay texture="%ModDir%/Textures/Overlays/lowpressure.png"/>
+	</Affliction>
   
 		<!-- EYE DAMAGE -->
 	<Affliction name="" identifier="eyedamage" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="25" showinhealthscannerthreshold="10" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="50,50,0,255;255,50,50,255">

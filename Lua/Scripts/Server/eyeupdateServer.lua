@@ -118,7 +118,26 @@ function NTEYE.UpdateHumanEye(character)
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
+		end		
+		
+		
+		if 		--add low blood pressure effect
+				not	HF.HasAffliction(character, "bloodpressure", 50)
+			and not HF.HasAffliction(character, "eyebionic")
+			and not HF.HasAffliction(character, "eyeplastic")
+			
+		then
+					HF.AddAfflictionLimb(character, "eyelowbloodpressure", 11, 2)
 		end
+		
+		
+		if 		--remove low pressure effect
+					HF.HasAffliction(character, "bloodpressure", 50)
+				and HF.HasAffliction(character, "eyelowbloodpressure")
+		then
+					character.CharacterHealth.ReduceAfflictionOnAllLimbs("eyelowbloodpressure", 1000)
+		end
+				
 		  
 		if		--radiation damage
 					HF.HasAffliction(character, "radiationsickness", 60)
