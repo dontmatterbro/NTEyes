@@ -8,24 +8,6 @@ Hook.Add("roundStart", "spawninfrareditem", function()
 end)
 
 
---check if the items have spawned or not, spawn them if cant be found
-Hook.Add("roundStart", "checkitemspawns", function()
-
-	Timer.Wait(function()
-	
-		if 
-			   ItemPrefab.GetItemPrefab("eyethermalHUDitem")==nil
-			or ItemPrefab.GetItemPrefab("eyemedicalHUDitem")==nil
-			or ItemPrefab.GetItemPrefab("eyeelectricalHUDitem")==nil
-		then
-			NTEYE.SpawnEffectItems()
-		end
-	
-	end, 10000)
-	
-end)
-
-
 function NTEYE.SpawnEffectItems()
 
 		local thermalitemprefab = ItemPrefab.GetItemPrefab("eyethermalHUDitem")

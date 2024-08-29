@@ -56,5 +56,12 @@ Networking.Receive("PlayBeepSound", function(message, client)
 	 
 end)
 
+Networking.Receive("SendItemSpawnRequest", function(message, client)
+	
+	if NTEYE.ItemsSpawned==1 then return end
+	
+	NTEYE.SpawnEffectItems()
+	 print("aidsbooger")
+end)
 
 ----------------- SEND --------------------------------------

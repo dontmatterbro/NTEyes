@@ -47,7 +47,8 @@
   
 		<!-- EYE SPOON -->
   <Item name="" identifier="eyespoon" category="Equipment" Tags="smallitem,simpletool,tool,surgerytool" cargocontaineridentifier="metalcrate" Scale="0.25" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.001" />
+	
 	<Fabricate suitablefabricators="fabricator" requiredtime="10">
       <RequiredSkill identifier="mechanical" level="20" />
       <RequiredItem identifier="steel" />
@@ -82,7 +83,8 @@
   
 		<!-- EYE DROPS -->
   <Item name="" identifier="eyedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" spawnprobability="0.15" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     
@@ -144,7 +146,8 @@
 
 		<!-- MUSCLE CONNECTORS -->
   <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     
@@ -174,7 +177,9 @@
 
 		<!-- NERVE CONNECTORS -->
   <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
-    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="2" spawnprobability="0.07" />
+	
+	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
 	
     <Price baseprice="100" soldbydefault="true">
@@ -203,7 +208,8 @@
 
 		<!-- EYE GEL -->
   <Item name="" identifier="eyegel" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     
@@ -233,7 +239,8 @@
 
 		<!-- EYE LENS -->
   <Item name="" identifier="eyelens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.05" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,768,128,128" depth="0.6" origin="0.5,0.5" />
     
 	<Body width="14" height="22" density="10" />
@@ -265,7 +272,8 @@
 
 		<!-- MEDICAL LENS -->
   <Item name="" identifier="medicallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,640,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
 	
@@ -300,7 +308,8 @@
 
 		<!-- ELECTRICAL LENS -->
   <Item name="" identifier="electricallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,512,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
 	
@@ -334,7 +343,8 @@
 
 		<!-- ZOOM LENS -->
   <Item name="" identifier="zoomlensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,surgerytool">
-    
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,384,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
     
@@ -397,7 +407,9 @@
   
 		<!-- AVIATOR GLASSES 						CHECK THIS OUT, make it rarely findable (barotraumatic code i guess?? -->
   <Item name="" identifier="aviatorglasses" scale="0.17" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
-    
+    <PreferredContainer primary="secarmcab" secondary="armcab"/>
+	<PreferredContainer secondary="wrecksecarmcab" spawnprobability="0.001"/>
+	
 	<Price baseprice="1500">
       <Price locationtype="military" multiplier="3" />
     </Price>
@@ -777,7 +789,8 @@
   
 		<!-- PLASTIC EYES -->
   <Item name="" identifier="transplant_eyes_plastic" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_metal_light" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ">
-    
+    <PreferredContainer secondary="medcab" amount="1" spawnprobability="0.2" />
+	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="512,0,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="14" height="22" density="10" />
 	
@@ -820,6 +833,7 @@
 		<!-- NIGHT VISION GOGGLES -->
 <!-- Textures for this item are placeholder until Aidan designs new ones-->
 <Item name="" identifier="nightgoggles" scale="0.5" maxstacksize="1" category="Equipment" tags="smallitem" allowasextracargo="true" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+	<PreferredContainer secondary="wrecksecarmcab" spawnprobability="0.02"/> 
 	
 	<InventoryIcon texture="%ModDir%/Textures/ItemIcons.png"  sourcerect="2,769,61,37" origin="0.5,0.5" /> 
 	<Sprite name="Night Vision Goggles" texture="%ModDir%/Textures/ItemIcons.png" sourcerect="2,808,59,39" origin="0.5,0.5"/>
