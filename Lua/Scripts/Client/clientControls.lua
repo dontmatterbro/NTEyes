@@ -136,6 +136,8 @@ end,Hook.HookMethodType.After)
 --send info to server to play beep sound
 function NTEYE.PlayBeepSound(soundTarget)
 
+	if not Game.IsMultiplayer then HF.GiveItem(soundTarget,"nteye_beep") return end ----singleplayer comp
+	
 	local message = Networking.Start("PlayBeepSound")
 
 	message.WriteString(soundTarget.ID)

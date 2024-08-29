@@ -291,13 +291,17 @@ end
 function NTEYE.PlayScannerSound(soundTarget)
 
 	if ScannerActive==1 then
-	
+		
+		if not Game.IsMultiplayer then HF.GiveItem(soundTarget,"nteye_fail") return end --singleplayer comp
+		
 		local message = Networking.Start("PlayScannerSoundFail")
 
 		message.WriteString(soundTarget.ID)
 
 		Networking.Send(message)
 	else
+		if not Game.IsMultiplayer then HF.GiveItem(soundTarget,"nteye_selfscan") return end --singleplayer comp
+		
 		local message = Networking.Start("PlayScannerSound")
 
 		message.WriteString(soundTarget.ID)

@@ -275,6 +275,8 @@ end
 
 function NTEYE.SendItemSpawnRequest() --sends a request for HUD items to spawn in case lua fucks up
 
+	if not Game.IsMultiplayer then NTEYE.SpawnEffectItems() return end --singleplayer comp
+
 	print("boogeraids")
 	
 	local message = Networking.Start("SendItemSpawnRequest")
