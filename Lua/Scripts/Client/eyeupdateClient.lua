@@ -38,7 +38,7 @@ end, Hook.HookMethodType.Before)
 -- infrared eye thermal hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
-		if HF.GameIsPaused() or (not Level.Loaded) then return end
+		if NTEYE.ItemsSpawned==nil then return end
 		
 		if not HF.HasAffliction(Character.Controlled, "eyeinfrared") then return end
 
@@ -61,7 +61,7 @@ end)
 --medical eye hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
-		if HF.GameIsPaused() or (not Level.Loaded) then return end
+		if NTEYE.ItemsSpawned==nil then return end
 		
 		if not HF.HasAffliction(Character.Controlled, "medicallens") then return end
 
@@ -88,7 +88,7 @@ end)
 --electrical eye hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
-		if HF.GameIsPaused() or (not Level.Loaded) then return end
+		if NTEYE.ItemsSpawned==nil then return end
 
 		if not HF.HasAffliction(Character.Controlled, "electricallens") then return end
 		
@@ -112,6 +112,24 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 		
 end)
 
+--[[
+Hook.Patch("Barotrauma.Items.Components.MiniMap", "GUIFrame", function(instance, ptable)
+
+			for item in Item.ItemList do
+				if item.Prefab.Identifier == "eyeelectricalHUDitem" then
+					--item.Equip(Character.Controlled)
+					
+					eyeHUD2 = item.GetComponentString("MiniMapSettings")					
+					eyeHUD3 = item.GetComponentString("MiniMap")					
+					print("eyeHUD2")
+					
+					break
+				end
+			end
+
+	CreateMiniMap(Submarine.MainSub, eyeHUD3, eyeHUD2)
+
+end, Hook.HookMethodType.Before) --]]
 
 --checks if any HUDs are enabled
 function NTEYE.checkHUDs()
