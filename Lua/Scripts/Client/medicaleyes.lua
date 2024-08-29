@@ -287,6 +287,7 @@ function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb)
 		
 end 
 
+--send info to server to play scanner sound
 function NTEYE.PlayScannerSound(soundTarget)
 
 	if ScannerActive==1 then

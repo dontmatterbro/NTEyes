@@ -1,28 +1,30 @@
 
-	zSpeed=0.02 -- zoom speed
-	zMin=0.5 -- minimum zoom modifier
-	zMax=9 -- maximum zoom modifier
-	zStart=1 -- default zoom level
+local zSpeed=0.02 -- zoom speed
+local zMin=0.5 -- minimum zoom modifier
+local zMax=9 -- maximum zoom modifier
+local zStart=1 -- default zoom level
 
-	decreaseZoomKey1=Keys.Subtract -- decrease zoom key
-	increaseZoomKey1=Keys.Add -- increase zoom key 
+local decreaseZoomKey1=Keys.Subtract -- decrease zoom key
+local increaseZoomKey1=Keys.Add -- increase zoom key 
 	
-	decreaseZoomKey2=Keys.OemMinus -- decrease zoom key
-	increaseZoomKey2=Keys.OemPlus -- increase zoom key
+local decreaseZoomKey2=Keys.OemMinus -- decrease zoom key
+local increaseZoomKey2=Keys.OemPlus -- increase zoom key
+	
+local disableeffectkey=Keys.F -- disable effect key
 
-zoomOn=true
-gzsDefault=false
-gzsDefaultMin=0.1
-gzsDefaultMax=2
-zStart=math.max(math.min(zMax,zStart),zMin)
-gzsNew=zStart
-gzsMin=zMin
-gzsMax=zMax
-gzsUpd=false
+local zoomOn=true
+local gzsDefault=false
+local gzsDefaultMin=0.1
+local gzsDefaultMax=2
+local zStart=math.max(math.min(zMax,zStart),zMin)
+local gzsNew=zStart
+local gzsMin=zMin
+local gzsMax=zMax
+local gzsUpd=false
 
-dHeld=false
-iHeld=false
-zHeld=false
+local dHeld=false
+local iHeld=false
+local zHeld=false
 
 
 
@@ -52,6 +54,28 @@ if
 then
 	ptable.cam.CreateMatrices()
 end
+
+	if --medical and electrical activation
+			   HF.HasAffliction(Character.Controlled, "electricallens")
+		   or (HF.HasAffliction(Character.Controlled, "medicallens") and CharacterHealth.OpenHealthWindow==nil)
+	then
+		if 
+			PlayerInput.KeyHit(disableeffectkey)
+			and DeactivatedHUDs==0
+		then
+			NTEYE.disableHUDs()
+			DeactivatedHUDs=1
+			NTEYE.PlayBeepSound(Character.Controlled)
+		elseif
+		
+			PlayerInput.KeyHit(disableeffectkey)
+			and DeactivatedHUDs==1
+		then
+			DeactivatedHUDs=0
+			NTEYE.PlayBeepSound(Character.Controlled)
+		end
+	end
+
 
 	if --Zoom Lens
 		HF.HasAffliction(Character.Controlled, "zoomlens")
@@ -107,3 +131,15 @@ end
 	end
 
 end,Hook.HookMethodType.After) 
+
+
+--send info to server to play beep sound
+function NTEYE.PlayBeepSound(soundTarget)
+
+	local message = Networking.Start("PlayBeepSound")
+
+	message.WriteString(soundTarget.ID)
+
+	Networking.Send(message)
+
+end

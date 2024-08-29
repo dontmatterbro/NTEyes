@@ -37,5 +37,24 @@ Networking.Receive("PlayScannerSoundFail", function(message, client)
 	 
 end)
 
+Networking.Receive("PlayBeepSound", function(message, client)
+
+	local clientCharacter = tostring(message.ReadString())
+	
+	for key, character in pairs(Character.CharacterList) do
+		
+		local serverCharacter = tostring(character.ID)
+		
+		if 
+			serverCharacter==clientCharacter
+		then
+			--print("boogeraids")
+			HF.GiveItem(character,"nteye_beep")
+		end
+
+	end
+	 
+end)
+
 
 ----------------- SEND --------------------------------------

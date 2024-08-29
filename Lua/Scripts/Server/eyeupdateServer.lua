@@ -4,7 +4,7 @@ NTEYE.Deltatime = NTEYE.UpdateInterval/60 -- Time in seconds that transpires bet
 
 -- This Hook triggers NTEYE.Update function.
 Hook.Add("think", "NTEYE.updatetriggerserver", function()
-    if HF.GameIsPaused() then return end
+    if HF.GameIsPaused() or (not Level.Loaded) then return end
 
     NTEYE.UpdateCooldown = NTEYE.UpdateCooldown-1
     if (NTEYE.UpdateCooldown <= 0) then

@@ -8,20 +8,28 @@ medicalHUDActive = nil
 electricalHUDActive = nil
 eyeHUD = nil
 DisableHoverTextHUD = false
+DeactivatedHUDs = nil
 
 -- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
-    if HF.GameIsPaused() or not Level.Loaded then return end
+
+    if HF.GameIsPaused() or (not Level.Loaded) then return end
+	
     NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateCooldown-4
+	
     if (NTEYE.ClientUpdateCooldown <= 0) then
         NTEYE.ClientUpdateCooldown = NTEYE.ClientUpdateInterval
         NTEYE.UpdateHumanEyeEffect()
     end
+	
 end)
 
 
 --deletes player text for medical hud
 Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
+
+	if HF.GameIsPaused() or (not Level.Loaded) then return end
+	
 	ptable.PreventExecution = DisableHoverTextHUD
 	return nil
 end, Hook.HookMethodType.Before)
@@ -30,6 +38,8 @@ end, Hook.HookMethodType.Before)
 -- infrared eye thermal hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
+		
 		if not HF.HasAffliction(Character.Controlled, "eyeinfrared") then return end
 
 		if eyeHUD==nil then
@@ -43,7 +53,7 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 			end
 		end
 
-		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled)
+		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the thermal vision hud
 
 end)
 
@@ -51,7 +61,11 @@ end)
 --medical eye hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
+		
 		if not HF.HasAffliction(Character.Controlled, "medicallens") then return end
+
+		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
 
 		if eyeHUD==nil then
 			for item in Item.ItemList do
@@ -59,14 +73,14 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 					item.Equip(Character.Controlled)
 					eyeHUD = item.GetComponentString("StatusHUD")
 					medicalHUDActive = 1
+					DeactivatedHUDs = 0
 					DisableHoverTextHUD = true --disables text hud
 					break
 				end
 			end
 		end
 		
-		
-		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled)
+		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the medical hud
 
 end)
 
@@ -74,7 +88,11 @@ end)
 --electrical eye hud
 Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
+
 		if not HF.HasAffliction(Character.Controlled, "electricallens") then return end
+		
+		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
 
 		if eyeHUD==nil then
 			for item in Item.ItemList do
@@ -82,13 +100,16 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 					item.Equip(Character.Controlled)
 					eyeHUD = item.GetComponentString("StatusHUD")
 					electricalHUDActive = 1
+					DeactivatedHUDs = 0
 					break
 				end
 			end
 		end
 
-		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled)
+		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --removing this doesnt make any difference but then again the other huds need it for some reason, better to keep it I suppose
 
+		
+		
 end)
 
 
@@ -136,7 +157,7 @@ function NTEYE.disableHUDs()
 
 end		
 
-function NTEYE.RobotraumaClientPatch() end
+function NTEYE.RobotraumaClientPatch() end --this gets overwritten if when robotrauma is activated
 
 --Eye Effect Check Functions
 function NTEYE.UpdateHumanEyeEffect()
@@ -243,11 +264,12 @@ else
         end
 		
 		NTEYE.disableHUDs() --disable eye HUDs
+		DeactivatedHUDs = 0
 		
 		if Character.Controlled ~= nil then 
 			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
 		end
-
+		
 		NTEYE.RobotraumaClientPatch()
 	end
 end
