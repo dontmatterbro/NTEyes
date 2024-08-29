@@ -108,8 +108,6 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 
 		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --removing this doesnt make any difference but then again the other huds need it for some reason, better to keep it I suppose
 
-		
-		
 end)
 
 --[[
