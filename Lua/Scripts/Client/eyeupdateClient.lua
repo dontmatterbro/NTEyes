@@ -10,6 +10,11 @@ eyeHUD = nil
 DisableHoverTextHUD = false
 DeactivatedHUDs = nil
 
+--item values
+local eyethermalHUDitem=nil
+local eyemedicalHUDitem=nil
+local eyeelectricalHUDitem=nil
+
 -- updates client effects every 0.5 seconds
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
 
@@ -24,7 +29,6 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
 	
 end)
 
---I will optimize this block of shit later
 
 --resets hud parameters for client when character changes for mcm and singplayer switches
 Hook.Patch("Barotrauma.Character", "set_Controlled", function(character)
@@ -275,44 +279,44 @@ end
 function NTEYE.writeHUDs()
 
 	--medical lens
-	if HF.HasAffliction(Character.Controlled, "medicallens") then 
+	if HF.HasAffliction(Character.Controlled, "medicallens") then
+	
 		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
 
 		if eyeHUD==nil then
-			for item in Item.ItemList do
-				if item.Prefab.Identifier == "eyemedicalHUDitem" then
-					if item==nil then NTEYE.SendItemSpawnRequest() end
-					item.Equip(Character.Controlled)
-					eyeHUD = item.GetComponentString("StatusHUD")
-					medicalHUDActive = 1
-					DeactivatedHUDs = 0
-					DisableHoverTextHUD = true --disables text hud
-					break
-				end
-			end
+
+			if eyemedicalHUDitem==nil then NTEYE.GetClientItemValues() NTEYE.SendItemSpawnRequest() return end
 			
-			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			eyemedicalHUDitem.Equip(Character.Controlled) --equip item
+			
+			eyeHUD = eyemedicalHUDitem.GetComponentString("StatusHUD") --get hud component
+			
+			medicalHUDActive = 1 --activate hud
+			
+			DeactivatedHUDs = 0 --set the manual activation figure
+			
+			DisableHoverTextHUD = true --disable text hud
 			
 		end
 	end
 	
 	--electrical lens
 	if HF.HasAffliction(Character.Controlled, "electricallens") then 
+	
 		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
 
 		if eyeHUD==nil then
-			for item in Item.ItemList do
-				if item.Prefab.Identifier == "eyeelectricalHUDitem" then
-					item.Equip(Character.Controlled)
-					eyeHUD = item.GetComponentString("StatusHUD")
-					electricalHUDActive = 1
-					DeactivatedHUDs = 0
-					break
-				end
-			end
 			
-			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			if eyeelectricalHUDitem==nil then NTEYE.GetClientItemValues() NTEYE.SendItemSpawnRequest() return end
 			
+			eyeelectricalHUDitem.Equip(Character.Controlled)
+			
+			eyeHUD = eyeelectricalHUDitem.GetComponentString("StatusHUD")
+			
+			electricalHUDActive = 1
+			
+			DeactivatedHUDs = 0
+
 		end
 	end
 	
@@ -320,17 +324,14 @@ function NTEYE.writeHUDs()
 	if HF.HasAffliction(Character.Controlled, "eyeinfrared") then 
 	
 		if eyeHUD==nil then
-			for item in Item.ItemList do --make this global, when adding more eyes
-				if item.Prefab.Identifier == "eyethermalHUDitem" then
-					if item==nil then NTEYE.SendItemSpawnRequest() end
-					item.Equip(Character.Controlled)
-					eyeHUD = item.GetComponentString("StatusHUD")
-					thermalHUDActive = 1
-					break
-				end
-			end
+
+			if eyethermalHUDitem==nil then NTEYE.GetClientItemValues() NTEYE.SendItemSpawnRequest() return end
 			
-			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			eyethermalHUDitem.Equip(Character.Controlled)
+			
+			eyeHUD = eyethermalHUDitem.GetComponentString("StatusHUD")
+			
+			thermalHUDActive = 1
 			
 		end
 	end
@@ -346,9 +347,10 @@ function NTEYE.checkHUDs()
 		or electricalHUDActive == 1
 	
 	then return true end
+	
 end
 
-
+--[[ OUTDATED
 --disables HUDs if they are enabled
 function NTEYE.disableHUDs()
 
@@ -380,7 +382,56 @@ function NTEYE.disableHUDs()
 	end
 
 end		
+--]]
+
+function NTEYE.disableHUDs()
+
+	if NTEYE.checkHUDs() then 
+	
+		--infrared eyes
+		eyethermalHUDitem.Unequip(Character.Controlled)
+		thermalHUDActive = nil
+
+		--medical lens
+		eyemedicalHUDitem.Unequip(Character.Controlled)	
+		medicalHUDActive = nil
+		DisableHoverTextHUD = false
+
+		--electrical lens
+		eyeelectricalHUDitem.Unequip(Character.Controlled)	
+		electricalHUDActive = nil
+			
+		eyeHUD = nil
+	
+	end
+
+end
+
+
+--get the item values ONCE
+function NTEYE.GetClientItemValues()
+
+	for item in Item.ItemList do
+
+		if item.Prefab.Identifier == "eyethermalHUDitem" then
+			eyethermalHUDitem=item
+		end
+		
+		if item.Prefab.Identifier == "eyemedicalHUDitem" then
+			eyemedicalHUDitem=item
+		end
+
+		if item.Prefab.Identifier == "eyeelectricalHUDitem" then
+			eyeelectricalHUDitem=item
+		end
+		
+	end
+	
+end
 
 
 --this gets overwritten when robotrauma is activated
 function NTEYE.RobotraumaClientPatch() end 
+
+--run this to grab items for the first time
+NTEYE.GetClientItemValues()

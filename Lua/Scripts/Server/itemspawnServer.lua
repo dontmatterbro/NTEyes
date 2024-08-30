@@ -11,16 +11,17 @@ end)
 --thats why this is being called multiple times in the code
 --kind of a failsafe
 function NTEYE.SpawnEffectItems()
-
-		local thermalitemprefab = ItemPrefab.GetItemPrefab("eyethermalHUDitem")
-		local medicalitemprefab = ItemPrefab.GetItemPrefab("eyemedicalHUDitem")
-		local electricalitemprefab = ItemPrefab.GetItemPrefab("eyeelectricalHUDitem")
+	local itemprefab
+	local HUDitemposition = Submarine.MainSub.WorldPosition
 		
-		local HUDitemposition = Submarine.MainSub.WorldPosition
+	itemprefab = ItemPrefab.GetItemPrefab("eyethermalHUDitem")
+	Entity.Spawner.AddItemToSpawnQueue(itemprefab, HUDitemposition, nil, nil, nil, function(item) end)
 		
-		Entity.Spawner.AddItemToSpawnQueue(thermalitemprefab, HUDitemposition, nil, nil, nil, function(item) end)
-		Entity.Spawner.AddItemToSpawnQueue(medicalitemprefab, HUDitemposition, nil, nil, nil, function(item) end)
-		Entity.Spawner.AddItemToSpawnQueue(electricalitemprefab, HUDitemposition, nil, nil, nil, function(item) end)
+	itemprefab = ItemPrefab.GetItemPrefab("eyemedicalHUDitem")
+	Entity.Spawner.AddItemToSpawnQueue(itemprefab, HUDitemposition, nil, nil, nil, function(item) end)
 		
-		NTEYE.ItemsSpawned=1
+	itemprefab = ItemPrefab.GetItemPrefab("eyeelectricalHUDitem")
+	Entity.Spawner.AddItemToSpawnQueue(itemprefab, HUDitemposition, nil, nil, nil, function(item) end)
+		
+	NTEYE.ItemsSpawned=1
 end

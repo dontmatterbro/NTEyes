@@ -74,3 +74,64 @@ function NTEYE.writeHUDs()
 	
 
 end
+
+
+
+
+
+
+eyethermalHUDitem=nil
+eyemedicalHUDitem=nil
+eyeelectricalHUDitem=nil
+
+--get the item values ONCE
+function NTEYE.GetClientItemValues()
+	for item in Item.Itemlist do 
+
+		if item.Prefab.Identifier == "eyethermalHUDitem" then
+			item=eyethermalHUDitem
+		end
+		
+		if item.Prefab.Identifier == "eyemedicalHUDitem" then
+			item=eyemedicalHUDitem
+		end
+
+		if item.Prefab.Identifier == "eyeelectricalHUDitem" then
+			item=eyeelectricalHUDitem
+		end
+	end
+end
+
+
+
+function NTEYE.disableHUDs()
+
+	if NTEYE.checkHUDs() then 
+	
+			--infrared eyes
+			eyethermalHUDitem.Unequip(Character.Controlled)
+			thermalHUDActive = nil
+
+			--medical lens
+			eyemedicalHUDitem.Unequip(Character.Controlled)	
+			medicalHUDActive = nil
+			DisableHoverTextHUD = false
+
+			--electrical lens
+			eyeelectricalHUDitem.Unequip(Character.Controlled)	
+			electricalHUDActive = nil
+			
+			eyeHUD = nil
+		end
+	
+	end
+
+end	
+
+
+
+
+
+
+
+
