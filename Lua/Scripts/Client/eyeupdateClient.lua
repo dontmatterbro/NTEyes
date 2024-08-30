@@ -3,19 +3,19 @@ NTEYE.ClientUpdateCooldown = 0
 NTEYE.ClientUpdateInterval = 120
 
 --HUD values
-thermalHUDActive = nil
-medicalHUDActive = nil
-electricalHUDActive = nil
-eyeHUD = nil
-DisableHoverTextHUD = false
-DeactivatedHUDs = nil
+local thermalHUDActive = nil
+local medicalHUDActive = nil
+local electricalHUDActive = nil
+local eyeHUD = nil
+local DisableHoverTextHUD = false
+DeactivatedHUDs = nil --global gets used by clientControls.lua
 
 --item values
 local eyethermalHUDitem=nil
 local eyemedicalHUDitem=nil
 local eyeelectricalHUDitem=nil
 
--- updates client effects every 0.5 seconds
+-- updates client effects every 0.5 seconds, this will be configurable once modding tool kit releases
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
 
     if HF.GameIsPaused() or (not Level.Loaded) then return end

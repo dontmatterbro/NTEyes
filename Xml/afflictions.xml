@@ -23,7 +23,7 @@
 		<!-- EYES DEAD -->
 	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
 	
-		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5">
+		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="100" maxradialdistort="100" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.15" maxskillmultiplier="0.15" maxspeedmultiplier="0.5">
 	
 			<StatusEffect target="Character">
 				<TriggerAnimation Type="Walk" filename="DrunkenWalk" priority="6" ExpectedSpecies="Human" />
@@ -63,8 +63,9 @@
   
 		<!-- EYE DAMAGE -->
 	<Affliction name="" identifier="eyedamage" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="25" showinhealthscannerthreshold="10" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="50,50,0,255;255,50,50,255">
-		<Effect minstrength="0" maxstrength="60" minscreendistort="0" maxscreendistort="0.25" minscreenblur="0" maxscreenblur="0" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.9"></Effect>
-		<Effect minstrength="60" maxstrength="100" minscreendistort="0.25" maxscreendistort="7" minscreenblur="0" maxscreenblur="50" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="0.8" maxskillmultiplier="0.35" minspeedmultiplier="1" maxspeedmultiplier="0.6"></Effect>
+		<Effect minstrength="0" maxstrength="60" minscreendistort="0" maxscreendistort="0.2" minscreenblur="0" maxscreenblur="0" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.9"/>
+		<Effect minstrength="60" maxstrength="80" minscreendistort="0.2" maxscreendistort="0.7" minscreenblur="0" maxscreenblur="0.5" minradialdistort="0.01" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="0.2" minskillmultiplier="0.8" maxskillmultiplier="0.5" minspeedmultiplier="1" maxspeedmultiplier="0.8"/>
+		<Effect minstrength="80" maxstrength="100" minscreendistort="0.7" maxscreendistort="7" minscreenblur="0.5" maxscreenblur="1" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="0.2" maxchromaticaberration="1" minskillmultiplier="0.5" maxskillmultiplier="0.15" minspeedmultiplier="8" maxspeedmultiplier="0.5"/>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="384,0,128,128"  origin="0,0" />
 	</Affliction>
   
