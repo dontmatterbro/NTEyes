@@ -1,13 +1,15 @@
 NTEYE.ItemsSpawned=nil
 
 --spawns items needed for special eyes at the beginning of the round
-Hook.Add("roundStart", "spawninfrareditem", function()
+Hook.Add("roundStart", "SpawnEyeHUDItems", function()
 
 	NTEYE.SpawnEffectItems()
 	
 end)
 
-
+--function to spawn HUD items, sometimes roundstart fucks up
+--thats why this is being called multiple times in the code
+--kind of a failsafe
 function NTEYE.SpawnEffectItems()
 
 		local thermalitemprefab = ItemPrefab.GetItemPrefab("eyethermalHUDitem")

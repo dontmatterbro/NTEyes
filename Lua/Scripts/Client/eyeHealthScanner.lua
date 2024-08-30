@@ -1,90 +1,9 @@
-local ScannerActive = 0
+NTEYE.ScannerActive = 0
 
 LuaUserData.MakeFieldAccessible(
 Descriptors["Barotrauma.CharacterHealth"], "selectedLimbIndex")
 
-Hook.HookMethod("Barotrauma.Character","ControlLocalPlayer",function(instance,ptable)
-
-	if not HF.HasAffliction(Character.Controlled, "medicallens") then return end
-
-	if 
-		CharacterHealth.OpenHealthWindow ~= nil
-		and ScannerActive==0
-	then
-		if --Decrease Zoom
-			PlayerInput.KeyDown(Keys.F) 
-		then
-			local limb = nil
-			
-			local scannerTarget = nil
-			
-			local scannerUser = Character.Controlled
-			
-			local limbIndex = CharacterHealth.OpenHealthWindow.selectedLimbIndex
-
-			if --Which Character to scan
-				Character.Controlled.SelectedCharacter ~= nil
-			then
-				scannerTarget = Character.Controlled.SelectedCharacter
-
-			else
-				scannerTarget = Character.Controlled
-			end
-
-			if --client can't scan own head
-				limbIndex == 0
-				and (scannerUser == scannerTarget)
-			then 
-			    HF.DMClient(HF.CharacterToClient(usingCharacter), "‖color:255,100,100‖".."You can't see your own head.".."‖color:end‖")
-				ScannerActive = 1
-				NTEYE.PlayScannerSound(scannerTarget)
-				Timer.Wait(function() ScannerActive = 0 end, 500)
-			return end
-			
-			if --limb index, there probably an easier way to do this
-				limbIndex == 0
-			then
-				limb = LimbType.Head
-
-			elseif
-				limbIndex == 1
-			then
-				limb = LimbType.Torso
-			
-			elseif
-				limbIndex == 2
-			then
-				limb = LimbType.LeftArm
-			
-			elseif
-				limbIndex == 3
-			then
-				limb = LimbType.RightArm
-			
-			elseif
-				limbIndex == 4
-			then
-				limb = LimbType.LeftLeg
-			
-			elseif
-				limbIndex == 5
-			then
-				limb = LimbType.RightLeg
-			else
-			return end
-			
-			
-			
-			
-			NTEYE.HealthScanner(scannerUser, scannerTarget, limb)
-			
-			ScannerActive = 1
-		end
-	
-	end
-
-end,Hook.HookMethodType.After) 
-
+--eye health scanner code
 function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb) 
 
 		local limbtype = HF.NormalizeLimbType(limb)
@@ -282,7 +201,7 @@ function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb)
 			.."‖color:180,50,200‖"..readoutstringgenes.."‖color:end‖"
 			
 					) 
-		ScannerActive = 0
+		NTEYE.ScannerActive = 0
         end, 1000)
 		
 end 
@@ -290,7 +209,7 @@ end
 --send info to server to play scanner sound
 function NTEYE.PlayScannerSound(soundTarget)
 
-	if ScannerActive==1 then
+	if NTEYE.ScannerActive==1 then
 		
 		if not Game.IsMultiplayer then HF.GiveItem(soundTarget,"nteye_fail") return end --singleplayer comp
 		

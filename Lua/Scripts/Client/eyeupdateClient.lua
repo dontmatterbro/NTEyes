@@ -26,7 +26,7 @@ end)
 
 --I will optimize this block of shit later
 
---resets huds for client when character changes for mcm and singplayer switches
+--resets hud parameters for client when character changes for mcm and singplayer switches
 Hook.Patch("Barotrauma.Character", "set_Controlled", function(character)
 
 	thermalHUDActive = nil
@@ -42,14 +42,22 @@ end)
 --deletes player text for medical hud
 Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
 
-	if HF.GameIsPaused() or (not Level.Loaded) then return end
-	
 	ptable.PreventExecution = DisableHoverTextHUD
 	return nil
+	
 end, Hook.HookMethodType.Before)
 
 
--- infrared eye thermal hud
+--this hook draws the written eye huds
+Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
+
+	if eyeHUD==nil then return end 
+	eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the huds
+
+end)
+
+--[[ these are pretty much outdated and will be nuked, I'll keep them for know in case somethings breaks
+--draw written HUDs
 Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 	
 		if HF.GameIsPaused() or (not Level.Loaded) then return end
@@ -125,55 +133,7 @@ Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --removing this doesnt make any difference but then again the other huds need it for some reason, better to keep it I suppose
 
 end)
-
-
---checks if any HUDs are enabled
-function NTEYE.checkHUDs()
-
-	if 
-		   thermalHUDActive == 1
-		or medicalHUDActive == 1
-		or electricalHUDActive == 1
-	
-	then return true end
-end
-
-
---disables HUDs if they are enabled
-function NTEYE.disableHUDs()
-
-	if NTEYE.checkHUDs() then 
-	
-		for item in Item.ItemList do
-			
-			if item.Prefab.Identifier == "eyethermalHUDitem" then
-				item.Unequip(Character.Controlled)
-				thermalHUDActive = nil
-			end
-			
-			if item.Prefab.Identifier == "eyemedicalHUDitem" then
-				item.Unequip(Character.Controlled)	
-				medicalHUDActive = nil
-				DisableHoverTextHUD = false
-			end
-			
-			if item.Prefab.Identifier == "eyeelectricalHUDitem" then
-				item.Unequip(Character.Controlled)	
-				electricalHUDActive = nil
-			end
-
-			eyeHUD = nil
-			
-			--break
-		end
-	
-	end
-
-end		
-
-
---this gets overwritten when robotrauma is activated
-function NTEYE.RobotraumaClientPatch() end 
+--]]
 
 
 --Eye Effect Check Functions
@@ -191,6 +151,8 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 				hull.AmbientLight = Color(60, 0, 0, 75)
 			end
 
+			NTEYE.writeHUDs()
+
 		elseif HF.HasAffliction(Character.Controlled, "electricallens") then
 			
 			parameters.AmbientLightColor = Color(50, 50, 0, 35)
@@ -198,6 +160,8 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 			for k, hull in pairs(Hull.HullList) do
 				hull.AmbientLight = Color(75, 75, 0, 75)
 			end
+			
+			NTEYE.writeHUDs()
 			
 		elseif HF.HasAffliction(Character.Controlled, "zoomlens") then --zoom has seperate file
 			
@@ -233,7 +197,9 @@ elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 		for k, hull in pairs(Hull.HullList) do
 			hull.AmbientLight = Color(50, 0, 200, 75) 
         end
-
+		
+		NTEYE.writeHUDs()
+		
 elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 
 		parameters.AmbientLightColor = Color(0, 0, 255, 5)
@@ -291,8 +257,8 @@ else
 	end
 end
 
-
-function NTEYE.SendItemSpawnRequest() --sends a request for HUD items to spawn in case lua fucks up
+--sends a request for HUD items to spawn in case lua fucks up
+function NTEYE.SendItemSpawnRequest() 
 
 	if not Game.IsMultiplayer then NTEYE.SpawnEffectItems() return end --singleplayer comp
 
@@ -305,3 +271,116 @@ function NTEYE.SendItemSpawnRequest() --sends a request for HUD items to spawn i
 	Networking.Send(message)
 
 end
+
+function NTEYE.writeHUDs()
+
+	--medical lens
+	if HF.HasAffliction(Character.Controlled, "medicallens") then 
+		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
+
+		if eyeHUD==nil then
+			for item in Item.ItemList do
+				if item.Prefab.Identifier == "eyemedicalHUDitem" then
+					if item==nil then NTEYE.SendItemSpawnRequest() end
+					item.Equip(Character.Controlled)
+					eyeHUD = item.GetComponentString("StatusHUD")
+					medicalHUDActive = 1
+					DeactivatedHUDs = 0
+					DisableHoverTextHUD = true --disables text hud
+					break
+				end
+			end
+			
+			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			
+		end
+	end
+	
+	--electrical lens
+	if HF.HasAffliction(Character.Controlled, "electricallens") then 
+		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
+
+		if eyeHUD==nil then
+			for item in Item.ItemList do
+				if item.Prefab.Identifier == "eyeelectricalHUDitem" then
+					item.Equip(Character.Controlled)
+					eyeHUD = item.GetComponentString("StatusHUD")
+					electricalHUDActive = 1
+					DeactivatedHUDs = 0
+					break
+				end
+			end
+			
+			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			
+		end
+	end
+	
+	--infrared eyes
+	if HF.HasAffliction(Character.Controlled, "eyeinfrared") then 
+	
+		if eyeHUD==nil then
+			for item in Item.ItemList do --make this global, when adding more eyes
+				if item.Prefab.Identifier == "eyethermalHUDitem" then
+					if item==nil then NTEYE.SendItemSpawnRequest() end
+					item.Equip(Character.Controlled)
+					eyeHUD = item.GetComponentString("StatusHUD")
+					thermalHUDActive = 1
+					break
+				end
+			end
+			
+			if eyeHUD==nil then NTEYE.SendItemSpawnRequest() end
+			
+		end
+	end
+
+end
+
+--checks if any HUDs are enabled
+function NTEYE.checkHUDs()
+
+	if 
+		   thermalHUDActive == 1
+		or medicalHUDActive == 1
+		or electricalHUDActive == 1
+	
+	then return true end
+end
+
+
+--disables HUDs if they are enabled
+function NTEYE.disableHUDs()
+
+	if NTEYE.checkHUDs() then 
+	
+		for item in Item.ItemList do
+			
+			if item.Prefab.Identifier == "eyethermalHUDitem" then
+				item.Unequip(Character.Controlled)
+				thermalHUDActive = nil
+			end
+			
+			if item.Prefab.Identifier == "eyemedicalHUDitem" then
+				item.Unequip(Character.Controlled)	
+				medicalHUDActive = nil
+				DisableHoverTextHUD = false
+			end
+			
+			if item.Prefab.Identifier == "eyeelectricalHUDitem" then
+				item.Unequip(Character.Controlled)	
+				electricalHUDActive = nil
+			end
+
+			eyeHUD = nil
+			
+			--break
+		end
+	
+	end
+
+end		
+
+
+--this gets overwritten when robotrauma is activated
+function NTEYE.RobotraumaClientPatch() end 
