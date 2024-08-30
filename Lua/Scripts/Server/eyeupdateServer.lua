@@ -215,7 +215,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "stasis") 
 
 		then
-					HF.AddAfflictionLimb(character, "eyecataract", 11, 0.4)
+					HF.AddAfflictionLimb(character, "eyecataract", 11, 0.2)
 		end
 		  
 		  

@@ -26,6 +26,19 @@ end)
 
 --I will optimize this block of shit later
 
+--resets huds for client when character changes for mcm and singplayer switches
+Hook.Patch("Barotrauma.Character", "set_Controlled", function(character)
+
+	thermalHUDActive = nil
+	medicalHUDActive = nil
+	electricalHUDActive = nil
+	eyeHUD = nil
+	DisableHoverTextHUD = false
+	DeactivatedHUDs = nil
+	
+end)
+
+
 --deletes player text for medical hud
 Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
 
@@ -37,8 +50,9 @@ end, Hook.HookMethodType.Before)
 
 
 -- infrared eye thermal hud
-Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
-		
+Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
+	
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
 		if not HF.HasAffliction(Character.Controlled, "eyeinfrared") then return end
 
 		if eyeHUD==nil then
@@ -52,16 +66,17 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 				end
 			end
 		end
-	
+
 		if eyeHUD==nil then NTEYE.SendItemSpawnRequest() return end
 		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the thermal vision hud
-
+	
 end)
 
 
 --medical eye hud
-Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
+Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 		
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
 		if not HF.HasAffliction(Character.Controlled, "medicallens") then return end
 
 		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
@@ -87,8 +102,9 @@ end)
 
 
 --electrical eye hud
-Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
+Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 
+		if HF.GameIsPaused() or (not Level.Loaded) then return end
 		if not HF.HasAffliction(Character.Controlled, "electricallens") then return end
 		
 		if DeactivatedHUDs==1 then return end --check if hud is disabled by player
@@ -104,7 +120,7 @@ Hook.Patch("Barotrauma.GUI", "Draw", function(instance, ptable)
 				end
 			end
 		end
-		
+
 		if eyeHUD==nil then NTEYE.SendItemSpawnRequest() return end
 		eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --removing this doesnt make any difference but then again the other huds need it for some reason, better to keep it I suppose
 
@@ -155,7 +171,10 @@ function NTEYE.disableHUDs()
 
 end		
 
-function NTEYE.RobotraumaClientPatch() end --this gets overwritten if when robotrauma is activated
+
+--this gets overwritten when robotrauma is activated
+function NTEYE.RobotraumaClientPatch() end 
+
 
 --Eye Effect Check Functions
 function NTEYE.UpdateHumanEyeEffect()
@@ -206,7 +225,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 		for k, hull in pairs(Hull.HullList) do
 			hull.AmbientLight = Color(20, 160, 20, 150) 
         end
- 
+
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 
 		parameters.AmbientLightColor = Color(25, 0, 75, 40)
@@ -222,7 +241,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 		for k, hull in pairs(Hull.HullList) do
 			hull.AmbientLight = Color(0, 0, 255, 5) 
         end
- 
+
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 0 end
@@ -232,7 +251,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 		for k, hull in pairs(Hull.HullList) do
 			hull.AmbientLight = Color(160, 160, 70, 25) 
         end
- 
+
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 4 end
@@ -243,7 +262,7 @@ elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 		for k, hull in pairs(Hull.HullList) do
 			hull.AmbientLight = Color(115, 115, 30, 30) 
         end
- 
+
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 2 end
