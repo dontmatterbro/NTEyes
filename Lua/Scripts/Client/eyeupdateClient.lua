@@ -15,6 +15,7 @@ local eyethermalHUDitem=nil
 local eyemedicalHUDitem=nil
 local eyeelectricalHUDitem=nil
 
+
 -- updates client effects every 0.5 seconds, this will be configurable once modding tool kit releases
 Hook.Add("think", "NTEYE.updatetriggerclient", function()
 
@@ -143,29 +144,29 @@ end)
 
 --Eye Effect Check Functions - this function got really fucked over time, needs to be rewritten
 function NTEYE.UpdateHumanEyeEffect()
-
-local parameters = Level.Loaded.LevelData.GenerationParams
-
+ 
+local LevelLight = Level.Loaded.LevelData.GenerationParams 
+	
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 	
 		--medical lens
 		if HF.HasAffliction(Character.Controlled, "medicallens") then
 			
-			parameters.AmbientLightColor = Color(50, 0, 0, 45)
+			LevelLight.AmbientLightColor = Color(50, 0, 0, 45)
 		
-			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(60, 0, 0, 75)
+			for k, HullLight in pairs(Hull.HullList) do
+				HullLight.AmbientLight = Color(60, 0, 0, 75)
 			end
-
+		
 			NTEYE.writeHUDs()
 		
 		--electrical lens
 		elseif HF.HasAffliction(Character.Controlled, "electricallens") then
 			
-			parameters.AmbientLightColor = Color(50, 50, 0, 45)
-		
-			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(60, 60, 0, 75)
+			LevelLight.AmbientLightColor = Color(50, 50, 0, 45)
+			
+			for k, HullLight in pairs(Hull.HullList) do
+				HullLight.AmbientLight = Color(60, 60, 0, 75)
 			end
 			
 			NTEYE.writeHUDs()
@@ -173,96 +174,100 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		--zoom lens
 		elseif HF.HasAffliction(Character.Controlled, "zoomlens") then --zoom has seperate file
 			
-			parameters.AmbientLightColor = Color(0, 17, 50, 45)
-		
-			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(0, 20, 60, 75)
+			LevelLight.AmbientLightColor = Color(0, 17, 50, 45)
+
+			for k, HullLight in pairs(Hull.HullList) do
+				HullLight.AmbientLight = Color(0, 20, 60, 75)
 			end
 		
 		--default bionic eyes
 		else
 			NTEYE.disableHUDs()
 			
-			parameters.AmbientLightColor = Color(50, 50, 50, 45)
+			LevelLight.AmbientLightColor = Color(50, 50, 50, 45)
 		
-			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(60, 60, 60, 75) 
+			for k, HullLight in pairs(Hull.HullList) do
+				HullLight.AmbientLight = Color(60, 60, 60, 75) 
 			end
+		
 		end
   
   
 elseif HF.HasAffliction(Character.Controlled, "eyenight") then
 
-		parameters.AmbientLightColor = Color(20, 160, 30, 200)
+		LevelLight.AmbientLightColor = Color(20, 160, 30, 200)
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(20, 160, 20, 150) 
-        end
-
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(20, 160, 20, 150) 
+		end
+		
 elseif HF.HasAffliction(Character.Controlled, "eyeinfrared") then
 
-		parameters.AmbientLightColor = Color(25, 0, 75, 40)
+		LevelLight.AmbientLightColor = Color(25, 0, 75, 40)
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(50, 0, 200, 75) 
-        end
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(50, 0, 200, 75) 
+		end
 		
 		NTEYE.writeHUDs()
 		
 elseif HF.HasAffliction(Character.Controlled, "eyeplastic") then
 
-		parameters.AmbientLightColor = Color(0, 0, 255, 5)
+		LevelLight.AmbientLightColor = Color(0, 0, 255, 5)
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(0, 0, 255, 5) 
-        end
-
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(0, 0, 255, 5) 
+		end
+		
 elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 0 end
 
-		parameters.AmbientLightColor = Color(50, 0, 50, 5)
+		LevelLight.AmbientLightColor = Color(50, 0, 50, 5)
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(160, 160, 70, 25) 
-        end
-
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(160, 160, 70, 25) 
+		end
+		
 elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 4 end
 		
+		LevelLight.AmbientLightColor = Color(115, 115, 20, 5)
 		
-		parameters.AmbientLightColor = Color(115, 115, 20, 5)
-		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(115, 115, 30, 30) 
-        end
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(115, 115, 30, 30) 
+		end
 
 elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
 
 		if Game.IsMultiplayer then Character.Controlled.TeamID = 2 end
 		
-		parameters.AmbientLightColor = Color(255, 0, 0, 125)
+		LevelLight.AmbientLightColor = Color(255, 0, 0, 125)
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(255, 0, 0, 125) 
-        end
-
-else
-		parameters.AmbientLightColor = Color(10, 10, 10, 25)
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(255, 0, 0, 125) 
+		end
 		
-		for k, hull in pairs(Hull.HullList) do
-			hull.AmbientLight = Color(20, 20, 20, 35) 
-        end
+else--regular eyes/no eyes
+		LevelLight.AmbientLightColor = Color(10, 10, 10, 25)
 		
-		NTEYE.disableHUDs() --disable eye HUDs
+		for k, HullLight in pairs(Hull.HullList) do
+			HullLight.AmbientLight = Color(20, 20, 20, 35) 
+		end
+		
+		--disables eye HUDs
+		NTEYE.disableHUDs() 
 		DeactivatedHUDs = 0
 		
+		--resets character team
 		if Character.Controlled ~= nil then 
 			if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
 		end
 		
-		NTEYE.RobotraumaClientPatch()
+		--increases robot brightness
+		NTEYE.RobotraumaClientPatch(LevelLight)
+		
 	end
 end
 

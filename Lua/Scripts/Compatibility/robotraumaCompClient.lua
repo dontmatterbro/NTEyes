@@ -1,4 +1,4 @@
-function NTEYE.RobotraumaClientPatch()
+function NTEYE.RobotraumaClientPatch(LevelLight)
 
 	if 
 		Character.Controlled ~= nil 
@@ -6,15 +6,13 @@ function NTEYE.RobotraumaClientPatch()
 		if 
 			not (Character.Controlled.IsFemale or Character.Controlled.IsMale)
 		then
-		
-			local parameters = Level.Loaded.LevelData.GenerationParams
 			
-			parameters.AmbientLightColor = Color(75, 75, 75, 100)
+			LevelLight.AmbientLightColor = Color(55, 55, 55, 55)
 			
-			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(65, 65, 65, 100) 
+			for k, HullLight in pairs(Hull.HullList) do
+				HullLight.AmbientLight = Color(65, 65, 65, 75) 
 			end
-		
+			
 		end
 	end
 end
