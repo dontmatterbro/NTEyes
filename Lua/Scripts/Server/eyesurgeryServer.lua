@@ -676,19 +676,23 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 		then
 			if
 				HF.GetSurgerySkillRequirementMet(usingCharacter, 65)
-			then
+			then --success
 				targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", item.Condition/5)
 				item.Condition = 0
 				Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 			else
-				if 
-					HF.Chance(0.35) 
-				then
+				if --this is retarded, rewrite this
+					HF.Chance(0.75) 
+				then --fail
 					targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", item.Condition/10)
+					item.Condition = item.Condition-50
+					if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end
+				else --success
+					targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", item.Condition/5)
+					item.Condition = 0
+					Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 				end
 				
-				item.Condition = item.Condition-50
-				if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end
 			end
 			
 		end
