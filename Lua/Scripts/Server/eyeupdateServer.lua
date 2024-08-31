@@ -356,7 +356,7 @@ function NTEYE.UpdateHumanEye(character)
 					HF.HasAffliction(character, "eyedrop") 
 
 		then
-					HF.AddAfflictionLimb(character, "eyedrop", 11, -2)
+					HF.AddAfflictionLimb(character, "eyedrop", 11, -2.5)
 		end
 
 

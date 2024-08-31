@@ -546,6 +546,7 @@ Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter
 	if identifier == "eyedrops" then
 		HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
 		item.Condition = item.Condition - 25
+		if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
 	end
 
 	--laser surgery
@@ -607,6 +608,7 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 				HF.SetAfflictionLimb(targetCharacter, "medicallens", 11, 2)
 				
 				item.Condition = 0
+				Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 			end
 
 
@@ -616,6 +618,7 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 				HF.SetAfflictionLimb(targetCharacter, "electricallens", 11, 2)
 				
 				item.Condition = 0
+				Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 			end
 		
 		
@@ -624,7 +627,8 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 			then
 				HF.SetAfflictionLimb(targetCharacter, "zoomlens", 11, 2)
 				
-				item.Condition = 0
+				item.Condition = 0 
+				Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 			end
 		
 		end
@@ -668,22 +672,23 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 			and HF.HasAffliction(targetCharacter, "eyelid")
 			and HF.HasAffliction(targetCharacter, "eyepopped")
 			and HF.HasAffliction(targetCharacter, "eyebionic")
-			--and HF.HasAffliction(targetCharacter, "eyedamage", 10)
 			and not HF.HasAffliction(targetCharacter, "eyedamage", 80)
 		then
 			if
 				HF.GetSurgerySkillRequirementMet(usingCharacter, 65)
 			then
-				targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", 20)
+				targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", item.Condition/5)
 				item.Condition = 0
+				Entity.Spawner.AddItemToRemoveQueue(item) --fixes bugs
 			else
 				if 
-					HF.Chance(0.2) 
+					HF.Chance(0.35) 
 				then
-					targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", 15)
+					targetCharacter.CharacterHealth.ReduceAfflictionOnAllLimbs("eyedamage", item.Condition/10)
 				end
 				
-				item.Condition = 0
+				item.Condition = item.Condition-50
+				if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end
 			end
 			
 		end
