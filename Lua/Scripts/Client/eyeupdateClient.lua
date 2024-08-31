@@ -8,7 +8,7 @@ local medicalHUDActive = nil
 local electricalHUDActive = nil
 local eyeHUD = nil
 local DisableHoverTextHUD = false
-DeactivatedHUDs = nil --global gets used by clientControls.lua
+DeactivatedHUDs = nil --global - used by clientControls.lua
 
 --item values
 local eyethermalHUDitem=nil
@@ -59,6 +59,7 @@ Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 	eyeHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the huds
 
 end)
+
 
 --[[ these are pretty much outdated and will be nuked, I'll keep them for know in case somethings breaks
 --draw written HUDs
@@ -140,48 +141,52 @@ end)
 --]]
 
 
---Eye Effect Check Functions
+--Eye Effect Check Functions - this function got really fucked over time, needs to be rewritten
 function NTEYE.UpdateHumanEyeEffect()
 
 local parameters = Level.Loaded.LevelData.GenerationParams
 
 if HF.HasAffliction(Character.Controlled, "eyebionic") then
 	
+		--medical lens
 		if HF.HasAffliction(Character.Controlled, "medicallens") then
 			
-			parameters.AmbientLightColor = Color(50, 0, 0, 35)
+			parameters.AmbientLightColor = Color(50, 0, 0, 45)
 		
 			for k, hull in pairs(Hull.HullList) do
 				hull.AmbientLight = Color(60, 0, 0, 75)
 			end
 
 			NTEYE.writeHUDs()
-
+		
+		--electrical lens
 		elseif HF.HasAffliction(Character.Controlled, "electricallens") then
 			
-			parameters.AmbientLightColor = Color(50, 50, 0, 35)
+			parameters.AmbientLightColor = Color(50, 50, 0, 45)
 		
 			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(75, 75, 0, 75)
+				hull.AmbientLight = Color(60, 60, 0, 75)
 			end
 			
 			NTEYE.writeHUDs()
 			
+		--zoom lens
 		elseif HF.HasAffliction(Character.Controlled, "zoomlens") then --zoom has seperate file
 			
-			parameters.AmbientLightColor = Color(0, 17, 50, 35)
+			parameters.AmbientLightColor = Color(0, 17, 50, 45)
 		
 			for k, hull in pairs(Hull.HullList) do
 				hull.AmbientLight = Color(0, 20, 60, 75)
 			end
 		
+		--default bionic eyes
 		else
 			NTEYE.disableHUDs()
 			
-			parameters.AmbientLightColor = Color(50, 50, 25, 35)
+			parameters.AmbientLightColor = Color(50, 50, 50, 45)
 		
 			for k, hull in pairs(Hull.HullList) do
-				hull.AmbientLight = Color(60, 60, 30, 75) 
+				hull.AmbientLight = Color(60, 60, 60, 75) 
 			end
 		end
   
@@ -432,6 +437,3 @@ end
 
 --this gets overwritten when robotrauma is activated
 function NTEYE.RobotraumaClientPatch() end 
-
---run this to grab items for the first time
-NTEYE.GetClientItemValues()

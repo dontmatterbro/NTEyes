@@ -5,7 +5,7 @@
 		<!-- NO EYES -->
 	<Affliction name="" identifier="noeye" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
 	
-		<Effect minstrength="0" maxstrength="2" minscreendistort="15" maxscreendistort="15" minscreenblur="100" maxscreenblur="100" minradialdistort="1" maxradialdistort="1" minchromaticaberration="200" maxchromaticaberration="200" minskillmultiplier="0.25" maxskillmultiplier="0.25" maxspeedmultiplier="0.5"> 
+		<Effect minstrength="0" maxstrength="2" minscreendistort="1" maxscreendistort="1" minscreenblur="1" maxscreenblur="1" minradialdistort="1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="1" minskillmultiplier="0.10" maxskillmultiplier="0.10" maxspeedmultiplier="0.5"> 
 		
 			<StatusEffect target="Character">
 				<TriggerAnimation Type="Walk" filename="DrunkenWalk" priority="6" ExpectedSpecies="Human" />
@@ -81,14 +81,14 @@
  
 		<!-- VISION SICKNESS -->
 	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">
-		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="1" minskillmultiplier="1.0" maxskillmultiplier="0.8" strengthchange="-0.4"></Effect>
-		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="1" minscreenblur="0.4" maxscreenblur="0.5" minradialdistort="0.1" maxradialdistort="0.2" minchromaticaberration="1" maxchromaticaberration="2" minskillmultiplier="1" maxskillmultiplier="0.5" strengthchange="-1" minspeedmultiplier="1" maxspeedmultiplier="0.8"></Effect>
+		<Effect minstrength="0" maxstrength="70" minscreendistort="0" maxscreendistort="0.5" minscreenblur="0" maxscreenblur="0.4" minradialdistort="0" maxradialdistort="0.1" minchromaticaberration="0" maxchromaticaberration="0.5" minskillmultiplier="1.0" maxskillmultiplier="0.8" strengthchange="-0.6"></Effect>
+		<Effect minstrength="70" maxstrength="100" minscreendistort="0.5" maxscreendistort="1" minscreenblur="0.4" maxscreenblur="0.5" minradialdistort="0.1" maxradialdistort="0.2" minchromaticaberration="0.5" maxchromaticaberration="1" minskillmultiplier="0.8" maxskillmultiplier="0.5" strengthchange="-1" minspeedmultiplier="1" maxspeedmultiplier="0.8"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="768,0,128,128"  origin="0,0" />
 	</Affliction>
   
 		<!-- EYE CATARACT-->
 	<Affliction name="" identifier="eyecataract" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="80" showinhealthscannerthreshold="20" maxstrength="100" isbuff="false" healableinmedicalclinic="false" iconcolors="250,211,211,255;250,211,211,255">
-		<Effect minstrength="20" maxstrength="100" minscreendistort="0" maxscreendistort="0.2" minscreenblur="0" maxscreenblur="0.7" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0.1" minskillmultiplier="1.0" maxskillmultiplier="0.9"></Effect>
+		<Effect minstrength="20" maxstrength="100" minscreendistort="0" maxscreendistort="0.2" minscreenblur="0" maxscreenblur="0.5" minradialdistort="0" maxradialdistort="0" minchromaticaberration="0" maxchromaticaberration="0" minskillmultiplier="1.0" maxskillmultiplier="0.85"></Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,0,128,128"  origin="0,0" />
 	</Affliction>
 	
@@ -117,7 +117,7 @@
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" />
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="128,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- EYE POPPED ts without table -->
+		<!-- EYE POPPED / TS without table -->
   	<Affliction name="" identifier="eyepopped" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-2" minscreendistort="0.5" maxscreendistort="10" minradialdistort="0.1" maxradialdistort="1" minchromaticaberration="1" maxchromaticaberration="200" minskillmultiplier="1" maxskillmultiplier="0.25">
 			<StatusEffect target="Character" comparison="and">
@@ -127,7 +127,7 @@
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- CORNEA INCISION ts without opioids-->
+		<!-- CORNEA INCISION / TS without opioids-->
   	<Affliction name="" identifier="corneaincision" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="100" strengthchange="-1" minscreenblur="0.4" maxscreenblur="0.4" minskillmultiplier="0.8" maxskillmultiplier="0.8">
 			<StatusEffect target="Character" comparison="and">
@@ -137,7 +137,7 @@
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="256,256,128,128" color="0,0,255,255" origin="0,0" />
 	</Affliction>
-		<!-- EMULSIFICATION ts without table -->
+		<!-- EMULSIFICATION / TS without table -->
 	<Affliction name="" identifier="emulsification" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
 		<Effect minstrength="0" maxstrength="2" minscreenblur="90" maxscreenblur="90" minskillmultiplier="0.25" maxskillmultiplier="0.25">
 			<StatusEffect target="Character" comparison="and">
