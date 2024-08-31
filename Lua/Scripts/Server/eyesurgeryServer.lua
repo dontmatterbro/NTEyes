@@ -1,3 +1,4 @@
+-- I fucking hate this file
 
 --checks if the eyes are interactable
 function NTEYE.CanSurgery(character)
@@ -111,12 +112,13 @@ function NTEYE.GiveItemBasedOnEye(character, usingCharacter)
 end
 
 
---eye removal surgery
-Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharacter, targetCharacter, limb)
+--Surgery Code
+Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, targetCharacter, limb)
 	local identifier = item.Prefab.Identifier
 	
-	limbtype = HF.NormalizeLimbType(limb.type)
+	local limbtype = HF.NormalizeLimbType(limb.type)
 	
+	----------------------------EYE REMOVAL SURGERY-----------------------------
 	if --surgery check
 		NTEYE.CanSurgery(targetCharacter) 
 	then
@@ -210,15 +212,8 @@ Hook.Add("item.applyTreatment", "eyeremovalsurgery", function(item, usingCharact
 		
 	end
 	
-end)
-
-
---eye transplant surgery
-Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingCharacter, targetCharacter, limb)
-	local identifier = item.Prefab.Identifier
 	
-	limbtype = HF.NormalizeLimbType(limb.type)
-
+	------------------------------ EYE TRANSPLANT SURGERY -----------------------------------------------
 	if --can do surgery check
 		NTEYE.CanSurgery(targetCharacter) 
 	then
@@ -407,8 +402,9 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 			end
 			
 		end
-	
+	end
 
+-----------------------------------------ITEM APPLICATION STEPS-------------------------------------------------
 		if --eyegel application (surgery prerequisets already in cataract surgery, don't dupe it)
 			identifier == "eyegel" 
 				and HF.HasAffliction(targetCharacter, "noeye") 
@@ -461,18 +457,16 @@ Hook.Add("item.applyTreatment", "eyetransplantsurgery", function(item, usingChar
 			item.Condition = 0
 		
 		end
+		
+		
+		--eye drops
+		if identifier == "eyedrops" then
+			HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
+			item.Condition = item.Condition - 25
+			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
+		end
 	
-	end
-
-end)
-
-
---cataract surgery (fix formatting)
-Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharacter, targetCharacter, limb)
-	local identifier = item.Prefab.identifier
-
-	limbtype = HF.NormalizeLimbType(limb.type)
-	
+-----------------------------------CATARACT SURGERY----------------------------------------------
 	if 
 		NTEYE.CanSurgery(targetCharacter) 
 	then
@@ -515,79 +509,95 @@ Hook.Add("item.applyTreatment", "eyecataractsurgery", function(item, usingCharac
 				end
 			end
 		end
-		--enhance needle chance
-		if identifier == "needle" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-			if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and HF.HasAffliction(targetCharacter, "corneaincision") then
+		
+		--needle
+		if 
+					identifier == "needle" 
+			and not HF.HasAffliction(targetCharacter, "noeye") 
+			and not HF.HasAffliction(targetCharacter, "eyesdead") 
+			and not HF.HasAffliction(targetCharacter, "th_amputation") 
+		then
+			if 
+					HF.CanPerformSurgeryOn(targetCharacter) 
+				and HF.HasAffliction(targetCharacter, "eyelid") 
+				and HF.HasAffliction(targetCharacter, "corneaincision") 
+			then
 				HF.AddAfflictionLimb(targetCharacter, "emulsification", 11, 2)			
 			end
 		end
 
-		if identifier == "eyelens" and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") then
-			if HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and HF.HasAffliction(targetCharacter, "corneaincision") and HF.HasAffliction(targetCharacter, "emulsification") then
+
+		if 
+					identifier == "eyelens" 
+			and not HF.HasAffliction(targetCharacter, "noeye") 
+			and not HF.HasAffliction(targetCharacter, "eyesdead") 
+			and not HF.HasAffliction(targetCharacter, "th_amputation") 
+		then
+			if 
+				HF.CanPerformSurgeryOn(targetCharacter) 
+				and HF.HasAffliction(targetCharacter, "eyelid") 
+				and HF.HasAffliction(targetCharacter, "corneaincision") 
+				and HF.HasAffliction(targetCharacter, "emulsification") 
+			then
 				item.Condition = 0	
 				NTEYE.CataractClearAfflictions(targetCharacter)
 			end
 		end
 
-		if identifier == "advretractors" and limbtype == 11 and not HF.HasAfflictionLimb(targetCharacter, "surgeryincision", 11) then
+		if 
+					identifier == "advretractors" 
+				and limbtype == 11 
+			and not HF.HasAfflictionLimb(targetCharacter, "surgeryincision", 11) 
+		then
 			HF.AddAfflictionLimb(targetCharacter, "eyelid", 11, 100)
 		end	
 		
 	end
-end)
+	
 
-
---laser surgery and eye drops	(fix formatting)
-Hook.Add("item.applyTreatment", "eyelasersurgery", function(item, usingCharacter, targetCharacter, limb)
-	local identifier = item.Prefab.Identifier
-	limbtype = HF.NormalizeLimbType(limb.type)
-
-	--eye drops
-	if identifier == "eyedrops" then
-		HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
-		item.Condition = item.Condition - 25
-		if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
-	end
-
-	--laser surgery
-	if NTEYE.CanSurgery(targetCharacter) then
-		if identifier == "eye_laser_tool" and (limbtype == 11) and HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAffliction(targetCharacter, "eyelid") and not HF.HasAffliction(targetCharacter, "noeye") and not HF.HasAffliction(targetCharacter, "eyesdead") and not HF.HasAffliction(targetCharacter, "th_amputation") and not HF.HasAffliction(targetCharacter, "corneaincision") and not HF.HasAffliction(targetCharacter, "eyepopped") then
-			if item.OwnInventory.GetItemAt(0)==nil then return end	
-				if item.OwnInventory.GetItemAt(0).Condition >= 99 then
-					HF.GiveItem(targetCharacter,"ntsfx_selfscan")
+-------------------------------------------------LASER SURGERY--------------------------------------------------
+	if 
+		NTEYE.CanSurgery(targetCharacter) 
+	then
+		if 
+					identifier == "eye_laser_tool" 
+				and (limbtype == 11)
+				and HF.CanPerformSurgeryOn(targetCharacter) 
+				and HF.HasAffliction(targetCharacter, "eyelid") 
+			and not HF.HasAffliction(targetCharacter, "noeye") 
+			and not HF.HasAffliction(targetCharacter, "eyesdead") 
+			and not HF.HasAffliction(targetCharacter, "th_amputation") 
+			and not HF.HasAffliction(targetCharacter, "corneaincision") 
+			and not HF.HasAffliction(targetCharacter, "eyepopped") 
+		then
+			if 
+				item.OwnInventory.GetItemAt(0)==nil then return end	
+				if 
+					item.OwnInventory.GetItemAt(0).Condition >= 99 
+				then
+					HF.GiveItem(targetCharacter,"nteye_slowlaser")
 					item.OwnInventory.GetItemAt(0).Condition = item.OwnInventory.GetItemAt(0).Condition-100
-						if HF.GetSurgerySkillRequirementMet(usingCharacter, 80) then
+						if 
+							HF.GetSurgerySkillRequirementMet(usingCharacter,80)
+						then 
 							HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 100)
 						else
-							for i=1, 2 do
-								Timer.Wait(function()
-									HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 5)
-									HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100)
-									HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 10)
-									if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 10) end
-								end, 1000 * i)
-							end
-							HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, 20)
-							HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 50)
-							if NTEYE.HasEyes(targetCharacter) then HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, 15)	end
-							if HF.Chance(0.1) then
-								HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, 50)
+							if 
+								HF.Chance(0.8) 
+							then
+								HF.AddAfflictionLimb(targetCharacter, "severepainlite", 11, 100)
+								HF.AddAfflictionLimb(targetCharacter, "pain_extremity", 11, 100)
+								HF.AddAfflictionLimb(targetCharacter, "bleeding", 11, math.random(1,15))
+								HF.AddAfflictionLimb(targetCharacter, "eyedamage", 11, math.random(10,30))
+								NTEYE.PlayScream(targetCharacter)
+							else
+								HF.AddAfflictionLimb(targetCharacter, "lasereyesurgery", 11, math.random(25,100))
 							end
 						end
 				end
 		end
-
 	end
-end)
-
-
---bionic lens surgery needs extraction method check the function for removal
-Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharacter, targetCharacter, limb)
-
-	local identifier = item.Prefab.Identifier
-	
-	limbtype = HF.NormalizeLimbType(limb.type)
-
+--------------------------------------------BIONIC LENS SURGERY-----------------------------------------------------
 	if 
 		NTEYE.CanSurgery(targetCharacter) 
 	then
@@ -664,9 +674,11 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 
 			end
 		end
-	
+	end
 
-		if --bionic eye repair
+
+----------------------------------------BIONIC REPAIR SURGERY----------------------------------------------
+		if 
 			identifier=="fpgacircuit"
 			and (limbtype == 11)
 			and HF.HasAffliction(targetCharacter, "eyelid")
@@ -696,9 +708,11 @@ Hook.Add("item.applyTreatment", "bioniceyesurgeries", function(item, usingCharac
 			end
 			
 		end
-			
-	end
+
+
+
 end)
+
 
 --removing bionic lenses when eyepopped check twezeers usage
 function NTEYE.LensRemoval(targetCharacter, usingCharacter)
