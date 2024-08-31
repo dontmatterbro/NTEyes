@@ -182,14 +182,16 @@ if HF.HasAffliction(Character.Controlled, "eyebionic") then
 		
 		--default bionic eyes
 		else
-			NTEYE.disableHUDs()
+			
 			
 			LevelLight.AmbientLightColor = Color(50, 50, 50, 45)
 		
 			for k, HullLight in pairs(Hull.HullList) do
 				HullLight.AmbientLight = Color(60, 60, 60, 75) 
 			end
-		
+			
+			NTEYE.disableHUDs()
+			
 		end
   
   
