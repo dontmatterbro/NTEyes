@@ -13,7 +13,7 @@ Hook.Add("spoonUsed", "NTEYE.eyestealing", function(effect, dt, item, targets, t
 		else return end
 		
 		if	--human eyes
-			spoontarget.IsHuman
+				spoontarget.IsHuman
 			and (spoontarget.IsMale or spoontarget.IsFemale)
 		then 
 			if --alive

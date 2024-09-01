@@ -147,7 +147,7 @@
     </Item>
 
 		<!-- MUSCLE CONNECTORS -->
-  <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
+  <Item name="" identifier="muscleconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.15" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
 	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
@@ -166,7 +166,7 @@
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
       <RequiredSkill identifier="medical" level="50" />
       <StatusEffect type="OnUse" target="This">
-        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <Sound file="%ModDir:Neurotrauma%/Sound/velcro_tape1.ogg" range="500" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
@@ -178,7 +178,7 @@
   </Item>
 
 		<!-- NERVE CONNECTORS -->
-  <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
+  <Item name="" identifier="nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.2" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery">
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="2" spawnprobability="0.07" />
 	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="768,896,128,128" depth="0.6" origin="0.5,0.5" />
@@ -197,7 +197,7 @@
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
       <RequiredSkill identifier="medical" level="50" />
       <StatusEffect type="OnUse" target="This">
-        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <Sound file="%ModDir:Neurotrauma%/Sound/hypospray.ogg" range="500" />
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />
@@ -209,11 +209,11 @@
   </Item>
 
 		<!-- EYE GEL -->
-  <Item name="" identifier="eyegel" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
+  <Item name="" identifier="eyegel" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.2" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
 	
-	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
     <Body width="60" height="20" density="20" />
+	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
     
 	<Price baseprice="50" soldbydefault="true">
       <Price storeidentifier="merchantmedical" />
@@ -226,7 +226,7 @@
 	  <RequiredItem identifier="phosphorus" />
    </Fabricate>
    
-    <Holdable slots="Any,RightHand,LeftHand">
+    <Holdable slots="Any,RightHand,LeftHand" >
 		<StatusEffect type="OnUse" target="This">
 			<Sound file="%ModDir:Neurotrauma%/Sound/ointment.ogg" range="500" />
 		</StatusEffect>
@@ -754,7 +754,7 @@
       <RequiredSkill identifier="medical" level="60" />
       <RequiredItem identifier="steel" />
       <RequiredItem identifier="fpgacircuit" amount="4" />
-      <RequiredItem identifier="organicfiber" />
+      <RequiredItem identifier="fulgurium" amount="2" />
       <RequiredItem identifier="copper" />
 	  <RequiredItem identifier="transplant_eyes" mincondition="0.8" usecondition="false" />
      <!-- <RequiredItem identifier="thermalgoggles" /> we should add thermal goggles once we can actually give thermal vision-->
