@@ -1,5 +1,5 @@
 --Spoon eye extraction from monsters and humans alike
-Hook.Add('spoonUsed', 'eyestealing', function(effect, dt, item, targets, targetCharacter, worldpos)
+Hook.Add("spoonUsed", "NTEYE.eyestealing", function(effect, dt, item, targets, targetCharacter, worldpos)
 
 	spoonEyeDamage=nil
 	spoonEyeType=nil

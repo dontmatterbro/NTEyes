@@ -3,6 +3,7 @@ NTEYE.ItemsSpawned=nil
 --spawns items needed for special eyes at the beginning of the round
 Hook.Add("roundStart", "SpawnEyeHUDItems", function()
 
+	NTEYE.ItemsSpawned=0
 	NTEYE.SpawnEffectItems()
 	
 end)

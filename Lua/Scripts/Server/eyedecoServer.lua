@@ -1,3 +1,4 @@
+--[[
 function doStuffEye(unknown)
   return unknown.SpeciesName
 end
@@ -10,5 +11,5 @@ Hook.Add('eyeDecomposition', 'eyedeco', function(effect, dt, item, targets, worl
     end
   end
 end)
-
+--]]
 --don't know what this does exactly, kept it anyway because https://www.youtube.com/shorts/4BxLoV3xXyM

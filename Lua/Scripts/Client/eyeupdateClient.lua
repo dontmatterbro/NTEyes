@@ -8,6 +8,7 @@ local medicalHUDActive = nil
 local electricalHUDActive = nil
 local eyeHUD = nil
 local DisableHoverTextHUD = false
+
 DeactivatedHUDs = nil --global - used by clientControls.lua
 
 --item values
@@ -31,6 +32,24 @@ Hook.Add("think", "NTEYE.updatetriggerclient", function()
 end)
 
 
+--resets hud parameters at the start of the round
+Hook.Add("roundStart", "NTEYE.resetHUDvalues", function()
+
+	--HUD values
+	thermalHUDActive = nil
+	medicalHUDActive = nil
+	electricalHUDActive = nil
+	eyeHUD = nil
+	DisableHoverTextHUD = false
+	DeactivatedHUDs = nil
+	
+	--item values
+	eyethermalHUDitem=nil
+	eyemedicalHUDitem=nil
+	eyeelectricalHUDitem=nil
+	
+end)
+
 --resets hud parameters for client when character changes for mcm and singplayer switches
 Hook.Patch("Barotrauma.Character", "set_Controlled", function(character)
 
@@ -42,7 +61,6 @@ Hook.Patch("Barotrauma.Character", "set_Controlled", function(character)
 	DeactivatedHUDs = nil
 	
 end)
-
 
 --deletes player text for medical hud
 Hook.Patch("Barotrauma.CharacterHUD", "DrawCharacterHoverTexts", function(instance, ptable)
@@ -321,13 +339,13 @@ function NTEYE.writeHUDs()
 			
 			if eyeelectricalHUDitem==nil then NTEYE.GetClientItemValues() NTEYE.SendItemSpawnRequest() return end
 			
-			eyeelectricalHUDitem.Equip(Character.Controlled)
+			eyeelectricalHUDitem.Equip(Character.Controlled) --equip item
 			
-			eyeHUD = eyeelectricalHUDitem.GetComponentString("StatusHUD")
+			eyeHUD = eyeelectricalHUDitem.GetComponentString("StatusHUD") --get hud component
 			
-			electricalHUDActive = 1
+			electricalHUDActive = 1 --activate hud
 			
-			DeactivatedHUDs = 0
+			DeactivatedHUDs = 0 --set the manual activation figure
 
 		end
 	end
@@ -339,11 +357,11 @@ function NTEYE.writeHUDs()
 
 			if eyethermalHUDitem==nil then NTEYE.GetClientItemValues() NTEYE.SendItemSpawnRequest() return end
 			
-			eyethermalHUDitem.Equip(Character.Controlled)
+			eyethermalHUDitem.Equip(Character.Controlled) --equip item
 			
-			eyeHUD = eyethermalHUDitem.GetComponentString("StatusHUD")
+			eyeHUD = eyethermalHUDitem.GetComponentString("StatusHUD") --get hud component
 			
-			thermalHUDActive = 1
+			thermalHUDActive = 1 --activate hud
 			
 		end
 	end

@@ -99,13 +99,15 @@
     </Fabricate>
 	
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
-      <RequiredSkill identifier="medical" level="10" />
+
       <StatusEffect type="OnUse" target="This">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
+	  
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
+	  
     </MeleeWeapon>
 	
   </Item>
@@ -211,7 +213,7 @@
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
 	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
-    <Body width="14" height="22" density="10" />
+    <Body width="60" height="20" density="20" />
     
 	<Price baseprice="50" soldbydefault="true">
       <Price storeidentifier="merchantmedical" />
@@ -222,17 +224,17 @@
       <RequiredItem identifier="antibloodloss1" />
 	  <RequiredItem identifier="carbon" />
 	  <RequiredItem identifier="phosphorus" />
-   
    </Fabricate>
-    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
-      <RequiredSkill identifier="medical" level="50" />
-      <StatusEffect type="OnUse" target="This">
-        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
-      </StatusEffect>
-      <StatusEffect type="OnBroken" target="This">
-        <Remove />
-      </StatusEffect>
-   </MeleeWeapon>
+   
+    <Holdable slots="Any,RightHand,LeftHand">
+		<StatusEffect type="OnUse" target="This">
+			<Sound file="%ModDir:Neurotrauma%/Sound/ointment.ogg" range="500" />
+		</StatusEffect>
+	  
+		<StatusEffect type="OnBroken" target="This">
+			<Remove />
+		</StatusEffect>
+   </Holdable>
 	
 	<SkillRequirementHint identifier="medical" level="35" />
   </Item>
@@ -1207,7 +1209,7 @@
     </ItemComponent>
  </Item>			
  
-			<!-- BEEP -->
+			<!-- SLOWLASER -->
   <Item identifier="nteye_slowlaser" hideinmenus="true" noninteractable="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5" />
