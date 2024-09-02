@@ -401,7 +401,7 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 				HF.AddAfflictionLimb(targetCharacter, "eyegell", 11, 100)
 			end
 			
-			item.Condition = 0
+			item.Condition = item.Condition-50
 			
 		end
 	
@@ -438,7 +438,7 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 				HF.AddAfflictionLimb(targetCharacter, "eyenerve", 11, 100)
 			end
 			
-			item.Condition = 0
+			item.Condition = item.Condition-50
 		
 		end
 		
