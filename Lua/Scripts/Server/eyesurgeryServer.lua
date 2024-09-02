@@ -115,6 +115,13 @@ end
 --Surgery Code
 Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, targetCharacter, limb)
 
+	if -- invalid use, dont do anything
+		item == nil or
+		usingCharacter == nil or
+		targetCharacter == nil or
+		limb == nil 
+	then return end
+
 	local identifier = item.Prefab.Identifier
 	local limbtype = HF.NormalizeLimbType(limb.type)
 	
