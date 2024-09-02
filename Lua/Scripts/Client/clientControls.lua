@@ -32,9 +32,12 @@ local iHeld=false
 local zHeld=false
 
 
-
+--Zoom
 LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.Camera"],"globalZoomScale")
 LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.Camera"],"CreateMatrices")
+
+--Health Scanner
+LuaUserData.MakeFieldAccessible(Descriptors["Barotrauma.CharacterHealth"], "selectedLimbIndex")
 
 Hook.HookMethod("Barotrauma.Camera","CreateMatrices",function(instance,ptable)
 	

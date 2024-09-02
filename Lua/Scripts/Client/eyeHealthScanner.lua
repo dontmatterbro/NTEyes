@@ -1,8 +1,5 @@
 NTEYE.ScannerActive = 0
 
-LuaUserData.MakeFieldAccessible(
-Descriptors["Barotrauma.CharacterHealth"], "selectedLimbIndex")
-
 --eye health scanner code
 function NTEYE.HealthScanner(usingCharacter, targetCharacter, limb) 
 
