@@ -27,32 +27,12 @@ end
 --nukes eye afflications after surgery
 function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
-    "noeye",
-    "eyedamage",
-    "eyeshock",
-    "eyedrop",
-    "lasereyesurgery",
-    "eyemuscle",
-    "eyegell",
-    "eyenerve",
-	"eyelid", 
-    "eyeone",
-    "lefteyegone",
-    "righteyegone",
-    "eyesdead",
-    "eyesickness",
-    "eyecataract",
-    "eyepopped",
-    "eyebionic",
-    "eyenight",
-    "eyeinfrared",
-    "eyeplastic",
-    "eyemonster",
-    "eyehusk",
-	"eyeterror",
-	"medicallens",
-	"electricallens",
-	"zoomlens"
+    "noeye", "eyesdead", "eyeone", "lefteyegone", "righteyegone", "eyelowbloodpressure", "eyedamage", "eyeshock", "eyesickness",
+    "eyedrop", "lasereyesurgery",
+    "eyepopped", "eyelid", "eyegell", "eyemuscle", "eyenerve",
+    "corneaincision", "emulsification", "eyecataract",
+    "eyebionic", "eyenight", "eyeinfrared", "eyeplastic", "eyemonster", "eyehusk", "eyeterror", "medicallens", "electricallens", "zoomlens"
+    	
   }
   for eyeaff in eyeaffs do
     character.CharacterHealth.ReduceAfflictionOnAllLimbs(eyeaff, 1000)
@@ -131,7 +111,7 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 	then
 		if --eye popped (tweezers)
 			identifier == "tweezers" 
-			and not HF.HasAffliction(targetCharacter, "corneaincision") 
+			--and not HF.HasAffliction(targetCharacter, "corneaincision") 
 			and not HF.HasAffliction(targetCharacter, "noeye") 
 			and not HF.HasAffliction(targetCharacter, "th_amputation")
 			and not HF.HasAffliction(targetCharacter, "sh_amputation")
@@ -410,6 +390,7 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 			
 			item.Condition = item.Condition-50
 			
+			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
 		end
 	
 	
@@ -426,8 +407,9 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 				HF.AddAfflictionLimb(targetCharacter, "eyemuscle", 11, 100)
 			end
 			
-			item.Condition = 0
+			item.Condition = item.Condition-50
 			
+			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
 		end
 	
 	
@@ -446,7 +428,8 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 			end
 			
 			item.Condition = item.Condition-50
-		
+			
+			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
 		end
 		
 		

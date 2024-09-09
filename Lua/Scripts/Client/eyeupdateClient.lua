@@ -182,7 +182,7 @@ function NTEYE.UpdateHumanEyeEffect()
 			
 			--resets character team
 			if Character.Controlled ~= nil then 
-				if(Character.Controlled.IsHuman and not Character.Controlled.IsDead) then Character.Controlled.TeamID = 1 end
+				if(Character.Controlled.IsHuman and not Character.Controlled.IsDead and not HF.HasAffliction(Character.Controlled, "lobo_differentteam")) then Character.Controlled.TeamID = 1 end
 			end
 			
 			--increases robot brightness
