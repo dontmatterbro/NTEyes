@@ -48,8 +48,6 @@ function NTEYE.CataractClearAfflictions(character)
 		"eyecataract"
 				 }
 	for cateyeaff in cateyeaffs do
-	HF.SetAffliction(character, cateyeaff, 0)
-	HF.SetAfflictionLimb(character, cateyeaff, 11, 0)
 	character.CharacterHealth.ReduceAfflictionOnAllLimbs(cateyeaff, 1000)
 	end
 end
@@ -456,6 +454,7 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 			and not HF.HasAffliction(targetCharacter, "eyepopped") 
 			and not HF.HasAffliction(targetCharacter, "th_amputation")
 			and not HF.HasAffliction(targetCharacter, "sh_amputation")
+			and not HF.HasAffliction(targetCharacter, "eyebionic")
 		then
 			if 
 				HF.GetSurgerySkillRequirementMet(usingCharacter, 40) 
