@@ -5,11 +5,20 @@
   <Text file="%ModDir%/Localization/English.xml" />
   <Text file="%ModDir%/Localization/Turkish.xml" />
   <Text file="%ModDir%/Localization/Polish.xml" />
-  <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/leftblind.png" />
   <Other file="%ModDir%/Textures/Overlays/rightblind.png" />
   <Other file="%ModDir%/Textures/Overlays/blind.png" />
   <Other file="%ModDir%/Textures/Overlays/lowpressure.png" />
+   <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
+   <Other file="%ModDir%/Sounds/eye_slowlaser.ogg" />
+   <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
+   <Other file="%ModDir%/Sounds/eye_error.ogg" />
+   <Other file="%ModDir%/Sounds/eye_beep.ogg" />
+   <Other file="%ModDir%/Sounds/scream_female_1.ogg" />
+   <Other file="%ModDir%/Sounds/scream_male_1.ogg" />
+   <Other file="%ModDir%/Sounds/scream_male_2.ogg" />
+   <Other file="%ModDir%/Sounds/scream_male_3.ogg" />
+   <Other file="%ModDir%/Sounds/screams_female_2.ogg" />
 </contentpackage>
