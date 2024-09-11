@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+		<!-- Surgery Items -->
+			<!-- Eye Procurement Scalpel -->
+	<Item 
+	  identifier="it_organscalpel_eyes" 
+	  category="Equipment" 
+	  cargocontaineridentifier="mediccrate" 
+	  Tags="smallitem,medical,surgery,surgerytool" 
+	  useinhealthinterface="True" 
+	  scale="0.250">
+		<PreferredContainer primary="toxcontainer" spawnprobability="0.2" />
+		<PreferredContainer primary="locker" />
+		<Fabricate suitablefabricators="fabricator">
+			<RequiredSkill identifier="medical" level="35" />
+			<RequiredSkill identifier="mechanical" level="20" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="zinc" mincondition="0.5" usecondition="true" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="zinc" mincondition="0.1" outcondition="0.5" />
+		</Deconstruct>
+		<Price baseprice="35" soldbydefault="true">
+			<Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" maxavailable="1" />
+		</Price>
+		<InventoryIcon 
+			texture="%ModDir%/Textures/ItemIcons.png" 
+			sourcerect="128,768,64,64" origin="0.5,0.5" />
+		<Sprite 
+			texture="%ModDir%/Textures/ItemIcons.png" 
+			sourcerect="129,887,122,8" depth="0.55" origin="0.5,0.5" />
+		<Body width="65" height="15" density="50" />
+		<MeleeWeapon 
+			slots="Any,RightHand,LeftHand" 
+			aimpos="40,5" handle1="-7,-5" holdangle="60" reload="1.0"/>
+		<SkillRequirementHint identifier="medical" level="55" />
+	</Item>
+
+		<!-- Spoon -->
+  <Item 
+	  identifier="it_spoon" 
+	  category="Equipment" 
+	  Tags="smallitem,simpletool,tool,surgerytool" 
+	  cargocontaineridentifier="metalcrate" 
+	  impactsoundtag="impact_metal_light" 
+	  RequireAimToUse="True"
+	  scale="0.25">
+		<PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.001" />
+		<Fabricate suitablefabricators="fabricator" requiredtime="10">
+			<RequiredSkill identifier="mechanical" level="20" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="carbon" />
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="iron" />
+		</Deconstruct>
+		<Sprite 
+			texture="%ModDir%/Textures/ItemIcons.png" 
+			sourcerect="0,896,128,128" depth="0.55" origin="0.5,0.5" />
+		<Body width="60" height="12" density="50" />
+		<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="15" combatpriority="7" msg="ItemMsgPickUpSelect">
+			<Attack structuredamage="1" itemdamage="2" targetimpulse="2">
+				<Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+				<Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+				<Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+				<Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+				<Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+				<Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+				<Affliction identifier="lacerations" amount="2" />
+			</Attack>
+			<StatusEffect type="OnUse" target="Limb" targetLimb="Head">
+				<LuaHook name="spoonUsed" />
+			</StatusEffect>
+		</MeleeWeapon>
+		<aitarget sightrange="1000" soundrange="400" fadeouttime="2" />
+  </Item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Items>
