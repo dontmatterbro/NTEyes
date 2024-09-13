@@ -28,7 +28,7 @@ end
 function NTEYE.ClearCharacterEyeAfflictions(character)
   eyeaffs = {
     "noeye", "eyesdead", "eyeone", "lefteyegone", "righteyegone", "eyelowbloodpressure", "eyedamage", "eyeshock", "eyesickness",
-    "eyedrop", "lasereyesurgery",
+    "eyedrop", "lasereyesurgery", "deusizinedrop",
     "eyepopped", "eyelid", "eyegell", "eyemuscle", "eyenerve",
     "corneaincision", "emulsification", "eyecataract",
     "eyebionic", "eyenight", "eyeinfrared", "eyeplastic", "eyemonster", "eyehusk", "eyeterror", "medicallens", "electricallens", "zoomlens"
@@ -440,6 +440,18 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 			item.Condition = item.Condition - 25
 			
 			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end --fixes bugs
+		end
+		
+		
+		--deusizine drops
+		if 
+			identifier == "deusizinedrops" 
+		then
+			HF.AddAfflictionLimb(targetCharacter, "deusizinedrop", 11, 25)
+			
+			item.Condition = item.Condition - 25
+			
+			if item.Condition==0 then Entity.Spawner.AddItemToRemoveQueue(item) end
 		end
 	
 -----------------------------------CATARACT SURGERY----------------------------------------------

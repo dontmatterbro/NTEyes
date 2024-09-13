@@ -79,6 +79,11 @@
 	<Affliction name="" identifier="eyedrop" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" showinhealthscannerthreshold="0" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false" iconcolors="100,120,50,255;100,240,50,255">
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,0,128,128"  origin="0,0" />
 	</Affliction>
+
+	    <!-- DEUSIZINE DROPS -->
+	<Affliction name="" identifier="deusizinedrop" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="0" showinhealthscannerthreshold="0" maxstrength="100" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false" iconcolors="100,120,50,255;100,240,50,255">
+		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="512,0,128,128"  origin="0,0" />
+	</Affliction>
  
 		<!-- VISION SICKNESS -->
 	<Affliction name="" identifier="eyesickness" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="20" showinhealthscannerthreshold="0" maxstrength="100" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="211,211,84,255;211,100,20,255">

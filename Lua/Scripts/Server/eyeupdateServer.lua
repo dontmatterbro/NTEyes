@@ -62,6 +62,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 			HF.AddAfflictionLimb(character, "eyedamage", 11, 0.6)
@@ -73,6 +74,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "deusizinedrop")
 		then
 		
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.8)
@@ -82,6 +84,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.5)
@@ -93,6 +96,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
@@ -104,6 +108,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
@@ -115,6 +120,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
@@ -125,6 +131,7 @@ function NTEYE.UpdateHumanEye(character)
 				not	HF.HasAffliction(character, "bloodpressure", 50)
 			and not HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "eyeplastic")
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyelowbloodpressure", 11, 2)
@@ -144,6 +151,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyebionic")
 		  	and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "deusizinedrop")
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.1)
 					
@@ -151,6 +159,7 @@ function NTEYE.UpdateHumanEye(character)
 					HF.HasAffliction(character, "radiationsickness", 60)
 				and HF.HasAffliction(character, "eyebionic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "deusizinedrop")
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 0.3)
 		end
@@ -158,6 +167,7 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--eyeshock progression
 					HF.HasAffliction(character, "eyeshock") 
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyeshock", 11, 3)
@@ -167,6 +177,7 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--eyeshock damage
 					HF.HasAffliction(character, "eyeshock", 60) 
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 			
 		then
 					HF.AddAfflictionLimb(character, "eyedamage", 11, 2)
@@ -213,6 +224,7 @@ function NTEYE.UpdateHumanEye(character)
 		if 		--cataract progression
 					HF.HasAffliction(character, "eyecataract", 0.1) 
 			and not HF.HasAffliction(character, "stasis") 
+			and not HF.HasAffliction(character, "deusizinedrop")
 
 		then
 					HF.AddAfflictionLimb(character, "eyecataract", 11, 0.2)
@@ -249,6 +261,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyehusk")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
+			and not HF.HasAffliction(character, "deusizinedrop")
 			and not HF.HasAffliction(character, "huskinfection", 75)
 
 		then
