@@ -23,6 +23,9 @@
   <!-- SURGERY ITEMS -->
   <entityname.eyedrops>Eye Drops</entityname.eyedrops>
   <entitydescription.eyedrops>Hastens the recovery of eyes.</entitydescription.eyedrops>
+
+  <entityname.deusizinedrops>Deusizine Drops</entityname.deusizinedrops>
+  <entitydescription.deusizinedrops>Prevents eye damage from internal causes.</entitydescription.deusizinedrops>
   
   <entityname.muscleconnectors>Muscle Connectors</entityname.muscleconnectors> 
   <entitydescription.muscleconnectors>Connects the eye muscles, use after eye gel and before nerve connectors.</entitydescription.muscleconnectors>
@@ -90,6 +93,9 @@
   
   <afflictionname.eyedrop>Eye Drops</afflictionname.eyedrop>
   <afflictiondescription.eyedrop>The patient's eye healing rate has increased.</afflictiondescription.eyedrop>
+
+  <afflictionname.deusizinedrop>Deusizine Drops</afflictionname.deusizinedrop>
+  <afflictiondescription.deusizinedrop>The patient's eyes are saturated with Deusizine, preventing damage from hypoxia.</afflictiondescription.deusizinedrop>
   
   <afflictionname.eyeone>Dead Eye</afflictionname.eyeone>
   <afflictiondescription.eyeone>The patient has lost all vision in one of the eyes.</afflictiondescription.eyeone>
