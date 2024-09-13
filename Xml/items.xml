@@ -123,8 +123,8 @@
       <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="2" />
     </Price>
 	
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
-      <RequiredSkill identifier="medical" level="60" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="16">
+      <RequiredSkill identifier="medical" level="75" />
       <RequiredItem identifier="deusizine" mincondition="0.5" usecondition="true" />
       <RequiredItem identifier="antibloodloss1" />
     </Fabricate>
