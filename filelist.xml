@@ -16,9 +16,9 @@
    <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
    <Other file="%ModDir%/Sounds/eye_error.ogg" />
    <Other file="%ModDir%/Sounds/eye_beep.ogg" />
-   <Other file="%ModDir%/Sounds/scream_female_1.ogg" />
-   <Other file="%ModDir%/Sounds/scream_male_1.ogg" />
-   <Other file="%ModDir%/Sounds/scream_male_2.ogg" />
-   <Other file="%ModDir%/Sounds/scream_male_3.ogg" />
-   <Other file="%ModDir%/Sounds/screams_female_2.ogg" />
+   <Other file="%ModDir%/Sounds/Voice/scream_female_1.ogg" />
+   <Other file="%ModDir%/Sounds/Voice/scream_male_1.ogg" />
+   <Other file="%ModDir%/Sounds/Voice/scream_male_2.ogg" />
+   <Other file="%ModDir%/Sounds/Voice/scream_male_3.ogg" />
+   <Other file="%ModDir%/Sounds/Voice/screams_female_2.ogg" />
 </contentpackage>
