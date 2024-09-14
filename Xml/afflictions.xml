@@ -243,6 +243,9 @@
 		type="eye_mechanic" isbuff="false" 
 		healableinmedicalclinic="false" 
 		iconcolors="255,80,0,255;255,80,0,255">
+		<Effect minstrength="0" maxstrength="2" >
+			<StatusEffect target="Character" ObstructVisionAmount="0.7" priority="10" setvalue="true" />
+		</Effect>
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="640,0,128,128" origin="0,0" />
