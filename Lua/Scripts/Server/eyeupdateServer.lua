@@ -261,7 +261,7 @@ function NTEYE.UpdateHumanEye(character)
 			and not HF.HasAffliction(character, "eyehusk")
 			and not HF.HasAffliction(character, "eyeplastic")
 			and not HF.HasAffliction(character, "stasis")
-			--and not HF.HasAffliction(character, "deusizinedrop")
+			and not HF.HasAffliction(character, "deusizinedrop")
 			and not HF.HasAffliction(character, "huskinfection", 75)
 
 		then
@@ -376,7 +376,7 @@ function NTEYE.UpdateHumanEye(character)
 					HF.HasAffliction(character, "deusizinedrop") 
 
 		then
-					HF.AddAfflictionLimb(character, "deusizinedrop", 11, -1.7)
+					HF.AddAfflictionLimb(character, "deusizinedrop", 11, -1.5)
 		end
 
 		if 		--laser healing below 50 damage

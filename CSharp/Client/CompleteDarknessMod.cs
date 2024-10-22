@@ -113,19 +113,19 @@ namespace CompleteDarkness
             }
 
             //find the lights with an active light volume
-            _.activeLightsWithLightVolume.Clear();
+            _.activeShadowCastingLights.Clear();
             foreach (var activeLight in _.activeLights)
             {
                 if (activeLight.Range < 1.0f || activeLight.Color.A < 1 || activeLight.CurrentBrightness <= 0.0f) { continue; }
-                _.activeLightsWithLightVolume.Add(activeLight);
+                _.activeShadowCastingLights.Add(activeLight);
             }
 
             //remove some lights with a light volume if there's too many of them
-            if (_.activeLightsWithLightVolume.Count > GameSettings.CurrentConfig.Graphics.VisibleLightLimit && Screen.Selected is { IsEditor: false })
+            if (_.activeShadowCastingLights.Count > GameSettings.CurrentConfig.Graphics.VisibleLightLimit && Screen.Selected is { IsEditor: false })
             {
-                for (int i = GameSettings.CurrentConfig.Graphics.VisibleLightLimit; i < _.activeLightsWithLightVolume.Count; i++)
+                for (int i = GameSettings.CurrentConfig.Graphics.VisibleLightLimit; i < _.activeShadowCastingLights.Count; i++)
                 {
-                    _.activeLights.Remove(_.activeLightsWithLightVolume[i]);
+                    _.activeLights.Remove(_.activeShadowCastingLights[i]);
                 }
             }
             _.activeLights.Sort((l1, l2) => l1.LastRecalculationTime.CompareTo(l2.LastRecalculationTime));

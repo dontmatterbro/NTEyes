@@ -113,7 +113,7 @@
   </Item>
   
 		<!-- DEUSIZINE DROPS -->
-  <Item name="" identifier="deusizinedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool">
+  <Item name="" identifier="deusizinedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" description="" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,surgery,surgerytool" spritecolor="60,255,255,200" inventoryiconcolor="60,255,255,200">
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" spawnprobability="0.10" />
 	
 	<Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="640,896,128,128" depth="0.6" origin="0.5,0.5" />
