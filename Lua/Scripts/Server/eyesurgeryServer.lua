@@ -433,7 +433,9 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 		
 		--eye drops
 		if 
-			identifier == "eyedrops" 
+			identifier == "eyedrops"
+			and not HF.HasAffliction(targetCharacter, "eyebionic")
+			and not HF.HasAffliction(targetCharacter, "eyeplastic")
 		then
 			HF.AddAfflictionLimb(targetCharacter, "eyedrop", 11, 25)
 			
@@ -446,6 +448,8 @@ Hook.Add("item.applyTreatment", "NTEYE.Surgery", function(item, usingCharacter, 
 		--deusizine drops
 		if 
 			identifier == "deusizinedrops" 
+			and not HF.HasAffliction(targetCharacter, "eyebionic")
+			and not HF.HasAffliction(targetCharacter, "eyeplastic")
 		then
 			HF.AddAfflictionLimb(targetCharacter, "deusizinedrop", 11, 25)
 			

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Eyes" modversion="1.1.17" corepackage="False" steamworkshopid="3294574390" gameversion="1.6.17.0">
+<contentpackage name="NT Eyes" modversion="1.1.17h2" corepackage="False" steamworkshopid="3294574390" gameversion="1.6.17.0">
   <Afflictions file="%ModDir%/Xml/afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   <Text file="%ModDir%/Localization/English.xml" />
