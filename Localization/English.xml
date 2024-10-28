@@ -9,7 +9,7 @@
   <entitydescription.organscalpel_eyes>A specialized scalpel used in eye surgeries.</entitydescription.organscalpel_eyes>
   
   <entityname.eyespoon>Advanced Eyeball Extraction Device</entityname.eyespoon>
-  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of donor eyes. Does not work on humans.</entitydescription.eyespoon>
+  <entitydescription.eyespoon>A specialized medical gadget for careful extraction of donor eyes. Works on both humans and monsters.</entitydescription.eyespoon>
   
   <entityname.eyeglasses>Corrective Glasses</entityname.eyeglasses>
   <entitydescription.eyeglasses>An outdated device used in temporairly relieving vision problems.</entitydescription.eyeglasses>

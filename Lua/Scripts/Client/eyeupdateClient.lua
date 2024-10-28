@@ -62,7 +62,7 @@ end)
 
 --Eye Effect Check Functions - this function got really fucked over time, needs to be rewritten
 function NTEYE.UpdateHumanEyeEffect()
- 
+
 	local LevelLight = Level.Loaded.LevelData.GenerationParams 
 		
 	if HF.HasAffliction(Character.Controlled, "eyebionic") then
@@ -141,7 +141,7 @@ function NTEYE.UpdateHumanEyeEffect()
 			
 	elseif HF.HasAffliction(Character.Controlled, "eyemonster") then
 
-			if Game.IsMultiplayer then Character.Controlled.TeamID = 0 end
+			if Game.IsMultiplayer and not (LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode")) then Character.Controlled.TeamID = 0 end
 
 			LevelLight.AmbientLightColor = Color(50, 0, 50, 5)
 			
@@ -151,7 +151,7 @@ function NTEYE.UpdateHumanEyeEffect()
 			
 	elseif HF.HasAffliction(Character.Controlled, "eyehusk") then
 
-			if Game.IsMultiplayer then Character.Controlled.TeamID = 4 end
+			if Game.IsMultiplayer and not (LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode")) then Character.Controlled.TeamID = 4 end
 			
 			LevelLight.AmbientLightColor = Color(115, 115, 20, 5)
 			
@@ -161,7 +161,7 @@ function NTEYE.UpdateHumanEyeEffect()
 
 	elseif HF.HasAffliction(Character.Controlled, "eyeterror") then
 
-			if Game.IsMultiplayer then Character.Controlled.TeamID = 2 end
+			if Game.IsMultiplayer and not (LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode")) then Character.Controlled.TeamID = 2 end
 			
 			LevelLight.AmbientLightColor = Color(255, 0, 0, 125)
 			
@@ -182,7 +182,7 @@ function NTEYE.UpdateHumanEyeEffect()
 			
 			--resets character team
 			if Character.Controlled ~= nil then 
-				if(Character.Controlled.IsHuman and not Character.Controlled.IsDead and not HF.HasAffliction(Character.Controlled, "lobo_differentteam")) then Character.Controlled.TeamID = 1 end
+				if(Character.Controlled.IsHuman and not Character.Controlled.IsDead and not HF.HasAffliction(Character.Controlled, "lobo_differentteam")) and not (LuaUserData.IsTargetType(Game.GameSession.GameMode, "Barotrauma.PvPMode")) then Character.Controlled.TeamID = 1 end
 			end
 			
 			--increases robot brightness

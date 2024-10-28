@@ -1,7 +1,7 @@
 NTEYE = {} -- Neurotrauma Eyes
 NTEYE.Name="Eyes"
-NTEYE.Version = "A1.1.17h2"
-NTEYE.VersionNum = 010101702
+NTEYE.Version = "A1.1.17h3"
+NTEYE.VersionNum = 010101703
 NTEYE.MinNTVersion = "A1.9.4h1"
 NTEYE.MinNTVersionNum = 01090401
 NTEYE.Path = table.pack(...)[1]

@@ -192,7 +192,7 @@
   
 			<!-- INFRARED EYE -->
 	<Affliction iconcolors="16,116,179,255;16,116,179,255" name="" identifier="eyeinfrared" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" minspeedmultiplier="1" maxspeedmultiplier="1.05">
+		<Effect minstrength="0" maxstrength="2" minspeedmultiplier="1" maxspeedmultiplier="1.05" ThermalOverlayRange="1500" ThermalOverlayColor="255,0,0,150">
 		<StatValue stattype="WeaponsSkillBonus" value="15" />
 		</Effect>
 		<icon texture="%ModDir%/Textures/AfflictionIcons.png" sourcerect="0,0,128,128"  origin="0,0" />
