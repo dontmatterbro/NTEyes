@@ -4,3 +4,18 @@
 --dead eye rework
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.)
+
+--autoimmune retinopathy when one of eyes die, to prevent it the dead eye needs to be removed
+
+--better eye damage
+(damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
+
+--fix human update and add into NT update loop instead of running your own
+
+--client side eye effect optimizations
+
+--figure out what to do with eye jar
+
+--enhance bionic eye mechanics
+
+--redo surgeries rn they suck, you shouldn't really need 3 items to perform a surgery, or idk we'll see
