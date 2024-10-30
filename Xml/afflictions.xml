@@ -223,6 +223,7 @@
 			minskillmultiplier="0.15" maxskillmultiplier="0.15" 
 			minspeedmultiplier="0.5" maxspeedmultiplier="0.5">
 			<StatusEffect target="Character">
+				<!-- Try to add a special animation for this --> 
 				<TriggerAnimation Type="Walk" filename="DrunkenWalk" priority="6" ExpectedSpecies="Human" />
 				<TriggerAnimation Type="Run" filename="DrunkenRun" priority="6" ExpectedSpecies="Human" />
 			</StatusEffect>
@@ -427,6 +428,21 @@
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="512,128,128,128"  origin="0,0" />
+	</Affliction>			
+	
+	<!-- Mechanically Enhanced Eye (this will replace thermal and NVG eyes) -->
+	<Affliction  
+		identifier="et_enhancedeye" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true" 
+		healableinmedicalclinic="false"
+		iconcolors="42,194,47,255;42,194,47,255">
+		<Effect/>	
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="512,128,128,128"  origin="0,0" />
 	</Affliction>
 
 			<!-- Infrared Eye -->
@@ -488,6 +504,48 @@
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="640,128,128,128" origin="0,0" />
+	</Affliction>			
+	
+		<!-- Mudraptor Eye -->
+	<Affliction 
+		identifier="et_mudraptor" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true"
+		healableinmedicalclinic="false"
+		iconcolors="160,160,70,255;160,160,70,255">
+		<Effect 
+			minstrength="0" maxstrength="2" 
+			minscreendistort="0.7" maxscreendistort="0.7" 
+			minscreenblur="0.2" maxscreenblur="0.2" 
+			minradialdistort="1" maxradialdistort="1" 
+			minchromaticaberration="0.75" maxchromaticaberration="0.75" 
+			minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="640,128,128,128" origin="0,0" />
+	</Affliction>	
+	
+		<!-- Watcher Eye (figure out a common sensible way to acquire this) -->
+	<Affliction 
+		identifier="et_watcher" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true"
+		healableinmedicalclinic="false"
+		iconcolors="160,160,70,255;160,160,70,255">
+		<Effect 
+			minstrength="0" maxstrength="2" 
+			minscreendistort="0.7" maxscreendistort="0.7" 
+			minscreenblur="0.2" maxscreenblur="0.2" 
+			minradialdistort="1" maxradialdistort="1" 
+			minchromaticaberration="0.75" maxchromaticaberration="0.75" 
+			minskillmultiplier="0.8" maxskillmultiplier="0.8"/>
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="640,128,128,128" origin="0,0" />
 	</Affliction>
 
 			<!-- Huskified Eye -->
@@ -511,9 +569,65 @@
 			sourcerect="384,128,128,128" origin="0,0" />
 	</Affliction>
 
-			<!-- Abyss Eye -->
+			<!-- Charybdis Eye -->
 	<Affliction 
-		identifier="et_abyss" 
+		identifier="et_charybdis" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true"
+		healableinmedicalclinic="false"
+		iconcolors="255,0,0,255;255,0,0,255">
+		<Effect 
+			minstrength="0" maxstrength="2" 
+			minskillmultiplier="0.1" maxskillmultiplier="0.1" 
+			minvitalitydecrease="0" maxvitalitydecrease="0.3" multiplybymaxvitality="true"
+			minradialdistort="0.0" maxradialdistort="0.5" 
+			resistancefor="pressure, damage" minresistance="0" maxresistance="0.5" 
+			minscreenblur="0.0" maxscreenblur="0.1">
+			<StatValue stattype="WeaponsSkillBonus" value="400" />
+			<StatusEffect target="Character" targetlimb="Head">
+				<Conditional IsLocalPlayer="True" />
+				<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="5" camerashakerange="250"  screencolor="255,0,0,60" screencolorrange="1000" screencolorduration="0.22" />
+				<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.5" />
+			</StatusEffect>
+		</Effect>
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="0,128,128,128" origin="0,0" />
+	</Affliction>			
+	
+			<!-- Latcher Eye -->
+	<Affliction 
+		identifier="et_charybdis" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true"
+		healableinmedicalclinic="false"
+		iconcolors="255,0,0,255;255,0,0,255">
+		<Effect 
+			minstrength="0" maxstrength="2" 
+			minskillmultiplier="0.1" maxskillmultiplier="0.1" 
+			minvitalitydecrease="0" maxvitalitydecrease="0.3" multiplybymaxvitality="true"
+			minradialdistort="0.0" maxradialdistort="0.5" 
+			resistancefor="pressure, damage" minresistance="0" maxresistance="0.5" 
+			minscreenblur="0.0" maxscreenblur="0.1">
+			<StatValue stattype="WeaponsSkillBonus" value="400" />
+			<StatusEffect target="Character" targetlimb="Head">
+				<Conditional IsLocalPlayer="True" />
+				<Explosion range="1" force="0" smoke="false" sparks="false" flames="false" shockwave="false" underwaterbubble="false" camerashake="5" camerashakerange="250"  screencolor="255,0,0,60" screencolorrange="1000" screencolorduration="0.22" />
+				<Sound file="%ModDir%/Sounds/eyesofterror.ogg" loop="false" dontmuffle="true" volume="0.5" />
+			</StatusEffect>
+		</Effect>
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="0,128,128,128" origin="0,0" />
+	</Affliction>			
+	
+			<!-- Terror Eye (this will likely be acquired by combining the abbys eyes, this time do it postal themed instead of doom) -->
+	<Affliction 
+		identifier="et_terror" 
 		limbspecific="true" indicatorlimb="Head" 
 		showiconthreshold="0" showinhealthscannerthreshold="1000" 
 		maxstrength="2" 

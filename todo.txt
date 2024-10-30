@@ -36,3 +36,5 @@ screen going black/red momentarily upon taking damage with regular eyes)
 --lens damage for eyes
 
 --replace infrared and night vision eyes with bio-mechanical eyes that can be upgraded like a weaker version of bionic eyes.
+
+--animation for walking blind
