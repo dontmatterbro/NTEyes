@@ -599,7 +599,7 @@
 	
 			<!-- Latcher Eye -->
 	<Affliction 
-		identifier="et_charybdis" 
+		identifier="et_latcher" 
 		limbspecific="true" indicatorlimb="Head" 
 		showiconthreshold="0" showinhealthscannerthreshold="1000" 
 		maxstrength="2" 

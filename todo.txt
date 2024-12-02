@@ -6,6 +6,8 @@
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes)
 
+--enhance laser surger (maybe a multipurpose scalpel like usage)
+
 --redo hypotension effect, preferably slightly animate it
 
 --autoimmune retinopathy when one of eyes die, to prevent it the dead eye needs to be removed
