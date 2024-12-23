@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Eyes" modversion="1.1.17h4" corepackage="False" steamworkshopid="3294574390" gameversion="1.6.19.1">
+<contentpackage name="NT Eyes" modversion="1.1.17h5" corepackage="False" steamworkshopid="3294574390" gameversion="1.7.7.0">
   <Afflictions file="%ModDir%/Xml/afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   <Text file="%ModDir%/Localization/English.xml" />
@@ -21,4 +21,20 @@
   <Other file="%ModDir%/Sounds/Voice/scream_male_2.ogg" />
   <Other file="%ModDir%/Sounds/Voice/scream_male_3.ogg" />
   <Other file="%ModDir%/Sounds/Voice/screams_female_2.ogg" />
+  <Other file="%ModDir%/Lua/Autorun/init.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Client/clientControls.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Client/eyeHealthScanner.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Client/eyeupdateClient.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Compatibility/immersivedivingComp.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Compatibility/robotraumaCompClient.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Compatibility/robotraumaCompServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/eyeNetworkServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/eyeondamageServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/eyesurgeryServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/eyeupdateServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/itemspawnServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/LosModeServer.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/spoonServer.lua" />
+  <Other file="%ModDir%/CSharp/RunConfig.xml" />
+  <Other file="%ModDir%/CSharp/Client/CompleteDarknessMod.cs" />
 </contentpackage>
