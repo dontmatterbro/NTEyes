@@ -71,9 +71,9 @@
 			sourcerect="512,256,128,128" origin="0,0" />
 	</Affliction>
 
-			<!-- Eye Gel -->
+			<!-- Eye Connector ///Former Eye Gel -->
 	<Affliction 
-		identifier="sr_eyegel" 
+		identifier="sr_eyeconnector" 
 		limbspecific="true" indicatorlimb="Head" 
 		showiconthreshold="0" showinhealthscannerthreshold="100" 
 		maxstrength="100" 
@@ -82,13 +82,13 @@
 		iconcolors="84,211,211,255">
 		<Effect 
 			minstrength="0" maxstrength="100" 
-			strengthchange="-1" />
+			<!-- strengthchange="-1" --> />
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="768,128,128,128" origin="0,0" />
 	</Affliction>
 
-			<!-- Muscle Connector -->
+	<!--		Muscle Connector ///DISCARDED
 	<Affliction 
 		identifier="sr_muscleconnector" 
 		limbspecific="true" indicatorlimb="Head" 
@@ -102,9 +102,9 @@
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="896,128,128,128" origin="0,0" />
-	</Affliction>
+	</Affliction> -->
 
-			<!-- Nerve Connector -->
+	<!-- 		Nerve Connector ///DISCARDED
 	<Affliction 
 		identifier="sr_nerveconnector" 
 		limbspecific="true" indicatorlimb="Head" 
@@ -118,7 +118,7 @@
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="896,256,128,128" origin="0,0" />
-	</Affliction>
+	</Affliction> -->
 
 			<!-- Cornea Incision -->
   	<Affliction 
@@ -415,7 +415,7 @@
 		<Effect/>
 	</Affliction>
 
-			<!-- Night Vision Eye -->
+			<!-- Night Vision Lens -->
 	<Affliction  
 		identifier="et_night" 
 		limbspecific="true" indicatorlimb="Head" 
@@ -430,22 +430,7 @@
 			sourcerect="512,128,128,128"  origin="0,0" />
 	</Affliction>			
 	
-	<!-- Mechanically Enhanced Eye (this will replace thermal and NVG eyes) -->
-	<Affliction  
-		identifier="et_enhancedeye" 
-		limbspecific="true" indicatorlimb="Head" 
-		showiconthreshold="0" showinhealthscannerthreshold="1000" 
-		maxstrength="2" 
-		type="eye_type" isbuff="true" 
-		healableinmedicalclinic="false"
-		iconcolors="42,194,47,255;42,194,47,255">
-		<Effect/>	
-		<icon 
-			texture="%ModDir%/Textures/AfflictionIcons.png" 
-			sourcerect="512,128,128,128"  origin="0,0" />
-	</Affliction>
-
-			<!-- Infrared Eye -->
+			<!-- Thermal Lens -->
 	<Affliction 
 		identifier="et_thermal" 
 		limbspecific="true" indicatorlimb="Head" 
@@ -460,6 +445,21 @@
 		<icon 
 			texture="%ModDir%/Textures/AfflictionIcons.png" 
 			sourcerect="0,0,128,128" origin="0,0" />
+	</Affliction>
+	
+	<!-- Mechanically Enhanced Eye (this will replace thermal and NVG eyes) -->
+	<Affliction  
+		identifier="et_enhancedeye" 
+		limbspecific="true" indicatorlimb="Head" 
+		showiconthreshold="0" showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" isbuff="true" 
+		healableinmedicalclinic="false"
+		iconcolors="42,194,47,255;42,194,47,255">
+		<Effect/>	
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="512,128,128,128"  origin="0,0" />
 	</Affliction>
 
 			<!-- Plastic Eye -->
@@ -625,7 +625,7 @@
 			sourcerect="0,128,128,128" origin="0,0" />
 	</Affliction>			
 	
-			<!-- Terror Eye (this will likely be acquired by combining the abbys eyes, this time do it postal themed instead of doom) -->
+			<!-- Terror Eye (this will be acquired by combining the abbys eyes) -->
 	<Affliction 
 		identifier="et_terror" 
 		limbspecific="true" indicatorlimb="Head" 

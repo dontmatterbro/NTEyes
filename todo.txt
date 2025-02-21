@@ -1,4 +1,4 @@
-
+--add eye surgery toolbag and kit
 --multipurpose scalpel comp
 
 --dead eye rework (ouchie)
@@ -14,6 +14,8 @@ screen going black/red momentarily upon taking damage with regular eyes)
 
 --better eye damage
 (damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
+Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
+Specifically the concussion resistance function
 
 --fix human update and add into NT update loop instead of running your own
 
