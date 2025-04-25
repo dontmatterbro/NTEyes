@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <meta>
+        <author>POSTACI</author>
+        <id>POSTACI.NTEYES</id>
+    </meta>
+
+    <dependencies>
+        <conflict name="NT Eyes 2.0" steamID="3294574390" message="Make sure you have client-side Lua and Neurotrauma-fork installed"/>
+    </dependencies>
+</metadata>

@@ -4,7 +4,7 @@
 --dead eye rework (ouchie)
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
-screen going black/red momentarily upon taking damage with regular eyes)
+screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
 
 --enhance laser surger (maybe a multipurpose scalpel like usage)
 
