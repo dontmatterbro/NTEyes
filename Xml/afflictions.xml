@@ -493,10 +493,41 @@
 			origin="0,0" />
 	</Affliction>
 
-	<!-- Eye Types -->
-	<!-- Bionic Eye -->
+	<!-- Mismatching Eyes -->
 	<Affliction 
-		identifier="et_bionic" 
+		identifier="mc_mismatch" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		showiconthreshold="1" 
+		showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_mechanic" 
+		isbuff="false" 
+		healableinmedicalclinic="false" 
+		iconcolors="211,211,84,255;211,100,20,255">
+		<Effect
+			minstrength="0" 
+			maxstrength="2" 
+			minscreendistort="0.5" 
+			maxscreendistort="0.5" 
+			minscreenblur="0.4" 
+			maxscreenblur="0.4" 
+			minradialdistort="0.1" 
+			maxradialdistort="0.1" 
+			minchromaticaberration="0.5" 
+			maxchromaticaberration="0.5" 
+			minskillmultiplier="0.8" 
+			maxskillmultiplier="0.8" />
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="768,0,128,128" 
+			origin="0,0" />
+	</Affliction>
+
+	<!-- Eye Types -->
+	<!-- Cyber Eye -->
+	<Affliction 
+		identifier="et_cyber" 
 		limbspecific="true" 
 		indicatorlimb="Head" 
 		showiconthreshold="0" 
@@ -513,106 +544,9 @@
 			origin="0,0" />
 	</Affliction>
 
-	<!-- Lens Huds -->
-	<!-- Medical Lens -->
-	<Affliction 
-		identifier="et_medical" 
-		showiconthreshold="1000" 
-		showinhealthscannerthreshold="1000" 
-		limbspecific="true" 
-		indicatorlimb="Head" 
-		maxstrength="2" 
-		type="eye_type" 
-		isbuff="true" 
-		healableinmedicalclinic="false">
-		<Effect 
-			minstrength="0" 
-			maxstrength="2">
-			<StatValue 
-				stattype="MedicalSkillBonus" 
-				value="10" />
-		</Effect>
-	</Affliction>
-
-	<!-- Electrical Lens -->
-	<Affliction 
-		identifier="et_electrical" 
-		showiconthreshold="1000" 
-		showinhealthscannerthreshold="1000" 
-		limbspecific="true" 
-		indicatorlimb="Head" 
-		maxstrength="2" 
-		type="eye_type" 
-		isbuff="true" 
-		healableinmedicalclinic="false">
-		<Effect 
-			minstrength="0" 
-			maxstrength="2">
-			<StatValue 
-				stattype="ElectricalSkillBonus" 
-				value="15" />
-		</Effect>
-	</Affliction>
-
-	<!-- Zoom Lens -->
-	<Affliction 
-		identifier="et_zoom" 
-		showiconthreshold="1000" 
-		showinhealthscannerthreshold="1000" 
-		limbspecific="true" 
-		indicatorlimb="Head" 
-		maxstrength="2" 
-		type="eye_type" 
-		isbuff="true" 
-		healableinmedicalclinic="false">
-		<Effect />
-	</Affliction>
-
-	<!-- Night Vision Lens -->
+	<!-- Enhanced Eye -->
 	<Affliction  
-		identifier="et_night" 
-		limbspecific="true" 
-		indicatorlimb="Head" 
-		showiconthreshold="0" 
-		showinhealthscannerthreshold="1000" 
-		maxstrength="2" 
-		type="eye_type" 
-		isbuff="true" 
-		healableinmedicalclinic="false" 
-		iconcolors="42,194,47,255;42,194,47,255">
-		<Effect />
-		<icon 
-			texture="%ModDir%/Textures/AfflictionIcons.png" 
-			sourcerect="512,128,128,128" 
-			origin="0,0" />
-	</Affliction>
-
-	<!-- Thermal Lens -->
-	<Affliction 
-		identifier="et_thermal" 
-		limbspecific="true" 
-		indicatorlimb="Head" 
-		showiconthreshold="0" 
-		showinhealthscannerthreshold="1000" 
-		maxstrength="2" 
-		type="eye_type" 
-		isbuff="true" 
-		healableinmedicalclinic="false" 
-		iconcolors="16,116,179,255;16,116,179,255">
-		<Effect>
-			<StatValue 
-				stattype="WeaponsSkillBonus" 
-				value="10" />
-		</Effect>
-		<icon 
-			texture="%ModDir%/Textures/AfflictionIcons.png" 
-			sourcerect="0,0,128,128" 
-			origin="0,0" />
-	</Affliction>
-
-	<!-- Mechanically Enhanced Eye -->
-	<Affliction  
-		identifier="et_enhancedeye" 
+		identifier="et_enhanced" 
 		limbspecific="true" 
 		indicatorlimb="Head" 
 		showiconthreshold="0" 
@@ -662,7 +596,7 @@
 			origin="0,0" />
 	</Affliction>
 
-	<!-- Monster Eyes -->
+	<!-- Creature Eyes -->
 	<!-- Crawler Eye -->
 	<Affliction 
 		identifier="et_crawler" 
@@ -969,4 +903,102 @@
 			sourcerect="0,128,128,128" 
 			origin="0,0" />
 	</Affliction>
+
+	<!-- Lens Huds -->
+	<!-- Medical Lens -->
+	<Affliction 
+		identifier="et_medical" 
+		showiconthreshold="1000" 
+		showinhealthscannerthreshold="1000" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		maxstrength="2" 
+		type="eye_type" 
+		isbuff="true" 
+		healableinmedicalclinic="false">
+		<Effect 
+			minstrength="0" 
+			maxstrength="2">
+			<StatValue 
+				stattype="MedicalSkillBonus" 
+				value="10" />
+		</Effect>
+	</Affliction>
+
+	<!-- Electrical Lens -->
+	<Affliction 
+		identifier="et_electrical" 
+		showiconthreshold="1000" 
+		showinhealthscannerthreshold="1000" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		maxstrength="2" 
+		type="eye_type" 
+		isbuff="true" 
+		healableinmedicalclinic="false">
+		<Effect 
+			minstrength="0" 
+			maxstrength="2">
+			<StatValue 
+				stattype="ElectricalSkillBonus" 
+				value="15" />
+		</Effect>
+	</Affliction>
+
+	<!-- Magnification Lens -->
+	<Affliction 
+		identifier="et_zoom" 
+		showiconthreshold="1000" 
+		showinhealthscannerthreshold="1000" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		maxstrength="2" 
+		type="eye_type" 
+		isbuff="true" 
+		healableinmedicalclinic="false">
+		<Effect />
+	</Affliction>
+
+	<!-- Night Vision Lens -->
+	<Affliction  
+		identifier="et_night" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		showiconthreshold="0" 
+		showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" 
+		isbuff="true" 
+		healableinmedicalclinic="false" 
+		iconcolors="42,194,47,255;42,194,47,255">
+		<Effect />
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="512,128,128,128" 
+			origin="0,0" />
+	</Affliction>
+
+	<!-- Thermal Lens -->
+	<Affliction 
+		identifier="et_thermal" 
+		limbspecific="true" 
+		indicatorlimb="Head" 
+		showiconthreshold="0" 
+		showinhealthscannerthreshold="1000" 
+		maxstrength="2" 
+		type="eye_type" 
+		isbuff="true" 
+		healableinmedicalclinic="false" 
+		iconcolors="16,116,179,255;16,116,179,255">
+		<Effect>
+			<StatValue 
+				stattype="WeaponsSkillBonus" 
+				value="10" />
+		</Effect>
+		<icon 
+			texture="%ModDir%/Textures/AfflictionIcons.png" 
+			sourcerect="0,0,128,128" 
+			origin="0,0" />
+	</Affliction>
+
 </Afflictions>

@@ -42,3 +42,11 @@ Specifically the concussion resistance function
 --replace infrared and night vision eyes with bio-mechanical eyes that can be upgraded like a weaker version of bionic eyes.
 
 --animation for walking blind
+
+--apply the effects of both eyes and a penalty if different types of eyes installed at the same time
+
+--correct lens crafts and usage balance
+
+--enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
+
+--make eye jar placeable AND holdable
