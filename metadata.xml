@@ -1,11 +1,24 @@
+<!-- Metadata file for Barotrauma Modding Tool -->
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+
+    <settings>
+        <setting name="IgnoreLUACheck" value="false" />
+        <setting name="DisableCSDLLCheck" value="false" />
+        <setting name="IgnoreOverrideCheck" value="false" />
+    </settings>
+	
     <meta>
         <author>POSTACI</author>
-        <id>POSTACI.NTEYES</id>
+		<id>POSTACI.NTEyes</id>
+        <warning>
+            Client Side Lua required
+			CS activation required
+        </warning>
     </meta>
 
     <dependencies>
-        <conflict name="NT Eyes 2.0" steamID="3294574390" message="Make sure you have client-side Lua and Neurotrauma-fork installed"/>
+        <requiredAnyOrder name="Neurotrauma" steamID="3190189044" />
+        <conflict name="Deprecated Neurotrauma" steamID="2776270649" message="Remove deprecated Neurotrauma" level="error" />
     </dependencies>
 </metadata>
