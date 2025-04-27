@@ -8,6 +8,8 @@ NTEYE.Path = table.pack(...)[1]
 Timer.Wait(function()
 	if NTC ~= nil then
 		NTC.RegisterExpansion(NTEYE)
+		NTC.AddPreHumanUpdateHook(NTEYE.PreUpdateHuman)
+		NTC.AddHumanUpdateHook(NTEYE.PostUpdateHuman)
 	end
 end, 1)
 
