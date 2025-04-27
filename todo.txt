@@ -52,3 +52,5 @@ Specifically the concussion resistance function
 --make eye jar placeable AND holdable
 
 --fix item hold positions, SFX (not high priority, but effects overall quality of the mod significantly)
+
+--comp patches for immersive diving and robotrauma

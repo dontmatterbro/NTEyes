@@ -1639,6 +1639,123 @@
 			</StatusEffect>
 		</Throwable>
 	</Item>
+    <!-- Terror Eye -->
+	<Item 
+		identifier="it_terroreye" 
+		scale="0.1"
+		useinhealthinterface="True" 
+		impactsoundtag="impact_soft" 
+		cargocontaineridentifier="organcrate" 
+		impacttolerance="5.5" 
+		Tags="smallitem,organ"
+		maxstacksize="2"
+		maxstacksizecharacterinventory="2">
+		<Sprite
+			texture="%ModDir%/Textures/ItemIcons.png" 
+			sourcerect="0,0,128,128" 
+			depth="0.6" 
+			origin="0.5,0.5" />
+		<Body
+			width="14" 
+			height="22" 
+			density="10" />
+		<Deconstruct 
+			time="200">
+		</Deconstruct>
+		<Throwable 
+			characterusable="true" 
+			slots="Any,RightHand,LeftHand" 
+			throwforce="4.0" 
+			aimpos="35,-10" 
+			msg="ItemMsgPickUpSelect">
+			<StatusEffect 
+				type="OnImpact" 
+				target="This" 
+				Condition="0.0" 
+				setvalue="true">
+				<Explosion 
+					range="0.0" 
+					structuredamage="0" 
+					itemdamage="0" 
+					force="0.0" 
+					severlimbsprobability="0.0" 
+					decal="fruitsplatter1" 
+					decalsize="1.0" />
+				<ParticleEmitter 
+					particle="whitegoosplash" 
+					anglemin="0" 
+					anglemax="360" 
+					particleamount="2" 
+					velocitymin="0" 
+					velocitymax="0" 
+					scalemin="1.5" 
+					scalemax="2" />
+				<ParticleEmitter 
+					particle="fruitchunks" 
+					anglemin="0" 
+					anglemax="360" 
+					particleamount="10" 
+					velocitymin="200" 
+					velocitymax="300" 
+					scalemin="0.4" 
+					scalemax="0.8" />
+				<Remove />
+			</StatusEffect>
+			<!-- Reduce durability if the organ is left outside refrigiration -->
+			<StatusEffect 
+				type="Always" 
+				target="This" 
+				condition="-0.1" 
+				comparison="and">
+				<Conditional 
+					hastag="neq refrigerated" 
+					targetcontainer="true" />
+				<Conditional 
+					hastag="neq medicalfabricator" 
+					targetcontainer="true" />
+			</StatusEffect>
+			<StatusEffect 
+				type="OnContained" 
+				target="This" 
+				condition="0.1" 
+				comparison="and">
+				<Conditional 
+					condition="gte 90" />
+				<Conditional 
+					hastag="refrigerated" 
+					targetcontainer="true" />
+			</StatusEffect>
+			<StatusEffect 
+				type="OnFire" 
+				target="This" 
+				Condition="-25.0" />
+			<!-- Terror eye applies psychosis on nearby players -->
+			<StatusEffect 
+				type="OnNotContained" 
+				target="NearbyCharacters" 
+				range="500">
+				<Affliction 
+					identifier="psychosis" 
+					amount="0.5" />
+				<Affliction 
+					identifier="sym_vomiting" 
+					amount="10" 
+					probability="0.001" 
+					duration="1" />
+				<Affliction 
+					identifier="sym_lightheadedness" 
+					amount="10" 
+					probability="0.001" 
+					duration="5" />
+			</StatusEffect>
+			<StatusEffect
+				type="OnBroken" 
+				target="This">
+				<Remove />
+			</StatusEffect>
+			<!-- Terror eye won't heal inside jar -->
+		</Throwable>
+	</Item>
 
 	<!-- Eye Lenses -->
 	<!-- Organic Lens -->
