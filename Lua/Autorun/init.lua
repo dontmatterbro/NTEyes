@@ -21,11 +21,11 @@ Timer.Wait(function()
 
 	--server side scripts
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/place.holder.lua") -- this is a placeholder for the server side scripts, it will be replaced with the actual script in the future
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/humanupdate.lua") -- this is a placeholder for the server side scripts, it will be replaced with the actual script in the future
 	end
 
 	--client side scripts
 	if CLIENT then
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/place.holder") -- this is a placeholder for the client side scripts, it will be replaced with the actual script in the future
+		--dofile(NTEYE.Path .. "/Lua/Scripts/Client/place.holder") -- this is a placeholder for the client side scripts, it will be replaced with the actual script in the future
 	end
 end, 1)

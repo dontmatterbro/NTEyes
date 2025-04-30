@@ -551,10 +551,10 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Eye Types -->
-    <!-- Human Eye -->
+    <!-- Eye Damage Types -->
+    <!-- Human Eye Damage -->
     <Affliction 
-        identifier="et_human" 
+        identifier="dm_human" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -563,12 +563,11 @@
         type="eye_type" 
         isbuff="true" 
         healableinmedicalclinic="false" >
-        <Effect />
     </Affliction>
 
     <!-- Cyber Eye -->
     <Affliction 
-        identifier="et_cyber" 
+        identifier="dm_cyber" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -578,7 +577,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="211,211,84,255;211,211,84,255">
-        <Effect />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="256,128,128,128" 
@@ -587,7 +585,7 @@
 
     <!-- Enhanced Eye -->
     <Affliction  
-        identifier="et_enhanced" 
+        identifier="dm_enhanced" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -597,7 +595,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="42,194,47,255;42,194,47,255">
-        <Effect />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="512,128,128,128" 
@@ -606,7 +603,7 @@
 
     <!-- Plastic Eye -->
     <Affliction 
-        identifier="et_plastic" 
+        identifier="dm_plastic" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -616,19 +613,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="84,211,230,255;84,211,230,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minscreendistort="0.8" 
-            maxscreendistort="0.8" 
-            minscreenblur="0.4" 
-            maxscreenblur="0.4" 
-            minradialdistort="0.7" 
-            maxradialdistort="0.7" 
-            minchromaticaberration="1" 
-            maxchromaticaberration="1" 
-            minskillmultiplier="0.7" 
-            maxskillmultiplier="0.7" />
         <!-- <AfflictionOverlay 
             texture="%ModDir%/Textures/Overlays/plasticoverlay.png" /> -->
         <!-- <icon 
@@ -637,10 +621,9 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Creature Eyes -->
     <!-- Crawler Eye -->
     <Affliction 
-        identifier="et_crawler" 
+        identifier="dm_crawler" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -650,28 +633,15 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minscreendistort="0.7" 
-            maxscreendistort="0.7" 
-            minscreenblur="0.2" 
-            maxscreenblur="0.2" 
-            minradialdistort="1" 
-            maxradialdistort="1" 
-            minchromaticaberration="0.75" 
-            maxchromaticaberration="0.75" 
-            minskillmultiplier="0.8" 
-            maxskillmultiplier="0.8" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="640,128,128,128" 
             origin="0,0" /> -->
     </Affliction>
-    
+
     <!-- Mudraptor Eye -->
     <Affliction 
-        identifier="et_mudraptor" 
+        identifier="dm_mudraptor" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -681,19 +651,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minscreendistort="0.7" 
-            maxscreendistort="0.7" 
-            minscreenblur="0.2" 
-            maxscreenblur="0.2" 
-            minradialdistort="1" 
-            maxradialdistort="1" 
-            minchromaticaberration="0.75" 
-            maxchromaticaberration="0.75" 
-            minskillmultiplier="0.8" 
-            maxskillmultiplier="0.8" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="640,128,128,128" 
@@ -702,7 +659,7 @@
 
     <!-- Watcher Eye -->
     <Affliction 
-        identifier="et_watcher" 
+        identifier="dm_watcher" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -712,19 +669,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minscreendistort="0.7" 
-            maxscreendistort="0.7" 
-            minscreenblur="0.2" 
-            maxscreenblur="0.2" 
-            minradialdistort="1" 
-            maxradialdistort="1" 
-            minchromaticaberration="0.75" 
-            maxchromaticaberration="0.75" 
-            minskillmultiplier="0.8" 
-            maxskillmultiplier="0.8" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="640,128,128,128" 
@@ -733,7 +677,7 @@
 
     <!-- Huskified Eye -->
     <Affliction 
-        identifier="et_husk" 
+        identifier="dm_husk" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -743,19 +687,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="75,0,75,255;75,0,75,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minscreendistort="0.5" 
-            maxscreendistort="0.5" 
-            minscreenblur="0.1" 
-            maxscreenblur="0.1" 
-            minradialdistort="0.5" 
-            maxradialdistort="0.5" 
-            minchromaticaberration="0.4" 
-            maxchromaticaberration="0.4" 
-            minskillmultiplier="0.9" 
-            maxskillmultiplier="0.9" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="384,128,128,128" 
@@ -764,7 +695,7 @@
 
     <!-- Charybdis Eye -->
     <Affliction 
-        identifier="et_charybdis" 
+        identifier="dm_charybdis" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -774,49 +705,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minskillmultiplier="0.1" 
-            maxskillmultiplier="0.1" 
-            minvitalitydecrease="0" 
-            maxvitalitydecrease="0.3" 
-            multiplybymaxvitality="true" 
-            minradialdistort="0.0" 
-            maxradialdistort="0.5" 
-            resistancefor="pressure, damage" 
-            minresistance="0" 
-            maxresistance="0.5" 
-            minscreenblur="0.0" 
-            maxscreenblur="0.1">
-            <StatValue 
-                stattype="WeaponsSkillBonus" 
-                value="400" />
-            <StatusEffect 
-                target="Character" 
-                targetlimb="Head">
-                <Conditional 
-                    IsLocalPlayer="True" />
-                <Explosion 
-                    range="1" 
-                    force="0" 
-                    smoke="false" 
-                    sparks="false" 
-                    flames="false" 
-                    shockwave="false" 
-                    underwaterbubble="false" 
-                    camerashake="5" 
-                    camerashakerange="250" 
-                    screencolor="255,0,0,60" 
-                    screencolorrange="1000" 
-                    screencolorduration="0.22" />
-                <Sound 
-                    file="%ModDir%/Sounds/eyesofterror.ogg" 
-                    loop="false" 
-                    dontmuffle="true" 
-                    volume="0.5" />
-            </StatusEffect>
-        </Effect>
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="0,128,128,128" 
@@ -825,7 +713,7 @@
 
     <!-- Latcher Eye -->
     <Affliction 
-        identifier="et_latcher" 
+        identifier="dm_latcher" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -835,49 +723,6 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minskillmultiplier="0.1" 
-            maxskillmultiplier="0.1" 
-            minvitalitydecrease="0" 
-            maxvitalitydecrease="0.3" 
-            multiplybymaxvitality="true" 
-            minradialdistort="0.0" 
-            maxradialdistort="0.5" 
-            resistancefor="pressure, damage" 
-            minresistance="0" 
-            maxresistance="0.5" 
-            minscreenblur="0.0" 
-            maxscreenblur="0.1">
-            <StatValue 
-                stattype="WeaponsSkillBonus" 
-                value="400" />
-            <StatusEffect 
-                target="Character" 
-                targetlimb="Head">
-                <Conditional 
-                    IsLocalPlayer="True" />
-                <Explosion 
-                    range="1" 
-                    force="0" 
-                    smoke="false" 
-                    sparks="false" 
-                    flames="false" 
-                    shockwave="false" 
-                    underwaterbubble="false" 
-                    camerashake="5" 
-                    camerashakerange="250" 
-                    screencolor="255,0,0,60" 
-                    screencolorrange="1000" 
-                    screencolorduration="0.22" />
-                <Sound 
-                    file="%ModDir%/Sounds/eyesofterror.ogg" 
-                    loop="false" 
-                    dontmuffle="true" 
-                    volume="0.5" />
-            </StatusEffect>
-        </Effect>
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="0,128,128,128" 
@@ -886,7 +731,7 @@
 
     <!-- Terror Eye -->
     <Affliction 
-        identifier="et_terror" 
+        identifier="dm_terror" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
@@ -896,54 +741,12 @@
         isbuff="true" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
-        <Effect 
-            minstrength="0" 
-            maxstrength="0" 
-            minskillmultiplier="0.1" 
-            maxskillmultiplier="0.1" 
-            minvitalitydecrease="0" 
-            maxvitalitydecrease="0.3" 
-            multiplybymaxvitality="true" 
-            minradialdistort="0.0" 
-            maxradialdistort="0.5" 
-            resistancefor="pressure, damage" 
-            minresistance="0" 
-            maxresistance="0.5" 
-            minscreenblur="0.0" 
-            maxscreenblur="0.1">
-            <StatValue 
-                stattype="WeaponsSkillBonus" 
-                value="400" />
-            <StatusEffect 
-                target="Character" 
-                targetlimb="Head">
-                <Conditional 
-                    IsLocalPlayer="True" />
-                <Explosion 
-                    range="1" 
-                    force="0" 
-                    smoke="false" 
-                    sparks="false" 
-                    flames="false" 
-                    shockwave="false" 
-                    underwaterbubble="false" 
-                    camerashake="5" 
-                    camerashakerange="250" 
-                    screencolor="255,0,0,60" 
-                    screencolorrange="1000" 
-                    screencolorduration="0.22" />
-                <Sound 
-                    file="%ModDir%/Sounds/eyesofterror.ogg" 
-                    loop="false" 
-                    dontmuffle="true" 
-                    volume="0.5" />
-            </StatusEffect>
-        </Effect>
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="0,128,128,128" 
             origin="0,0" /> -->
     </Affliction>
+
 
     <!-- Lens Huds -->
     <!-- Medical Lens -->
@@ -1067,7 +870,7 @@
             maxstrength="2" 
             strengthchange="-2" />
     </Affliction>
-	<!-- Human Eye 
+	<!-- Human Eye -->
 	<Affliction 
         identifier="vi_human" 
         showiconthreshold="0" 
@@ -1082,7 +885,7 @@
             minstrength="0" 
             maxstrength="2" 
             strengthchange="-2" />
-    </Affliction> -->
+    </Affliction>
 	<!-- Plastic Eye -->
 	<Affliction 
         identifier="vi_plastic" 
