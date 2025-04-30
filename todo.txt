@@ -54,3 +54,9 @@ Specifically the concussion resistance function
 --fix item hold positions, SFX (not high priority, but effects overall quality of the mod significantly)
 
 --comp patches for immersive diving and robotrauma
+
+--reduce cataract blur, add gray filter to screen
+
+--Cataracts needs to interact more with the rest of the mod
+Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
+(ThousandFields)

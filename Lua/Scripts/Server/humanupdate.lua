@@ -35,10 +35,11 @@ NTEYE.Afflictions = {
 			if c.stats.stasis then
 				return
 			end
-			if (not c.afflictions.vi_human.strength => 1) then
+
+			if not c.afflictions.vi_human.strength >= 1 then
 				return
 			end
-			
+
 			local gain = (
 				-0.1 * c.stats.healingrate -- passive regen
 				+ c.afflictions.hypoxemia.strength / 100 -- from hypoxemia
