@@ -14,7 +14,7 @@ Timer.Wait(function()
 end, 1)
 
 Timer.Wait(function()
-	if SERVER and NTC == nil then --check if NT is installed
+	if SERVER and (NTC == nil) then --check if NT is installed
 		print("Error loading NT Eyes: It SEEms Neurotrauma isn't loaded!")
 		return
 	end
@@ -23,15 +23,15 @@ Timer.Wait(function()
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/humanupdate.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/items.lua")
-
+	end
 	--client side scripts
 	if CLIENT then
 		--dofile(NTEYE.Path .. "/Lua/Scripts/Client/place.holder")
 	end
 
 	--shared scripts
-	--dofile(NTEYE.Path .. "/Lua/Scripts/Shared/place.holder")	
-	
+	--dofile(NTEYE.Path .. "/Lua/Scripts/Shared/place.holder")
+
 	--compatibility scripts
 	--dofile(NTEYE.Path .. "/Lua/Scripts/Compatibility/place.holder")
 end, 1)

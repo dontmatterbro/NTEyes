@@ -3,7 +3,7 @@
     <!-- Surgery Items -->
     <!-- Eye Procurement Scalpel -->
     <Item 
-        identifier="it_organscalpel_eyes" 
+        identifier="it_scalpel_eye" 
         category="Equipment" 
         cargocontaineridentifier="mediccrate" 
         Tags="smallitem,medical,eyesurgery,surgery,surgerytool" 
@@ -334,7 +334,7 @@
 	<!-- Human Eyes-->
     <!-- Regular Eye -->
 	<Item 
-		identifier="it_eye" 
+		identifier="it_humaneye" 
 		scale="0.1" 
 		useinhealthinterface="True" 
 		impactsoundtag="impact_soft" 

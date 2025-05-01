@@ -883,8 +883,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Plastic Eye -->
 	<Affliction 
@@ -899,8 +898,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Crawler Eye -->
 	<Affliction 
@@ -915,8 +913,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Mudraptor Eye -->
 	<Affliction 
@@ -931,8 +928,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Watcher Eye -->
 	<Affliction 
@@ -947,8 +943,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Huskified Eye -->
 	<Affliction 
@@ -963,8 +958,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Charybdis Eye -->
 	<Affliction 
@@ -979,8 +973,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Latcher Eye -->
 	<Affliction 
@@ -995,8 +988,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 	<!-- Terror Eye -->
 	<Affliction 
@@ -1011,8 +1003,7 @@
         healableinmedicalclinic="false">
         <Effect 
             minstrength="0" 
-            maxstrength="2" 
-            strengthchange="-2" />
+            maxstrength="2" />
     </Affliction>
 
 

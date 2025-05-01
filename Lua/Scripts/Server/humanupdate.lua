@@ -32,11 +32,12 @@ NTEYE.Afflictions = {
 	dm_human = {
 		max = 100,
 		update = function(c, i)
-			if c.stats.stasis then
+			--check if the correct eye type
+			if not (c.afflictions.vi_human.strength > 0) then
 				return
 			end
-
-			if not c.afflictions.vi_human.strength >= 1 then
+			--check if stasis
+			if c.stats.stasis then
 				return
 			end
 
@@ -54,25 +55,26 @@ NTEYE.Afflictions = {
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
 			c.afflictions[i].strength = c.afflictions[i].strength + gain
-
 			if --blind the player in one eye
 				c.afflictions[i].strength >= 50
-				and not (c.afflictions.mc_deadeye.strength >= 1 or c.afflictions.sr_removedeye.strength >= 1)
+				and (not (c.afflictions.mc_deadeye.strength > 0) and not (c.afflictions.sr_removedeye.strength > 0))
 			then
 				c.afflictions[i].strength = c.afflictions[i].strength - 50
 				c.afflictions.mc_deadeye.strength = 2
 				if --if the player has a mismatch, remove only this eye
-					c.afflictions.mc_mismatch.strength >= 1
+					c.afflictions.mc_mismatch.strength > 0
 				then
 					c.afflictions.vi_human.strength = 0
 				end
 			elseif --if there is only one eye, fully blind the player
 				(c.afflictions[i].strength >= 50)
-				and (c.afflictions.mc_deadeye.strength >= 1 or c.afflictions.sr_removedeye.strength >= 1)
+				and (HF.HasAffliction(c.character, "mc_deadeye") or HF.HasAffliction(c.character, "sr_removedeye"))
 			then
 				c.afflictions[i].strength = 0
 				c.afflictions.vi_human.strength = 0
+				c.afflictions.dm_human.strength = 0
 				c.afflictions.sr_removedeye.strength = 0
+				c.afflictions.mc_deadeye.strength = 0
 				c.afflictions.mc_deadeyes.strength = 2
 			else --if no issues, apply normal damage
 				c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength, 0, 100)
@@ -95,6 +97,18 @@ NTEYE.Afflictions = {
 	et_zoom = {},
 	et_night = {},
 	et_thermal = {},
+
+	--visual indicators
+	vi_human = {},
+	vi_cyber = {},
+	vi_plastic = {},
+	vi_crawler = {},
+	vi_mudraptor = {},
+	vi_watcher = {},
+	vi_husk = {},
+	vi_charybdis = {},
+	vi_latcher = {},
+	vi_terror = {},
 }
 
 for k, v in pairs(NTEYE.Afflictions) do
