@@ -1,5 +1,5 @@
 NTEYE = {} --Double the eyes double the trouble
-NTEYE.Name = "Eyes 2.0"
+NTEYE.Name = "Eyes"
 NTEYE.Version = "A2.0"
 NTEYE.VersionNum = 020000000
 NTEYE.MinNTVersion = "A1.12.1"

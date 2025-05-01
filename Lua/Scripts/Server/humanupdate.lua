@@ -67,9 +67,9 @@ NTEYE.Afflictions = {
 					c.afflictions.vi_human.strength = 0
 				end
 			elseif --if there is only one eye, fully blind the player
-				(c.afflictions[i].strength >= 50)
-				and (c.afflictions.mc_deadeye.strength >= 1) or (c.afflictions.sr_removedeye.strength >= 1))
-			then 
+				(c.afflictions[i].strength >= 50) and (c.afflictions.mc_deadeye.strength >= 1)
+				or (c.afflictions.sr_removedeye.strength >= 1)
+			then
 				c.afflictions[i].strength = 0
 				c.afflictions.vi_human.strength = 0
 				c.afflictions.dm_human.strength = 0

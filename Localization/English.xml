@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+
+    <!-- Items -->
+    <!-- Surgery Items -->
+    <entityname.it_scalpel_eye>Eye Procurement Scalpel</entityname.it_scalpel_eye>
+    <entitydescription.it_scalpel_eye></entitydescription.it_scalpel_eye>
+
+    <entityname.it_spoon>The Spoon</entityname.it_spoon>
+    <entitydescription.it_spoon></entitydescription.it_spoon>
+
+    <entityname.it_eyedrop>Eye Drop</entityname.it_eyedrop>
+    <entitydescription.it_eyedrop></entitydescription.it_eyedrop>
+
+    <entityname.it_deusizinedrop>Deusizine Drop</entityname.it_deusizinedrop>
+    <entitydescription.it_deusizinedrop></entitydescription.it_deusizinedrop>
+
+    <entityname.it_lasersurgerytool>Laser Surgery Tool</entityname.it_lasersurgerytool>
+    <entitydescription.it_lasersurgerytool></entitydescription.it_lasersurgerytool>
+
+    <entityname.it_eyeconnector>Eye Connector</entityname.it_eyeconnector>
+    <entitydescription.it_eyeconnector></entitydescription.it_eyeconnector>
+
+    <!-- Eye Items -->
+    <entityname.it_humaneye>Human Eye</entityname.it_humaneye>
+    <entitydescription.it_humaneye></entitydescription.it_humaneye>
+
+    <entityname.it_plasticeye>Plastic Eye</entityname.it_plasticeye>
+    <entitydescription.it_plasticeye></entitydescription.it_plasticeye>
+
+    <entityname.it_enhancedeye>Enhanced Eye</entityname.it_enhancedeye>
+    <entitydescription.it_enhancedeye></entitydescription.it_enhancedeye>
+
+    <entityname.it_cybereye>Cybereye</entityname.it_cybereye>
+    <entitydescription.it_cybereye></entitydescription.it_cybereye>
+
+    <entityname.it_crawlereye>Crawler Eye</entityname.it_crawlereye>
+    <entitydescription.it_crawlereye></entitydescription.it_crawlereye>
+
+    <entityname.it_mudraptoreye>Mudraptor Eye</entityname.it_mudraptoreye>
+    <entitydescription.it_mudraptoreye></entitydescription.it_mudraptoreye>
+
+    <entityname.it_hammerheadeye>Hammerhead Eye</entityname.it_hammerheadeye>
+    <entitydescription.it_hammerheadeye></entitydescription.it_hammerheadeye>
+
+    <entityname.it_huskifiedeye>Huskified Eye</entityname.it_huskifiedeye>
+    <entitydescription.it_huskifiedeye></entitydescription.it_huskifiedeye>
+
+    <entityname.it_watchereye>Watcher Eye</entityname.it_watchereye>
+    <entitydescription.it_watchereye></entitydescription.it_watchereye>
+
+    <entityname.it_charybdiseye>Charybdis Eye</entityname.it_charybdiseye>
+    <entitydescription.it_charybdiseye></entitydescription.it_charybdiseye>
+
+    <entityname.it_latchereye>Latcher Eye</entityname.it_latchereye>
+    <entitydescription.it_latchereye></entitydescription.it_latchereye>
+
+    <entityname.it_terroreye>Terror Eye</entityname.it_terroreye>
+    <entitydescription.it_terroreye></entitydescription.it_terroreye>
+
+    <!-- Lens Items -->
+    <entityname.it_organiclens>Organic Lens</entityname.it_organiclens>
+    <entitydescription.it_organiclens></entitydescription.it_organiclens>
+
+    <entityname.it_medicallens>Medical Lens</entityname.it_medicallens>
+    <entitydescription.it_medicallens></entitydescription.it_medicallens>
+
+    <entityname.it_electricallens>Electrical Lens</entityname.it_electricallens>
+    <entitydescription.it_electricallens></entitydescription.it_electricallens>
+
+    <entityname.it_magnificationlens>Magnification Lens</entityname.it_magnificationlens>
+    <entitydescription.it_magnificationlens></entitydescription.it_magnificationlens>
+
+    <!-- Miscellaneous Items-->
+    <entityname.it_nightvisionlens>Night Vision Lens</entityname.it_nightvisionlens>
+    <entitydescription.it_nightvisionlens></entitydescription.it_nightvisionlens>
+
+    <entityname.it_glasses>Corrective Glasses</entityname.it_glasses>
+    <entitydescription.it_glasses></entitydescription.it_glasses>
+
+    <entityname.it_aviators>Aviator Glasses</entityname.it_aviators>
+    <entitydescription.it_aviators></entitydescription.it_aviators>
+
+    <entityname.it_nvg>Night Vision Goggles</entityname.it_nvg>
+    <entitydescription.it_nvg></entitydescription.it_nvg>
+
+    <entityname.it_eyejar>Eye Regeneration Jar</entityname.it_eyejar>
+    <entitydescription.it_eyejar></entitydescription.it_eyejar>
+
+  
+    <!-- Afflictions -->
+    <!-- Surgery Afflictions -->
+    <afflictionname.sr_removedeyes>Eyes Removed</afflictionname.sr_removedeyes>
+    <afflictiondescription.sr_removedeyes></afflictiondescription.sr_removedeyes>
+
+    <afflictionname.sr_removedeye>Eye Removed</afflictionname.sr_removedeye>
+    <afflictiondescription.sr_removedeye></afflictiondescription.sr_removedeye>
+
+    <afflictionname.sr_heldlid>Eye Lids Held</afflictionname.sr_heldlid>
+    <afflictiondescription.sr_heldlid></afflictiondescription.sr_heldlid>
+
+    <afflictionname.sr_poppedeye>Eye Popped</afflictionname.sr_poppedeye>
+    <afflictiondescription.sr_poppedeye></afflictiondescription.sr_poppedeye>
+
+    <afflictionname.sr_eyeconnector>Eye Connector</afflictionname.sr_eyeconnector>
+    <afflictiondescription.sr_eyeconnector></afflictiondescription.sr_eyeconnector>
+
+    <afflictionname.sr_corneaincision>Cornea Incision</afflictionname.sr_corneaincision>
+    <afflictiondescription.sr_corneaincision></afflictiondescription.sr_corneaincision>
+
+    <afflictionname.sr_emulsification>Emulsification</afflictionname.sr_emulsification>
+    <afflictiondescription.sr_emulsification></afflictiondescription.sr_emulsification>
+
+    <afflictionname.sr_eyedrops>Eye Drops</afflictionname.sr_eyedrops>
+    <afflictiondescription.sr_eyedrops></afflictiondescription.sr_eyedrops>
+
+    <afflictionname.sr_lasersurgery>Laser Surgery</afflictionname.sr_lasersurgery>
+    <afflictiondescription.sr_lasersurgery></afflictiondescription.sr_lasersurgery>
+
+    <!-- Mechanical Afflictions -->
+    <afflictionname.mc_deadeyes>Dead Eyes</afflictionname.mc_deadeyes>
+    <afflictiondescription.mc_deadeyes></afflictiondescription.mc_deadeyes>
+
+    <afflictionname.mc_deadeye>Dead Eye</afflictionname.mc_deadeye>
+    <afflictiondescription.mc_deadeye></afflictiondescription.mc_deadeye>
+
+    <afflictionname.mc_eyedamage>Eye Damage</afflictionname.mc_eyedamage>
+    <afflictiondescription.mc_eyedamage></afflictiondescription.mc_eyedamage>
+
+    <afflictionname.mc_retinopathy>Retinopathy</afflictionname.mc_retinopathy>
+    <afflictiondescription.mc_retinopathy></afflictiondescription.mc_retinopathy>
+
+    <afflictionname.mc_cataract>Cataract</afflictionname.mc_cataract>
+    <afflictiondescription.mc_cataract></afflictiondescription.mc_cataract>
+
+    <afflictionname.mc_visionsickness>Vision Sickness</afflictionname.mc_visionsickness>
+    <afflictiondescription.mc_visionsickness></afflictiondescription.mc_visionsickness>
+
+    <afflictionname.mc_mismatch>Mismatching Eyes</afflictionname.mc_mismatch>
+    <afflictiondescription.mc_mismatch></afflictiondescription.mc_mismatch>
+
+    <!-- Damage Afflictions -->
+    <afflictionname.dm_human>Human Eye Damage</afflictionname.dm_human>
+    <afflictiondescription.dm_human></afflictiondescription.dm_human>
+
+    <afflictionname.dm_cyber>Cyber Eye</afflictionname.dm_cyber>
+    <afflictiondescription.dm_cyber></afflictiondescription.dm_cyber>
+
+    <afflictionname.dm_enhanced>Enhanced Eye</afflictionname.dm_enhanced>
+    <afflictiondescription.dm_enhanced></afflictiondescription.dm_enhanced>
+
+    <afflictionname.dm_plastic>Plastic Eye</afflictionname.dm_plastic>
+    <afflictiondescription.dm_plastic></afflictiondescription.dm_plastic>
+
+    <afflictionname.dm_crawler>Crawler Eye</afflictionname.dm_crawler>
+    <afflictiondescription.dm_crawler></afflictiondescription.dm_crawler>
+
+    <afflictionname.dm_mudraptor>Mudraptor Eye</afflictionname.dm_mudraptor>
+    <afflictiondescription.dm_mudraptor></afflictiondescription.dm_mudraptor>
+
+    <afflictionname.dm_watcher>Watcher Eye</afflictionname.dm_watcher>
+    <afflictiondescription.dm_watcher></afflictiondescription.dm_watcher>
+
+    <afflictionname.dm_husk>Huskified Eye</afflictionname.dm_husk>
+    <afflictiondescription.dm_husk></afflictiondescription.dm_husk>
+
+    <afflictionname.dm_charybdis>Charybdis Eye</afflictionname.dm_charybdis>
+    <afflictiondescription.dm_charybdis></afflictiondescription.dm_charybdis>
+
+    <afflictionname.dm_latcher>Latcher Eye</afflictionname.dm_latcher>
+    <afflictiondescription.dm_latcher></afflictiondescription.dm_latcher>
+
+    <afflictionname.dm_terror>Terror Eye</afflictionname.dm_terror>
+    <afflictiondescription.dm_terror></afflictiondescription.dm_terror>
+
+    <!-- Eye Indicator Afflictions -->
+    <afflictionname.vi_cyber>Cyber Eye Visual Indicator</afflictionname.vi_cyber>
+    <afflictiondescription.vi_cyber></afflictiondescription.vi_cyber>
+
+    <afflictionname.vi_enchanced>Enhanced Eye Visual Indicator</afflictionname.vi_enchanced>
+    <afflictiondescription.vi_enchanced></afflictiondescription.vi_enchanced>
+
+    <afflictionname.vi_human>Human Eye Visual Indicator</afflictionname.vi_human>
+    <afflictiondescription.vi_human></afflictiondescription.vi_human>
+
+    <afflictionname.vi_plastic>Plastic Eye Visual Indicator</afflictionname.vi_plastic>
+    <afflictiondescription.vi_plastic></afflictiondescription.vi_plastic>
+
+    <afflictionname.vi_crawler>Crawler Eye Visual Indicator</afflictionname.vi_crawler>
+    <afflictiondescription.vi_crawler></afflictiondescription.vi_crawler>
+
+    <afflictionname.vi_mudraptor>Mudraptor Eye Visual Indicator</afflictionname.vi_mudraptor>
+    <afflictiondescription.vi_mudraptor></afflictiondescription.vi_mudraptor>
+
+    <afflictionname.vi_watcher>Watcher Eye Visual Indicator</afflictionname.vi_watcher>
+    <afflictiondescription.vi_watcher></afflictiondescription.vi_watcher>
+
+    <afflictionname.vi_husk>Huskified Eye Visual Indicator</afflictionname.vi_husk>
+    <afflictiondescription.vi_husk></afflictiondescription.vi_husk>
+
+    <afflictionname.vi_charybdis>Charybdis Eye Visual Indicator</afflictionname.vi_charybdis>
+    <afflictiondescription.vi_charybdis></afflictiondescription.vi_charybdis>
+
+    <afflictionname.vi_latcher>Latcher Eye Visual Indicator</afflictionname.vi_latcher>
+    <afflictiondescription.vi_latcher></afflictiondescription.vi_latcher>
+
+    <afflictionname.vi_terror>Terror Eye Visual Indicator</afflictionname.vi_terror>
+    <afflictiondescription.vi_terror></afflictiondescription.vi_terror>
+
+    <!-- Lens Afflictions -->
+    <afflictionname.et_medical>Medical Lens</afflictionname.et_medical>
+    <afflictiondescription.et_medical></afflictiondescription.et_medical>
+
+    <afflictionname.et_electrical>Electrical Lens</afflictionname.et_electrical>
+    <afflictiondescription.et_electrical></afflictiondescription.et_electrical>
+
+    <afflictionname.et_zoom>Magnification Lens</afflictionname.et_zoom>
+    <afflictiondescription.et_zoom></afflictiondescription.et_zoom>
+
+    <afflictionname.et_night>Night Vision Lens</afflictionname.et_night>
+    <afflictiondescription.et_night></afflictiondescription.et_night>
+
+    <afflictionname.et_thermal>Thermal Lens</afflictionname.et_thermal>
+    <afflictiondescription.et_thermal></afflictiondescription.et_thermal>
+
+</infotexts>

@@ -1,3 +1,20 @@
+--table to define eye afflictions/items
+local eyeProperty = {
+	{ type = "vi_human", damage = "dm_human", item = "it_humaneye" },
+	{ type = "vi_cyber", damage = "dm_cyber", item = "it_cybereye" },
+	{ type = "vi_enhanced", damage = "dm_enhanced", item = "it_enhancedeye" },
+	{ type = "vi_plastic", damage = "dm_plastic", item = "it_plasticeye" },
+	{ type = "vi_crawler", damage = "dm_crawler", item = "it_crawlereye" },
+	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye" },
+	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye" },
+	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye" },
+	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye" },
+	{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye" },
+	{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye" },
+	{ type = "sr_removedeyes", damage = 0, item = "" },
+	{ type = "mc_deadeyes", damage = 0, item = "" },
+}
+
 --define helper functions
 --checks if targetCharacter has eyes
 function HF.HasEyes(targetCharacter)
@@ -25,24 +42,7 @@ function HF.GiveEyeItem(targetCharacter, usingCharacter)
 		return
 	end
 
-	--I am finally optimizing my code UwU
-	local eyeAfflictions = {
-		{ type = "vi_human", damage = "dm_human", item = "it_humaneye" },
-		{ type = "vi_cyber", damage = "dm_cyber", item = "it_cybereye" },
-		{ type = "vi_enhanced", damage = "dm_enhanced", item = "it_enhancedeye" },
-		{ type = "vi_plastic", damage = "dm_plastic", item = "it_plasticeye" },
-		{ type = "vi_crawler", damage = "dm_crawler", item = "it_crawlereye" },
-		{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye" },
-		{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye" },
-		{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye" },
-		{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye" },
-		{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye" },
-		{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye" },
-		{ type = "sr_removedeyes", damage = 0, item = "" },
-		{ type = "mc_deadeyes", damage = 0, item = "" },
-	}
-
-	for _, eye in ipairs(eyeAfflictions) do
+	for _, eye in ipairs(eyeProperty) do
 		if HF.HasAffliction(targetCharacter, eye.type) then
 			local damage = HF.GetAfflictionStrength(targetCharacter, eye.damage, 0)
 			if
@@ -65,7 +65,7 @@ function HF.GiveEyeItem(targetCharacter, usingCharacter)
 	end
 end
 
---overwrite NT functions to add usage
+--overwrite NT functions to add usage (tried hooks, didn't work, let's hope this doesn't cause compatibility issues)
 
 --Skin Retractors
 local originaladvretractors = NT.ItemMethods.advretractors
@@ -91,16 +91,22 @@ NT.ItemMethods.advretractors = function(item, usingCharacter, targetCharacter, l
 	--hold eye lids
 	local skillrequired = 25
 
-	--check for skill requirement
-	if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
-		HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", LimbType.Head, 100, usingCharacter) --add removed eyes to patient
+	--try to close lids first
+	if HF.HasAffliction(targetCharacter, "sr_heldlid") then
+		HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", LimbType.Head, 0, usingCharacter) --add removed eyes to patient
+		HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", LimbType.Head, 0, usingCharacter) --add removed eyes to patient
 	else
-		--cause bleeding if fail
-		HF.AddAfflictionLimb(targetCharacter, "bleeding", LimbType.Head, math.random(0, 7))
-		if --give eye damage on fail
-			HF.HasEyes(targetCharacter)
-		then
-			HF.AddAfflictionLimb(targetCharacter, "mc_eyedamage", LimbType.Head, math.random(0, 3))
+		--check for skill requirement
+		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
+			HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", LimbType.Head, 100, usingCharacter) --add removed eyes to patient
+		else
+			--cause bleeding if fail
+			HF.AddAfflictionLimb(targetCharacter, "bleeding", LimbType.Head, math.random(0, 7))
+			if --give eye damage on fail
+				HF.HasEyes(targetCharacter)
+			then
+				HF.AddAfflictionLimb(targetCharacter, "mc_eyedamage", LimbType.Head, math.random(0, 3))
+			end
 		end
 	end
 end
@@ -208,13 +214,73 @@ NT.ItemMethods.it_eyeconnector = function(item, usingCharacter, targetCharacter,
 end
 
 --human eye
-NT.ItemMethods.it_humaneye = function(item, usingCharacter, targetCharacter, limb) end
+NT.ItemMethods.it_humaneye = function(item, usingCharacter, targetCharacter, limb)
+	--check if the item is used on the head
+	if limb.type ~= LimbType.Head then
+		return
+	end
+	--check if surgery can be performed
+	if not HF.CanPerformSurgeryOn(targetCharacter) then
+		return
+	end
+	--application
+	if --check if eye(s) removed, lid open
+		(HF.HasAffliction(targetCharacter, "sr_removedeyes") or HF.HasAffliction(targetCharacter, "sr_removedeye"))
+		and HF.HasAffliction(targetCharacter, "sr_heldlid")
+		and HF.HasAffliction(targetCharacter, "sr_eyeconnector")
+	then
+		local skillrequired = 45
+
+		--check for skill requirement
+		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
+			for _, eye in ipairs(eyeProperty) do
+				if (item.Prefab.Identifier ~= eye.item) and not (item.Prefab.Identifier == "") then
+					return
+				end
+				--check how many eyes target has
+				--if one eye removed:
+				if HF.HasAffliction(targetCharacter, "sr_removedeye") then
+					--add single eye
+					--check if eye affliction matches the item
+					if HF.HasAffliction(targetCharacter, eye.type) then
+						HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", LimbType.Head, 0, usingCharacter) --remove eye affliction
+						HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", LimbType.Head, 0, usingCharacter) --remove eye connector affliction
+
+						HF.SetAfflictionLimb(targetCharacter, eye.type, LimbType.Head, 100, usingCharacter) --add eye affliction
+
+						item.Condition = 0 --remove item
+					else
+						HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", LimbType.Head, 0, usingCharacter) --remove eye affliction
+						HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", LimbType.Head, 0, usingCharacter) --remove eye connector affliction
+						HF.SetAfflictionLimb(targetCharacter, "mc_mismatch", LimbType.Head, 100, usingCharacter) --add mismatch affliction
+						HF.SetAfflictionLimb(targetCharacter, eye.type, LimbType.Head, 100, usingCharacter) --add eye affliction
+
+						item.Condition = 0 --remove item
+					end
+				else --if two eyes removed:
+					if HF.HasAffliction(targetCharacter, "sr_removedeyes") then
+						--add double eye
+						HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", LimbType.Head, 0, usingCharacter) --remove eye affliction
+						HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", LimbType.Head, 0, usingCharacter) --remove eye connector affliction
+
+						HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", LimbType.Head, 100, usingCharacter) --add eye affliction
+						HF.SetAfflictionLimb(targetCharacter, eye.type, LimbType.Head, 100, usingCharacter) --add eye affliction
+
+						item.Condition = 0 --remove item
+					end
+				end
+			end
+		else
+			item.Condition = item.Condition - 5 --damage eye item on fail
+		end
+	end
+end
 --plastic eye
 NT.ItemMethods.it_plasticeye = function(item, usingCharacter, targetCharacter, limb) end
 --enhanced eye
 NT.ItemMethods.it_enhancedeye = function(item, usingCharacter, targetCharacter, limb) end
 --cyber eye
-NT.ItemMethods.it_humaneye = function(item, usingCharacter, targetCharacter, limb) end
+NT.ItemMethods.it_cybereye = function(item, usingCharacter, targetCharacter, limb) end
 --crawler eye
 NT.ItemMethods.it_crawlereye = function(item, usingCharacter, targetCharacter, limb) end
 --mudraptor eye

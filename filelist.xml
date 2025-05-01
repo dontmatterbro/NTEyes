@@ -2,4 +2,5 @@
 <contentpackage name="NT Eyes 2.0" modversion="2.0" corepackage="False" steamworkshopid="3294574390" gameversion="1.5.9.2">
 	<Afflictions file="%ModDir%/Xml/afflictions.xml" />
 	<Item file="%ModDir%/Xml/items.xml" />
+	<Text file="%ModDir%/Localization/English.xml" />
 </contentpackage>

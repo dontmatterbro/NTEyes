@@ -89,8 +89,7 @@
         iconcolors="84,211,211,255">
         <Effect 
             minstrength="0" 
-            maxstrength="100" 
-            strengthchange="-1" />
+            maxstrength="100" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="128,256,128,128" 
@@ -110,8 +109,7 @@
         iconcolors="84,211,211,255">
         <Effect 
             minstrength="0" 
-            maxstrength="100" 
-            strengthchange="-2" 
+            maxstrength="100"
             minscreendistort="0.5" 
             maxscreendistort="10" 
             minradialdistort="0.1" 
