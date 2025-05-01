@@ -52,7 +52,7 @@ function HF.GiveEyeItem(targetCharacter, usingCharacter)
 			then
 				if (usingCharacter ~= nil) and (eye.item ~= "") then
 					--give one item
-					HF.GiveItemAtCondition(usingCharacter, eye.item, 100 - damage)
+					HF.GiveItemAtCondition(usingCharacter, eye.item, 100 - damage * 2)
 				end
 			else
 				if (usingCharacter ~= nil) and (eye.item ~= "") then
@@ -178,3 +178,78 @@ NT.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacter, 
 		end
 	end
 end
+
+--eye connectors
+NT.ItemMethods.it_eyeconnector = function(item, usingCharacter, targetCharacter, limb)
+	--check if the item is used on the head
+	if limb.type ~= LimbType.Head then
+		return
+	end
+	--check if surgery can be performed
+	if not HF.CanPerformSurgeryOn(targetCharacter) then
+		return
+	end
+
+	--application
+	if --check if eye(s) removed, lid open
+		(HF.HasAffliction(targetCharacter, "sr_removedeyes") or HF.HasAffliction(targetCharacter, "sr_removedeye"))
+		and HF.HasAffliction(targetCharacter, "sr_heldlid")
+	then
+		local skillrequired = 45
+		--check for skill requirement
+		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
+			--apply connector
+			HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", LimbType.Head, 100, usingCharacter)
+			item.Condition = 0 --remove item
+		else --cause pain on fail
+			HF.AddAfflictionLimb(targetCharacter, "severepain", LimbType.Head, 10)
+		end
+	end
+end
+
+--human eye
+NT.ItemMethods.it_humaneye = function(item, usingCharacter, targetCharacter, limb) end
+--plastic eye
+NT.ItemMethods.it_plasticeye = function(item, usingCharacter, targetCharacter, limb) end
+--enhanced eye
+NT.ItemMethods.it_enhancedeye = function(item, usingCharacter, targetCharacter, limb) end
+--cyber eye
+NT.ItemMethods.it_humaneye = function(item, usingCharacter, targetCharacter, limb) end
+--crawler eye
+NT.ItemMethods.it_crawlereye = function(item, usingCharacter, targetCharacter, limb) end
+--mudraptor eye
+NT.ItemMethods.it_mudraptoreye = function(item, usingCharacter, targetCharacter, limb) end
+--huskified eye
+NT.ItemMethods.it_huskifiedeye = function(item, usingCharacter, targetCharacter, limb) end
+--watcher eye
+NT.ItemMethods.it_watchereye = function(item, usingCharacter, targetCharacter, limb) end
+--charybdis eye
+NT.ItemMethods.it_charybdiseye = function(item, usingCharacter, targetCharacter, limb) end
+--latcher eye
+NT.ItemMethods.it_latchereye = function(item, usingCharacter, targetCharacter, limb) end
+--terror eye
+NT.ItemMethods.it_terroreye = function(item, usingCharacter, targetCharacter, limb) end
+
+--eye lenses
+--organic lens
+NT.ItemMethods.it_organiclens = function(item, usingCharacter, targetCharacter, limb) end
+--medical lens
+NT.ItemMethods.it_medicallens = function(item, usingCharacter, targetCharacter, limb) end
+--electrical lens
+NT.ItemMethods.it_electricallens = function(item, usingCharacter, targetCharacter, limb) end
+--magnification lens
+NT.ItemMethods.it_magnificationlens = function(item, usingCharacter, targetCharacter, limb) end
+--nightvision lens
+NT.ItemMethods.it_nightvisionlens = function(item, usingCharacter, targetCharacter, limb) end
+
+--eye drop
+NT.ItemMethods.it_eyedrop = function(item, usingCharacter, targetCharacter, limb) end
+
+--deusizine drop
+NT.ItemMethods.it_deusizinedrop = function(item, usingCharacter, targetCharacter, limb) end
+
+--The Spoon
+NT.ItemMethods.it_spoon = function(item, usingCharacter, targetCharacter, limb) end
+
+--Laser Surgery Tool
+NT.ItemMethods.it_lasersurgerytool = function(item, usingCharacter, targetCharacter, limb) end
