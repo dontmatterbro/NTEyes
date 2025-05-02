@@ -62,3 +62,5 @@ Why is nt concussion interesting and accepted despite being completely harmless?
 (ThousandFields
 
 --fix shit)
+
+--prevent people installing more than 2 eyes at the same time, put a check for if no removed eye, can't install more eyes.

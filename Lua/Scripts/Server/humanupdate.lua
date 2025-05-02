@@ -7,8 +7,7 @@ local function PressureDamageCalculation(character)
 	) or 0
 end
 
-local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb)
-	afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
 	if --blind the player in one eye
 		afflictionsTable[i].strength >= 80
 		and (not (afflictionsTable.mc_deadeye.strength > 0) and not (afflictionsTable.sr_removedeye.strength > 0))
@@ -90,8 +89,9 @@ NTEYE.Afflictions = {
 					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
+			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
 		end,
 	},
 	dm_cyber = {},
@@ -116,6 +116,8 @@ NTEYE.Afflictions = {
 		--add eye if no eye afflictions
 		max = 2,
 		update = function(c, i)
+			local character = c.character
+			local limb = LimbType.Head
 			local afflictionTags = {
 				"vi_type",
 				"eye_type",
