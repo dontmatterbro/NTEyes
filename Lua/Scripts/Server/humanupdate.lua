@@ -60,22 +60,24 @@ NTEYE.Afflictions = {
 				and (not (c.afflictions.mc_deadeye.strength > 0) and not (c.afflictions.sr_removedeye.strength > 0))
 			then
 				c.afflictions[i].strength = c.afflictions[i].strength - 50
-				c.afflictions.mc_deadeye.strength = 2
+				HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 100) --add deadeye
 				if --if the player has a mismatch, remove only this eye
 					c.afflictions.mc_mismatch.strength > 0
 				then
-					c.afflictions.vi_human.strength = 0
+					HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 0) --remove eye indicator
+					HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 100) --add deadeye
 				end
 			elseif --if there is only one eye, fully blind the player
-				(c.afflictions[i].strength >= 50) and (c.afflictions.mc_deadeye.strength >= 1)
-				or (c.afflictions.sr_removedeye.strength >= 1)
+				(c.afflictions[i].strength >= 50)
+				and (c.afflictions.mc_deadeye.strength >= 1 or c.afflictions.sr_removedeye.strength >= 1)
 			then
 				c.afflictions[i].strength = 0
-				c.afflictions.vi_human.strength = 0
-				c.afflictions.dm_human.strength = 0
-				c.afflictions.sr_removedeye.strength = 0
-				c.afflictions.mc_deadeye.strength = 0
-				c.afflictions.mc_deadeyes.strength = 2
+				HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 0) --remove eye indicator
+				HF.SetAfflictionLimb(c.character, "dm_human", LimbType.Head, 0) --remove damage
+				HF.SetAfflictionLimb(c.character, "sr_removedeye", LimbType.Head, 0) --remove removedeye
+				HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 0) --remove deadeye
+
+				HF.SetAfflictionLimb(c.character, "mc_deadeyes", LimbType.Head, 100) --add deadeyes
 			else --if no issues, apply normal damage
 				c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength, 0, 100)
 			end
@@ -99,7 +101,26 @@ NTEYE.Afflictions = {
 	et_thermal = {},
 
 	--visual indicators
-	vi_human = {},
+	vi_human = {
+		--add eye if no eye afflictions
+		max = 2,
+		update = function(c, i)
+			local afflictionTags = {
+				"vi_type",
+				"eye_type",
+				"eye_surgery",
+				"eye_mechanic",
+			}
+
+			for _, affliction in ipairs(afflictionTags) do
+				if c.character.CharacterHealth.GetAfflictionOfType(affliction) ~= nil then
+					return
+				else
+					HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 100) --give eye indicator
+				end
+			end
+		end,
+	},
 	vi_cyber = {},
 	vi_plastic = {},
 	vi_crawler = {},

@@ -59,4 +59,6 @@ Specifically the concussion resistance function
 
 --Cataracts needs to interact more with the rest of the mod
 Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
-(ThousandFields)
+(ThousandFields
+
+--fix shit)
