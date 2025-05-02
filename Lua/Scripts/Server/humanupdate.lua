@@ -1,9 +1,39 @@
---set local functions
-local function PressureDamageCalculation(c)
-	if c.InPressure and not (c.IsProtectedFromPressure or c.IsImmuneToPressure) then
-		return 3
-	else
-		return 0
+--pressure damage calculation
+local function PressureDamageCalculation(character)
+	local pressureDamage = 3
+	return (
+		(character.InPressure and not (character.IsProtectedFromPressure or character.IsImmuneToPressure))
+		and pressureDamage
+	) or 0
+end
+
+local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb)
+	afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+	if --blind the player in one eye
+		afflictionsTable[i].strength >= 80
+		and (not (afflictionsTable.mc_deadeye.strength > 0) and not (afflictionsTable.sr_removedeye.strength > 0))
+	then
+		afflictionsTable[i].strength = afflictionsTable[i].strength - 50
+		HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --add deadeye
+		if --if the player has a mismatch, remove only this eye
+			afflictionsTable.mc_mismatch.strength > 0
+		then
+			HF.SetAfflictionLimb(character, "vi_human", limb, 0) --remove eye indicator
+			HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --add deadeye
+		end
+	elseif --if there is only one eye, fully blind the player
+		(afflictionsTable[i].strength >= 50)
+		and (afflictionsTable.mc_deadeye.strength >= 1 or afflictionsTable.sr_removedeye.strength >= 1)
+	then
+		afflictionsTable[i].strength = 0
+		HF.SetAfflictionLimb(character, "vi_human", limb, 0) --remove eye indicator
+		HF.SetAfflictionLimb(character, "dm_human", limb, 0) --remove damage
+		HF.SetAfflictionLimb(character, "sr_removedeye", limb, 0) --remove removedeye
+		HF.SetAfflictionLimb(character, "mc_deadeye", limb, 0) --remove deadeye
+
+		HF.SetAfflictionLimb(character, "mc_deadeyes", limb, 100) --add deadeyes
+	else --if no issues, apply normal damage
+		afflictionsTable[i].strength = HF.Clamp(afflictionsTable[i].strength, 0, 100)
 	end
 end
 
@@ -32,55 +62,36 @@ NTEYE.Afflictions = {
 	dm_human = {
 		max = 100,
 		update = function(c, i)
+			--variables for optimization
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
 			--check if the correct eye type
-			if not (c.afflictions.vi_human.strength > 0) then
+			if not (afflictionsTable.vi_human.strength > 0) then
 				return
 			end
 			--check if stasis
-			if c.stats.stasis then
+			if statsTable.stasis then
 				return
 			end
 
 			local gain = (
-				-0.1 * c.stats.healingrate -- passive regen
-				+ c.afflictions.hypoxemia.strength / 100 -- from hypoxemia
-				+ HF.Clamp(c.afflictions.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ c.afflictions.sepsis.strength / 100 * 0.4 -- from sepsis
-				+ PressureDamageCalculation(c) -- from pressure
+				-0.1 * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / 100 -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis
+				+ PressureDamageCalculation(character) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
 				gain = gain
-					* NTC.GetMultiplier(c.character, "eyedamagegain") -- NTC multiplier
+					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
-			c.afflictions[i].strength = c.afflictions[i].strength + gain
-			if --blind the player in one eye
-				c.afflictions[i].strength >= 80
-				and (not (c.afflictions.mc_deadeye.strength > 0) and not (c.afflictions.sr_removedeye.strength > 0))
-			then
-				c.afflictions[i].strength = c.afflictions[i].strength - 50
-				HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 100) --add deadeye
-				if --if the player has a mismatch, remove only this eye
-					c.afflictions.mc_mismatch.strength > 0
-				then
-					HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 0) --remove eye indicator
-					HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 100) --add deadeye
-				end
-			elseif --if there is only one eye, fully blind the player
-				(c.afflictions[i].strength >= 50)
-				and (c.afflictions.mc_deadeye.strength >= 1 or c.afflictions.sr_removedeye.strength >= 1)
-			then
-				c.afflictions[i].strength = 0
-				HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 0) --remove eye indicator
-				HF.SetAfflictionLimb(c.character, "dm_human", LimbType.Head, 0) --remove damage
-				HF.SetAfflictionLimb(c.character, "sr_removedeye", LimbType.Head, 0) --remove removedeye
-				HF.SetAfflictionLimb(c.character, "mc_deadeye", LimbType.Head, 0) --remove deadeye
-
-				HF.SetAfflictionLimb(c.character, "mc_deadeyes", LimbType.Head, 100) --add deadeyes
-			else --if no issues, apply normal damage
-				c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength, 0, 100)
-			end
+			--function to check for eye death
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb)
 		end,
 	},
 	dm_cyber = {},
@@ -112,13 +123,14 @@ NTEYE.Afflictions = {
 				"eye_mechanic",
 			}
 
+			--check if character has any eye afflictions
 			for _, affliction in ipairs(afflictionTags) do
-				if c.character.CharacterHealth.GetAfflictionOfType(affliction) ~= nil then
+				if character.CharacterHealth.GetAfflictionOfType(affliction) ~= nil then
 					return
-				else
-					HF.SetAfflictionLimb(c.character, "vi_human", LimbType.Head, 100) --give eye indicator
 				end
 			end
+			--if no eye afflictions, give default eye indicator (human)
+			HF.SetAfflictionLimb(character, "vi_human", limb, 100)
 		end,
 	},
 	vi_cyber = {},
@@ -132,6 +144,7 @@ NTEYE.Afflictions = {
 	vi_terror = {},
 }
 
+--add afflictions to NT.Afflictions
 for k, v in pairs(NTEYE.Afflictions) do
 	NT.Afflictions[k] = v
 end

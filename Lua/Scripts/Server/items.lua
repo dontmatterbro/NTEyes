@@ -323,10 +323,21 @@ NT.ItemMethods.it_magnificationlens = function(item, usingCharacter, targetChara
 NT.ItemMethods.it_nightvisionlens = function(item, usingCharacter, targetCharacter, limb) end
 
 --eye drop
-NT.ItemMethods.it_eyedrop = function(item, usingCharacter, targetCharacter, limb) end
-
---deusizine drop
-NT.ItemMethods.it_deusizinedrop = function(item, usingCharacter, targetCharacter, limb) end
+NT.ItemMethods.it_eyedrop = function(item, usingCharacter, targetCharacter, limb)
+	--check if the item is used on the head
+	if limb.type ~= LimbType.Head then
+		return
+	end
+	--check if character has eyes
+	if not HF.HasEyes(targetCharacter) then
+		return
+	end
+	--give affliction if able
+	if not HF.HasAffliction(targetCharacter, "vi_cyber") and not HF.HasAffliction(targetCharacter, "vi_plastic") then
+		HF.AddAfflictionLimb(targetCharacter, "sr_eyedrops", LimbType.Head, 100)
+		item.Condition = item.Condition - 25 --remove item condition
+	end
+end
 
 --The Spoon
 NT.ItemMethods.it_spoon = function(item, usingCharacter, targetCharacter, limb) end
