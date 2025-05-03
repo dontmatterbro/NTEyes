@@ -2054,7 +2054,84 @@
 	</Item>
 	<!-- Night Vision Lens -->
 	<Item
-		identifier="it_nightvisionlens"
+		identifier="it_nightlens"
+		category="Medical"
+		maxstacksize="32"
+		maxstacksizecharacterinventory="8"
+		scale="0.1"
+		useinhealthinterface="True"
+		impactsoundtag="impact_hard"
+		cargocontaineridentifier="mediccrate"
+		impacttolerance="5.5"
+		Tags="smallitem,eyesurgery,surgery,surgerytool">
+		<PreferredContainer
+			secondary="wreckmedcab,abandonedmedcab,piratemedcab"
+			amount="1"
+			spawnprobability="0.005" />
+		<Sprite
+			texture="%ModDir%/Textures/ItemIcons.png"
+			sourcerect="896,384,128,128"
+			depth="0.6"
+			origin="0.5,0.5" />
+		<Body
+			width="14"
+			height="22"
+			density="10" />
+		<Price
+			baseprice="350"
+			soldbydefault="false"
+			MinLevelDifficulty="2">
+			<Price
+				storeidentifier="merchantresearch"
+				sold="True"/>
+		</Price>
+		<Fabricate
+			suitablefabricators="medicalfabricator"
+			requiredtime="16">
+			<RequiredSkill
+				identifier="medical"
+				level="65" />
+			<RequiredSkill
+				identifier="mechanical"
+				level="50" />
+			<RequiredItem
+				identifier="plastic"
+				amount="2" />
+			<RequiredItem
+				identifier="fpgacircuit" />
+			<RequiredItem
+				identifier="dementonite"
+				amount="2" />
+		</Fabricate>
+		<Deconstruct
+			time="3">
+			<Item
+				identifier="silicon" />
+		</Deconstruct>
+		<MeleeWeapon
+			slots="Any,RightHand,LeftHand"
+			aimpos="5,0"
+			handle1="-5,0"
+			holdangle="10"
+			reload="1.0">
+			<RequiredSkill
+				identifier="medical"
+				level="30" />
+			<StatusEffect
+				type="OnUse"
+				target="This">
+				<!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+			</StatusEffect>
+			<StatusEffect
+				type="OnBroken"
+				target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+	</Item>
+	<!-- Thermal Vision Lens -->
+	<Item
+		identifier="it_thermallens"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -2528,6 +2605,99 @@
 				items="transplant_eyes,transplant_eyes_monster,transplant_eyes_terror,transplant_eyes_husk,transplant_eyes_night,transplant_eyes_infrared" />
 		</ItemContainer>
 
+	</Item>
+
+	<!-- Eye Surgery Toolbag -->
+	<Item
+		identifier="it_eyesurgerytoolbag" 
+		category="Equipment" 
+		tags="smallitem,mobilecontainer,tool,toolbox"
+		showcontentsintooltip="true" 
+		scale="0.5" 
+		fireproof="true" 
+		impactsoundtag="impact_metal_heavy" 
+		RequireAimToUse="True">
+		<PreferredContainer 
+			primary="medcab" 
+			minamount="1" 
+			maxamount="1" />
+		<PreferredContainer 
+			secondary="locker" />
+		<Deconstruct 
+			time="10">
+			<Item 
+				identifier="steel" />
+		</Deconstruct>
+		<Fabricate 
+			suitablefabricators="fabricator" 
+			requiredtime="20">
+			<RequiredSkill 
+				identifier="mechanical" 
+				level="20" />
+			<RequiredItem 
+				identifier="steel" 
+				amount="2" />
+		</Fabricate>
+		<Price 
+			baseprice="25">
+			<Price 
+				storeidentifier="merchantmedical" 
+				sold="true" 
+				multiplier="0.9" 
+				minavailable="2" />
+		</Price>
+		<Sprite />
+		<Body 
+			width="45" 
+			height="30" 
+			density="20" />
+		<MeleeWeapon 
+			slots="RightHand,LeftHand,Any" 
+			controlpose="true" 
+			aimpos="45,10" 
+			handle1="0,14" 
+			holdangle="90" 
+			reload="1" 
+			range="50" 
+			combatpriority="6" 
+			msg="ItemMsgPickUpSelect">
+			<Attack 
+				structuredamage="0" 
+				itemdamage="1" 
+				targetimpulse="2">
+				<Affliction 
+					identifier="blunttrauma" 
+					strength="1" />
+				<Affliction 
+					identifier="stun" 
+					strength="0.6" />
+				<StatusEffect 
+					type="OnUse" 
+					target="UseTarget">
+					<Conditional 
+						entitytype="eq Character" />
+					<Sound 
+						file="Content/Items/Weapons/Smack1.ogg" 
+						selectionmode="random" 
+						range="500" />
+					<Sound 
+						file="Content/Items/Weapons/Smack2.ogg" 
+						range="500" />
+				</StatusEffect>
+			</Attack>
+		</MeleeWeapon>
+		<ItemContainer 
+			capacity="12" 
+			keepopenwhenequipped="true" 
+			movableframe="true">
+			<Containable 
+				items="surgerytool" 
+				excludeditems="toolbelt,toolbox" />
+		</ItemContainer>
+		<aitarget 
+			sightrange="1000" 
+			soundrange="1000" 
+			fadeouttime="2" />
 	</Item>
 
 </Items>
