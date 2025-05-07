@@ -1,7 +1,7 @@
---add eye surgery toolbag and kit
---multipurpose scalpel comp
+DONE --add eye surgery toolbag 
+DONE [NEEDS TESTING] --multipurpose scalpel comp
 
---dead eye rework (ouchie) 
+DONE -- dead eye rework (ouchie) 
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
@@ -43,7 +43,7 @@ DONE -- replace infrared and night vision eyes with bio-mechanical eyes that can
 
 --animation for walking blind
 
---apply the effects of both eyes and a penalty if different types of eyes installed at the same time
+DONE/PARTIALLY, NEEDS CLIENT SIDE -- apply the effects of both eyes and a penalty if different types of eyes installed at the same time
 
 --correct lens crafts and usage balance
 
@@ -64,3 +64,5 @@ Why is nt concussion interesting and accepted despite being completely harmless?
 probably done idk  -- --fix shit 
 
 DONE -- prevent people installing more than 2 eyes at the same time, put a check for if no removed eye, can't install more eyes.
+
+--add eye cream (edible)

@@ -1,3 +1,10 @@
+--enable screwdriver to be used in health interface
+--thanks Nebual (NTCyb) for this
+LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.ItemPrefab"], "set_UseInHealthInterface")
+if ItemPrefab.Prefabs.ContainsKey("screwdriver") then
+	ItemPrefab.Prefabs["screwdriver"].set_UseInHealthInterface(true)
+end
+
 --table to define eye afflictions/items
 local eyeProperty = {
 	{ type = "vi_human", damage = "dm_human", item = "it_humaneye" },
@@ -307,6 +314,22 @@ NT.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacter, 
 			end
 		end
 	end
+end
+
+--lens removal
+NT.ItemMethods.screwdriver = function(item, usingCharacter, targetCharacter, targetLimb)
+	local limb = LimbType.Head
+
+	--check if the item is used on the head
+	if targetLimb.type ~= limb then
+		return
+	end
+	--check if surgery can be performed
+	if not HF.CanPerformSurgeryOn(targetCharacter) then
+		return
+	end
+
+	if 
 end
 
 --eye connectors
