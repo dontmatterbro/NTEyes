@@ -26,7 +26,7 @@ Timer.Wait(function()
 	end
 	--client side scripts
 	if CLIENT then
-		--dofile(NTEYE.Path .. "/Lua/Scripts/Client/place.holder")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientupdate.lua")
 	end
 
 	--shared scripts

@@ -2608,6 +2608,7 @@
 	</Item>
 
 	<!-- Eye Surgery Toolbag -->
+	<!--
 	<Item
 		identifier="it_eyesurgerytoolbag" 
 		category="Equipment" 
@@ -2698,5 +2699,5 @@
 			sightrange="1000" 
 			soundrange="1000" 
 			fadeouttime="2" />
-	</Item>
+	</Item> -->
 </Items>
