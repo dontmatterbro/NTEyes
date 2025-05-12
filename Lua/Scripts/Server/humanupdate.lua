@@ -105,11 +105,11 @@ NTEYE.Afflictions = {
 	dm_latcher = {},
 	dm_terror = {},
 	--lens afflictions
-	et_medical = {},
-	et_electrical = {},
-	et_zoom = {},
-	et_night = {},
-	et_thermal = {},
+	lt_medical = {},
+	lt_electrical = {},
+	lt_zoom = {},
+	lt_night = {},
+	lt_thermal = {},
 
 	--visual indicators
 	vi_human = {

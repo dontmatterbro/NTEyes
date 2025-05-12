@@ -916,7 +916,7 @@
 
     <!-- Thermal Lens -->
     <Affliction 
-        identifier="et_thermal" 
+        identifier="lt_thermal" 
         limbspecific="true" 
         indicatorlimb="Head" 
         showiconthreshold="1000" 

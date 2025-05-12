@@ -208,19 +208,19 @@
     <afflictiondescription.vi_terror></afflictiondescription.vi_terror>
 
     <!-- Lens Afflictions -->
-    <afflictionname.et_medical>Medical Lens</afflictionname.et_medical>
-    <afflictiondescription.et_medical></afflictiondescription.et_medical>
+    <afflictionname.lt_medical>Medical Lens</afflictionname.lt_medical>
+    <afflictiondescription.lt_medical></afflictiondescription.lt_medical>
 
-    <afflictionname.et_electrical>Electrical Lens</afflictionname.et_electrical>
-    <afflictiondescription.et_electrical></afflictiondescription.et_electrical>
+    <afflictionname.lt_electrical>Electrical Lens</afflictionname.lt_electrical>
+    <afflictiondescription.lt_electrical></afflictiondescription.lt_electrical>
 
-    <afflictionname.et_zoom>Magnification Lens</afflictionname.et_zoom>
-    <afflictiondescription.et_zoom></afflictiondescription.et_zoom>
+    <afflictionname.lt_zoom>Magnification Lens</afflictionname.lt_zoom>
+    <afflictiondescription.lt_zoom></afflictiondescription.lt_zoom>
 
-    <afflictionname.et_night>Night Vision Lens</afflictionname.et_night>
-    <afflictiondescription.et_night></afflictiondescription.et_night>
+    <afflictionname.lt_night>Night Vision Lens</afflictionname.lt_night>
+    <afflictiondescription.lt_night></afflictiondescription.lt_night>
 
-    <afflictionname.et_thermal>Thermal Lens</afflictionname.et_thermal>
-    <afflictiondescription.et_thermal></afflictiondescription.et_thermal>
+    <afflictionname.lt_thermal>Thermal Lens</afflictionname.lt_thermal>
+    <afflictiondescription.lt_thermal></afflictiondescription.lt_thermal>
 
 </infotexts>
