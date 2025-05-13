@@ -1,9 +1,26 @@
 --enable screwdriver to be used in health interface
---thanks Nebual (NTCyb) for this
-LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.ItemPrefab"], "set_UseInHealthInterface")
-if ItemPrefab.Prefabs.ContainsKey("screwdriver") then
-	ItemPrefab.Prefabs["screwdriver"].set_UseInHealthInterface(true)
+--[thanks Nebual (NTCyb) for this]
+NTEYE.AllowInHealthInterface = {
+	-- general compatability if anything has a higher mod load order than us
+	"screwdriver",
+	"screwdriverhardened",
+	"screwdriverdementonite",
+	"repairpack",
+	"fpgacircuit",
+}
+
+local function evaluateExtraUseInHealthInterface()
+	LuaUserData.MakeMethodAccessible(Descriptors["Barotrauma.ItemPrefab"], "set_UseInHealthInterface")
+	for _, tool in ipairs(NTEYE.AllowInHealthInterface) do
+		if ItemPrefab.Prefabs.ContainsKey(tool) then
+			ItemPrefab.Prefabs[tool].set_UseInHealthInterface(true)
+		end
+	end
 end
+
+Timer.Wait(function()
+	evaluateExtraUseInHealthInterface()
+end, 1)
 
 --table to define eye afflictions/items
 eyeProperty = {
@@ -25,7 +42,7 @@ eyeProperty = {
 lensProperty = {
 	{ affliction = "lt_medical", item = "it_medicallens" },
 	{ affliction = "lt_electrical", item = "it_electricallens" },
-	{ affliction = "lt_magnification", item = "it_electricallens" },
+	{ affliction = "lt_magnification", item = "it_magnificationlens" },
 	{ affliction = "lt_night", item = "it_nightlens" },
 	{ affliction = "lt_thermal", item = "it_thermallens" },
 }
@@ -333,8 +350,12 @@ NT.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacter, 
 end
 
 --lens removal
+local originalscrewdriver = NT.ItemMethods.screwdriver
 NT.ItemMethods.screwdriver = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
+	if originalscrewdriver then
+		originalscrewdriver(item, usingCharacter, targetCharacter, targetLimb)
+	end
 	--check if the item is used on the head
 	if targetLimb.type ~= limb then
 		return
@@ -367,6 +388,21 @@ NT.ItemMethods.screwdriver = function(item, usingCharacter, targetCharacter, tar
 			end
 		end
 	end
+end
+
+--lens removal
+NT.ItemMethods.screwdriverdementonite = function(item, usingCharacter, targetCharacter, targetLimb)
+	NT.ItemMethods.screwdriver(item, usingCharacter, targetCharacter, targetLimb)
+end
+
+--lens removal
+NT.ItemMethods.screwdriverhardened = function(item, usingCharacter, targetCharacter, targetLimb)
+	NT.ItemMethods.screwdriver(item, usingCharacter, targetCharacter, targetLimb)
+end
+
+--lens removal
+NT.ItemMethods.repairpack = function(item, usingCharacter, targetCharacter, targetLimb)
+	NT.ItemMethods.screwdriver(item, usingCharacter, targetCharacter, targetLimb)
 end
 
 --eye connectors
@@ -618,12 +654,19 @@ NT.ItemMethods.it_eyedrop = function(item, usingCharacter, targetCharacter, targ
 	end
 end
 
+--[[ this will have a different execution system
 --The Spoon
 NT.ItemMethods.it_spoon = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
-end
+end 
+]]
 
 --Laser Surgery Tool
 NT.ItemMethods.it_lasersurgerytool = function(item, usingCharacter, targetCharacter, targetLimb)
+	local limb = LimbType.Head
+end
+
+--cyber eye repair
+NT.ItemMethods.fpgacircuit = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 end
