@@ -6,7 +6,7 @@ if ItemPrefab.Prefabs.ContainsKey("screwdriver") then
 end
 
 --table to define eye afflictions/items
-local eyeProperty = {
+eyeProperty = {
 	{ type = "vi_human", damage = "dm_human", item = "it_humaneye" },
 	{ type = "vi_cyber", damage = "dm_cyber", item = "it_cybereye" },
 	{ type = "vi_enhanced", damage = "dm_enhanced", item = "it_enhancedeye" },
@@ -22,7 +22,7 @@ local eyeProperty = {
 	{ type = "mc_deadeyes", damage = 0, item = "" },
 }
 
-local lensProperty = {
+lensProperty = {
 	{ affliction = "lt_medical", item = "it_medicallens" },
 	{ affliction = "lt_electrical", item = "it_electricallens" },
 	{ affliction = "lt_magnification", item = "it_electricallens" },
@@ -160,7 +160,7 @@ function HF.ApplyLensItem(targetCharacter, usingCharacter, item)
 	if --check if correct eyes are present, no mismatch, lid open, eyes popped
 		HF.HasEyes(targetCharacter)
 		and (HF.HasAffliction(targetCharacter, "vi_cyber") or HF.HasAffliction(targetCharacter, "vi_enhanced"))
-		and (not HF.HasAffliction(targetCharacter, "mc_mismatch"))
+		--and (not HF.HasAffliction(targetCharacter, "mc_mismatch")) --not sure if I should keep this or not
 		and (
 			HF.HasAffliction(targetCharacter, "sr_heldlid", 99)
 			and HF.HasAffliction(targetCharacter, "sr_poppedeye", 99)
@@ -226,7 +226,11 @@ NT.ItemMethods.advretractors = function(item, usingCharacter, targetCharacter, t
 			if --give eye damage on fail
 				HF.HasEyes(targetCharacter)
 			then
-				--HF.AddAfflictionLimb(targetCharacter, "mc_eyedamage", limb, math.random(0, 3))
+				for _, eye in ipairs(eyeProperty) do
+					if HF.HasAffliction(targetCharacter, eye.type) then
+						HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, math.random(0, 3))
+					end
+				end
 			end
 		end
 	end
@@ -254,7 +258,6 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, target
 	if not HF.HasEyes(targetCharacter) then
 		return
 	end
-	--
 
 	--pop eyes out
 	if HF.HasAffliction(targetCharacter, "sr_heldlid") then
@@ -276,7 +279,11 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, target
 			if --give eye damage on fail
 				HF.HasEyes(targetCharacter)
 			then
-				--HF.AddAfflictionLimb(targetCharacter, "mc_eyedamage", limb, math.random(0, 5))
+				for _, eye in ipairs(eyeProperty) do
+					if HF.HasAffliction(targetCharacter, eye.type) then
+						HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, math.random(0, 5))
+					end
+				end
 			end
 		end
 	end
@@ -315,7 +322,11 @@ NT.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacter, 
 			if --give eye damage on fail
 				HF.HasEyes(targetCharacter)
 			then
-				--HF.AddAfflictionLimb(targetCharacter, "mc_eyedamage", limb, math.random(0, 20))
+				for _, eye in ipairs(eyeProperty) do
+					if HF.HasAffliction(targetCharacter, eye.type) then
+						HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, math.random(0, 15))
+					end
+				end
 			end
 		end
 	end
@@ -324,7 +335,6 @@ end
 --lens removal
 NT.ItemMethods.screwdriver = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
-
 	--check if the item is used on the head
 	if targetLimb.type ~= limb then
 		return
@@ -332,6 +342,30 @@ NT.ItemMethods.screwdriver = function(item, usingCharacter, targetCharacter, tar
 	--check if surgery can be performed
 	if not HF.CanPerformSurgeryOn(targetCharacter) then
 		return
+	end
+
+	--lens removal
+	if
+		HF.HasAffliction(targetCharacter, "sr_poppedeye", 99) and HF.HasAffliction(targetCharacter, "sr_heldlid", 99)
+	then
+		local skillrequired = 40
+		--check for skill requirement
+		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
+			HF.GiveLensItem(targetCharacter, usingCharacter)
+		else
+			--cause bleeding and pain if fail
+			HF.AddAfflictionLimb(targetCharacter, "severepain", limb, 100)
+			HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, math.random(0, 5))
+			if --give eye damage on fail
+				HF.HasEyes(targetCharacter)
+			then
+				for _, eye in ipairs(eyeProperty) do
+					if HF.HasAffliction(targetCharacter, eye.type) then
+						HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, math.random(0, 5))
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -557,7 +591,7 @@ NT.ItemMethods.it_magnificationlens = function(item, usingCharacter, targetChara
 	HF.ApplyLensItem(targetCharacter, usingCharacter, item)
 end
 --nightvision lens
-NT.ItemMethods.it_nightvisionlens = function(item, usingCharacter, targetCharacter, targetLimb)
+NT.ItemMethods.it_nightlens = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 	HF.ApplyLensItem(targetCharacter, usingCharacter, item)
 end

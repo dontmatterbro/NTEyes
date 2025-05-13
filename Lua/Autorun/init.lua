@@ -30,7 +30,7 @@ Timer.Wait(function()
 	end
 
 	--shared scripts
-	--dofile(NTEYE.Path .. "/Lua/Scripts/Shared/place.holder")
+	--dofile(NTEYE.Path .. "/Lua/Scripts/Shared/helperfunctions.lua")
 
 	--compatibility scripts
 	--dofile(NTEYE.Path .. "/Lua/Scripts/Compatibility/place.holder")

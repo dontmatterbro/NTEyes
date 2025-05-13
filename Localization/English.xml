@@ -69,7 +69,13 @@
     <entitydescription.it_electricallens></entitydescription.it_electricallens>
 
     <entityname.it_magnificationlens>Magnification Lens</entityname.it_magnificationlens>
-    <entitydescription.it_magnificationlens></entitydescription.it_magnificationlens>
+    <entitydescription.it_magnificationlens></entitydescription.it_magnificationlens>        
+    
+    <entityname.it_nightlens>Night Vision Lens</entityname.it_nightlens>
+    <entitydescription.it_nightlens></entitydescription.it_nightlens>    
+    
+    <entityname.it_thermallens>Thermal Lens</entityname.it_thermallens>
+    <entitydescription.it_thermallens></entitydescription.it_thermallens>
 
     <!-- Miscellaneous Items-->
     <entityname.it_nightvisionlens>Night Vision Lens</entityname.it_nightvisionlens>
