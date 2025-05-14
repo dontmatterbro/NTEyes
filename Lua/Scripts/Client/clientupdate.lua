@@ -18,7 +18,7 @@ end)
 --function to initiate client updates
 function NTEYE.ClientUpdate()
 	NTEYE.UpdateLights()
-	NTEYE.UpdateHuds()
+	NTEYE.WriteHUD()
 end
 
 --table for eye client effect definitions
@@ -159,6 +159,3 @@ function NTEYE.UpdateLights()
 		HullLight.AmbientLight = HullColor
 	end
 end
-
---function to update HUD elements
-function NTEYE.UpdateHuds() end
