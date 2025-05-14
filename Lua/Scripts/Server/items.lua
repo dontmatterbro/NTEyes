@@ -374,6 +374,12 @@ NT.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacter, 
 		local skillrequired = 45
 		--check for skill requirement
 		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
+			--remove dead eye if there is one first
+			if HF.HasAffliction(targetCharacter, "mc_deadeye") then
+				HF.AddAfflictionLimb(targetCharacter, "mc_deadeye", limb, -100, usingCharacter) --remove dead eye
+				HF.AddAfflictionLimb(targetCharacter, "sr_removedeye", limb, 100, usingCharacter) --add removed eye
+				return --exit if dead eye is removed
+			end
 			HF.GiveEyeItem(targetCharacter, usingCharacter) --give eye items to usingCharacter
 			HF.NukeEyeAfflictions(targetCharacter) --remove all eye afflictions from patient
 

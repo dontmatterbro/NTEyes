@@ -1,7 +1,22 @@
-DONE --add eye surgery toolbag 
+DONE -- remove one side of the screen getting blinded and instead opt for periphereal vision reduction like wearing a suit
 DONE [NEEDS TESTING] --multipurpose scalpel comp
-
+DONE -- prevent people installing more than 2 eyes at the same time, put a check for if no removed eye, can't install more eyes.
 DONE -- dead eye rework (ouchie) 
+DONE --autoimmune retinopathy when one of eyes die, to prevent it the dead eye needs to be removed
+DONE -- fix human update and add into NT update loop instead of running your own 
+DONE -- apply the effects of both eyes and a penalty if different types of eyes installed at the same time
+DONE? --enhance bionic eye mechanics
+DONE? (laser surgery still absent) --redo surgeries rn they suck, you shouldn't really need 3 items to perform a surgery, or idk we'll see
+DONE -- replace infrared and night vision eyes with bio-mechanical eyes that can be upgraded like a weaker version of bionic eyes.
+CANCELLED -- no need for mechanics that cause bloat --lens damage for eyes / may not implement this, we'll see
+probably done idk  -- --fix shit 
+
+--better eye damage
+(damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
+Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
+Specifically the concussion resistance function
+
+--client side eye effect optimizations
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
@@ -10,40 +25,13 @@ screen going black/red momentarily upon taking damage with regular eyes, blood l
 
 --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
 
---autoimmune retinopathy when one of eyes die, to prevent it the dead eye needs to be removed
-
---better eye damage
-(damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
-Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
-Specifically the concussion resistance function
-
-DONE -- fix human update and add into NT update loop instead of running your own 
-
---client side eye effect optimizations
-
---figure out what to do with eye jar
-
---enhance bionic eye mechanics
-
---redo surgeries rn they suck, you shouldn't really need 3 items to perform a surgery, or idk we'll see
-
---redo trello
-
---redo affliction icons
-
-DONE -- remove one side of the screen getting blinded and instead opt for periphereal vision reduction like wearing a suit
-
 --better enhanced immersion comp
 
---cosmetic green light effect for NVG eyes
+--cosmetic green light effect for NVG eyes (I have no fucking clue what I meant when writing this)
 
---lens damage for eyes / may not implement this, we'll see
-
-DONE -- replace infrared and night vision eyes with bio-mechanical eyes that can be upgraded like a weaker version of bionic eyes.
-
---animation for walking blind
-
-DONE/PARTIALLY, NEEDS CLIENT SIDE -- apply the effects of both eyes and a penalty if different types of eyes installed at the same time
+--animation for walking blind (right now this uses drunk animation, I will try to make a custom one,
+but if it turns out to be bother [i.e. have to overwrite human.xml] then I will keep using the drunk one, it ain't bad
+but it ain't special either.)
 
 --correct lens crafts and usage balance
 
@@ -51,18 +39,23 @@ DONE/PARTIALLY, NEEDS CLIENT SIDE -- apply the effects of both eyes and a penalt
 
 --make eye jar placeable AND holdable -- lukako on nt discord worked for a baseline code of this, check that out
 
---fix item hold positions, SFX (not high priority, but effects overall quality of the mod significantly)
-
 --comp patches for immersive diving and robotrauma
 
 --reduce cataract blur, add gray filter to screen -- use affliction overlays the game comes with, not a whole ass texture
 
 --Cataracts needs to interact more with the rest of the mod
 Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
-(ThousandFields
+(ThousandFields)
 
-probably done idk  -- --fix shit 
+--decide what different types of creature eyes have what effects
 
-DONE -- prevent people installing more than 2 eyes at the same time, put a check for if no removed eye, can't install more eyes.
+--add eye surgery toolbag
 
---add eye cream (edible)
+--redo trello
+
+--redo affliction icons
+
+--fix item hold positions, 
+--fix SFX (not high priority, but effects overall quality of the mod significantly)
+
+--add eye cream (edible) -> you can craft this using eyes, gives you some buffs idk make it funny

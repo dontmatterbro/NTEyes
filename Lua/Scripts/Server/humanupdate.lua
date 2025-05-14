@@ -51,7 +51,22 @@ NTEYE.UpdateAfflictions = {
 	sr_lasersurgery = {},
 	--mechanical afflictions
 	mc_deadeyes = {},
-	mc_deadeye = {},
+	mc_deadeye = {
+		--having a dead eye will have a chance to cause autoimmune retinopathy
+		max = 100,
+		update = function(c, i)
+			--variables for optimization
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			if afflictionsTable.mc_deadeye.strength > 0 then
+				if HF.Chance(0.005) then -- 0.5% chance to cause retinopathy
+					HF.SetAfflictionLimb(character, "mc_retinopathy", limb, 1)
+				end
+			end
+		end,
+	},
 	mc_retinopathy = {},
 	mc_cataract = {},
 	mc_visionsickness = {},
