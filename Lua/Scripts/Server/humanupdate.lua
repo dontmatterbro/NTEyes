@@ -435,7 +435,7 @@ NTEYE.UpdateAfflictions = {
 
 	--visual indicators
 	vi_human = {
-		--add eye if no eye afflictions
+		--add eye if no eye afflictions // works like the blood pressure from NT
 		max = 2,
 		update = function(c, i)
 			local character = c.character
