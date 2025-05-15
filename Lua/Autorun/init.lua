@@ -23,10 +23,13 @@ Timer.Wait(function()
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/humanupdate.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/items.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/loswarning.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/huditemspawn.lua")
 	end
 	--client side scripts
 	if CLIENT then
 		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientupdate.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientHUD.lua")
 	end
 
 	--shared scripts

@@ -473,6 +473,7 @@ NTEYE.UpdateAfflictions = {
 		end,
 	},
 	vi_cyber = {},
+	vi_enhanced = {},
 	vi_plastic = {},
 	vi_crawler = {},
 	vi_mudraptor = {},
