@@ -882,7 +882,7 @@
             maxstrength="100">
             <StatValue 
                 stattype="ElectricalSkillBonus" 
-                value="15" />
+                value="10" />
         </Effect>
     </Affliction>
 

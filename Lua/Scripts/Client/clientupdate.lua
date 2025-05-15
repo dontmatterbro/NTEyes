@@ -1,6 +1,6 @@
 --client side counter to update visual eye effects
 NTEYE.ClientUpdateCooldown = 0
-NTEYE.ClientUpdateInterval = 120
+NTEYE.ClientUpdateInterval = 60
 
 Hook.Add("think", "NTEYE.ClientUpdate", function()
 	if HF.GameIsPaused() or not Level.Loaded then

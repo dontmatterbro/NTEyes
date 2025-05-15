@@ -26,8 +26,16 @@ NTEYE.HUDValues = {
 }
 
 function NTEYE.WriteHUD()
+	local hudFound = false
+	--check if the player has enabled the HUD
+	if not NTEYE.HUDEnabled then
+		NTEYE.DisableHUDs()
+		return
+	end
+	--check if the player has any of the lens afflictions
 	for _, hud in pairs(NTEYE.HUDValues) do
 		if HF.HasAffliction(Character.Controlled, hud.affliction) then
+			hudFound = true
 			if NTEYE.DrawnHUD == nil then
 				if hud.item == nil or hud.item.Removed then
 					NTEYE.ResetHUDValues()
@@ -45,11 +53,12 @@ function NTEYE.WriteHUD()
 					NTEYE.DisableHoverTextHUD = true
 				end
 
-				return
+				hudFound = true
 			end
-		else
-			NTEYE.DisableHUDs() --if you implement multiple huds at the same time this will cause issues
 		end
+	end
+	if not hudFound then
+		NTEYE.DisableHUDs() --if you implement multiple huds at the same time this will cause issues
 	end
 end
 
@@ -75,7 +84,7 @@ function NTEYE.DisableHUDs()
 				NTEYE.DisableHoverTextHUD = false
 			end
 			NTEYE.DrawnHUD = nil
-			NTEYE.HUDEnabled = false
+			--NTEYE.HUDEnabled = false
 		end
 	end
 end
@@ -129,5 +138,6 @@ Hook.Patch("Barotrauma.CharacterHUD", "Draw", function(instance, ptable)
 	if NTEYE.DrawnHUD == nil then
 		return
 	end
+
 	NTEYE.DrawnHUD.DrawHUD(ptable["spriteBatch"], Character.Controlled) --draws the huds
 end)

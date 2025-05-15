@@ -2719,15 +2719,8 @@
 			width="70"
 			height="24"
 			density="100" />
-		<StatusHUD
-			drawhudwhenequipped="true"
-			overlaycolor="0,0,0,0"
-			range="3000"
-			thermalgoggles="true"
-			showdeadcharacters="false"
-			showtexts="false" />
-		<Wearable />
-		<MeleeWeapon slots="Any,RightHand,LeftHand" />
+    <StatusHUD drawhudwhenequipped="true" overlaycolor="200,0,0,150" range="3000" thermalgoggles="true" showdeadcharacters="false" showtexts="false" />
+		<Wearable slots="Any,Head" />
 	</Item>
 
 	<!-- Medical Hud Item (ghost item used for lua hook) yet to be implemented -->
@@ -2749,9 +2742,9 @@
 			density="100" />
 		<StatusHUD
 			drawhudwhenequipped="true"
-			overlaycolor="0,0,0,0" />
-		<Wearable />
-		<MeleeWeapon slots="Any,RightHand,LeftHand" />
+			overlaycolor="0,0,0,0" 
+			allowuioverlap="true" />
+		<Wearable slots="Any,Head" />
 	</Item>
 
 	<!-- Electrical Hud Item (ghost item used for lua hook) yet to be implemented -->
@@ -2778,19 +2771,166 @@
 			showtexts="false"
 			allowuioverlap="true" />
 		<Wearable slots="Any,Head" />
-		<MiniMap
-			enableitemfinder="false"
-			enablehullstatus="false"
-			enablehullcondition="false"
-			drawhudwhenequipped="true"
-			displaybordersize="-0.1"
-			characterusable="true"
-			allowuioverlap="true">
-			<GuiFrame
-				relativesize="0.2,0.2"
-				anchor="CenterRight"
-				relativeoffset="0.006,-0.01"
-				style="ItemUI" />
-		</MiniMap>
+	</Item>
+
+	<!-- SFX Items -->
+	<!-- Selfscan -->
+	<Item
+		identifier="misc_sfx_selfscan"
+		hideinmenus="true"
+		noninteractable="true">
+		<InventoryIcon
+			texture="Content/Items/InventoryIconAtlas.png"
+			sourcerect="0,0,1,1"
+			origin="0.5,0.5" />
+		<Sprite
+			texture="Content/Items/Medical/Medicines.png"
+			sourcerect="0,0,1,1"
+			depth="0.6"
+			origin="0.5,0.5" />
+		<ItemComponent
+			capacity="1"
+			maxstacksize="1"
+			hideitems="true"
+			containedstateindicatorstyle="battery">
+			<StatusEffect
+				type="OnSpawn"
+				target="This"
+				disabledeltatime="true"
+				stackable="false">
+				<Sound
+					file="%ModDir%/Sounds/eye_healthscanner.ogg"
+					range="400"
+					volume="2" />
+			</StatusEffect>
+			<StatusEffect
+				type="always"
+				target="This"
+				disabledeltatime="true"
+				delay="1"
+				stackable="false">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+
+	<!-- Scan Fail -->
+	<Item
+		identifier="misc_sfx_fail"
+		hideinmenus="true"
+		noninteractable="true">
+		<InventoryIcon
+			texture="Content/Items/InventoryIconAtlas.png"
+			sourcerect="0,0,1,1"
+			origin="0.5,0.5" />
+		<Sprite
+			texture="Content/Items/Medical/Medicines.png"
+			sourcerect="0,0,1,1"
+			depth="0.6"
+			origin="0.5,0.5" />
+		<ItemComponent
+			capacity="1"
+			maxstacksize="1"
+			hideitems="true"
+			containedstateindicatorstyle="battery">
+			<StatusEffect
+				type="OnSpawn"
+				target="This"
+				disabledeltatime="true"
+				stackable="false">
+				<Sound
+					file="%ModDir%/Sounds/eye_error.ogg"
+					range="400"
+					volume="0.5" />
+			</StatusEffect>
+			<StatusEffect
+				type="always"
+				target="This"
+				disabledeltatime="true"
+				delay="1"
+				stackable="false">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+
+	<!-- Beep -->
+	<Item
+		identifier="misc_sfx_beep"
+		hideinmenus="true"
+		noninteractable="true">
+		<InventoryIcon
+			texture="Content/Items/InventoryIconAtlas.png"
+			sourcerect="0,0,1,1"
+			origin="0.5,0.5" />
+		<Sprite
+			texture="Content/Items/Medical/Medicines.png"
+			sourcerect="0,0,1,1"
+			depth="0.6"
+			origin="0.5,0.5" />
+		<ItemComponent
+			capacity="1"
+			maxstacksize="1"
+			hideitems="true"
+			containedstateindicatorstyle="battery">
+			<StatusEffect
+				type="OnSpawn"
+				target="This"
+				disabledeltatime="true"
+				stackable="false">
+				<Sound
+					file="%ModDir%/Sounds/eye_beep.ogg"
+					range="400"
+					volume="0.05" />
+			</StatusEffect>
+			<StatusEffect
+				type="always"
+				target="This"
+				disabledeltatime="true"
+				delay="1"
+				stackable="false">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+
+	<!-- Slow Laser -->
+	<Item
+		identifier="misc_sfx_slowlaser"
+		hideinmenus="true"
+		noninteractable="true">
+		<InventoryIcon
+			texture="Content/Items/InventoryIconAtlas.png"
+			sourcerect="0,0,1,1"
+			origin="0.5,0.5" />
+		<Sprite
+			texture="Content/Items/Medical/Medicines.png"
+			sourcerect="0,0,1,1"
+			depth="0.6"
+			origin="0.5,0.5" />
+		<ItemComponent
+			capacity="1"
+			maxstacksize="1"
+			hideitems="true"
+			containedstateindicatorstyle="battery">
+			<StatusEffect
+				type="OnSpawn"
+				target="This"
+				disabledeltatime="true"
+				stackable="false">
+				<Sound
+					file="%ModDir%/Sounds/eye_slowlaser.ogg"
+					range="400"
+					volume="1" />
+			</StatusEffect>
+			<StatusEffect
+				type="always"
+				target="This"
+				disabledeltatime="true"
+				delay="1"
+				stackable="false">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
 	</Item>
 </Items>
