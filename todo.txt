@@ -8,15 +8,15 @@ DONE -- apply the effects of both eyes and a penalty if different types of eyes 
 DONE? --enhance bionic eye mechanics
 DONE? (laser surgery still absent) --redo surgeries rn they suck, you shouldn't really need 3 items to perform a surgery, or idk we'll see
 DONE -- replace infrared and night vision eyes with bio-mechanical eyes that can be upgraded like a weaker version of bionic eyes.
+DONE -- client side eye effect optimizations
 CANCELLED -- no need for mechanics that cause bloat --lens damage for eyes / may not implement this, we'll see
 probably done idk  -- --fix shit 
+
 
 --better eye damage
 (damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
 Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
 Specifically the concussion resistance function
-
---client side eye effect optimizations
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
@@ -39,7 +39,7 @@ but it ain't special either.)
 
 --make eye jar placeable AND holdable -- lukako on nt discord worked for a baseline code of this, check that out
 
---comp patches for immersive diving and robotrauma
+--comp patches for immersive diving and robotrauma (this may not be needed, further inquiry required)
 
 --reduce cataract blur, add gray filter to screen -- use affliction overlays the game comes with, not a whole ass texture
 
