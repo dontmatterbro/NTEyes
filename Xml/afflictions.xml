@@ -5,7 +5,7 @@
     <!-- Eyes Removed -->
     <Affliction 
         identifier="sr_removedeyes" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="0" 
@@ -41,8 +41,8 @@
                     ExpectedSpecies="Human" />
             </StatusEffect>
         </Effect>
-        <!--<AfflictionOverlay 
-            texture="%ModDir%/Textures/Overlays/blackoverlay.png" /> -->
+        <AfflictionOverlay 
+            texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="0,256,128,128"  
@@ -52,7 +52,7 @@
     <!-- Eye Removed -->
     <Affliction 
         identifier="sr_removedeye" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="0" 
@@ -67,7 +67,7 @@
             <StatusEffect 
                 target="Character" 
                 ObstructVisionAmount="0.7" 
-                priority="10" 
+                priority="100" 
                 setvalue="true" />
         </Effect>
         <!-- <icon 
@@ -79,7 +79,7 @@
     <!-- Eye Lids Held -->
     <Affliction 
         identifier="sr_heldlid" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -100,7 +100,7 @@
     <!-- Eye Popped -->
     <Affliction
         identifier="sr_poppedeye" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -140,7 +140,7 @@
     <!-- Eye Connector -->
     <Affliction 
         identifier="sr_eyeconnector" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -162,7 +162,7 @@
     <!-- Cornea Incision -->
     <Affliction 
         identifier="sr_corneaincision" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -173,6 +173,7 @@
         <Effect 
             minstrength="0" 
             maxstrength="100" 
+            strengthchange="30"
             minscreenblur="0.4" 
             maxscreenblur="0.4" 
             minskillmultiplier="0.8" 
@@ -199,7 +200,7 @@
     <!-- Emulsification -->
     <Affliction 
         identifier="sr_emulsification" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -209,7 +210,8 @@
         iconcolors="84,211,211,255">
         <Effect
             minstrength="0" 
-            maxstrength="2" 
+            maxstrength="100" 
+            strengthchange="30"
             minscreenblur="90" 
             maxscreenblur="90" 
             minskillmultiplier="0.25" 
@@ -234,7 +236,7 @@
     <!-- Eye Drops -->
     <Affliction 
         identifier="sr_eyedrops" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100" 
@@ -245,7 +247,8 @@
         iconcolors="100,120,50,255;100,240,50,255">
         <Effect 
             minstrength="0" 
-            maxstrength="100" />
+            maxstrength="100" 
+            strengthchange="-1"/>
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="512,0,128,128" 
@@ -255,7 +258,7 @@
     <!-- Laser Surgery -->
     <Affliction 
         identifier="sr_lasersurgery" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="100"
@@ -265,10 +268,8 @@
         iconcolors="84,211,211,255;84,211,211,255">
         <Effect 
             minstrength="0" 
-            maxstrength="100">
-            <StatusEffect target="Character">
-                <!-- <Affliction identifier="eyedamage" amount="-0.6" /> I dont remember the exact amount -->
-            </StatusEffect>
+            maxstrength="100" 
+            strengthchange="-1">
         </Effect>
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
@@ -280,7 +281,7 @@
     <!-- Dead Eyes -->
     <Affliction 
         identifier="mc_deadeyes" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="0" 
@@ -329,7 +330,7 @@
     <!-- Dead Eye -->
     <Affliction 
         identifier="mc_deadeye" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="0" 
@@ -344,7 +345,7 @@
             <StatusEffect 
                 target="Character" 
                 ObstructVisionAmount="0.7" 
-                priority="10" 
+                priority="100" 
                 setvalue="true" />
         </Effect>
         <!-- <icon 
@@ -356,9 +357,9 @@
     <!-- Retinopathy -->
     <Affliction 
         identifier="mc_retinopathy" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
-        showiconthreshold="60" 
+        showiconthreshold="101" 
         showinhealthscannerthreshold="5" 
         maxstrength="100" 
         type="eye_mechanic" 
@@ -367,7 +368,8 @@
         iconcolors="0,0,0,255;255,100,0,255">
         <Effect 
             minstrength="0" 
-            maxstrength="100" />
+            maxstrength="100" 
+            strengthchange="5" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="896,0,128,128"  
@@ -377,9 +379,9 @@
     <!-- Cataract -->
     <Affliction 
         identifier="mc_cataract" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
-        showiconthreshold="80" 
+        showiconthreshold="101" 
         showinhealthscannerthreshold="20" 
         maxstrength="100" 
         type="eye_mechanic" 
@@ -390,9 +392,9 @@
             minstrength="20" 
             maxstrength="100" 
             minscreendistort="0" 
-            maxscreendistort="0.2" 
+            maxscreendistort="0.1" 
             minscreenblur="0" 
-            maxscreenblur="0.5" 
+            maxscreenblur="0.25" 
             minradialdistort="0" 
             maxradialdistort="0" 
             minchromaticaberration="0" 
@@ -408,7 +410,7 @@
     <!-- Vision Sickness -->
     <Affliction 
         identifier="mc_visionsickness" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="10" 
         showinhealthscannerthreshold="1000" 
@@ -420,6 +422,7 @@
         <Effect
             minstrength="0" 
             maxstrength="70" 
+            strengthchange="-2"
             minscreendistort="0" 
             maxscreendistort="0.5" 
             minscreenblur="0" 
@@ -433,6 +436,7 @@
         <Effect
             minstrength="70" 
             maxstrength="100" 
+            strengthchange="-2"
             minscreendistort="0.5" 
             maxscreendistort="1" 
             minscreenblur="0.4" 
@@ -454,7 +458,7 @@
     <!-- Mismatching Eyes -->
     <Affliction 
         identifier="mc_mismatch" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="1" 
         showinhealthscannerthreshold="1000" 
@@ -466,16 +470,8 @@
         <Effect
             minstrength="0" 
             maxstrength="2" 
-            minscreendistort="0.5" 
-            maxscreendistort="0.5" 
-            minscreenblur="0.4" 
-            maxscreenblur="0.4" 
-            minradialdistort="0.1" 
-            maxradialdistort="0.1" 
-            minchromaticaberration="0.5" 
-            maxchromaticaberration="0.5" 
-            minskillmultiplier="0.8" 
-            maxskillmultiplier="0.8" />
+            minskillmultiplier="0.85" 
+            maxskillmultiplier="0.85" />
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="768,0,128,128" 
@@ -486,26 +482,26 @@
     <!-- Human Eye Damage -->
     <Affliction 
         identifier="dm_human" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="0" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" >
     </Affliction>
 
-    <!-- Cyber Eye -->
+    <!-- Cyber Eye Damage -->
     <Affliction 
         identifier="dm_cyber" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="211,211,84,255;211,211,84,255">
         <!-- <icon 
@@ -514,16 +510,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Enhanced Eye -->
+    <!-- Enhanced Eye Damage -->
     <Affliction  
         identifier="dm_enhanced" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="42,194,47,255;42,194,47,255">
         <!-- <icon 
@@ -532,16 +528,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Plastic Eye -->
+    <!-- Plastic Eye Damage -->
     <Affliction 
         identifier="dm_plastic" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="84,211,230,255;84,211,230,255">
         <!-- <AfflictionOverlay 
@@ -552,16 +548,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Crawler Eye -->
+    <!-- Crawler Eye Damage -->
     <Affliction 
         identifier="dm_crawler" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
         <!-- <icon 
@@ -570,16 +566,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Mudraptor Eye -->
+    <!-- Mudraptor Eye Damage -->
     <Affliction 
         identifier="dm_mudraptor" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
         <!-- <icon 
@@ -588,16 +584,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Watcher Eye -->
+    <!-- Watcher Eye Damage -->
     <Affliction 
         identifier="dm_watcher" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="160,160,70,255;160,160,70,255">
         <!-- <icon 
@@ -606,16 +602,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Huskified Eye -->
+    <!-- Huskified Eye Damage -->
     <Affliction 
         identifier="dm_husk" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="75,0,75,255;75,0,75,255">
         <!-- <icon 
@@ -624,16 +620,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Charybdis Eye -->
+    <!-- Charybdis Eye Damage -->
     <Affliction 
         identifier="dm_charybdis" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
         <!-- <icon 
@@ -642,16 +638,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Latcher Eye -->
+    <!-- Latcher Eye Damage -->
     <Affliction 
         identifier="dm_latcher" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
         <!-- <icon 
@@ -660,16 +656,16 @@
             origin="0,0" /> -->
     </Affliction>
 
-    <!-- Terror Eye -->
+    <!-- Terror Eye Damage -->
     <Affliction 
         identifier="dm_terror" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
         maxstrength="100" 
         type="eye_type" 
-        isbuff="true" 
+        isbuff="false" 
         healableinmedicalclinic="false" 
         iconcolors="255,0,0,255;255,0,0,255">
         <!-- <icon 
@@ -679,12 +675,27 @@
     </Affliction>
 
 	<!-- Visual Indicators -->
+    <!-- Human Eye -->
+	<Affliction 
+        identifier="vi_human" 
+        showiconthreshold="0" 
+        showinhealthscannerthreshold="1000" 
+        limbspecific="false" 
+        indicatorlimb="Head" 
+        maxstrength="2" 
+        type="vi_type" 
+        isbuff="true" 
+        healableinmedicalclinic="false">
+        <Effect 
+            minstrength="0" 
+            maxstrength="2" />
+    </Affliction>
 	<!-- Cyber Eye -->
 	<Affliction 
         identifier="vi_cyber" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -699,22 +710,7 @@
         identifier="vi_enhanced" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
-        indicatorlimb="Head" 
-        maxstrength="2" 
-        type="vi_type" 
-        isbuff="true" 
-        healableinmedicalclinic="false">
-        <Effect 
-            minstrength="0" 
-            maxstrength="2" />
-    </Affliction>
-	<!-- Human Eye -->
-	<Affliction 
-        identifier="vi_human" 
-        showiconthreshold="0" 
-        showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -729,7 +725,7 @@
         identifier="vi_plastic" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -744,7 +740,7 @@
         identifier="vi_crawler" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -759,7 +755,7 @@
         identifier="vi_mudraptor" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -774,7 +770,7 @@
         identifier="vi_watcher" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -789,7 +785,7 @@
         identifier="vi_husk" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -804,7 +800,7 @@
         identifier="vi_charybdis" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -819,7 +815,7 @@
         identifier="vi_latcher" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -834,7 +830,7 @@
         identifier="vi_terror" 
         showiconthreshold="0" 
         showinhealthscannerthreshold="1000" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="2" 
         type="vi_type" 
@@ -851,7 +847,7 @@
         identifier="lt_medical" 
         showiconthreshold="1000" 
         showinhealthscannerthreshold="0" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="100" 
         type="lens_type" 
@@ -871,7 +867,7 @@
         identifier="lt_electrical" 
         showiconthreshold="1000" 
         showinhealthscannerthreshold="0" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="100" 
         type="lens_type" 
@@ -891,7 +887,7 @@
         identifier="lt_magnification" 
         showiconthreshold="1000" 
         showinhealthscannerthreshold="0" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         maxstrength="100" 
         type="lens_type" 
@@ -903,7 +899,7 @@
     <!-- Night Vision Lens -->
     <Affliction  
         identifier="lt_night" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="1000" 
         showinhealthscannerthreshold="0" 
@@ -917,7 +913,7 @@
     <!-- Thermal Lens -->
     <Affliction 
         identifier="lt_thermal" 
-        limbspecific="true" 
+        limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="1000" 
         showinhealthscannerthreshold="0" 
@@ -933,6 +929,4 @@
                 value="10" />
         </Effect>
     </Affliction>
-
-
 </Afflictions>

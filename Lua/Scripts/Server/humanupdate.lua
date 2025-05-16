@@ -8,30 +8,52 @@ local function PressureDamageCalculation(character)
 end
 
 local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
-	if --blind the player in one eye
+	if
 		afflictionsTable[i].strength >= 80
-		and (not (afflictionsTable.mc_deadeye.strength > 0) and not (afflictionsTable.sr_removedeye.strength > 0))
+		and (
+			not (afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength > 0)
+			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
+		)
 	then
-		afflictionsTable[i].strength = afflictionsTable[i].strength - 50
-		HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --add deadeye
-		if --if the player has a mismatch, remove only this eye
-			afflictionsTable.mc_mismatch.strength > 0
-		then
-			HF.SetAfflictionLimb(character, "vi_human", limb, 0) --remove eye indicator
-			HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --add deadeye
+		if HF.Chance(0.1) then
+			print("test1")
+			afflictionsTable[i].strength = afflictionsTable[i].strength - 50
+			HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength > 0 then
+				local base = i:match("^dm_(.+)$")
+				if base then
+					HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
+					HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
+				end
+				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+			end
 		end
-	elseif --if there is only one eye, fully blind the player
-		(afflictionsTable[i].strength >= 50)
-		and (afflictionsTable.mc_deadeye.strength >= 1 or afflictionsTable.sr_removedeye.strength >= 1)
+	elseif
+		(afflictionsTable[i].strength >= 45)
+		and (
+			(afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength >= 1)
+			or (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength >= 1)
+			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1)
+		)
 	then
-		afflictionsTable[i].strength = 0
-		HF.SetAfflictionLimb(character, "vi_human", limb, 0) --remove eye indicator
-		HF.SetAfflictionLimb(character, "dm_human", limb, 0) --remove damage
-		HF.SetAfflictionLimb(character, "sr_removedeye", limb, 0) --remove removedeye
-		HF.SetAfflictionLimb(character, "mc_deadeye", limb, 0) --remove deadeye
-
-		HF.SetAfflictionLimb(character, "mc_deadeyes", limb, 100) --add deadeyes
-	else --if no issues, apply normal damage
+		if HF.Chance(0.1) then
+			print("test2")
+			afflictionsTable[i].strength = 0
+			local base = i:match("^dm_(.+)$")
+			if base then
+				HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
+				HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
+			end
+			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1 then
+				--dead eye
+				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+				HF.SetAfflictionLimb(character, "mc_mismatch", limb, 0)
+			else
+				HF.NukeEyeAfflictions(character)
+				HF.SetAfflictionLimb(character, "mc_deadeyes", limb, 100)
+			end
+		end
+	else
 		afflictionsTable[i].strength = HF.Clamp(afflictionsTable[i].strength, 0, 100)
 	end
 end
@@ -47,8 +69,54 @@ NTEYE.UpdateAfflictions = {
 	sr_eyeconnector = {},
 	sr_corneaincision = {},
 	sr_emulsification = {},
-	sr_eyedrops = {},
-	sr_lasersurgery = {},
+	sr_eyedrops = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength <= 0 then
+				return
+			end
+			for affKey, aff in pairs(afflictionsTable) do
+				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
+					local viKey = "vi_" .. affKey:sub(4)
+					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
+						aff.strength = (aff.strength or 0) - 0.03
+					end
+				end
+			end
+		end,
+	},
+	sr_lasersurgery = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength <= 0 then
+				return
+			end
+			for affKey, aff in pairs(afflictionsTable) do
+				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
+					local viKey = "vi_" .. affKey:sub(4)
+					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
+						aff.strength = (aff.strength or 0) - 0.1
+					end
+				end
+			end
+		end,
+	},
 	--mechanical afflictions
 	mc_deadeyes = {},
 	mc_deadeye = {
@@ -60,6 +128,10 @@ NTEYE.UpdateAfflictions = {
 			local statsTable = c.stats
 			local character = c.character
 			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
 			if afflictionsTable.mc_deadeye.strength > 0 then
 				if HF.Chance(0.005) then -- 0.5% chance to cause retinopathy
 					HF.SetAfflictionLimb(character, "mc_retinopathy", limb, 1)
@@ -67,10 +139,49 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
-	mc_retinopathy = {},
+	mc_retinopathy = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength <= 0 then
+				return
+			end
+			for affKey, aff in pairs(afflictionsTable) do
+				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
+					local viKey = "vi_" .. affKey:sub(4)
+					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
+						aff.strength = (aff.strength or 0) + 2.5
+					end
+				end
+			end
+		end,
+	},
 	mc_cataract = {},
 	mc_visionsickness = {},
-	mc_mismatch = {},
+	mc_mismatch = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength <= 0 then
+				return
+			end
+			NTC.SetSymptomTrue(character, "sym_headache", 10)
+		end,
+	},
 	--eye damage afflictions
 	dm_human = {
 		max = 100,

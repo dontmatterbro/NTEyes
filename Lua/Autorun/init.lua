@@ -26,7 +26,9 @@ Timer.Wait(function()
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/losWarning.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/hudItemSpawn.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/serverReceive.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/multiScalpel.lua")
 	end
+
 	--client side scripts
 	if CLIENT then
 		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientUpdate.lua")
