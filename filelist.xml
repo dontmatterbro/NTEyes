@@ -3,6 +3,5 @@
 	<Afflictions file="%ModDir%/Xml/afflictions.xml" />
 	<Afflictions file="%ModDir%/Xml/Retro/retroAfflictions.xml" />
 	<Item file="%ModDir%/Xml/items.xml" />
-	<Item file="%ModDir%/Xml/Retro/retroItems.xml" />
 	<Text file="%ModDir%/Localization/English.xml" />
 </contentpackage>

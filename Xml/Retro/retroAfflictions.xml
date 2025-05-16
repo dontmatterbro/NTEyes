@@ -1,153 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
 
-														<!-- FOR REFERANCE ONLY, DO NOT INCLUDE IN BUILD -->
+    <!-- This file replaces the old afflictions with the new ones, I'll probably remove this few months after release -->
 
-				<!-- DAMAGE AFFLICTIONS -->
-		<!-- NO EYES -->
-	<Affliction name="" identifier="noeye" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100"> 
-			<Affliction 
-                identifier="sr_removedeyes" 
-                amount="100" />
-		</Effect>	
-	</Affliction>
-  
-		<!-- EYES DEAD -->
-	<Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="mc_deadeyes" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-		<!-- EYE ONE -->
-	<Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" showinhealthscannerthreshold="100" iconcolors="255,80,0,255;255,80,0,255">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="mc_deadeye" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-	
+    <!-- DAMAGE AFFLICTIONS -->
+    <!-- NO EYES -->
+    <Affliction name="" identifier="noeye" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="84,211,211,255;84,211,211,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="sr_removedeyes" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
 
-				<!-- SURGERY AFFLICTIONS -->
-			<!-- EYE MUSCLE -->
-	<Affliction name="" identifier="eyemuscle" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-				<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="sr_eyeconnector" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-		<!-- EYE GELL -->
-	<Affliction name="" identifier="eyegell" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-						<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="sr_eyeconnector" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-	
-		<!-- NERVE CONNECTION -->
-	<Affliction name="" identifier="eyenerve" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
-						<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="sr_eyeconnector" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-				<!-- EFFECT TYPE AFFLICTIONS --> 
-			<!-- BIONIC EYE -->
-	<Affliction iconcolors="211,211,84,255;211,211,84,255" name="" identifier="eyebionic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_cyber" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- MEDICAL HUD -->
-	<Affliction identifier="medicallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="lt_medical" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-	
-			<!-- ELECTRICAL HUD -->
-	<Affliction identifier="electricallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" >
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="lt_electrical" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-	
-			<!-- ZOOM HUD -->
-	<Affliction identifier="zoomlens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" />
-   
-			<!-- NIGHT VISION EYE-->
-	<Affliction iconcolors="42,194,47,255;42,194,47,255" name="" identifier="eyenight" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_enhanced" 
-                amount="100" />
-			<Affliction 
-                identifier="lt_night" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- INFRARED EYE -->
-	<Affliction iconcolors="16,116,179,255;16,116,179,255" name="" identifier="eyeinfrared" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_enhanced" 
-                amount="100" />
-			<Affliction 
-                identifier="lt_thermal" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- PLASTIC EYE -->
-	<Affliction iconcolors="84,211,230,255;84,211,230,255" name="" identifier="eyeplastic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_plastic" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- MONSTER EYE -->
-	<Affliction iconcolors="160,160,70,255;160,160,70,255" name="" identifier="eyemonster" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_crawler" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- HUSK EYE -->
-	<Affliction iconcolors="75,0,75,255;75,0,75,255" name="" identifier="eyehusk" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_husk" 
-                amount="100" />
-		</Effect>
-	</Affliction>
-  
-			<!-- TERROR EYE -->
-	<Affliction iconcolors="255,0,0,255;255,0,0,255" name="" identifier="eyeterror" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
-		<Effect minstrength="0" maxstrength="2" strengthchange="-100">
-			<Affliction 
-                identifier="vi_terror" 
-                amount="100" />
-		</Effect>
-	</Affliction>
+    <!-- EYES DEAD -->
+    <Affliction name="" identifier="eyesdead" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="1" maxstrength="2" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="false" healableinmedicalclinic="false" iconcolors="255,0,0,255;255,0,0,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="mc_deadeyes" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- EYE ONE -->
+    <Affliction name="" identifier="eyeone" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="2" showinhealthscannerthreshold="100" iconcolors="255,80,0,255;255,80,0,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="mc_deadeye" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- SURGERY AFFLICTIONS -->
+    <!-- EYE MUSCLE -->
+    <Affliction name="" identifier="eyemuscle" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="sr_eyeconnector" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- EYE GELL -->
+    <Affliction name="" identifier="eyegell" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="sr_eyeconnector" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- NERVE CONNECTION -->
+    <Affliction name="" identifier="eyenerve" description=""  limbspecific="true" indicatorlimb="Head" showiconthreshold="0" maxstrength="100" isbuff="true" iconcolors="84,211,211,255;84,211,211,255">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="sr_eyeconnector" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- EFFECT TYPE AFFLICTIONS -->
+    <!-- BIONIC EYE -->
+    <Affliction iconcolors="211,211,84,255;211,211,84,255" name="" identifier="eyebionic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_cyber" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- MEDICAL HUD -->
+    <Affliction identifier="medicallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="lt_medical" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- ELECTRICAL HUD -->
+    <Affliction identifier="electricallens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" >
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="lt_electrical" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- ZOOM HUD -->
+    <Affliction identifier="zoomlens" showiconthreshold="1000" showinhealthscannerthreshold="1000" limbspecific="true" indicatorlimb="Head" maxstrength="2" healableinmedicalclinic="false" />
+
+    <!-- NIGHT VISION EYE-->
+    <Affliction iconcolors="42,194,47,255;42,194,47,255" name="" identifier="eyenight" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_enhanced" amount="100" />
+                <Affliction identifier="lt_night" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- INFRARED EYE -->
+    <Affliction iconcolors="16,116,179,255;16,116,179,255" name="" identifier="eyeinfrared" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_enhanced" amount="100" />
+                <Affliction identifier="lt_thermal" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- PLASTIC EYE -->
+    <Affliction iconcolors="84,211,230,255;84,211,230,255" name="" identifier="eyeplastic" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_plastic" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- MONSTER EYE -->
+    <Affliction iconcolors="160,160,70,255;160,160,70,255" name="" identifier="eyemonster" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_crawler" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- HUSK EYE -->
+    <Affliction iconcolors="75,0,75,255;75,0,75,255" name="" identifier="eyehusk" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_husk" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
+
+    <!-- TERROR EYE -->
+    <Affliction iconcolors="255,0,0,255;255,0,0,255" name="" identifier="eyeterror" description="" limbspecific="true" indicatorlimb="Head" showiconthreshold="1" showinhealthscannerthreshold="100" maxstrength="2" targets="human" type="gaze" causeofdeathdescription="" selfcauseofdeathdescription="" isbuff="true" healableinmedicalclinic="false">
+        <Effect minstrength="0" maxstrength="2" strengthchange="-1">
+            <StatusEffect type="Always" target="Character">
+                <Affliction identifier="vi_terror" amount="100" />
+            </StatusEffect>
+        </Effect>
+    </Affliction>
 </Afflictions>

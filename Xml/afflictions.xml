@@ -51,7 +51,7 @@
 
     <!-- Eye Removed -->
     <Affliction 
-        identifier="sr_removedeye" 
+        identifier="sr_removedeye"
         limbspecific="false" 
         indicatorlimb="Head" 
         showiconthreshold="0" 

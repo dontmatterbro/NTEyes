@@ -3,7 +3,8 @@
     <!-- Surgery Items -->
     <!-- Eye Procurement Scalpel -->
     <Item 
-        identifier="it_scalpel_eye" 
+        identifier="it_scalpel_eye"
+		aliases="organscalpel_eyes"
         category="Equipment" 
         cargocontaineridentifier="mediccrate" 
         Tags="smallitem,medical,eyesurgery,surgery,surgerytool" 
@@ -80,6 +81,7 @@
     <!-- The Spoon -->
     <Item
         identifier="it_spoon"
+		aliases="eyespoon"
         category="Equipment"
         Tags="smallitem,simpletool,tool,eyesurgery,surgery,surgerytool"
         cargocontaineridentifier="metalcrate"
@@ -131,6 +133,7 @@
     <!-- Eye Drop -->
     <Item
         identifier="it_eyedrop"
+		aliases="eyedrops"
         category="Medical"
         maxstacksize="32"
         maxstacksizecharacterinventory="8"
@@ -169,55 +172,10 @@
         </MeleeWeapon>
     </Item>
 
-    <!-- Deusizine Drop -->
-    <Item
-        identifier="it_deusizinedrop"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,medical,eyesurgery,surgery,surgerytool"
-        spritecolor="60,255,255,200"
-        inventoryiconcolor="60,255,255,200">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            spawnprobability="0.03" />
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="640,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-        <Body width="14" height="22" density="10" />
-        <Price baseprice="500" soldbydefault="false">
-            <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="2" />
-        </Price>
-        <Fabricate suitablefabricators="medicalfabricator" requiredtime="16">
-            <RequiredSkill identifier="medical" level="45" />
-            <RequiredItem identifier="deusizine" mincondition="0.5" usecondition="true" />
-            <RequiredItem identifier="antibloodloss1" />
-        </Fabricate>
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <StatusEffect type="OnUse" target="This">
-                <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
-            </StatusEffect>
-            <StatusEffect type="OnBroken" target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
     <!-- Laser Surgery Tool -->
     <Item
         identifier="it_lasersurgerytool"
+		aliases="eye_laser_tool"
         scale="0.27"
         category="Equipment"
         tags="smallitem,medical,eyesurgery,surgery,surgerytool"
@@ -268,6 +226,7 @@
 	<!-- Eye Connector -->
 	<Item
 		identifier="it_eyeconnector"
+		aliases="eyegel,muscleconnectors,nerveconnectors"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -333,7 +292,8 @@
     <!-- Eye Transplant Items -->
 	<!-- Human Eye-->
 	<Item 
-		identifier="it_humaneye" 
+		identifier="it_humaneye"
+		aliases="transplant_eyes"
 		scale="0.1" 
 		useinhealthinterface="True" 
 		impactsoundtag="impact_soft" 
@@ -481,7 +441,8 @@
 	</Item>
     <!-- Plastic Eye -->
 	<Item 
-		identifier="it_plasticeye" 
+		identifier="it_plasticeye"
+		aliases="transplant_eyes_plastic"
 		scale="0.1" 
 		useinhealthinterface="True" 
 		impactsoundtag="impact_soft" 
@@ -547,7 +508,8 @@
 	</Item>
     <!-- Enhanced Eye -->
 	<Item 
-		identifier="it_enhancedeye" 
+		identifier="it_enhancedeye"
+		aliases="transplant_eyes_infrared,transplant_eyes_night"
 		scale="0.1" 
 		useinhealthinterface="True" 
 		impactsoundtag="impact_soft" 
@@ -714,7 +676,8 @@
 	</Item>
     <!-- Cybereye -->
 	<Item 
-		identifier="it_cybereye" 
+		identifier="it_cybereye"
+		aliases="transplant_eyes_bionic"
 		scale="0.1" 
 		useinhealthinterface="True" 
 		impactsoundtag="impact_hard" 
@@ -802,7 +765,8 @@
 	<!-- Creature Eyes -->
     <!-- Crawler Eye -->
 	<Item 
-		identifier="it_crawlereye" 
+		identifier="it_crawlereye"
+		aliases="transplant_eyes_monster"
 		scale="0.1"
 		useinhealthinterface="True" 
 		impactsoundtag="impact_soft" 
@@ -1760,6 +1724,7 @@
 	<!-- Organic Lens -->
 	<Item
 		identifier="it_organiclens"
+		aliases="eyelens"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -1824,6 +1789,7 @@
 	<!-- Medical Lens -->
 	<Item
 		identifier="it_medicallens"
+		aliases="medicallensitem"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -1902,6 +1868,7 @@
 	<!-- Electrical Lens -->
 	<Item
 		identifier="it_electricallens"
+		aliases="electricallensitem"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -1978,6 +1945,7 @@
 	<!-- Magnification Lens -->
 	<Item
 		identifier="it_magnificationlens"
+		aliases="zoomlensitem"
 		category="Medical"
 		maxstacksize="32"
 		maxstacksizecharacterinventory="8"
@@ -2212,6 +2180,7 @@
     <!-- Corrective Glasses -->
     <Item
         identifier="it_glasses"
+		aliases="eyeglasses"
         scale="0.17"
         category="Equipment"
         tags="smallitem,clothing"
@@ -2279,6 +2248,7 @@
     <!-- Aviator Glasses -->
     <Item
         identifier="it_aviators"
+		aliases="aviatorglasses"
         scale="0.17"
         category="Equipment"
         tags="smallitem,clothing"
@@ -2352,7 +2322,8 @@
 	<!-- Miscellenous Items -->
 	<!-- Night Vision Goggles -->
 	<Item 
-		identifier="it_nvg" 
+		identifier="it_nvg"
+		aliases="nightgoggles"
 		scale="0.5" 
 		maxstacksize="1" 
 		category="Equipment" 
@@ -2525,7 +2496,8 @@
 
 	<!-- Eye Regeneration jar -->
 	<Item 
-		identifier="it_eyejar" 
+		identifier="it_eyejar"
+		aliases="eyejar"
 		category="Equipment" 
 		tags="mediumitem,eyecontainer,refrigerated" 
 		cargocontaineridentifier="metalcrate" 
@@ -2804,7 +2776,7 @@
 					volume="2" />
 			</StatusEffect>
 			<StatusEffect
-				type="always"
+				type="Always"
 				target="This"
 				disabledeltatime="true"
 				delay="1"
@@ -2844,7 +2816,7 @@
 					volume="0.5" />
 			</StatusEffect>
 			<StatusEffect
-				type="always"
+				type="Always"
 				target="This"
 				disabledeltatime="true"
 				delay="1"
@@ -2884,7 +2856,7 @@
 					volume="0.05" />
 			</StatusEffect>
 			<StatusEffect
-				type="always"
+				type="Always"
 				target="This"
 				disabledeltatime="true"
 				delay="1"
@@ -2924,7 +2896,7 @@
 					volume="1" />
 			</StatusEffect>
 			<StatusEffect
-				type="always"
+				type="Always"
 				target="This"
 				disabledeltatime="true"
 				delay="1"

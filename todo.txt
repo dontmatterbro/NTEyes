@@ -15,6 +15,8 @@ CANCELLED -- // decided just to give the multiscalpel eye mechanics, laser surge
 CANCELLED -- // decided to remove zoom functions from the mod, I right now can't implement those in a
 non invasive way, maybe I'll look into it in the future. // --better enhanced immersion comp
 
+--eye damage causes NT symptoms, headache, confusion etc. 
+
 --better eye damage
 (damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
 Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case

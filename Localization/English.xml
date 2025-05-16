@@ -12,9 +12,6 @@
     <entityname.it_eyedrop>Eye Drop</entityname.it_eyedrop>
     <entitydescription.it_eyedrop></entitydescription.it_eyedrop>
 
-    <entityname.it_deusizinedrop>Deusizine Drop</entityname.it_deusizinedrop>
-    <entitydescription.it_deusizinedrop></entitydescription.it_deusizinedrop>
-
     <entityname.it_lasersurgerytool>Laser Surgery Tool</entityname.it_lasersurgerytool>
     <entitydescription.it_lasersurgerytool></entitydescription.it_lasersurgerytool>
 
@@ -183,8 +180,8 @@
     <afflictionname.vi_cyber>Cyber Eye Visual Indicator</afflictionname.vi_cyber>
     <afflictiondescription.vi_cyber></afflictiondescription.vi_cyber>
 
-    <afflictionname.vi_enchanced>Enhanced Eye Visual Indicator</afflictionname.vi_enchanced>
-    <afflictiondescription.vi_enchanced></afflictiondescription.vi_enchanced>
+    <afflictionname.vi_enhanced>Enhanced Eye Visual Indicator</afflictionname.vi_enhanced>
+    <afflictiondescription.vi_enhanced></afflictiondescription.vi_enhanced>
 
     <afflictionname.vi_human>Human Eye Visual Indicator</afflictionname.vi_human>
     <afflictiondescription.vi_human></afflictiondescription.vi_human>
