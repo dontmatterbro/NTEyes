@@ -405,6 +405,7 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 				return --exit if dead eye is removed
 			end
 			HF.GiveEyeItem(targetCharacter, usingCharacter) --give eye items to usingCharacter
+			HF.GiveLensItem(targetCharacter, usingCharacter) --give lens items to usingCharacter
 			HF.NukeEyeAfflictions(targetCharacter) --remove all eye afflictions from patient
 
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient

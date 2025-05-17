@@ -4,4 +4,15 @@
 	<Afflictions file="%ModDir%/Xml/Retro/retroAfflictions.xml" />
 	<Item file="%ModDir%/Xml/items.xml" />
 	<Text file="%ModDir%/Localization/English.xml" />
+	  <Other file="%ModDir%/Sounds/eye_slowlaser.ogg" />
+  <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
+  <Other file="%ModDir%/Sounds/eye_error.ogg" />
+  <Other file="%ModDir%/Sounds/eye_beep.ogg" />
+	<Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
+	<Other file="%ModDir%/Textures/Overlays/gradientoverlay.png" />
+	<Other file="%ModDir%/Textures/Overlays/grayoverlay.png" />
+	<Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+	<Other file="%ModDir%/Textures/AfflictionIcons.png" />
+	<Other file="%ModDir%/Textures/ItemIcons.png" />
+	<Other file="%ModDir%/metadata.xml" />
 </contentpackage>
