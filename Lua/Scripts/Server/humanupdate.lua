@@ -163,8 +163,41 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
-	mc_cataract = {},
-	mc_visionsickness = {},
+	mc_cataract = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength >= 80 then
+				NTC.SetSymptomTrue(character, "sym_blurredvision", 10)
+			end
+		end,
+	},
+	mc_visionsickness = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			if c.afflictions[i].strength >= 20 then
+				NTC.SetSymptomTrue(character, "sym_confusion", 10)
+			end
+			if c.afflictions[i].strength >= 50 then
+				NTC.SetSymptomTrue(character, "sym_headache", 10)
+			end
+		end,
+	},
 	mc_mismatch = {
 		max = 100,
 		update = function(c, i)
@@ -180,6 +213,9 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			NTC.SetSymptomTrue(character, "sym_headache", 10)
+			if HF.Chance(0.07) then
+				NTC.SetSymptomTrue(character, "sym_nausea", 10)
+			end
 		end,
 	},
 	--eye damage afflictions
