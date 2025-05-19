@@ -20,8 +20,10 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 			NTEYE.ScoopHuman(targetCharacter, usingCharacter)
 			HF.NukeEyeAfflictions(targetCharacter) --remove eye afflictions
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient
-			HF.AddAfflictionLimb(targetCharacter, "traumaticshock", limb, math.random(25, 85)) --give traumatic shock
-			HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, math.random(1, 25)) --give bleeding
+			if not targetCharacter.IsDead then
+				HF.AddAfflictionLimb(targetCharacter, "traumaticshock", limb, math.random(25, 85)) --give traumatic shock
+				HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, math.random(1, 25)) --give bleeding
+			end
 		else
 			--if target character is not human
 			NTEYE.ScoopMonster(targetCharacter, usingCharacter)
@@ -74,6 +76,7 @@ function NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 	local speciesList = {
 		{ type = "Crawler", item = "it_crawlereye" },
 		{ type = "Mudraptor", item = "it_mudraptoreye" },
+		{ type = "Hammerhead", item = "it_hammerheadeye" },
 		{ type = "Watcher", item = "it_watchereye" },
 		{ type = "Husk", item = "it_huskeye" },
 		{ type = "Charybdis", item = "it_charybdiseye" },

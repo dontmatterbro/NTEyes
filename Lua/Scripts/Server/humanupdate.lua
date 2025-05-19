@@ -411,6 +411,42 @@ NTEYE.UpdateAfflictions = {
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
 		end,
 	},
+	dm_hammerhead = {
+		max = 100,
+		update = function(c, i)
+			--variables for optimization
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if the correct eye type
+			if not (afflictionsTable.vi_hammerhead.strength > 0) then
+				return
+			end
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+
+			local gain = (
+				-0.1 * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / 80 -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis			--monster eyes won't receive pressure damage
+
+			) * NT.Deltatime
+
+			if gain > 0 then
+				gain = gain
+					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
+					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+			end
+			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+			--function to check for eye death
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+		end,
+	},
 	dm_watcher = {
 		max = 100,
 		update = function(c, i)
@@ -624,6 +660,7 @@ NTEYE.UpdateAfflictions = {
 	vi_plastic = {},
 	vi_crawler = {},
 	vi_mudraptor = {},
+	vi_hammerhead = {},
 	vi_watcher = {},
 	vi_husk = {},
 	vi_charybdis = {},

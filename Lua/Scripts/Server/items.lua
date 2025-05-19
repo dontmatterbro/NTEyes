@@ -63,6 +63,7 @@ NTEYE.EyeProperty = {
 	{ type = "vi_plastic", damage = "dm_plastic", item = "it_plasticeye" },
 	{ type = "vi_crawler", damage = "dm_crawler", item = "it_crawlereye" },
 	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye" },
+	{ type = "vi_hammerhead", damage = "dm_hammerhead", item = "it_hammerheadeye" },
 	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye" },
 	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye" },
 	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye" },
@@ -725,6 +726,21 @@ NTEYE.ItemMethods.it_crawlereye = function(item, usingCharacter, targetCharacter
 end
 --mudraptor eye
 NTEYE.ItemMethods.it_mudraptoreye = function(item, usingCharacter, targetCharacter, targetLimb)
+	local limb = LimbType.Head
+	--check if the item is used on the head
+	if targetLimb.type ~= limb then
+		return
+	end
+	--check if surgery can be performed
+	if not HF.CanPerformSurgeryOn(targetCharacter) then
+		return
+	end
+
+	--give eye affliction
+	HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
+end
+--hammerhead eye
+NTEYE.ItemMethods.it_hammerheadeye = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 	--check if the item is used on the head
 	if targetLimb.type ~= limb then
