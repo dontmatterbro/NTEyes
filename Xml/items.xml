@@ -108,9 +108,8 @@
                             amount="2" />
             </Attack>
             <StatusEffect type="OnUse"
-                          target="Limb"
-                          targetLimb="Head">
-                <LuaHook name="spoonUsed" />
+                          target="UseTarget">
+                <LuaHook name="NTEYE.Spoon" />
             </StatusEffect>
         </MeleeWeapon>
         <aitarget sightrange="1000"
@@ -1608,7 +1607,7 @@
         <Body width="14"
               height="22"
               density="10" />
-      <!--  <Price baseprice="650"
+        <!-- <Price baseprice="650"
                soldbydefault="false">
             <Price storeidentifier="merchantresearch"
                    sold="True"
@@ -1624,8 +1623,8 @@
                           amount="2" />
             <RequiredItem identifier="fpgacircuit" />
             <RequiredItem identifier="dementonite"
-                          amount="2" /> -->
-        </Fabricate>
+                          amount="2" /> 
+        </Fabricate> -->
         <Deconstruct time="3">
             <Item identifier="silicon" />
         </Deconstruct>
@@ -1682,7 +1681,8 @@
             <RequiredItem identifier="plastic"
                           amount="2" />
             <RequiredItem identifier="fpgacircuit" />
-            <RequiredItem identifier="phosphorus" amount="2" />
+            <RequiredItem identifier="phosphorus"
+                          amount="2" />
             <RequiredItem identifier="dementonite"
                           amount="1" />
         </Fabricate>

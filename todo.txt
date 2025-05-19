@@ -17,6 +17,10 @@ non invasive way, maybe I'll look into it in the future. // --better enhanced im
 
 --eye damage causes NT symptoms, headache, confusion etc. 
 
+--some way to prevent the symptoms of mismatch
+
+--prevent dead bionic and plastic eyes from causing retinopathy
+
 --better eye damage
 (damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
 Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
@@ -38,6 +42,7 @@ but it ain't special either.)
 --enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
 
 --make eye jar placeable AND holdable -- lukako on nt discord worked for a baseline code of this, check that out
+--fix eye jars //broken rn
 
 --comp patches for immersive diving and robotrauma (this may not be needed, further inquiry required)
 

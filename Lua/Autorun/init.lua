@@ -28,6 +28,7 @@ Timer.Wait(function()
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/serverReceive.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/multiScalpel.lua")
 		dofile(NTEYE.Path .. "/Lua/Scripts/Server/onDamaged.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/THESPOON.lua")
 	end
 
 	--client side scripts
