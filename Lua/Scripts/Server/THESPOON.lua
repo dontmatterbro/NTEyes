@@ -1,15 +1,9 @@
 --hook to extract eyes
 Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets, worldPosition, element)
-	--debug
-	print("Spoon Used")
-
 	local limb = LimbType.Head
 	local usingCharacter = item.Equipper
 
 	for k, targetCharacter in pairs(targets) do
-		--debug
-		print("Target: " .. targetCharacter.Name)
-
 		--check if target exists, has eyes
 		if not (targetCharacter and HF.HasEyes(targetCharacter)) then
 			return
@@ -33,6 +27,8 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 		if targetCharacter.IsDead then
 			Networking.CreateEntityEvent(targetCharacter, Character.CharacterStatusEventData.__new(true))
 		end --thanks ydrec
+		--remove my beloved spoon
+		item.Condition = 0
 	end
 end)
 
