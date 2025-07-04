@@ -275,7 +275,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -451,7 +451,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -651,7 +651,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -752,7 +752,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -853,7 +853,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -954,7 +954,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -1032,7 +1032,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -1124,7 +1124,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -1225,7 +1225,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -1326,7 +1326,7 @@
           impactsoundtag="impact_soft"
           cargocontaineridentifier="organcrate"
           impacttolerance="5.5"
-          Tags="smallitem,organ"
+          Tags="smallitem,organ,eyejarcontainable"
           maxstacksize="2"
           maxstacksizecharacterinventory="2">
         <Sprite texture="%ModDir%/Textures/ItemIcons.png"
@@ -2056,7 +2056,7 @@
                   allowswappingwhenpicked="false" />
         <ItemContainer capacity="1"
                        hideitems="false">
-            <Containable items="transplant_eyes,transplant_eyes_monster,transplant_eyes_terror,transplant_eyes_husk,transplant_eyes_night,transplant_eyes_infrared" />
+            <Containable items="eyejarcontainable" />
         </ItemContainer>
     </Item>
     <!-- Eye Surgery Toolbag -->

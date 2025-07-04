@@ -27,7 +27,7 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 		if targetCharacter.IsDead then
 			Networking.CreateEntityEvent(targetCharacter, Character.CharacterStatusEventData.__new(true))
 		end --thanks ydrec
-		--remove my beloved spoon
+		--remove my beloved spoon upon use
 		item.Condition = 0
 	end
 end)
@@ -68,6 +68,7 @@ function NTEYE.ScoopHuman(targetCharacter, usingCharacter)
 	end
 end
 
+--function to scoop eyes from monsters
 function NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 	local speciesList = {
 		{ type = "Crawler", item = "it_crawlereye" },
