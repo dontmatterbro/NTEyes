@@ -19,11 +19,11 @@ function NTEYE.HudToggle()
 		if HF.HasAffliction(Character.Controlled, hud.affliction) and not CharacterHealth.OpenHealthWindow then
 			if PlayerInput.KeyHit(NTEYE.LensActivationKey) then
 				if NTEYE.HUDEnabled then
-					print("Disabling HUD")
+					--print("NTEyes: Disabling Client HUD")
 					NTEYE.HUDEnabled = false
 					NTEYE.PlayBeepSound(Character.Controlled)
 				else
-					print("Enabling HUD")
+					--print("NTEyes: Enabling Client HUD")
 					NTEYE.HUDEnabled = true
 					NTEYE.PlayBeepSound(Character.Controlled)
 				end

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+    <!-- Mechanical Afflictions -->
+    <!-- Dead Eyes -->
+    <Affliction
+        identifier="mc_deadeyes"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="0"
+        maxstrength="2"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="255,0,0,255">
+        <Effect
+            minstrength="0"
+            maxstrength="2"
+            minscreendistort="100"
+            maxscreendistort="100"
+            minscreenblur="100"
+            maxscreenblur="100"
+            minradialdistort="100"
+            maxradialdistort="100"
+            minchromaticaberration="200"
+            maxchromaticaberration="200"
+            minskillmultiplier="0.15"
+            maxskillmultiplier="0.15"
+            minspeedmultiplier="0.5"
+            maxspeedmultiplier="0.5">
+            <StatusEffect
+                target="Character">
+                <!-- Try to add a special animation for this -->
+                <TriggerAnimation
+                    Type="Walk"
+                    filename="DrunkenWalk"
+                    priority="6"
+                    ExpectedSpecies="Human" />
+
+                <TriggerAnimation
+                    Type="Run"
+                    filename="DrunkenRun"
+                    priority="6"
+                    ExpectedSpecies="Human" />
+            </StatusEffect>
+        </Effect>
+
+        <AfflictionOverlay
+            texture="%ModDir%/Textures/Overlays/gradientoverlay.png" />
+
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="0,384,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Dead Eye -->
+    <Affliction
+        identifier="mc_deadeye"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="0"
+        maxstrength="2"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="255,80,0,255;255,80,0,255">
+        <Effect
+            minstrength="0"
+            maxstrength="2">
+            <StatusEffect
+                target="Character"
+                ObstructVisionAmount="0.7"
+                priority="100"
+                setvalue="true" />
+        </Effect>
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="640,0,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Retinopathy -->
+    <Affliction
+        identifier="mc_retinopathy"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="5"
+        maxstrength="100"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="0,0,0,255;255,100,0,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="5" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="896,0,128,128"  
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Cataract -->
+    <Affliction
+        identifier="mc_cataract"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="15"
+        maxstrength="100"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="101,101,101,255;255,255,255,255">
+        <Effect
+            minstrength="20"
+            maxstrength="100"
+            strengthchange="2"
+            minskillmultiplier="1.0"
+            maxskillmultiplier="0.9" />
+    </Affliction>
+
+    <!-- Vision Sickness -->
+    <Affliction
+        identifier="mc_visionsickness"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="10"
+        showinhealthscannerthreshold="1000"
+        maxstrength="100"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="211,211,84,255;211,100,20,255">
+        <Effect
+            minstrength="0"
+            maxstrength="70"
+            strengthchange="-3"
+            minscreendistort="0"
+            maxscreendistort="0.5"
+            minscreenblur="0"
+            maxscreenblur="0.2"
+            minradialdistort="0"
+            maxradialdistort="0.1"
+            minskillmultiplier="1.0"
+            maxskillmultiplier="0.8" />
+
+        <Effect
+            minstrength="70"
+            maxstrength="100"
+            strengthchange="-2"
+            minscreendistort="0.5"
+            maxscreendistort="0.7"
+            minscreenblur="0.2"
+            maxscreenblur="0.3"
+            minradialdistort="0.1"
+            maxradialdistort="0.2"
+            minskillmultiplier="0.8"
+            maxskillmultiplier="0.5"
+            minspeedmultiplier="1"
+            maxspeedmultiplier="0.8" />
+
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="768,0,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Mismatching Eyes -->
+    <Affliction
+        identifier="mc_mismatch"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="1"
+        showinhealthscannerthreshold="1000"
+        maxstrength="2"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="211,211,84,255;211,100,20,255">
+        <Effect
+            minstrength="0"
+            maxstrength="2"
+            minskillmultiplier="0.85"
+            maxskillmultiplier="0.85" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="768,0,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+</Afflictions>

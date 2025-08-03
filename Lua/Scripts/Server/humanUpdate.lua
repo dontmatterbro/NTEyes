@@ -1,12 +1,21 @@
 --pressure damage calculation
-local function PressureDamageCalculation(character)
-	local pressureDamage = 3
+local function PressureDamageCalculation(character, pressureDamageValue)
+	--this may be redundant, not a big deal tho
+	local pressureDamageValue = pressureDamage
+
+	--check if there is a pressureDamage value, if not set it 0
+	if pressureDamage == nil then
+		pressureDamage = 0
+	end
+
+	--return the damage value
 	return (
 		(character.InPressure and not (character.IsProtectedFromPressure or character.IsImmuneToPressure))
 		and pressureDamage
 	) or 0
 end
 
+--remove eye upon death on passive check
 local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
 	if
 		afflictionsTable[i].strength >= 80
@@ -16,7 +25,6 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 		)
 	then
 		if HF.Chance(0.1) then
-			print("test1")
 			afflictionsTable[i].strength = afflictionsTable[i].strength - 50
 			HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
 			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength > 0 then
@@ -37,7 +45,6 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 		)
 	then
 		if HF.Chance(0.1) then
-			print("test2")
 			afflictionsTable[i].strength = 0
 			local base = i:match("^dm_(.+)$")
 			if base then
@@ -58,7 +65,7 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 	end
 end
 
---define afflictions for humanupdate
+--define afflictions for humanupdate (this is added the Neurotrauma humanupdate table)
 NTEYE.UpdateAfflictions = {
 
 	--surgery afflictions
@@ -69,6 +76,7 @@ NTEYE.UpdateAfflictions = {
 	sr_eyeconnector = {},
 	sr_corneaincision = {},
 	sr_emulsification = {},
+	--increases eye health
 	sr_eyedrops = {
 		max = 100,
 		update = function(c, i)
@@ -93,6 +101,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--increases eye health more
 	sr_lasersurgery = {
 		max = 100,
 		update = function(c, i)
@@ -119,6 +128,7 @@ NTEYE.UpdateAfflictions = {
 	},
 	--mechanical afflictions
 	mc_deadeyes = {},
+	--causes retinopathy at a chance
 	mc_deadeye = {
 		--having a dead eye will have a chance to cause autoimmune retinopathy
 		max = 100,
@@ -139,6 +149,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--increases retinopathy if the player has it
 	mc_retinopathy = {
 		max = 100,
 		update = function(c, i)
@@ -163,6 +174,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--triggers vision debuffs upon having cataracts
 	mc_cataract = {
 		max = 100,
 		update = function(c, i)
@@ -179,6 +191,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--used for blur after surgery
 	mc_visionsickness = {
 		max = 100,
 		update = function(c, i)
@@ -198,6 +211,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--used when character has incompatible eyes
 	mc_mismatch = {
 		max = 100,
 		update = function(c, i)
@@ -237,12 +251,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 200
+			local strokeResistance = 0.1
+			local sepsisResistance = 0.4
+			--set by; lower value, less damage
+			local pressureDamage = 3
+			local regenRate = -0.1 --inverse for passive healing
+
+			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 100 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis
-				+ PressureDamageCalculation(character) -- from pressure
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -297,12 +321,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 250
+			local strokeResistance = 0.08
+			local sepsisResistance = 0.3
+			--set by; lower value, less damage
+			local pressureDamage = 2.5
+			local regenRate = -0.1 --inverse for passive healing
+
+			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 120 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.08 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.35 -- from sepsis
-				+ PressureDamageCalculation(character) -- from pressure
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -357,12 +391,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 80 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 100
+			local strokeResistance = 0.1
+			local sepsisResistance = 0.4
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -393,12 +437,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 80 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 100
+			local strokeResistance = 0.1
+			local sepsisResistance = 0.4
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -429,12 +483,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 80 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 100
+			local strokeResistance = 0.1
+			local sepsisResistance = 0.4
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -465,12 +529,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 80 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.1 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.4 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 100
+			local strokeResistance = 0.1
+			local sepsisResistance = 0.4
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -501,12 +575,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.2 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 400 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.01 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.05 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 1000
+			local strokeResistance = 0.03
+			local sepsisResistance = 0.03
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.2 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -537,12 +621,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 200 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.05 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.02 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 300
+			local strokeResistance = 0.05
+			local sepsisResistance = 0.02
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -573,12 +667,22 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
-			local gain = (
-				-0.1 * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / 160 -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * 0.08 -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * 0.2 -- from sepsis			--monster eyes won't receive pressure damage
+			--variable declaration for gain
+			--divided by; higher value, less damage
+			local hypoxemiaResistance = 250
+			local strokeResistance = 0.08
+			local sepsisResistance = 0.2
+			--set by; lower value, less damage
+			local pressureDamage = 0
+			local regenRate = -0.1 --inverse for passive healing
 
+			--sets biological damage gain for eyes (can be negative or positive)
+			local gain = (
+				regenRate * statsTable.healingrate -- passive regen
+				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
+				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
+				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
 			) * NT.Deltatime
 
 			if gain > 0 then
@@ -609,9 +713,9 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--terror eyes do not receive biological damage and heal really fast
 			local gain = (
-				-0.15 * statsTable.healingrate -- passive regen
-
+				-0.3 * statsTable.healingrate -- passive regen
 			) * NT.Deltatime
 
 			if gain > 0 then

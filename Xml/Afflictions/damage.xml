@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+    <!-- Eye Damage Types -->
+    <!-- Human Eye Damage -->
+    <Affliction
+        identifier="dm_human"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false" />
+
+    <!-- Cyber Eye Damage -->
+    <Affliction
+        identifier="dm_cyber"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="211,211,84,255;211,211,84,255" />
+
+    <!-- Enhanced Eye Damage -->
+    <Affliction
+        identifier="dm_enhanced"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="42,194,47,255;42,194,47,255" />
+
+    <!-- Plastic Eye Damage -->
+    <Affliction
+        identifier="dm_plastic"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="84,211,230,255;84,211,230,255" />
+
+    <!-- Crawler Eye Damage -->
+    <Affliction
+        identifier="dm_crawler"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="160,160,70,255;160,160,70,255" />
+
+    <!-- Mudraptor Eye Damage -->
+    <Affliction
+        identifier="dm_mudraptor"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="160,160,70,255;160,160,70,255" />
+
+    <!-- Watcher Eye Damage -->
+    <Affliction
+        identifier="dm_watcher"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="160,160,70,255;160,160,70,255" />
+
+    <!-- Huskified Eye Damage -->
+    <Affliction
+        identifier="dm_husk"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="75,0,75,255;75,0,75,255" />
+
+    <!-- Charybdis Eye Damage -->
+    <Affliction
+        identifier="dm_charybdis"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="255,0,0,255;255,0,0,255" />
+
+    <!-- Latcher Eye Damage -->
+    <Affliction
+        identifier="dm_latcher"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="255,0,0,255;255,0,0,255" />
+
+    <!-- Terror Eye Damage -->
+    <Affliction
+        identifier="dm_terror"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="255,0,0,255;255,0,0,255" />
+</Afflictions>

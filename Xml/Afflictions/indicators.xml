@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+    <!-- Visual Indicators -->
+    <!-- Human Eye -->
+    <Affliction
+        identifier="vi_human"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Cyber Eye -->
+    <Affliction
+        identifier="vi_cyber"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Enhanced Eye -->
+    <Affliction
+        identifier="vi_enhanced"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Plastic Eye -->
+    <Affliction
+        identifier="vi_plastic"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+        <AfflictionOverlay
+            texture="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+    </Affliction>
+
+    <!-- Crawler Eye -->
+    <Affliction
+        identifier="vi_crawler"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Mudraptor Eye -->
+    <Affliction
+        identifier="vi_mudraptor"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Watcher Eye -->
+    <Affliction
+        identifier="vi_watcher"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Huskified Eye -->
+    <Affliction
+        identifier="vi_husk"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Charybdis Eye -->
+    <Affliction
+        identifier="vi_charybdis"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Latcher Eye -->
+    <Affliction
+        identifier="vi_latcher"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+
+    <!-- Terror Eye -->
+    <Affliction
+        identifier="vi_terror"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
+    </Affliction>
+</Afflictions>

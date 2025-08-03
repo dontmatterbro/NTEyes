@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+    <!-- Wearable Items -->
+    <!-- Corrective Glasses -->
+    <Item
+        identifier="it_glasses"
+        aliases="eyeglasses"
+        scale="0.17"
+        category="Equipment"
+        tags="smallitem,clothing"
+        cargocontaineridentifier="metalcrate"
+        impactsoundtag="impact_metal_light">
+        <Price
+            baseprice="150"
+            soldbydefault="true">
+            <Price
+                storeidentifier="merchantmedical" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="fabricator"
+            requiredtime="25">
+            <RequiredSkill
+                identifier="mechanical"
+                level="30" />
+
+            <RequiredSkill
+                identifier="medical"
+                level="40" />
+
+            <RequiredItem
+                identifier="plastic"
+                amount="2" />
+
+            <RequiredItem
+                identifier="steel"
+                amount="2" />
+        </Fabricate>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="iron" />
+            <Item
+                identifier="plastic" />
+        </Deconstruct>
+
+        <InventoryIcon
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="384,896,128,128"
+            origin="0.5,0.5" />
+
+        <Sprite
+            name="Corrective glasses"
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="0,640,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="30"
+            height="15"
+            density="30" />
+
+        <Wearable
+            limbtype="Head"
+            slots="Any,Head"
+            msg="ItemMsgPickUpSelect">
+            <sprite
+                name="Corrective glasses wearable"
+                texture="%ModDir%/Textures/ItemIcons.png"
+                limb="Head"
+                inheritlimbdepth="true"
+                inheritscale="true"
+                ignorelimbscale="true"
+                scale="0.29"
+                sourcerect="0,640,128,128"
+                origin="0.525,0.51" />
+        </Wearable>
+    </Item>
+
+    <!-- Aviator Glasses -->
+    <Item
+        identifier="it_aviators"
+        aliases="aviatorglasses"
+        scale="0.17"
+        category="Equipment"
+        tags="smallitem,clothing"
+        cargocontaineridentifier="metalcrate"
+        impactsoundtag="impact_metal_light">
+        <PreferredContainer
+            primary="secarmcab"
+            secondary="armcab" />
+
+        <PreferredContainer
+            secondary="wrecksecarmcab"
+            spawnprobability="0.001" />
+
+        <Price
+            baseprice="1500">
+            <Price
+                locationtype="military"
+                multiplier="3" />
+        </Price>
+
+        <Deconstruct
+            time="25">
+            <Item
+                identifier="iron" />
+            <Item
+                identifier="plastic" />
+        </Deconstruct>
+
+        <InventoryIcon
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="512,896,128,128"
+            origin="0.5,0.5" />
+
+        <Sprite
+            name="Aviator Glasses"
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="128,640,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="30"
+            height="15"
+            density="30" />
+
+        <Wearable
+            limbtype="Head"
+            slots="Any,Head"
+            msg="ItemMsgPickUpSelect">
+            <SkillModifier
+                skillidentifier="helm"
+                skillvalue="50" />
+
+            <SkillModifier
+                skillidentifier="weapons"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="medical"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="electrical"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="mechanical"
+                skillvalue="-75" />
+
+            <sprite
+                name="Aviator Glasses Wearable"
+                texture="%ModDir%/Textures/ItemIcons.png"
+                limb="Head"
+                inheritlimbdepth="true"
+                inheritscale="true"
+                ignorelimbscale="true"
+                scale="0.29"
+                sourcerect="128,640,128,128"
+                origin="0.52,0.525" />
+        </Wearable>
+    </Item>
+
+    <!-- Miscellenous Items -->
+    <!-- Night Vision Goggles -->
+    <Item
+        identifier="it_nvg"
+        aliases="nightgoggles"
+        scale="0.5"
+        maxstacksize="1"
+        category="Equipment"
+        tags="smallitem"
+        allowasextracargo="true"
+        cargocontaineridentifier="metalcrate"
+        impactsoundtag="impact_metal_light">
+        <PreferredContainer
+            secondary="wrecksecarmcab"
+            spawnprobability="0.02" />
+
+        <InventoryIcon
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="2,769,61,37"
+            origin="0.5,0.5" />
+
+        <Sprite
+            name="Night Vision Goggles"
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="2,808,59,39"
+            origin="0.5,0.5" />
+
+        <Body
+            width="70"
+            height="24"
+            density="15" />
+
+        <Price
+            baseprice="400"
+            soldbydefault="false">
+            <Price
+                storeidentifier="merchantmilitary"
+                sold="true"
+                multiplier="1" />
+            <Price
+                storeidentifier="merchantmine"
+                sold="true"
+                multiplier="1.5" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="fabricator"
+            requiredtime="80">
+            <RequiredSkill
+                identifier="electrical"
+                level="35" />
+
+            <RequiredSkill
+                identifier="weapons"
+                level="50" />
+
+            <RequiredItem
+                identifier="fpgacircuit" />
+
+            <RequiredItem
+                identifier="plastic"
+                amount="2" />
+
+            <RequiredItem
+                identifier="phosphorus" />
+        </Fabricate>
+
+        <Deconstruct
+            time="15">
+            <Item
+                identifier="copper" />
+            <Item
+                identifier="silicon" />
+        </Deconstruct>
+
+        <Turret
+            HudTint="15,90,15,45"
+            drawhudwhenequipped="true">
+            <StatusEffect
+                type="OnActive"
+                target="this"
+                HudTint="0,0,0,0"
+                disabledeltatime="true"
+                setvalue="true">
+                <Conditional
+                    hasstatustag="neq powered" />
+            </StatusEffect>
+            <StatusEffect
+                type="OnActive"
+                target="this"
+                HudTint="15,90,15,45"
+                disabledeltatime="true"
+                setvalue="true">
+                <Conditional
+                    hasstatustag="powered" />
+            </StatusEffect>
+        </Turret>
+
+        <ItemContainer
+            capacity="1"
+            maxstacksize="1"
+            hideitems="true"
+            containedstateindicatorstyle="battery">
+            <Containable
+                items="mobilebattery" />
+        </ItemContainer>
+
+        <Wearable
+            slots="Any,Head"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnWearing"
+                target="Character"
+                ObstructVisionAmount="0.5"
+                setvalue="true"
+                disabledeltatime="true" />
+
+            <StatusEffect
+                type="OnWearing"
+                target="Contained, Character"
+                Condition="-0.6"
+                comparison="And">
+                <Conditional
+                    hasstatustag="powered"
+                    targetcontainer="true" />
+                <Conditional
+                    IsDead="False" />
+            </StatusEffect>
+
+            <sprite
+                name="Night Vision Goggles"
+                texture="%ModDir%/Textures/ItemIcons.png"
+                limb="Head"
+                inheritlimbdepth="true"
+                inheritscale="true"
+                ignorelimbscale="true"
+                sourcerect="2,808,59,39"
+                origin="0.4,0.6">
+                <LightComponent
+                    LightColor="0,100,0,90"
+                    range="2000"
+                    IsOn="true"
+                    castshadows="true"
+                    powerconsumption="1">
+                    <LightTexture
+                        texture="Content/Lights/pointlight_bounce.png"
+                        origin="0.5,0.5" />
+                    <StatusEffect
+                        type="OnWearing"
+                        target="This"
+                        Voltage="1.0"
+                        setvalue="true"
+                        comparison="AND">
+                        <Conditional
+                            IsDead="false"
+                            targetcontainer="true" />
+
+                        <Conditional
+                            hasstatustag="powered" />
+
+                        <Conditional
+                            IsLocalPlayer="true"
+                            targetcontainer="true" />
+                    </StatusEffect>
+                </LightComponent>
+            </sprite>
+        </Wearable>
+
+        <CustomInterface
+            canbeselected="true"
+            drawhudwhenequipped="true">
+            <GuiFrame
+                relativesize="0.12,0.08"
+                anchor="BottomLeft"
+                absoluteoffset="20,98"
+                style="ItemUI" />
+            <TickBox
+                text="On/Off">
+                <StatusEffect
+                    type="OnUse"
+                    target="This"
+                    tags="powered"
+                    duration="0.2">
+                    <RequiredItem
+                        items="mobilebattery"
+                        type="Contained" />
+                </StatusEffect>
+            </TickBox>
+        </CustomInterface>
+    </Item>
+
+    <!-- Eye Regeneration jar -->
+    <Item
+        identifier="it_eyejar"
+        aliases="eyejar"
+        category="Equipment"
+        tags="mediumitem,eyecontainer,refrigerated"
+        cargocontaineridentifier="metalcrate"
+        showcontentsintooltip="true"
+        scale="0.4"
+        fireproof="true"
+        impactsoundtag="impact_hard"
+        isshootable="true">
+        <PreferredContainer
+            primary="medcab" />
+
+        <Deconstruct
+            time="20">
+            <Item
+                identifier="silicon" />
+            <Item
+                identifier="iron" />
+        </Deconstruct>
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="100">
+            <RequiredSkill
+                identifier="medical"
+                level="68" />
+
+            <Item
+                identifier="silicon" />
+
+            <Item
+                identifier="steel" />
+
+            <Item
+                identifier="tonicliquid" />
+
+            <Item
+                identifier="potassium"
+                amount="2" />
+        </Fabricate>
+
+        <Price
+            baseprice="900"
+            soldbydefault="false"
+            MinLevelDifficulty="2">
+            <Price
+                storeidentifier="merchantmedical"
+                sold="true"
+                maxavailable="1" />
+        </Price>
+
+        <InventoryIcon
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="768,768,128,128"
+            origin="0.5,0.5" />
+
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            depth="0.51"
+            sourcerect="768,768,128,128"
+            origin="0.5,0.5" />
+
+        <Body
+            width="45"
+            height="80"
+            density="15" />
+
+        <Holdable
+            slots="Any,RightHand,LeftHand"
+            selectkey="Action"
+            pickkey="Use"
+            holdpos="0,-70"
+            handle1="0,45"
+            holdangle="0"
+            msg="ItemMsgPickUpUse"
+            canbeselected="true"
+            allowswappingwhenpicked="true"
+            attachable="true"
+            aimable="true"
+            PickingTime="3" />
+
+        <ItemContainer
+            capacity="2"
+            hideitems="false">
+            <Containable
+                items="eyejarcontainable" />
+        </ItemContainer>
+    </Item>
+
+    <!-- Eye Surgery Toolbag -->
+    <!-- <Item
+		identifier="it_eyesurgerytoolbag" 
+		category="Equipment" 
+		tags="smallitem,mobilecontainer,tool,toolbox"
+		showcontentsintooltip="true" 
+		scale="0.5" 
+		fireproof="true" 
+		impactsoundtag="impact_metal_heavy" 
+		RequireAimToUse="True">
+		<PreferredContainer 
+			primary="medcab" 
+			minamount="1" 
+			maxamount="1" />
+		<PreferredContainer 
+			secondary="locker" />
+		<Deconstruct 
+			time="10">
+			<Item 
+				identifier="steel" />
+		</Deconstruct>
+		<Fabricate 
+			suitablefabricators="fabricator" 
+			requiredtime="20">
+			<RequiredSkill 
+				identifier="mechanical" 
+				level="20" />
+			<RequiredItem 
+				identifier="steel" 
+				amount="2" />
+		</Fabricate>
+		<Price 
+			baseprice="25">
+			<Price 
+				storeidentifier="merchantmedical" 
+				sold="true" 
+				multiplier="0.9" 
+				minavailable="2" />
+		</Price>
+		<Sprite />
+		<Body 
+			width="45" 
+			height="30" 
+			density="20" />
+		<MeleeWeapon 
+			slots="RightHand,LeftHand,Any" 
+			controlpose="true" 
+			aimpos="45,10" 
+			handle1="0,14" 
+			holdangle="90" 
+			reload="1" 
+			range="50" 
+			combatpriority="6" 
+			msg="ItemMsgPickUpSelect">
+			<Attack 
+				structuredamage="0" 
+				itemdamage="1" 
+				targetimpulse="2">
+				<Affliction 
+					identifier="blunttrauma" 
+					strength="1" />
+				<Affliction 
+					identifier="stun" 
+					strength="0.6" />
+				<StatusEffect 
+					type="OnUse" 
+					target="UseTarget">
+					<Conditional 
+						entitytype="eq Character" />
+					<Sound 
+						file="Content/Items/Weapons/Smack1.ogg" 
+						selectionmode="random" 
+						range="500" />
+					<Sound 
+						file="Content/Items/Weapons/Smack2.ogg" 
+						range="500" />
+				</StatusEffect>
+			</Attack>
+		</MeleeWeapon>
+		<ItemContainer 
+			capacity="12" 
+			keepopenwhenequipped="true" 
+			movableframe="true">
+			<Containable 
+				items="surgerytool" 
+				excludeditems="toolbelt,toolbox" />
+		</ItemContainer>
+		<aitarget 
+			sightrange="1000" 
+			soundrange="1000" 
+			fadeouttime="2" />
+	</Item> -->
+</Items>

@@ -1,4 +1,4 @@
---hook to extract eyes
+--hook to item to extract eyes upon hit
 Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets, worldPosition, element)
 	local limb = LimbType.Head
 	local usingCharacter = item.Equipper
@@ -15,8 +15,13 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 			HF.NukeEyeAfflictions(targetCharacter) --remove eye afflictions
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient
 			if not targetCharacter.IsDead then
-				HF.AddAfflictionLimb(targetCharacter, "traumaticshock", limb, math.random(25, 85)) --give traumatic shock
-				HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, math.random(1, 25)) --give bleeding
+				local randomFigure --variable for RNG
+
+				randomFigure = math.random(25, 85)
+				HF.AddAfflictionLimb(targetCharacter, "traumaticshock", limb, randomFigure) --give traumatic shock
+
+				randomFigure = math.random(1, 25)
+				HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, randomFigure) --give bleeding
 			end
 		else
 			--if target character is not human
@@ -80,7 +85,6 @@ function NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 		{ type = "Latcher", item = "it_latchereye" },
 	}
 	for _, species in ipairs(speciesList) do
-		print(targetCharacter.SpeciesName)
 		if targetCharacter.MatchesSpeciesNameOrGroup(species.type) or targetCharacter.SpeciesName == species.type then
 			local randomDamage = math.random(35, 100)
 			HF.GiveItemAtCondition(usingCharacter, species.item, (100 - randomDamage))

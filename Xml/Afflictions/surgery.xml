@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+    <!-- Surgery Afflictions -->
+    <!-- Eyes Removed -->
+    <Affliction
+        identifier="sr_removedeyes"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="0"
+        maxstrength="2"
+        type="eye_surgery"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="2"
+            minscreendistort="1"
+            maxscreendistort="1"
+            minscreenblur="1"
+            maxscreenblur="1"
+            minradialdistort="1"
+            maxradialdistort="1"
+            minchromaticaberration="1"
+            maxchromaticaberration="1"
+            minskillmultiplier="0.10"
+            maxskillmultiplier="0.10"
+            maxspeedmultiplier="0.5">
+            <StatusEffect
+                target="Character">
+                <TriggerAnimation
+                    Type="Walk"
+                    filename="DrunkenWalk"
+                    priority="6"
+                    ExpectedSpecies="Human" />
+                <TriggerAnimation
+                    Type="Run"
+                    filename="DrunkenRun"
+                    priority="6"
+                    ExpectedSpecies="Human" />
+            </StatusEffect>
+        </Effect>
+
+        <AfflictionOverlay
+            texture="%ModDir%/Textures/Overlays/blackoverlay.png" />
+
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="0,256,128,128"  
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Eye Removed -->
+    <Affliction
+        identifier="sr_removedeye"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="0"
+        maxstrength="2"
+        type="eye_surgery"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="2">
+            <StatusEffect
+                target="Character"
+                ObstructVisionAmount="0.7"
+                priority="100"
+                setvalue="true" />
+        </Effect>
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="0,256,128,128"  
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Eye Lids Held -->
+    <Affliction
+        identifier="sr_heldlid"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="30" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="128,256,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Eye Popped -->
+    <Affliction
+        identifier="sr_poppedeye"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="30"
+            minscreendistort="0.5"
+            maxscreendistort="10"
+            minradialdistort="0.1"
+            maxradialdistort="1"
+            minchromaticaberration="1"
+            maxchromaticaberration="200"
+            minskillmultiplier="1"
+            maxskillmultiplier="0.25">
+            <StatusEffect
+                target="Character"
+                comparison="and">
+                <Conditional
+                    table="eq 0"
+                    sym_unconsciousness="lte 0.1" />
+                <Affliction
+                    identifier="traumaticshock"
+                    amount="3" />
+            </StatusEffect>
+        </Effect>
+        <!-- <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="512,256,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Eye Connector -->
+    <Affliction
+        identifier="sr_eyeconnector"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        healableinmedicalclinic="false"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="30" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="768,128,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Cornea Incision -->
+    <Affliction
+        identifier="sr_corneaincision"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="30"
+            minscreenblur="0"
+            maxscreenblur="0.4"
+            minskillmultiplier="1"
+            maxskillmultiplier="0.75" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="256,256,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Emulsification -->
+    <Affliction
+        identifier="sr_emulsification"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="2"
+        type="eye_surgery"
+        isbuff="true"
+        iconcolors="84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="30"
+            minscreenblur="0"
+            maxscreenblur="1"
+            minskillmultiplier="0.25"
+            maxskillmultiplier="0.25">
+            <StatusEffect
+                target="Character"
+                comparison="and">
+                <Conditional
+                    table="eq 0"
+                    sym_unconsciousness="lte 0.1" />
+                <Affliction
+                    identifier="traumaticshock"
+                    amount="1.5" />
+            </StatusEffect>
+        </Effect>
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="384,256,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Eye Drops -->
+    <Affliction
+        identifier="sr_eyedrops"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        healableinmedicalclinic="false"
+        iconcolors="100,120,50,255;100,240,50,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="-1" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="512,0,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Laser Surgery -->
+    <Affliction
+        identifier="sr_lasersurgery"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="100"
+        maxstrength="100"
+        type="eye_surgery"
+        isbuff="true"
+        iconcolors="84,211,211,255;84,211,211,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="-1" />
+        <!-- <icon 
+            texture="%ModDir%/Textures/AfflictionIcons.png" 
+            sourcerect="128,384,128,128" 
+            origin="0,0" /> -->
+    </Affliction>
+</Afflictions>

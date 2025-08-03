@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+    <!-- Eye Type Items -->
+    <!-- Human Eye -->
+    <Item
+        identifier="it_humaneye"
+        aliases="transplant_eyes"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="0,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="350"
+            soldbydefault="false"
+            MinLevelDifficulty="1">
+            <Price
+                storeidentifier="merchantmedical"
+                multiplier="1"
+                sold="true"
+                maxavailable="2"
+                minavailable="2" />
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="2"
+                sold="true"
+                maxavailable="2" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.5"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Apply nausea to nearby players if the organ is left on floor -->
+            <StatusEffect
+                type="OnNotContained"
+                target="NearbyCharacters"
+                range="300">
+                <Affliction
+                    identifier="nausea"
+                    amount="0.2" />
+
+                <Affliction
+                    identifier="sym_vomiting"
+                    amount="10"
+                    probability="0.001"
+                    duration="1" />
+
+                <Affliction
+                    identifier="sym_lightheadedness"
+                    amount="10"
+                    probability="0.001"
+                    duration="5" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.07"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Plastic Eye -->
+    <Item
+        identifier="it_plasticeye"
+        aliases="transplant_eyes_plastic"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ"
+        maxstacksize="32"
+        maxstacksizecharacterinventory="8">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="512,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="70"
+            soldbydefault="false"
+            MinLevelDifficulty="0">
+            <Price
+                storeidentifier="merchantmedical"
+                multiplier="1"
+                sold="true"
+                maxavailable="8"
+                minavailable="2" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="7">
+            <RequiredSkill
+                identifier="medical"
+                level="35" />
+            <RequiredItem
+                identifier="plastic"
+                amount="1" />
+        </Fabricate>
+
+        <Deconstruct
+            time="2">
+            <Item
+                identifier="silicon" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="-20.0" />
+
+            <!-- Plastic eyes won't gain or lose durability -->
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-50.0" />
+
+            <!-- Plastic eyes won't cause nausea on ground -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Enhanced Eye -->
+    <Item
+        identifier="it_enhancedeye"
+        aliases="transplant_eyes_infrared,transplant_eyes_night"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="257,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="600"
+            soldbydefault="false"
+            MinLevelDifficulty="2">
+            <Price
+                storeidentifier="merchantmedical"
+                multiplier="2"
+                sold="true"
+                maxavailable="1" />
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="2"
+                minavailable="1" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="75">
+            <RequiredSkill
+                identifier="medical"
+                level="50" />
+
+            <RequiredSkill
+                identifier="mechanical"
+                level="35" />
+
+            <RequiredItem
+                identifier="it_humaneye" />
+
+            <RequiredItem
+                identifier="fpgacircuit"
+                amount="1" />
+
+            <RequiredItem
+                identifier="plastic" />
+        </Fabricate>
+
+        <Deconstruct
+            time="16">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="silicon" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.25"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-15.0" />
+
+            <!-- Apply nausea to nearby players if the organ is left on floor -->
+            <StatusEffect
+                type="OnNotContained"
+                target="NearbyCharacters"
+                range="300">
+                <Affliction
+                    identifier="nausea"
+                    amount="0.2" />
+
+                <Affliction
+                    identifier="sym_vomiting"
+                    amount="10"
+                    probability="0.001"
+                    duration="1" />
+
+                <Affliction
+                    identifier="sym_lightheadedness"
+                    amount="10"
+                    probability="0.001"
+                    duration="5" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.035"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Cybereye -->
+    <Item
+        identifier="it_cybereye"
+        aliases="transplant_eyes_bionic"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_hard"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="767,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="1200"
+            soldbydefault="false"
+            MinLevelDifficulty="4">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="1" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="180">
+            <RequiredSkill
+                identifier="medical"
+                level="80" />
+
+            <RequiredSkill
+                identifier="mechanical"
+                level="45" />
+
+            <RequiredSkill
+                identifier="electrical"
+                level="45" />
+
+            <RequiredItem
+                identifier="plastic"
+                amount="3" />
+
+            <RequiredItem
+                identifier="fpgacircuit"
+                amount="2" />
+
+            <RequiredItem
+                identifier="fulgurium"
+                amount="2" />
+
+            <RequiredItem
+                identifier="titaniumaluminiumalloy" />
+        </Fabricate>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="iron" />
+
+            <Item
+                identifier="copper" />
+
+            <Item
+                identifier="plastic" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="-5.0">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Cybereyes won't lose durability outside of refrigiration -->
+            <!-- Cybereyes won't lose durability on fire -->
+            <!-- Cybereyes won't gain durability naturally, they need repairs -->
+            <!-- Cybereyes won't cause nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Creature Eyes -->
+    <!-- Crawler Eye -->
+    <Item
+        identifier="it_crawlereye"
+        aliases="transplant_eyes_monster"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="638,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="200"
+            soldbydefault="false"
+            MinLevelDifficulty="1">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="2" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="alienblood" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.25"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.035"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Mudraptor Eye -->
+    <Item
+        identifier="it_mudraptoreye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="640,-1,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="300"
+            soldbydefault="false"
+            MinLevelDifficulty="2">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="2" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="sodium" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.25"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.035"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Hammerhead Eye -->
+    <Item
+        identifier="it_hammerheadeye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="639,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="500"
+            soldbydefault="false"
+            MinLevelDifficulty="2">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="2" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="alienblood" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.25"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.035"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Huskified Eye -->
+    <Item
+        identifier="it_huskifiedeye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="384,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="500"
+            soldbydefault="false"
+            MinLevelDifficulty="2">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="2" />
+        </Price>
+
+        <Deconstruct
+            time="7" />
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Husk eyes won't lose durability outside of refrigiration, will take fire damage -->
+            <!-- Husk eyes will naturally regen all the time -->
+            <StatusEffect
+                type="Always"
+                disabledeltatime="true"
+                target="This"
+                condition="0.05"
+                comparison="and" />
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Husk parts will not receive extra healing inside the jar -->
+        </Throwable>
+    </Item>
+
+    <!-- Watcher Eye -->
+    <Item
+        identifier="it_watchereye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="896,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="sulphuricacid" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.25"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.035"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Charybdis Eye -->
+    <Item
+        identifier="it_charybdiseye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="896,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="3000"
+            soldbydefault="false"
+            MinLevelDifficulty="4">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="1" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="titanite" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.1"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.05"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Latcher Eye -->
+    <Item
+        identifier="it_latchereye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ,eyejarcontainable"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="896,0,129,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="3000"
+            soldbydefault="false"
+            MinLevelDifficulty="4">
+            <Price
+                storeidentifier="merchantresearch"
+                multiplier="1"
+                sold="true"
+                maxavailable="1" />
+        </Price>
+
+        <Deconstruct
+            time="7">
+            <Item
+                identifier="carbon" />
+            <Item
+                identifier="ilmenite" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.1"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Alien body parts won't apply nausea -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Heal the organ if contained inside jar -->
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.05"
+                comparison="and">
+                <Conditional
+                    condition="gte 20" />
+                <Conditional
+                    hastag="eyecontainer"
+                    targetcontainer="true" />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
+    <!-- Terror Eye -->
+    <Item
+        identifier="it_terroreye"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ"
+        maxstacksize="2"
+        maxstacksizecharacterinventory="2">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="896,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Deconstruct
+            time="200" />
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="0.0"
+                setvalue="true">
+                <Explosion
+                    range="0.0"
+                    structuredamage="0"
+                    itemdamage="0"
+                    force="0.0"
+                    severlimbsprobability="0.0"
+                    decal="fruitsplatter1"
+                    decalsize="1.0" />
+
+                <ParticleEmitter
+                    particle="whitegoosplash"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="2"
+                    velocitymin="0"
+                    velocitymax="0"
+                    scalemin="1.5"
+                    scalemax="2" />
+
+                <ParticleEmitter
+                    particle="fruitchunks"
+                    anglemin="0"
+                    anglemax="360"
+                    particleamount="10"
+                    velocitymin="200"
+                    velocitymax="300"
+                    scalemin="0.4"
+                    scalemax="0.8" />
+
+                <Remove />
+            </StatusEffect>
+
+            <!-- Reduce durability if the organ is left outside refrigiration -->
+            <StatusEffect
+                type="Always"
+                target="This"
+                condition="-0.1"
+                comparison="and">
+                <Conditional
+                    hastag="neq refrigerated"
+                    targetcontainer="true" />
+                <Conditional
+                    hastag="neq medicalfabricator"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnContained"
+                target="This"
+                condition="0.1"
+                comparison="and">
+                <Conditional
+                    condition="gte 90" />
+                <Conditional
+                    hastag="refrigerated"
+                    targetcontainer="true" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-25.0" />
+
+            <!-- Terror eye applies psychosis on nearby players -->
+            <StatusEffect
+                type="OnNotContained"
+                target="NearbyCharacters"
+                range="500">
+                <Affliction
+                    identifier="psychosis"
+                    amount="0.5" />
+
+                <Affliction
+                    identifier="sym_vomiting"
+                    amount="10"
+                    probability="0.001"
+                    duration="1" />
+
+                <Affliction
+                    identifier="sym_lightheadedness"
+                    amount="10"
+                    probability="0.001"
+                    duration="5" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+
+            <!-- Terror eye won't heal inside jar -->
+        </Throwable>
+    </Item>
+</Items>
