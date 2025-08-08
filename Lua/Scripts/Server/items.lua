@@ -1,4 +1,4 @@
---enable item usage in health interface without overwriting
+--enable item usage in health interface without XML overwriting
 --[thanks Nebual (NTCyb) for this]
 NTEYE.AllowInHealthInterface = {
 	-- general compatability if anything has a higher mod load order than us
@@ -57,18 +57,18 @@ NTEYE.ItemStartsWithMethods = {} -- with the start of the identifier as the key
 
 --table to define eye afflictions/items
 NTEYE.EyeProperty = {
-	{ type = "vi_human", damage = "dm_human", item = "it_humaneye" },
-	{ type = "vi_cyber", damage = "dm_cyber", item = "it_cybereye" },
-	{ type = "vi_enhanced", damage = "dm_enhanced", item = "it_enhancedeye" },
-	{ type = "vi_plastic", damage = "dm_plastic", item = "it_plasticeye" },
-	{ type = "vi_crawler", damage = "dm_crawler", item = "it_crawlereye" },
-	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye" },
-	{ type = "vi_hammerhead", damage = "dm_hammerhead", item = "it_hammerheadeye" },
-	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye" },
-	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye" },
-	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye" },
-	{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye" },
-	{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye" },
+	{ type = "vi_human", damage = "dm_human", item = "it_humaneye", biological = true },
+	{ type = "vi_cyber", damage = "dm_cyber", item = "it_cybereye", biological = false },
+	{ type = "vi_enhanced", damage = "dm_enhanced", item = "it_enhancedeye", biological = true },
+	{ type = "vi_plastic", damage = "dm_plastic", item = "it_plasticeye", biological = false },
+	{ type = "vi_crawler", damage = "dm_crawler", item = "it_crawlereye", biological = true },
+	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye", biological = true },
+	{ type = "vi_hammerhead", damage = "dm_hammerhead", item = "it_hammerheadeye", biological = true },
+	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye", biological = true },
+	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye", biological = true },
+	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye", biological = true },
+	{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye", biological = true },
+	{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye", biological = false },
 	{ type = "sr_removedeyes", damage = 0, item = "" },
 	{ type = "mc_deadeyes", damage = 0, item = "" },
 }

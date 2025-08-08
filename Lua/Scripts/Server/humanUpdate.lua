@@ -16,7 +16,8 @@ local function PressureDamageCalculation(character, pressureDamageValue)
 end
 
 --remove eye upon death on passive check
-local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
+	--check if damage is above 80 and if there are 2 eyes
 	if
 		afflictionsTable[i].strength >= 80
 		and (
@@ -24,43 +25,70 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
 		)
 	then
-		if HF.Chance(0.1) then
+		--at a chance every tick, remove the eye
+		local removalChance = (afflictionsTable[i].strength / 8) --for mercy, every tick has a damage/8 (10% at 80 damage) chance to remove the eye
+		if HF.Chance(removalChance) then
+			--remove the dead eye's damage from total eye health
 			afflictionsTable[i].strength = afflictionsTable[i].strength - 50
-			HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+
+			--add dead or removed eye affliction depending on if the eye is biological
+			--biological eyes get dead eye, non-biological ones get removedeye
+			--this is important for retinopathy checks
+			if biological then
+				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+			else
+				HF.SetAfflictionLimb(character, "sr_removedeye", limb, 100)
+			end
+			--if there is a mismatch, remove only the damaged eye and leave the other as is
 			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength > 0 then
 				local base = i:match("^dm_(.+)$")
 				if base then
 					HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
 					HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
 				end
-				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+				--HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --this seems redundant aint it??
 			end
 		end
-	elseif
+	elseif --check the status of the other eye if only 1 of the same type can be found
 		(afflictionsTable[i].strength >= 45)
 		and (
 			(afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength >= 1)
 			or (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength >= 1)
-			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1)
+			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1) --character may have 2 eyes of different types
 		)
 	then
-		if HF.Chance(0.1) then
+		local removalChance = (afflictionsTable[i].strength / 10) --for mercy (again), every tick has a damage/10 (4.5% at 45 damage) chance to remove the eye
+		if HF.Chance(removalChance) then
+			--remove the eye damage
 			afflictionsTable[i].strength = 0
+			--check for the eye again, then remove it
 			local base = i:match("^dm_(.+)$")
 			if base then
 				HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
 				HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
 			end
+			--remove the mismatch if there is one
 			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1 then
-				--dead eye
-				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+				--dead or removed eye depending on if it is biological
+				if biological then
+					HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+				else
+					HF.SetAfflictionLimb(character, "sr_removedeye", limb, 100)
+				end
 				HF.SetAfflictionLimb(character, "mc_mismatch", limb, 0)
-			else
+			else --if no mismatch, kill the remaining eye
 				HF.NukeEyeAfflictions(character)
-				HF.SetAfflictionLimb(character, "mc_deadeyes", limb, 100)
+				--dead or removed eye depending on if it is biological
+				if biological then
+					HF.SetAfflictionLimb(character, "mc_deadeyes", limb, 100)
+				else
+					HF.SetAfflictionLimb(character, "sr_removedeyes", limb, 100)
+				end
 			end
 		end
 	else
+		--I do not remember what this does (could be something important, too lazy to check rn, too afraid to delete)
+		--I am adding these comments 3 months after writing the inital code lmao
 		afflictionsTable[i].strength = HF.Clamp(afflictionsTable[i].strength, 0, 100)
 	end
 end
@@ -259,6 +287,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 3
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -276,7 +306,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_cyber = {
@@ -297,10 +327,12 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--set if the eye is biological or not
+			local biological = false
 			--cyber eyes won't receive biological damage
 
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_enhanced = {
@@ -329,6 +361,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 2.5
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -346,7 +380,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_plastic = {
@@ -367,10 +401,12 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--set if the eye is biological or not
+			local biological = false
 			--plastic eyes won't receive biological damage
 
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_crawler = {
@@ -399,6 +435,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -416,7 +454,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_mudraptor = {
@@ -445,6 +483,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -462,7 +502,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_hammerhead = {
@@ -491,6 +531,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -508,7 +550,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_watcher = {
@@ -537,6 +579,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -554,7 +598,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_husk = {
@@ -583,6 +627,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.2 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -600,7 +646,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_charybdis = {
@@ -629,6 +675,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -646,7 +694,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_latcher = {
@@ -675,6 +723,8 @@ NTEYE.UpdateAfflictions = {
 			--set by; lower value, less damage
 			local pressureDamage = 0
 			local regenRate = -0.1 --inverse for passive healing
+			--set if the eye is biological or not
+			local biological = true
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -692,7 +742,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	dm_terror = {
@@ -713,6 +763,9 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 
+			--set if the eye is biological or not
+			local biological = false --very cool lore reasons I promise
+
 			--terror eyes do not receive biological damage and heal really fast
 			local gain = (
 				-0.3 * statsTable.healingrate -- passive regen
@@ -725,7 +778,7 @@ NTEYE.UpdateAfflictions = {
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i)
+			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
 	--lens afflictions

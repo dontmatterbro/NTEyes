@@ -434,15 +434,20 @@
             handle1="0,45"
             holdangle="0"
             msg="ItemMsgPickUpUse"
-            canbeselected="true"
-            allowswappingwhenpicked="true"
             attachable="true"
             aimable="true"
-            PickingTime="3" />
+            PickingTime="2" />
 
         <ItemContainer
+            canbeselected="true"
+            hideitems="false"
             capacity="2"
-            hideitems="false">
+            maxstacksize="2">
+            <SlotIcon
+                texture="%ModDir%/Textures/ItemIcons.png"
+                sourcerect="0,0,128,128"
+                depth="0.6"
+                origin="0.5,0.5" />
             <Containable
                 items="eyejarcontainable" />
         </ItemContainer>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Items>
     <!-- Surgery Items test -->
-    <!-- Eye Procurement Scalpel -->
+    <!-- Eye Procurement Scalpel (Removed as NT removed organ-specific scalpels.)
     <Item
         identifier="it_scalpel_eye"
         aliases="organscalpel_eyes"
@@ -80,7 +80,7 @@
         <SkillRequirementHint
             identifier="medical"
             level="55" />
-    </Item>
+    </Item> -->
 
     <!-- The Spoon -->
     <Item

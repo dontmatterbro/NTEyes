@@ -14,24 +14,18 @@ probably done idk  -- --fix shit
 CANCELLED -- // decided just to give the multiscalpel eye mechanics, laser surgery stays as it is // --enhance laser surger (maybe a multipurpose scalpel like usage)
 CANCELLED -- // decided to remove zoom functions from the mod, I right now can't implement those in a
 non invasive way, maybe I'll look into it in the future. // --better enhanced immersion comp
+CANCELLED -- // do not know or care if this is possible, seems like bloat // cosmetic green light effect for NVG eyes (I have no fucking clue what I meant when writing this)
+DONE --prevent dead bionic and plastic eyes from causing retinopathy
+DONE --better eye damage
 
 --eye damage causes NT symptoms, headache, confusion etc. 
 
 --some way to prevent the symptoms of mismatch
 
---prevent dead bionic and plastic eyes from causing retinopathy
-
---better eye damage
-(damage resistance calculations for eyes, take a look at NT code and make the calculations like that)
-Btw @Walter Hartwell White  can easily adapt my code from fall damage for this case
-Specifically the concussion resistance function
-
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
 
 --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
-
---cosmetic green light effect for NVG eyes (I have no fucking clue what I meant when writing this)
 
 --animation for walking blind (right now this uses drunk animation, I will try to make a custom one,
 but if it turns out to be bother [i.e. have to overwrite human.xml] then I will keep using the drunk one, it ain't bad
@@ -57,7 +51,6 @@ watcher: psychosis for nearby people
 husk: heals really fast, pressure resistant
 crawler: better vision outside the sub, worst vision inside
 
-
 --add eye surgery toolbag
 
 --redo trello
@@ -68,3 +61,5 @@ crawler: better vision outside the sub, worst vision inside
 --fix SFX (not high priority, but effects overall quality of the mod significantly)
 
 --add eye cream (edible) -> you can craft this using eyes, gives you some buffs idk make it funny
+
+--add eyejar storage icon
