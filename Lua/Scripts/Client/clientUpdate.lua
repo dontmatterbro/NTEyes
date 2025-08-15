@@ -139,9 +139,6 @@ function NTEYE.UpdateLights()
 		return
 	end
 
-	--check if the controlled character is a robot
-	if not () then 
-
 	local levelColors, hullColors = {}, {}
 
 	for _, effect in pairs(NTEYE.ClientEffects) do
