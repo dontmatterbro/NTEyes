@@ -17,6 +17,16 @@ non invasive way, maybe I'll look into it in the future. // --better enhanced im
 CANCELLED -- // do not know or care if this is possible, seems like bloat // cosmetic green light effect for NVG eyes (I have no fucking clue what I meant when writing this)
 DONE --prevent dead bionic and plastic eyes from causing retinopathy
 DONE --better eye damage
+--CANCELLED // not worth the bother//animation for walking blind (right now this uses drunk animation, I will try to make a custom one,
+but if it turns out to be bother [i.e. have to overwrite human.xml] then I will keep using the drunk one, it ain't bad
+but it ain't special either.)
+DONE // make eye jar placeable AND holdable -- lukako on nt discord worked for a baseline code of this, check that out
+CANCELLED // decided to go with regular blur //--reduce cataract blur, add gray filter to screen -- use affliction overlays the game comes with, not a whole ass texture
+DONE // cataracts apply regular NT blur // --Cataracts needs to interact more with the rest of the mod
+Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
+(ThousandFields)
+DONE -- // New pressure calculation code should fix this issue // --comp patches for immersive diving and robotrauma (this may not be needed, further inquiry required)
+
 
 --eye damage causes NT symptoms, headache, confusion etc. 
 
@@ -27,24 +37,11 @@ screen going black/red momentarily upon taking damage with regular eyes, blood l
 
 --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
 
---animation for walking blind (right now this uses drunk animation, I will try to make a custom one,
-but if it turns out to be bother [i.e. have to overwrite human.xml] then I will keep using the drunk one, it ain't bad
-but it ain't special either.)
-
 --correct item crafts and usage balance
 
 --enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
 
---make eye jar placeable AND holdable -- lukako on nt discord worked for a baseline code of this, check that out
 --fix eye jars //broken rn
-
---comp patches for immersive diving and robotrauma (this may not be needed, further inquiry required)
-
---reduce cataract blur, add gray filter to screen -- use affliction overlays the game comes with, not a whole ass texture
-
---Cataracts needs to interact more with the rest of the mod
-Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
-(ThousandFields)
 
 --decide what different types of creature eyes have what effects // 
 watcher: psychosis for nearby people

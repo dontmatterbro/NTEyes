@@ -130,7 +130,7 @@ function NTEYE.UpdateLights()
 	local LevelLight = Level.Loaded.LevelData.GenerationParams
 	--check if the player controls a character
 	--if not reset color values
-	if not ControlledCharacter then
+	if not ControlledCharacter or not (ControlledCharacter.IsMale or ControlledCharacter.IsFemale) then
 		LevelLight.AmbientLightColor = Color(100, 100, 100, 100)
 
 		for _, HullLight in pairs(Hull.HullList) do
@@ -138,6 +138,9 @@ function NTEYE.UpdateLights()
 		end
 		return
 	end
+
+	--check if the controlled character is a robot
+	if not () then 
 
 	local levelColors, hullColors = {}, {}
 

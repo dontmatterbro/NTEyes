@@ -21,23 +21,23 @@ Timer.Wait(function()
 
 	--server side scripts
 	if SERVER or (CLIENT and not Game.IsMultiplayer) then
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/humanUpdate.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/items.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/losWarning.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/hudItemSpawn.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/serverReceive.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/multiScalpel.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/onDamaged.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Server/THESPOON.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/humanUpdate.lua") --passive update checks
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/items.lua") --item functions
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/losWarning.lua") --warning in chat about line of sight
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/hudItemSpawn.lua") --spawns required items for drawing client-side huds
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/serverReceive.lua") --server-client communications
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/multiScalpel.lua") --multipurpouse scalpel override
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/onDamaged.lua") --physical damage calculation
+		dofile(NTEYE.Path .. "/Lua/Scripts/Server/spoon.lua") --spoon
 	end
 
 	--client side scripts
 	if CLIENT then
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientUpdate.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientHUD.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientControls.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/healthScanner.lua")
-		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientSend.lua")
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientUpdate.lua") --client-side updates (visual)
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientHUD.lua") --writes hud over screen
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientControls.lua") --client keyboard controls
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/healthScanner.lua") --health scanner code for medical eyes
+		dofile(NTEYE.Path .. "/Lua/Scripts/Client/clientSend.lua") --server-client communications
 	end
 
 	--shared scripts
