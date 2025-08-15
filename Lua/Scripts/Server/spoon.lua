@@ -76,13 +76,13 @@ end
 --function to scoop eyes from monsters
 function NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 	local speciesList = {
-		{ type = "Crawler", item = "it_crawlereye" },
-		{ type = "Mudraptor", item = "it_mudraptoreye" },
-		{ type = "Hammerhead", item = "it_hammerheadeye" },
-		{ type = "Watcher", item = "it_watchereye" },
-		{ type = "Husk", item = "it_huskeye" },
-		{ type = "Charybdis", item = "it_charybdiseye" },
-		{ type = "Latcher", item = "it_latchereye" },
+		--{ type = "Crawler", item = "it_crawlereye" }, disabled for now
+		--{ type = "Mudraptor", item = "it_mudraptoreye" },
+		--{ type = "Hammerhead", item = "it_hammerheadeye" },
+		--{ type = "Watcher", item = "it_watchereye" },
+		--{ type = "Husk", item = "it_huskeye" },
+		--{ type = "Charybdis", item = "it_charybdiseye" },
+		--{ type = "Latcher", item = "it_latchereye" },
 	}
 	for _, species in ipairs(speciesList) do
 		if targetCharacter.MatchesSpeciesNameOrGroup(species.type) or targetCharacter.SpeciesName == species.type then

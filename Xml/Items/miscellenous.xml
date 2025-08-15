@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Items>
     <!-- Wearable Items -->
     <!-- Corrective Glasses -->
@@ -34,7 +34,7 @@
 
             <RequiredItem
                 identifier="steel"
-                amount="2" />
+                amount="1" />
         </Fabricate>
 
         <Deconstruct
@@ -47,7 +47,7 @@
 
         <InventoryIcon
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="384,896,128,128"
+            sourcerect="768,640,128,128"
             origin="0.5,0.5" />
 
         <Sprite
@@ -74,7 +74,7 @@
                 inheritscale="true"
                 ignorelimbscale="true"
                 scale="0.29"
-                sourcerect="0,640,128,128"
+                sourcerect="768,512,128,128"
                 origin="0.525,0.51" />
         </Wearable>
     </Item>
@@ -100,7 +100,8 @@
             baseprice="1500">
             <Price
                 locationtype="military"
-                multiplier="3" />
+                multiplier="3"
+                maxavailable="1" />
         </Price>
 
         <Deconstruct
@@ -119,7 +120,7 @@
         <Sprite
             name="Aviator Glasses"
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="128,640,128,128"
+            sourcerect="896,640,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -160,7 +161,7 @@
                 inheritscale="true"
                 ignorelimbscale="true"
                 scale="0.29"
-                sourcerect="128,640,128,128"
+                sourcerect="896,512,128,128"
                 origin="0.52,0.525" />
         </Wearable>
     </Item>
@@ -183,13 +184,13 @@
 
         <InventoryIcon
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="2,769,61,37"
+            sourcerect="896,384,64,48"
             origin="0.5,0.5" />
 
         <Sprite
             name="Night Vision Goggles"
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="2,808,59,39"
+            sourcerect="896,468,64,44"
             origin="0.5,0.5" />
 
         <Body
@@ -198,16 +199,18 @@
             density="15" />
 
         <Price
-            baseprice="400"
+            baseprice="200"
             soldbydefault="false">
             <Price
                 storeidentifier="merchantmilitary"
                 sold="true"
-                multiplier="1" />
+                multiplier="1"
+                maxavailable="1" />
             <Price
                 storeidentifier="merchantmine"
                 sold="true"
-                multiplier="1.5" />
+                multiplier="1.5"
+                maxavailable="1" />
         </Price>
 
         <Fabricate
@@ -301,7 +304,7 @@
                 inheritlimbdepth="true"
                 inheritscale="true"
                 ignorelimbscale="true"
-                sourcerect="2,808,59,39"
+                sourcerect="896,468,64,44"
                 origin="0.4,0.6">
                 <LightComponent
                     LightColor="0,100,0,90"
@@ -401,9 +404,9 @@
         </Fabricate>
 
         <Price
-            baseprice="900"
+            baseprice="100"
             soldbydefault="false"
-            MinLevelDifficulty="2">
+            MinLevelDifficulty="1">
             <Price
                 storeidentifier="merchantmedical"
                 sold="true"
@@ -412,13 +415,13 @@
 
         <InventoryIcon
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="768,768,128,128"
+            sourcerect="768,896,128,128"
             origin="0.5,0.5" />
 
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
             depth="0.51"
-            sourcerect="768,768,128,128"
+            sourcerect="768,896,128,128"
             origin="0.5,0.5" />
 
         <Body
@@ -440,7 +443,7 @@
 
         <ItemContainer
             canbeselected="true"
-            hideitems="false"
+            hideitems="true"
             capacity="2"
             maxstacksize="2">
             <SlotIcon

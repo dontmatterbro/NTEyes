@@ -77,7 +77,7 @@
 
     <entityname.it_medicallens>Medical Lenses</entityname.it_medicallens>
 
-    <entitydescription.it_medicallens>
+    <entitydescription.it_medicallens>        
         Lenses that act as a scanner and provides visual enhancements for medics.
         ‖color:120,200,120‖ Press F to on a limb to scan.‖color:end‖
         ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
@@ -85,21 +85,21 @@
 
     <entityname.it_electricallens>Electrical Lenses</entityname.it_electricallens>
 
-    <entitydescription.it_electricallens>
+    <entitydescription.it_electricallens>        
         Lenses that act as a electrical goggle and helps engineers distinguish circuits.
         ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_electricallens>
 
     <entityname.it_nightlens>Night Vision Lenses</entityname.it_nightlens>
 
-    <entitydescription.it_nightlens>
+    <entitydescription.it_nightlens>        
         Lenses that enhance vision in the dark.
         ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_nightlens>
 
     <entityname.it_thermallens>Thermal Lenses</entityname.it_thermallens>
 
-    <entitydescription.it_thermallens>
+    <entitydescription.it_thermallens>        
         Lenses with integrated infrared-vision.
         ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_thermallens>
@@ -111,7 +111,7 @@
 
     <entityname.it_aviators>Aviator Glasses</entityname.it_aviators>
 
-    <entitydescription.it_aviators>
+    <entitydescription.it_aviators>        
         An ancient accessory that is said to be only used by commanders of airships.
         Gives a lot of confidence.
     </entitydescription.it_aviators>
@@ -122,7 +122,7 @@
 
     <entityname.it_eyejar>Eye Regeneration Jar</entityname.it_eyejar>
 
-    <entitydescription.it_eyejar>
+    <entitydescription.it_eyejar>        
         A jar that utilises stem cell regeneration to mend eyes slowly.
         Can be placed on ground.
     </entitydescription.it_eyejar>
@@ -176,7 +176,7 @@
 
     <afflictionname.mc_retinopathy>Retinopathy</afflictionname.mc_retinopathy>
 
-    <afflictiondescription.mc_retinopathy>
+    <afflictiondescription.mc_retinopathy>        
         Immune system of this patient has detected eye tissue and is attacking it!
         Eye removal or immunosuppressants are required!
     </afflictiondescription.mc_retinopathy>

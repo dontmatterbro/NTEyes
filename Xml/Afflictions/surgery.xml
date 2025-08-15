@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Afflictions>
     <!-- Surgery Afflictions -->
     <!-- Eyes Removed -->
@@ -13,6 +13,13 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0.50096697,0.4930151"
+            sourcerect="0,256,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="2"
@@ -63,6 +70,12 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2">
@@ -72,10 +85,6 @@
                 priority="100"
                 setvalue="true" />
         </Effect>
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="0,256,128,128"  
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Eye Lids Held -->
@@ -89,14 +98,16 @@
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
             strengthchange="30" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="128,256,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Eye Popped -->
@@ -110,6 +121,12 @@
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -133,10 +150,6 @@
                     amount="3" />
             </StatusEffect>
         </Effect>
-        <!-- <icon
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="512,256,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Eye Connector -->
@@ -151,14 +164,16 @@
         isbuff="true"
         healableinmedicalclinic="false"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
             strengthchange="30" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="768,128,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Cornea Incision -->
@@ -172,6 +187,12 @@
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -180,10 +201,6 @@
             maxscreenblur="0.4"
             minskillmultiplier="1"
             maxskillmultiplier="0.75" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="256,256,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Emulsification -->
@@ -197,6 +214,12 @@
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -216,10 +239,6 @@
                     amount="1.5" />
             </StatusEffect>
         </Effect>
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="384,256,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Eye Drops -->
@@ -234,14 +253,16 @@
         isbuff="true"
         healableinmedicalclinic="false"
         iconcolors="100,120,50,255;100,240,50,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
             strengthchange="-1" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="512,0,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Laser Surgery -->
@@ -255,13 +276,15 @@
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255;84,211,211,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0,0"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
             strengthchange="-1" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="128,384,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 </Afflictions>

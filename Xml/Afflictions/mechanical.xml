@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Afflictions>
     <!-- Mechanical Afflictions -->
     <!-- Dead Eyes -->
@@ -13,6 +13,13 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="255,0,0,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0.49786854,0.5040919"
+            sourcerect="0,384,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="2"
@@ -66,6 +73,13 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="255,80,0,255;255,80,0,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0.4992066,0.5049446"
+            sourcerect="640,0,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="2">
@@ -75,6 +89,7 @@
                 priority="100"
                 setvalue="true" />
         </Effect>
+
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="640,0,128,128" 
@@ -135,6 +150,13 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="211,211,84,255;211,100,20,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0.4984753,0.4984753"
+            sourcerect="768,0,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="70"
@@ -181,11 +203,19 @@
         isbuff="false"
         healableinmedicalclinic="false"
         iconcolors="211,211,84,255;211,100,20,255">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            sheetindex="0,0"
+            sheetelementsize="128,128"
+            origin="0.4965487,0.5036933"
+            sourcerect="896,0,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="2"
             minskillmultiplier="0.85"
             maxskillmultiplier="0.85" />
+
         <!-- <icon 
             texture="%ModDir%/Textures/AfflictionIcons.png" 
             sourcerect="768,0,128,128" 
