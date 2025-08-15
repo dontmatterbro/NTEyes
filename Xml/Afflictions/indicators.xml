@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Afflictions>
     <!-- Visual Indicators -->
     <!-- Human Eye -->
@@ -12,6 +12,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.5274222,0.49597043"
+            sourcerect="0,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2" />
@@ -28,6 +32,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="256,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2" />
@@ -44,6 +52,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.51003075,0.50113106"
+            sourcerect="128,0,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2" />
@@ -60,11 +72,37 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.53221196,0.5228403"
+            sourcerect="384,0,128,128" />
+
         <Effect
             minstrength="0"
             maxstrength="2" />
+
         <AfflictionOverlay
             texture="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+    </Affliction>
+
+    <!-- Huskified Eye -->
+    <Affliction
+        identifier="vi_husk"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.5,0.5"
+            sourcerect="512,0,128,128" />
+        <Effect
+            minstrength="0"
+            maxstrength="2" />
     </Affliction>
 
     <!-- Crawler Eye -->
@@ -102,22 +140,6 @@
     <!-- Watcher Eye -->
     <Affliction
         identifier="vi_watcher"
-        showiconthreshold="0"
-        showinhealthscannerthreshold="1000"
-        limbspecific="false"
-        indicatorlimb="Head"
-        maxstrength="2"
-        type="vi_type"
-        isbuff="true"
-        healableinmedicalclinic="false">
-        <Effect
-            minstrength="0"
-            maxstrength="2" />
-    </Affliction>
-
-    <!-- Huskified Eye -->
-    <Affliction
-        identifier="vi_husk"
         showiconthreshold="0"
         showinhealthscannerthreshold="1000"
         limbspecific="false"

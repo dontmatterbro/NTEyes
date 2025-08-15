@@ -1,452 +1,141 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-    <!-- Eye Lenses -->
-    <!-- Organic Lens -->
-    <Item
-        identifier="it_organiclens"
-        aliases="eyelens"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,petfood1,petfood2,petfood3,eyesurgery,surgery,surgerytool">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.05" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="256,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="45"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantmedical"
-                sold="true" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="3">
-            <RequiredSkill
-                identifier="medical"
-                level="40" />
-            <RequiredItem
-                identifier="carbon" />
-        </Fabricate>
-
-        <Deconstruct
-            time="3" />
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
-    <!-- Medical Lens -->
-    <Item
-        identifier="it_medicallens"
-        aliases="medicallensitem"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,eyesurgery,surgery,surgerytool"
-        spritecolor="255,0,0,255"
-        inventoryiconcolor="255,0,0,255">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.01" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="256,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="450"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantresearch"
-                sold="true"
-                multiplier="1.30" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="14">
-            <RequiredSkill
-                identifier="medical"
-                level="75" />
-
-            <RequiredSkill
-                identifier="mechanical"
-                level="40" />
-
-            <RequiredItem
-                identifier="plastic" />
-
-            <RequiredItem
-                identifier="fpgacircuit" />
-
-            <RequiredItem
-                identifier="aluminium" />
-
-            <RequiredItem
-                identifier="incendium"
-                amount="2" />
-        </Fabricate>
-
-        <Deconstruct
-            time="3">
-            <Item
-                identifier="silicon" />
-        </Deconstruct>
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
-    <!-- Electrical Lens -->
-    <Item
-        identifier="it_electricallens"
-        aliases="electricallensitem"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,eyesurgery,surgery,surgerytool"
-        spritecolor="255,255,0,255"
-        inventoryiconcolor="255,255,0,255">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.005" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="256,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="400"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantresearch"
-                sold="True"
-                multiplier="1.30" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="12">
-            <RequiredSkill
-                identifier="medical"
-                level="65" />
-
-            <RequiredSkill
-                identifier="electrical"
-                level="50" />
-
-            <RequiredItem
-                identifier="plastic"
-                amount="2" />
-
-            <RequiredItem
-                identifier="fpgacircuit" />
-
-            <RequiredItem
-                identifier="fulgurium" />
-        </Fabricate>
-
-        <Deconstruct
-            time="3">
-            <Item
-                identifier="silicon" />
-        </Deconstruct>
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add custom SFX to this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
-    <!-- Night Vision Lens -->
-    <Item
-        identifier="it_nightlens"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_hard"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,eyesurgery,surgery,surgerytool"
-        spritecolor="0,255,0,255"
-        inventoryiconcolor="0,255,0,255">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.005" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="256,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="350"
-            soldbydefault="false"
-            MinLevelDifficulty="2">
-            <Price
-                storeidentifier="merchantresearch"
-                sold="True" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="16">
-            <RequiredSkill
-                identifier="medical"
-                level="65" />
-
-            <RequiredSkill
-                identifier="mechanical"
-                level="50" />
-
-            <RequiredItem
-                identifier="plastic"
-                amount="2" />
-
-            <RequiredItem
-                identifier="fpgacircuit" />
-
-            <RequiredItem
-                identifier="phosphorus"
-                amount="2" />
-
-            <RequiredItem
-                identifier="dementonite"
-                amount="1" />
-        </Fabricate>
-
-        <Deconstruct
-            time="3">
-            <Item
-                identifier="silicon" />
-        </Deconstruct>
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
-    <!-- Thermal Vision Lens -->
-    <Item
-        identifier="it_thermallens"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_hard"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,eyesurgery,surgery,surgerytool"
-        spritecolor="255,0,255,255"
-        inventoryiconcolor="255,0,255,255">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.005" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="256,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="350"
-            soldbydefault="false"
-            MinLevelDifficulty="2">
-            <Price
-                storeidentifier="merchantresearch"
-                sold="True" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="16">
-            <RequiredSkill
-                identifier="medical"
-                level="65" />
-
-            <RequiredSkill
-                identifier="mechanical"
-                level="50" />
-
-            <RequiredItem
-                identifier="plastic"
-                amount="2" />
-
-            <RequiredItem
-                identifier="fpgacircuit" />
-
-            <RequiredItem
-                identifier="dementonite"
-                amount="2" />
-        </Fabricate>
-
-        <Deconstruct
-            time="3">
-            <Item
-                identifier="silicon" />
-        </Deconstruct>
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
+  <!-- Eye Lenses -->
+  <!-- Organic Lens -->
+  <Item identifier="it_organiclens" aliases="eyelens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,petfood1,petfood2,petfood3,eyesurgery,surgery,surgerytool">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.05" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="45" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="3">
+      <RequiredSkill identifier="medical" level="40" />
+      <RequiredItem identifier="carbon" />
+    </Fabricate>
+    <Deconstruct time="3" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!-- Medical Lens -->
+  <Item identifier="it_medicallens" aliases="medicallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,eyesurgery,surgery,surgerytool" spritecolor="255,0,0,255" inventoryiconcolor="255,0,0,255">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="450" soldbydefault="false">
+      <Price storeidentifier="merchantresearch" sold="true" multiplier="1.30" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="14">
+      <RequiredSkill identifier="medical" level="75" />
+      <RequiredSkill identifier="mechanical" level="40" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="incendium" amount="2" />
+    </Fabricate>
+    <Deconstruct time="3">
+      <Item identifier="silicon" />
+    </Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!-- Electrical Lens -->
+  <Item identifier="it_electricallens" aliases="electricallensitem" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,eyesurgery,surgery,surgerytool" spritecolor="255,255,0,255" inventoryiconcolor="255,255,0,255">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.005" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="400" soldbydefault="false">
+      <Price storeidentifier="merchantresearch" sold="True" multiplier="1.30" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="12">
+      <RequiredSkill identifier="medical" level="65" />
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="fulgurium" />
+    </Fabricate>
+    <Deconstruct time="3">
+      <Item identifier="silicon" />
+    </Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <!-- add custom SFX to this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!-- Night Vision Lens -->
+  <Item identifier="it_nightlens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_hard" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,eyesurgery,surgery,surgerytool" spritecolor="0,255,0,255" inventoryiconcolor="0,255,0,255">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.005" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="350" soldbydefault="false" MinLevelDifficulty="2">
+      <Price storeidentifier="merchantresearch" sold="True" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="16">
+      <RequiredSkill identifier="medical" level="65" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="phosphorus" amount="2" />
+      <RequiredItem identifier="dementonite" amount="1" />
+    </Fabricate>
+    <Deconstruct time="3">
+      <Item identifier="silicon" />
+    </Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!-- Thermal Vision Lens -->
+  <Item identifier="it_thermallens" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_hard" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,eyesurgery,surgery,surgerytool" spritecolor="255,0,255,255" inventoryiconcolor="255,0,255,255">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.005" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="256,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="350" soldbydefault="false" MinLevelDifficulty="2">
+      <Price storeidentifier="merchantresearch" sold="True" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="16">
+      <RequiredSkill identifier="medical" level="65" />
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="dementonite" amount="2" />
+    </Fabricate>
+    <Deconstruct time="3">
+      <Item identifier="silicon" />
+    </Deconstruct>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <RequiredSkill identifier="medical" level="30" />
+      <StatusEffect type="OnUse" target="This">
+        <!-- add custom SFX for this <Sound file="Content/Items/Medical/Syringe.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
 </Items>

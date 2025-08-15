@@ -11,7 +11,7 @@
 
     <entityname.it_eyedrop>Eye Drop</entityname.it_eyedrop>
 
-    <entitydescription.it_eyedrop>A moistrurizing agent for the eyes, expert believe it may have healing properties.</entitydescription.it_eyedrop>
+    <entitydescription.it_eyedrop>A moisturizing agent for the eyes, experts believe it may have healing properties.</entitydescription.it_eyedrop>
 
     <entityname.it_lasersurgerytool>Laser Surgery Tool</entityname.it_lasersurgerytool>
 
@@ -44,7 +44,7 @@
 
     <entityname.it_mudraptoreye>Mudraptor Eye</entityname.it_mudraptoreye>
 
-    <entitydescription.it_mudraptoreye>A purple malformed eye, belong to a mudraptor.</entitydescription.it_mudraptoreye>
+    <entitydescription.it_mudraptoreye>A purple malformed eye, belongs to a mudraptor.</entitydescription.it_mudraptoreye>
 
     <entityname.it_hammerheadeye>Hammerhead Eye</entityname.it_hammerheadeye>
 
@@ -52,7 +52,7 @@
 
     <entityname.it_huskifiedeye>Huskified Eye</entityname.it_huskifiedeye>
 
-    <entitydescription.it_huskifiedeye>An abonamination of an eye, mutated beyond recognition by the husk parasite, may infect the patient.</entitydescription.it_huskifiedeye>
+    <entitydescription.it_huskifiedeye>An abomination of an eye, mutated beyond recognition by the husk parasite, may infect the patient.</entitydescription.it_huskifiedeye>
 
     <entityname.it_watchereye>Watcher Eye</entityname.it_watchereye>
 
@@ -77,43 +77,37 @@
 
     <entityname.it_medicallens>Medical Lenses</entityname.it_medicallens>
 
-    <entitydescription.it_medicallens>        
-        Lenses that act as a scanner and provides visual enhancements for medics.
-        ‖color:120,200,120‖ Press F to on a limb to scan.‖color:end‖
-        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_medicallens>Lenses that act as a scanner and provides visual enhancements for medics.
+    ‖color:120,200,120‖ Press F on a limb to scan.‖color:end‖
+    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_medicallens>
 
     <entityname.it_electricallens>Electrical Lenses</entityname.it_electricallens>
 
-    <entitydescription.it_electricallens>        
-        Lenses that act as a electrical goggle and helps engineers distinguish circuits.
-        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_electricallens>Lenses that act as an electrical goggle and help engineers distinguish circuits.
+    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_electricallens>
 
     <entityname.it_nightlens>Night Vision Lenses</entityname.it_nightlens>
 
-    <entitydescription.it_nightlens>        
-        Lenses that enhance vision in the dark.
-        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_nightlens>Lenses that enhance vision in the dark.
+    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_nightlens>
 
     <entityname.it_thermallens>Thermal Lenses</entityname.it_thermallens>
 
-    <entitydescription.it_thermallens>        
-        Lenses with integrated infrared-vision.
-        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_thermallens>Lenses with integrated infrared-vision.
+    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_thermallens>
 
     <!-- Miscellaneous Items-->
     <entityname.it_glasses>Corrective Glasses</entityname.it_glasses>
 
-    <entitydescription.it_glasses>An outdated device used to relieve vision-impariment.</entitydescription.it_glasses>
+    <entitydescription.it_glasses>An outdated device used to relieve vision-impairment.</entitydescription.it_glasses>
 
     <entityname.it_aviators>Aviator Glasses</entityname.it_aviators>
 
-    <entitydescription.it_aviators>        
-        An ancient accessory that is said to be only used by commanders of airships.
-        Gives a lot of confidence.
+    <entitydescription.it_aviators>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.
     </entitydescription.it_aviators>
 
     <entityname.it_nvg>Night Vision Goggles</entityname.it_nvg>
@@ -122,9 +116,7 @@
 
     <entityname.it_eyejar>Eye Regeneration Jar</entityname.it_eyejar>
 
-    <entitydescription.it_eyejar>        
-        A jar that utilises stem cell regeneration to mend eyes slowly.
-        Can be placed on ground.
+    <entitydescription.it_eyejar>A jar that utilizes stem cell regeneration to mend eyes slowly. Can be placed on the ground.
     </entitydescription.it_eyejar>
 
     <!-- Afflictions -->
@@ -147,7 +139,7 @@
 
     <afflictionname.sr_eyeconnector>Eye Connector</afflictionname.sr_eyeconnector>
 
-    <afflictiondescription.sr_eyeconnector>A gooey substance seems to applied to the eye holes of this patient.</afflictiondescription.sr_eyeconnector>
+    <afflictiondescription.sr_eyeconnector>A gooey substance seems to be applied to the eye holes of this patient.</afflictiondescription.sr_eyeconnector>
 
     <afflictionname.sr_corneaincision>Cornea Incision</afflictionname.sr_corneaincision>
 
@@ -155,7 +147,7 @@
 
     <afflictionname.sr_emulsification>Emulsification</afflictionname.sr_emulsification>
 
-    <afflictiondescription.sr_emulsification>Eye lenses of this patient are removed, greatly impariring their vision.</afflictiondescription.sr_emulsification>
+    <afflictiondescription.sr_emulsification>Eye lenses of this patient are removed, greatly impairing their vision.</afflictiondescription.sr_emulsification>
 
     <afflictionname.sr_eyedrops>Eye Drops</afflictionname.sr_eyedrops>
 
@@ -172,13 +164,12 @@
 
     <afflictionname.mc_deadeye>Dead Eye</afflictionname.mc_deadeye>
 
-    <afflictiondescription.mc_deadeye>An eye of this patient is flat an unresponsive, it should be removed to prevent retinopathy.</afflictiondescription.mc_deadeye>
+    <afflictiondescription.mc_deadeye>An eye of this patient is flat and unresponsive, it should be removed to prevent retinopathy.</afflictiondescription.mc_deadeye>
 
     <afflictionname.mc_retinopathy>Retinopathy</afflictionname.mc_retinopathy>
 
-    <afflictiondescription.mc_retinopathy>        
-        Immune system of this patient has detected eye tissue and is attacking it!
-        Eye removal or immunosuppressants are required!
+    <afflictiondescription.mc_retinopathy>Immune system of this patient has detected eye tissue and is attacking it! 
+    Eye removal or immunosuppressants are required!
     </afflictiondescription.mc_retinopathy>
 
     <afflictionname.mc_cataract>Cataract</afflictionname.mc_cataract>
@@ -191,118 +182,118 @@
 
     <afflictionname.mc_mismatch>Mismatching Eyes</afflictionname.mc_mismatch>
 
-    <afflictiondescription.mc_mismatch>Different types of eyes this patient has is causing confusion and headaches.</afflictiondescription.mc_mismatch>
+    <afflictiondescription.mc_mismatch>Different types of eyes this patient has are causing confusion and headaches.</afflictiondescription.mc_mismatch>
 
     <!-- Damage Afflictions -->
     <afflictionname.dm_human>Human Eye Damage</afflictionname.dm_human>
 
-    <afflictiondescription.dm_human />
+    <afflictiondescription.dm_human></afflictiondescription.dm_human>
 
     <afflictionname.dm_cyber>Cyber Eye Damage</afflictionname.dm_cyber>
 
-    <afflictiondescription.dm_cyber />
+    <afflictiondescription.dm_cyber></afflictiondescription.dm_cyber>
 
     <afflictionname.dm_enhanced>Enhanced Eye Damage</afflictionname.dm_enhanced>
 
-    <afflictiondescription.dm_enhanced />
+    <afflictiondescription.dm_enhanced></afflictiondescription.dm_enhanced>
 
     <afflictionname.dm_plastic>Plastic Eye Damage</afflictionname.dm_plastic>
 
-    <afflictiondescription.dm_plastic />
+    <afflictiondescription.dm_plastic></afflictiondescription.dm_plastic>
 
     <afflictionname.dm_crawler>Crawler Eye Damage</afflictionname.dm_crawler>
 
-    <afflictiondescription.dm_crawler />
+    <afflictiondescription.dm_crawler></afflictiondescription.dm_crawler>
 
     <afflictionname.dm_mudraptor>Mudraptor Eye Damage</afflictionname.dm_mudraptor>
 
-    <afflictiondescription.dm_mudraptor />
+    <afflictiondescription.dm_mudraptor></afflictiondescription.dm_mudraptor>
 
     <afflictionname.dm_watcher>Watcher Eye Damage</afflictionname.dm_watcher>
 
-    <afflictiondescription.dm_watcher />
+    <afflictiondescription.dm_watcher></afflictiondescription.dm_watcher>
 
     <afflictionname.dm_husk>Huskified Eye Damage</afflictionname.dm_husk>
 
-    <afflictiondescription.dm_husk />
+    <afflictiondescription.dm_husk></afflictiondescription.dm_husk>
 
     <afflictionname.dm_charybdis>Charybdis Eye Damage</afflictionname.dm_charybdis>
 
-    <afflictiondescription.dm_charybdis />
+    <afflictiondescription.dm_charybdis></afflictiondescription.dm_charybdis>
 
     <afflictionname.dm_latcher>Latcher Eye Damage</afflictionname.dm_latcher>
 
-    <afflictiondescription.dm_latcher />
+    <afflictiondescription.dm_latcher></afflictiondescription.dm_latcher>
 
     <afflictionname.dm_terror>Terror Eye Damage</afflictionname.dm_terror>
 
-    <afflictiondescription.dm_terror />
+    <afflictiondescription.dm_terror></afflictiondescription.dm_terror>
 
     <!-- Eye Indicator Afflictions -->
     <afflictionname.vi_cyber>Cyber Eye</afflictionname.vi_cyber>
 
-    <afflictiondescription.vi_cyber />
+    <afflictiondescription.vi_cyber>This patient has fully-synthetic cyber eyes.</afflictiondescription.vi_cyber>
 
     <afflictionname.vi_enhanced>Enhanced Eye</afflictionname.vi_enhanced>
 
-    <afflictiondescription.vi_enhanced />
+    <afflictiondescription.vi_enhanced>This patient has mechanically-enhanced eyes.</afflictiondescription.vi_enhanced>
 
     <afflictionname.vi_human>Human Eye</afflictionname.vi_human>
 
-    <afflictiondescription.vi_human />
+    <afflictiondescription.vi_human>This patient has regular eyes belonging to a human.</afflictiondescription.vi_human>
 
     <afflictionname.vi_plastic>Plastic Eye</afflictionname.vi_plastic>
 
-    <afflictiondescription.vi_plastic />
+    <afflictiondescription.vi_plastic>This patient has balls of plastic where their eyes should be. Pity.</afflictiondescription.vi_plastic>
 
     <afflictionname.vi_crawler>Crawler Eye</afflictionname.vi_crawler>
 
-    <afflictiondescription.vi_crawler />
+    <afflictiondescription.vi_crawler></afflictiondescription.vi_crawler>
 
     <afflictionname.vi_mudraptor>Mudraptor Eye</afflictionname.vi_mudraptor>
 
-    <afflictiondescription.vi_mudraptor />
+    <afflictiondescription.vi_mudraptor></afflictiondescription.vi_mudraptor>
 
     <afflictionname.vi_watcher>Watcher Eye</afflictionname.vi_watcher>
 
-    <afflictiondescription.vi_watcher />
+    <afflictiondescription.vi_watcher></afflictiondescription.vi_watcher>
 
     <afflictionname.vi_husk>Huskified Eye</afflictionname.vi_husk>
 
-    <afflictiondescription.vi_husk />
+    <afflictiondescription.vi_husk></afflictiondescription.vi_husk>
 
     <afflictionname.vi_charybdis>Charybdis Eye</afflictionname.vi_charybdis>
 
-    <afflictiondescription.vi_charybdis />
+    <afflictiondescription.vi_charybdis></afflictiondescription.vi_charybdis>
 
     <afflictionname.vi_latcher>Latcher Eye</afflictionname.vi_latcher>
 
-    <afflictiondescription.vi_latcher />
+    <afflictiondescription.vi_latcher></afflictiondescription.vi_latcher>
 
     <afflictionname.vi_terror>Terror Eye</afflictionname.vi_terror>
 
-    <afflictiondescription.vi_terror />
+    <afflictiondescription.vi_terror></afflictiondescription.vi_terror>
 
     <!-- Lens Afflictions -->
     <afflictionname.lt_medical>Medical Lens</afflictionname.lt_medical>
 
-    <afflictiondescription.lt_medical />
+    <afflictiondescription.lt_medical></afflictiondescription.lt_medical>
 
     <afflictionname.lt_electrical>Electrical Lens</afflictionname.lt_electrical>
 
-    <afflictiondescription.lt_electrical />
+    <afflictiondescription.lt_electrical></afflictiondescription.lt_electrical>
 
     <afflictionname.lt_zoom>Magnification Lens</afflictionname.lt_zoom>
 
-    <afflictiondescription.lt_zoom />
+    <afflictiondescription.lt_zoom></afflictiondescription.lt_zoom>
 
     <afflictionname.lt_night>Night Vision Lens</afflictionname.lt_night>
 
-    <afflictiondescription.lt_night />
+    <afflictiondescription.lt_night></afflictiondescription.lt_night>
 
     <afflictionname.lt_thermal>Thermal Lens</afflictionname.lt_thermal>
 
-    <afflictiondescription.lt_thermal />
+    <afflictiondescription.lt_thermal></afflictiondescription.lt_thermal>
 
     <!-- Overwrites -->
     <Override>

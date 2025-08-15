@@ -6,7 +6,7 @@
         identifier="mc_deadeyes"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="0"
+        showiconthreshold="101"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_mechanic"
@@ -15,10 +15,8 @@
         iconcolors="255,0,0,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0.49786854,0.5040919"
-            sourcerect="0,384,128,128" />
+            origin="0.5204671,0.4915201"
+            sourcerect="896,0,128,128" />
 
         <Effect
             minstrength="0"
@@ -66,7 +64,7 @@
         identifier="mc_deadeye"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="0"
+        showiconthreshold="101"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_mechanic"
@@ -75,10 +73,8 @@
         iconcolors="255,80,0,255;255,80,0,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0.4992066,0.5049446"
-            sourcerect="640,0,128,128" />
+            origin="0.5269446,0.50130546"
+            sourcerect="896,0,128,128" />
 
         <Effect
             minstrength="0"
@@ -152,10 +148,8 @@
         iconcolors="211,211,84,255;211,100,20,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
             origin="0.4984753,0.4984753"
-            sourcerect="768,0,128,128" />
+            sourcerect="0,256,128,128" />
 
         <Effect
             minstrength="0"
@@ -205,10 +199,8 @@
         iconcolors="211,211,84,255;211,100,20,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0.4965487,0.5036933"
-            sourcerect="896,0,128,128" />
+            origin="0.5082467,0.49508098"
+            sourcerect="129,256,128,128" />
 
         <Effect
             minstrength="0"

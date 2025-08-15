@@ -1,329 +1,100 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-    <!-- Surgery Items -->
-    <!-- The Spoon -->
-    <Item
-        identifier="it_spoon"
-        aliases="eyespoon"
-        category="Equipment"
-        Tags="smallitem,simpletool,tool,eyesurgery,surgery,surgerytool"
-        cargocontaineridentifier="metalcrate"
-        impactsoundtag="impact_metal_light"
-        RequireAimToUse="True"
-        scale="0.25">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.001" />
-
-        <Fabricate
-            suitablefabricators="fabricator"
-            requiredtime="10">
-            <RequiredSkill
-                identifier="mechanical"
-                level="20" />
-            <RequiredItem
-                identifier="steel" />
-        </Fabricate>
-
-        <Deconstruct
-            time="15">
-            <Item
-                identifier="iron" />
-        </Deconstruct>
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,896,128,128"
-            depth="0.55"
-            origin="0.5,0.5" />
-
-        <Body
-            width="60"
-            height="12"
-            density="50" />
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="40,5"
-            handle1="-10,0"
-            holdangle="60"
-            reload="1.0"
-            range="15"
-            combatpriority="7"
-            msg="ItemMsgPickUpSelect">
-            <Attack
-                structuredamage="1"
-                itemdamage="2"
-                targetimpulse="2">
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash1.ogg"
-                    selectionmode="random"
-                    range="500" />
-
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash2.ogg"
-                    range="500" />
-
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash3.ogg"
-                    range="500" />
-
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash4.ogg"
-                    range="500" />
-
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash5.ogg"
-                    range="500" />
-
-                <Sound
-                    file="Content/Sounds/Damage/LimbSlash6.ogg"
-                    range="500" />
-
-                <Affliction
-                    identifier="lacerations"
-                    amount="2" />
-            </Attack>
-            <StatusEffect
-                type="OnUse"
-                target="UseTarget">
-                <LuaHook
-                    name="NTEYE.Spoon" />
-            </StatusEffect>
-        </MeleeWeapon>
-
-        <aitarget
-            sightrange="1000"
-            soundrange="400"
-            fadeouttime="2" />
-    </Item>
-
-    <!-- Eye Drop -->
-    <Item
-        identifier="it_eyedrop"
-        aliases="eyedrops"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,medical,eyesurgery,surgery,surgerytool">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            spawnprobability="0.09" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="128,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="70"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantmedical"
-                multiplier="1"
-                sold="true"
-                minavailable="2" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="5">
-            <RequiredSkill
-                identifier="medical"
-                level="30" />
-
-            <RequiredItem
-                identifier="pomegrenadeextract" />
-
-            <RequiredItem
-                identifier="antibloodloss1" />
-        </Fabricate>
-
-        <MeleeWeapon
-            slots="Any,RightHand,LeftHand"
-            aimpos="5,0"
-            handle1="-5,0"
-            holdangle="10"
-            reload="1.0">
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </MeleeWeapon>
-    </Item>
-
-    <!-- Laser Surgery Tool -->
-    <Item
-        identifier="it_lasersurgerytool"
-        aliases="eye_laser_tool"
-        scale="0.27"
-        category="Equipment"
-        tags="smallitem,medical,eyesurgery,surgery,surgerytool"
-        cargocontaineridentifier="metalcrate"
-        impactsoundtag="impact_metal_light"
-        useinhealthinterface="True">
-        <Price
-            baseprice="850"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantresearch"
-                sold="true"
-                multiplier="1.30" />
-        </Price>
-
-        <Deconstruct
-            time="10">
-            <Item
-                identifier="aluminium" />
-        </Deconstruct>
-
-        <Fabricate
-            suitablefabricators="fabricator"
-            requiredtime="31">
-            <RequiredSkill
-                identifier="medical"
-                level="80" />
-
-            <RequiredSkill
-                identifier="mechanical"
-                level="45" />
-
-            <RequiredItem
-                identifier="fpgacircuit" />
-
-            <RequiredItem
-                identifier="incendium" />
-
-            <RequiredItem
-                identifier="aluminium" />
-        </Fabricate>
-
-        <InventoryIcon
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="26,800,68,68"
-            origin="0.5,0.5" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="26,800,69,68"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="112"
-            height="96"
-            density="25" />
-
-        <Holdable
-            slots="Any,RightHand,LeftHand"
-            holdpos="30,-15"
-            aimpos="100,0"
-            handle1="-13,0"
-            handle2="-13,0"
-            msg="ItemMsgPickUpSelect" />
-
-        <ItemContainer
-            capacity="1"
-            maxstacksize="1"
-            hideitems="true"
-            containedstateindicatorstyle="battery">
-            <Containable
-                items="mobilebattery" />
-            <StatusEffect
-                type="Always"
-                target="This"
-                Voltage="-0.5" />
-        </ItemContainer>
-
-        <SkillRequirementHint
-            identifier="medical"
-            level="80" />
-    </Item>
-
-    <!-- Eye Connector -->
-    <Item
-        identifier="it_eyeconnector"
-        aliases="eyegel,muscleconnectors,nerveconnectors"
-        category="Medical"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8"
-        scale="0.2"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="mediccrate"
-        impacttolerance="5.5"
-        Tags="smallitem,medical,eyesurgery,surgery,surgerytool">
-        <PreferredContainer
-            secondary="wreckmedcab,abandonedmedcab,piratemedcab"
-            amount="1"
-            spawnprobability="0.1" />
-
-        <Body
-            width="60"
-            height="20"
-            density="20" />
-
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="0,896,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Price
-            baseprice="150"
-            soldbydefault="false">
-            <Price
-                storeidentifier="merchantmedical"
-                minavailable="2"
-                sold="true" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="9">
-            <RequiredSkill
-                identifier="medical"
-                level="50" />
-
-            <RequiredItem
-                identifier="antibloodloss1" />
-
-            <RequiredItem
-                identifier="carbon" />
-
-            <RequiredItem
-                identifier="organicfiber" />
-        </Fabricate>
-
-        <Holdable
-            slots="Any,RightHand,LeftHand">
-            <StatusEffect
-                type="OnUse"
-                target="This">
-                <!-- add a custom SFX for this <Sound file="%ModDir:Neurotrauma%/Sound/ointment.ogg" range="500" /> -->
-            </StatusEffect>
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </Holdable>
-
-        <SkillRequirementHint
-            identifier="medical"
-            level="35" />
-    </Item>
+  <!-- Surgery Items -->
+  <!-- The Spoon -->
+  <Item identifier="it_spoon" aliases="eyespoon" category="Equipment" Tags="smallitem,simpletool,tool,eyesurgery,surgery,surgerytool" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" RequireAimToUse="True" scale="0.25">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.001" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="steel" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="896,896,128,128" depth="0.55" origin="0.5,0.5" />
+    <Body width="60" height="12" density="50" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="15" combatpriority="7" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="1" itemdamage="2" targetimpulse="2">
+        <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        <Affliction identifier="lacerations" amount="2" />
+      </Attack>
+      <StatusEffect type="OnUse" target="UseTarget">
+        <LuaHook name="NTEYE.Spoon" />
+      </StatusEffect>
+    </MeleeWeapon>
+    <aitarget sightrange="1000" soundrange="400" fadeouttime="2" />
+  </Item>
+  <!-- Eye Drop -->
+  <Item identifier="it_eyedrop" aliases="eyedrops" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,eyesurgery,surgery,surgerytool">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" spawnprobability="0.09" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="128,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Body width="14" height="22" density="10" />
+    <Price baseprice="70" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" multiplier="1" sold="true" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="5">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="pomegrenadeextract" />
+      <RequiredItem identifier="antibloodloss1" />
+    </Fabricate>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+  <!-- Laser Surgery Tool -->
+  <Item identifier="it_lasersurgerytool" aliases="eye_laser_tool" scale="0.27" category="Equipment" tags="smallitem,medical,eyesurgery,surgery,surgerytool" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+    <Price baseprice="850" soldbydefault="false">
+      <Price storeidentifier="merchantresearch" sold="true" multiplier="1.30" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="31">
+      <RequiredSkill identifier="medical" level="80" />
+      <RequiredSkill identifier="mechanical" level="45" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="incendium" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Textures/ItemIcons.png" sourcerect="26,800,68,68" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="26,800,69,68" depth="0.6" origin="0.5,0.5" />
+    <Body width="112" height="96" density="25" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="30,-15" aimpos="100,0" handle1="-13,0" handle2="-13,0" msg="ItemMsgPickUpSelect" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <Containable items="mobilebattery" />
+      <StatusEffect type="Always" target="This" Voltage="-0.5" />
+    </ItemContainer>
+    <SkillRequirementHint identifier="medical" level="80" />
+  </Item>
+  <!-- Eye Connector -->
+  <Item identifier="it_eyeconnector" aliases="eyegel,muscleconnectors,nerveconnectors" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.2" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="mediccrate" impacttolerance="5.5" Tags="smallitem,medical,eyesurgery,surgery,surgerytool">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
+    <Body width="60" height="20" density="20" />
+    <Sprite texture="%ModDir%/Textures/ItemIcons.png" sourcerect="0,896,128,128" depth="0.6" origin="0.5,0.5" />
+    <Price baseprice="150" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" minavailable="2" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="9">
+      <RequiredSkill identifier="medical" level="50" />
+      <RequiredItem identifier="antibloodloss1" />
+      <RequiredItem identifier="carbon" />
+      <RequiredItem identifier="organicfiber" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand">
+      <StatusEffect type="OnUse" target="This">
+        <!-- add a custom SFX for this <Sound file="%ModDir:Neurotrauma%/Sound/ointment.ogg" range="500" /> -->
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <SkillRequirementHint identifier="medical" level="35" />
+  </Item>
 </Items>

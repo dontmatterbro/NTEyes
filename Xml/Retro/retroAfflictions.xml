@@ -349,7 +349,7 @@
         </Effect>
     </Affliction>
 
-    <!-- MONSTER EYE -->
+    <!-- MONSTER EYE // removed for now -->
     <Affliction
         iconcolors="160,160,70,255;160,160,70,255"
         name=""
@@ -372,11 +372,7 @@
             strengthchange="-1">
             <StatusEffect
                 type="Always"
-                target="Character">
-                <Affliction
-                    identifier="vi_crawler"
-                    amount="100" />
-            </StatusEffect>
+                target="Character" />
         </Effect>
     </Affliction>
 
@@ -411,7 +407,7 @@
         </Effect>
     </Affliction>
 
-    <!-- TERROR EYE -->
+    <!-- TERROR EYE // removed for now -->
     <Affliction
         iconcolors="255,0,0,255;255,0,0,255"
         name=""
@@ -434,11 +430,7 @@
             strengthchange="-1">
             <StatusEffect
                 type="Always"
-                target="Character">
-                <Affliction
-                    identifier="vi_terror"
-                    amount="100" />
-            </StatusEffect>
+                target="Character" />
         </Effect>
     </Affliction>
 </Afflictions>

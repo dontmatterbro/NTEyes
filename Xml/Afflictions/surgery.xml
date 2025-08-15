@@ -15,10 +15,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0.50096697,0.4930151"
-            sourcerect="0,256,128,128" />
+            origin="0.5128052,0.5003564"
+            sourcerect="0,512,128,128" />
 
         <Effect
             minstrength="0"
@@ -72,10 +70,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.52616405,0.50616205"
+            sourcerect="129,512,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2">
@@ -100,10 +96,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.5243187,0.52062804"
+            sourcerect="256,512,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -123,10 +117,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.5027488,0.49906325"
+            sourcerect="384,512,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -166,10 +158,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.5281679,0.5096357"
+            sourcerect="513,513,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -189,10 +179,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.4939776,0.50500953"
+            sourcerect="641,513,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -216,10 +204,8 @@
         iconcolors="84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.52081853,0.5012419"
+            sourcerect="769,513,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -255,10 +241,8 @@
         iconcolors="100,120,50,255;100,240,50,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.5606002,0.5112398"
+            sourcerect="897,513,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
@@ -278,10 +262,8 @@
         iconcolors="84,211,211,255;84,211,211,255">
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
-            sheetindex="0,0"
-            sheetelementsize="128,128"
-            origin="0,0"
-            sourcerect="0,0,128,128" />
+            origin="0.51217586,0.48925206"
+            sourcerect="0,640,128,128" />
         <Effect
             minstrength="0"
             maxstrength="100"
