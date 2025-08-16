@@ -1,7 +1,7 @@
 --pressure damage calculation
 local function PressureDamageCalculation(character, pressureDamageValue)
 	--this may be redundant, not a big deal tho
-	local pressureDamageValue = pressureDamage
+	local pressureDamage = pressureDamageValue
 
 	--check if there is a pressureDamage value, if not set it 0
 	if pressureDamage == nil then
@@ -93,6 +93,19 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 	end
 end
 
+local function CauseCataracts(afflictionsTable, statsTable, character, limb, i)
+	--if damage is above 60, have a chance to cause cataracts
+	if afflictionsTable[i].strength >= 60 then
+		--get cataractChance from config
+		local cataractChance = NTConfig.Get("NTEYE_cataractChance", 0.003) -- 0.03% chance to cause cataracts on default
+		if HF.Chance(cataractChance) then
+			if HF.HasEyes(character) then
+				HF.AddAfflictionLimb(character, "mc_cataract", limb, 1)
+			end
+		end
+	end
+end
+
 --define afflictions for humanupdate (this is added the Neurotrauma humanupdate table)
 NTEYE.UpdateAfflictions = {
 
@@ -120,10 +133,11 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			for affKey, aff in pairs(afflictionsTable) do
+				local increaseValue = -0.03
 				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
 					local viKey = "vi_" .. affKey:sub(4)
 					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
-						aff.strength = (aff.strength or 0) - 0.03
+						aff.strength = (aff.strength or 0) + increaseValue
 					end
 				end
 			end
@@ -145,10 +159,11 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			for affKey, aff in pairs(afflictionsTable) do
+				local increaseValue = -0.1
 				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
 					local viKey = "vi_" .. affKey:sub(4)
 					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
-						aff.strength = (aff.strength or 0) - 0.1
+						aff.strength = (aff.strength or 0) + increaseValue
 					end
 				end
 			end
@@ -177,7 +192,7 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
-	--increases retinopathy if the player has it
+	--retinopathy
 	mc_retinopathy = {
 		max = 100,
 		update = function(c, i)
@@ -192,17 +207,9 @@ NTEYE.UpdateAfflictions = {
 			if c.afflictions[i].strength <= 0 then
 				return
 			end
-			for affKey, aff in pairs(afflictionsTable) do
-				if affKey:sub(1, 3) == "dm_" and affKey ~= "dm_cyber" and affKey ~= "dm_plastic" then
-					local viKey = "vi_" .. affKey:sub(4)
-					if afflictionsTable[viKey] and afflictionsTable[viKey].strength > 0 then
-						aff.strength = (aff.strength or 0) + 2.5
-					end
-				end
-			end
 		end,
 	},
-	--triggers vision debuffs upon having cataracts
+	--triggers vision debuffs upon having cataracts, increases cataracts
 	mc_cataract = {
 		max = 100,
 		update = function(c, i)
@@ -214,6 +221,8 @@ NTEYE.UpdateAfflictions = {
 			if statsTable.stasis then
 				return
 			end
+
+			--give blurred vision symptom
 			if c.afflictions[i].strength >= 80 then
 				NTC.SetSymptomTrue(character, "sym_blurredvision", 10)
 			end
@@ -284,11 +293,14 @@ NTEYE.UpdateAfflictions = {
 			local hypoxemiaResistance = 200
 			local strokeResistance = 0.1
 			local sepsisResistance = 0.4
+			local retinopathyResistance = 10
 			--set by; lower value, less damage
 			local pressureDamage = 3
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
@@ -296,8 +308,11 @@ NTEYE.UpdateAfflictions = {
 				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
+				+ afflictionsTable.mc_retinopathy.strength / retinopathyResistance --from retinopathy
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -305,6 +320,9 @@ NTEYE.UpdateAfflictions = {
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+
+			--function to cause cataracts
+			CauseCataracts(afflictionsTable, statsTable, character, limb, i)
 			--function to check for eye death
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
@@ -363,7 +381,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -371,7 +390,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -379,6 +400,9 @@ NTEYE.UpdateAfflictions = {
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+
+			--function to cause cataracts
+			CauseCataracts(afflictionsTable, statsTable, character, limb, i)
 			--function to check for eye death
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
@@ -437,7 +461,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -445,7 +470,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -453,6 +480,7 @@ NTEYE.UpdateAfflictions = {
 					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
+
 			--function to check for eye death
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
@@ -485,7 +513,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -493,7 +522,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -533,7 +564,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -541,7 +573,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -581,7 +615,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -589,7 +624,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -629,7 +666,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.2 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -637,7 +675,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -677,7 +717,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -685,7 +726,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain
@@ -725,7 +768,8 @@ NTEYE.UpdateAfflictions = {
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
-
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 			--sets biological damage gain for eyes (can be negative or positive)
 			local gain = (
 				regenRate * statsTable.healingrate -- passive regen
@@ -733,7 +777,9 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			) * NT.Deltatime
+			)
+				* NT.Deltatime
+				* configMultiplier
 
 			if gain > 0 then
 				gain = gain

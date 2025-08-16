@@ -113,14 +113,22 @@ local function BlendColors(colors)
 	if #colors == 0 then
 		return Color(0, 0, 0, 0)
 	end
+	--set default variables for RGB
 	local r, g, b, a = 0, 0, 0, 0
+	--get the config value set
+	local configValue = NTConfig.Get("NTEYE_lightBoost", 0)
+
 	for _, c in ipairs(colors) do
 		r = r + c.R
 		g = g + c.G
 		b = b + c.B
-		a = a + c.A
+		a = a + c.A + configValue
 	end
+	--set alpha between 0-255
+	a = math.min(255, math.max(0, a))
+	--set the number of colors as a variable
 	local n = #colors
+	--divide the combined color values
 	return Color(math.floor(r / n), math.floor(g / n), math.floor(b / n), math.floor(a / n))
 end
 
@@ -128,6 +136,7 @@ end
 function NTEYE.UpdateLights()
 	local ControlledCharacter = Character.Controlled
 	local LevelLight = Level.Loaded.LevelData.GenerationParams
+
 	--check if the player controls a character
 	--if not reset color values
 	if not ControlledCharacter or not (ControlledCharacter.IsMale or ControlledCharacter.IsFemale) then
@@ -139,6 +148,7 @@ function NTEYE.UpdateLights()
 		return
 	end
 
+	--define color tables
 	local levelColors, hullColors = {}, {}
 
 	for _, effect in pairs(NTEYE.ClientEffects) do

@@ -1,5 +1,5 @@
 DONE -- remove one side of the screen getting blinded and instead opt for periphereal vision reduction like wearing a suit
-DONE [NEEDS TESTING] --multipurpose scalpel comp
+DONE --multipurpose scalpel comp
 DONE -- prevent people installing more than 2 eyes at the same time, put a check for if no removed eye, can't install more eyes.
 DONE -- dead eye rework (ouchie) 
 DONE --autoimmune retinopathy when one of eyes die, to prevent it the dead eye needs to be removed
@@ -26,6 +26,10 @@ DONE // cataracts apply regular NT blur // --Cataracts needs to interact more wi
 Why is nt concussion interesting and accepted despite being completely harmless? It causes a lot of symptoms that can be mistaken for other dangerous Afflictions
 (ThousandFields)
 DONE -- // New pressure calculation code should fix this issue // --comp patches for immersive diving and robotrauma (this may not be needed, further inquiry required)
+DONE // asset needs a touch up // fix eye jars //broken rn
+DONE? --redo affliction icons
+DONE? --correct item crafts and usage balance
+partially done // need to adjust where items show up // --enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
 
 
 --eye damage causes NT symptoms, headache, confusion etc. 
@@ -37,12 +41,6 @@ screen going black/red momentarily upon taking damage with regular eyes, blood l
 
 --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
 
---correct item crafts and usage balance
-
---enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
-
---fix eye jars //broken rn
-
 --decide what different types of creature eyes have what effects // 
 watcher: psychosis for nearby people
 husk: heals really fast, pressure resistant
@@ -52,11 +50,12 @@ crawler: better vision outside the sub, worst vision inside
 
 --redo trello
 
---redo affliction icons
-
 --fix item hold positions, 
 --fix SFX (not high priority, but effects overall quality of the mod significantly)
 
 --add eye cream (edible) -> you can craft this using eyes, gives you some buffs idk make it funny
 
 --add eyejar storage icon
+
+--add config
+--add light boost option to config

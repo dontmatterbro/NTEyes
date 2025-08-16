@@ -295,6 +295,11 @@
 
     <afflictiondescription.lt_thermal></afflictiondescription.lt_thermal>
 
+    <!-- Hud İtems (These do not appear in-game) -->
+    <entityname.misc_medicalhud>Medical Hud Item</entityname.misc_medicalhud>
+    <entityname.misc_electricalhud>Electrical Hud Item</entityname.misc_electricalhud>
+    <entityname.misc_thermalhud>Thermal Hud Item</entityname.misc_thermalhud>
+
     <!-- Overwrites -->
     <Override>
         <!-- Multipurpouse scalpel, organ removal description -->
