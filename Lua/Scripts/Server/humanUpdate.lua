@@ -93,11 +93,35 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 	end
 end
 
+--add cataracts if applicable
 local function CauseCataracts(afflictionsTable, statsTable, character, limb, i)
-	--if damage is above 60, have a chance to cause cataracts
-	if afflictionsTable[i].strength >= 60 then
+	--check if damage is above 60 and if there are 2 eyes
+	if
+		afflictionsTable[i].strength >= 60
+		and (
+			not (afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength > 0)
+			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
+		)
+	then
+		--at a chance every tick, add cataracts
+		local removalChance = (afflictionsTable[i].strength / 8) --for mercy, every tick has a damage/8 (10% at 80 damage) chance to remove the eye
 		--get cataractChance from config
 		local cataractChance = 0.03 * NTConfig.Get("NTEYE_cataractChanceMultiplier", 1) -- 0.03% chance to cause cataracts on default
+		if HF.Chance(cataractChance) then
+			if HF.HasEyes(character) then
+				HF.AddAfflictionLimb(character, "mc_cataract", limb, 1)
+			end
+		end
+	elseif --check the status of the other eye if only 1 of the same type can be found
+		(afflictionsTable[i].strength >= 30)
+		and (
+			(afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength >= 1)
+			or (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength >= 1)
+			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1) --character may have 2 eyes of different types
+		)
+	then
+		--get cataractChance from config
+		local cataractChance = 0.06 * NTConfig.Get("NTEYE_cataractChanceMultiplier", 1) -- 0.03% chance to cause cataracts on default
 		if HF.Chance(cataractChance) then
 			if HF.HasEyes(character) then
 				HF.AddAfflictionLimb(character, "mc_cataract", limb, 1)
