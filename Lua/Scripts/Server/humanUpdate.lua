@@ -188,7 +188,7 @@ NTEYE.UpdateAfflictions = {
 			--give retinopathy if it is enabled and there is a dead eye
 			if afflictionsTable.mc_deadeye.strength > 0 and not NTConfig.Get("NTEYE_disableRetinopathy", false) then
 				if HF.Chance(0.007) then -- 0.7% chance to cause retinopathy
-					HF.SetAfflictionLimb(character, "mc_retinopathy", limb, 1)
+					HF.AddAfflictionLimb(character, "mc_retinopathy", limb, 1)
 				end
 			end
 		end,
@@ -208,6 +208,10 @@ NTEYE.UpdateAfflictions = {
 			if c.afflictions[i].strength <= 0 then
 				return
 			end
+			--remove retinopathy if immunity is below 10%
+			if c.afflictions.immunity.strength < 11 then
+				afflictionsTable[i].strength = 0
+			end
 		end,
 	},
 	--triggers vision debuffs upon having cataracts, increases cataracts
@@ -224,7 +228,7 @@ NTEYE.UpdateAfflictions = {
 			end
 
 			--give blurred vision symptom
-			if c.afflictions[i].strength >= 80 then
+			if c.afflictions[i].strength >= 60 then
 				NTC.SetSymptomTrue(character, "sym_blurredvision", 10)
 			end
 		end,

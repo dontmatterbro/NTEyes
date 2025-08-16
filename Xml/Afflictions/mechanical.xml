@@ -153,36 +153,21 @@
 
         <Effect
             minstrength="0"
-            maxstrength="70"
+            maxstrength="60"
             strengthchange="-3"
-            minscreendistort="0"
-            maxscreendistort="0.5"
-            minscreenblur="0"
-            maxscreenblur="0.2"
-            minradialdistort="0"
-            maxradialdistort="0.1"
             minskillmultiplier="1.0"
             maxskillmultiplier="0.8" />
 
         <Effect
-            minstrength="70"
+            minstrength="60"
             maxstrength="100"
             strengthchange="-2"
-            minscreendistort="0.5"
-            maxscreendistort="0.7"
-            minscreenblur="0.2"
-            maxscreenblur="0.3"
             minradialdistort="0.1"
             maxradialdistort="0.2"
             minskillmultiplier="0.8"
             maxskillmultiplier="0.5"
             minspeedmultiplier="1"
             maxspeedmultiplier="0.8" />
-
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="768,0,128,128" 
-            origin="0,0" /> -->
     </Affliction>
 
     <!-- Mismatching Eyes -->

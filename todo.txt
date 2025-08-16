@@ -35,24 +35,19 @@ DONE // client side effects need testing, do they rely on server or their own fi
 --eye damage causes NT symptoms, headache, confusion etc. 
 DONE --fix item hold positions, 
 CANCELLED -- //no need to, NT already does this // --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
+CANCELLED //no real need to add this, maybe in the future or if someone does it // -- --add eye surgery toolbag
+DONE --add eyejar storage icon
+DONE? //I dont recall why I added this, mod does not seem to have such issues afaik // --fix SFX (not high priority, but effects overall quality of the mod significantly)
+POSTPONED --decide what different types of creature eyes have what effects // 
+watcher: psychosis for nearby people
+husk: heals really fast, pressure resistant
+crawler: better vision outside the sub, worst vision inside
 
 --some way to prevent the symptoms of mismatch
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
 
---decide what different types of creature eyes have what effects // 
-watcher: psychosis for nearby people
-husk: heals really fast, pressure resistant
-crawler: better vision outside the sub, worst vision inside
-
---add eye surgery toolbag
-
 --redo trello
 
---fix SFX (not high priority, but effects overall quality of the mod significantly)
-
 --add eye cream (edible) -> you can craft this using eyes, gives you some buffs idk make it funny
-
---add eyejar storage icon
-
