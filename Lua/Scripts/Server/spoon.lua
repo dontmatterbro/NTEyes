@@ -81,7 +81,7 @@ function NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 		--{ type = "Mudraptor", item = "it_mudraptoreye" },
 		--{ type = "Hammerhead", item = "it_hammerheadeye" },
 		--{ type = "Watcher", item = "it_watchereye" },
-		--{ type = "Husk", item = "it_huskeye" },
+		{ type = "Husk", item = "it_huskeye" },
 		--{ type = "Charybdis", item = "it_charybdiseye" },
 		--{ type = "Latcher", item = "it_latchereye" },
 	}

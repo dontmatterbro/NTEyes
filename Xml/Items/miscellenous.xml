@@ -359,17 +359,16 @@
         </CustomInterface>
     </Item>
 
-    <!-- Eye Regeneration jar -->
+    <!-- Eye Regeneration Jar (Thanks Lukako) -->
     <Item
         identifier="it_eyejar"
-        aliases="eyejar"
         category="Equipment"
         tags="mediumitem,eyecontainer,refrigerated"
         cargocontaineridentifier="metalcrate"
         showcontentsintooltip="true"
-        scale="0.4"
+        Scale="0.3"
         fireproof="true"
-        impactsoundtag="impact_hard"
+        impactsoundtag="impact_soft"
         isshootable="true">
         <PreferredContainer
             primary="medcab" />
@@ -404,9 +403,8 @@
         </Fabricate>
 
         <Price
-            baseprice="100"
-            soldbydefault="false"
-            MinLevelDifficulty="1">
+            baseprice="400"
+            soldbydefault="false">
             <Price
                 storeidentifier="merchantmedical"
                 sold="true"
@@ -420,10 +418,11 @@
 
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            depth="0.51"
+            depth="0.7"
             sourcerect="768,896,128,128"
             origin="0.5,0.5" />
 
+        <!-- Sprite Depth for Jar must be *below* the sprites for the Eyes. In my tests, I adjusted the eyes but changing the jar is easiest. I also made a bootleg jar that did not have the eye in it by default, this is also required.-->
         <Body
             width="45"
             height="80"
@@ -431,121 +430,70 @@
 
         <Holdable
             slots="Any,RightHand,LeftHand"
-            selectkey="Action"
-            pickkey="Use"
             holdpos="0,-70"
             handle1="0,45"
             holdangle="0"
             msg="ItemMsgPickUpUse"
+            canbeselected="false"
+            canbepicked="true"
+            pickkey="Use"
+            PickingTime="1.0"
+            allowswappingwhenpicked="false"
             attachable="true"
-            aimable="true"
-            PickingTime="2" />
+            aimable="true">
+            <StatusEffect
+                type="OnUse"
+                target="this"
+                hideitems="false"
+                setvalue="true" />
+
+            <!-- If placed, show items 
+            <StatusEffect
+                type="OnContained"
+                target="this"
+                hideitems="true"
+                setvalue="true" /> -->
+            <!-- If contained (player inventory, storage etc.) hide items. Prevents items from showing by default / when dropped (as they are always contained before being dropped) -->
+        </Holdable>
 
         <ItemContainer
+            capacity="0"
             canbeselected="true"
-            hideitems="true"
-            capacity="2"
-            maxstacksize="2">
-            <SlotIcon
-                texture="%ModDir%/Textures/ItemIcons.png"
-                sourcerect="0,0,128,128"
-                depth="0.6"
-                origin="0.5,0.5" />
-            <Containable
-                items="eyejarcontainable" />
+            msg="ItemMsgInteractSelect"
+            itempos="70, -60"
+            iteminterval="-20, 30">
+            <StatusEffect
+                type="OnUse"
+                target="this"
+                hideitems="false"
+                setvalue="true" />
+
+            <!-- Subcontainers allow moving 2 unique sprites vertically, since ItemInterval does not work for some reason in the Itemcontainer itself. -->
+            <GuiFrame
+                relativesize="0.15,0.15"
+                anchor="Center"
+                style="ItemUI" />
+
+            <!-- Two subcontainers for two eyes - assuming they become individual items instead of 'transplants'. -->
+            <SubContainer
+                capacity="1"
+                maxstacksize="1">
+                <Containable
+                    items="eyejarcontainable"
+                    itempos="16, -25"
+                    rotation="55" />
+                <!-- Rotation to make them seem 'floating'. Just cosmetic.-->
+            </SubContainer>
+
+            <SubContainer
+                capacity="1"
+                maxstacksize="1">
+                <Containable
+                    items="eyejarcontainable"
+                    itempos="22, -15"
+                    rotation="-34" />
+                <!-- 2nd item always 'floats' higher in the jar. -->
+            </SubContainer>
         </ItemContainer>
     </Item>
-
-    <!-- Eye Surgery Toolbag -->
-    <!-- <Item
-		identifier="it_eyesurgerytoolbag" 
-		category="Equipment" 
-		tags="smallitem,mobilecontainer,tool,toolbox"
-		showcontentsintooltip="true" 
-		scale="0.5" 
-		fireproof="true" 
-		impactsoundtag="impact_metal_heavy" 
-		RequireAimToUse="True">
-		<PreferredContainer 
-			primary="medcab" 
-			minamount="1" 
-			maxamount="1" />
-		<PreferredContainer 
-			secondary="locker" />
-		<Deconstruct 
-			time="10">
-			<Item 
-				identifier="steel" />
-		</Deconstruct>
-		<Fabricate 
-			suitablefabricators="fabricator" 
-			requiredtime="20">
-			<RequiredSkill 
-				identifier="mechanical" 
-				level="20" />
-			<RequiredItem 
-				identifier="steel" 
-				amount="2" />
-		</Fabricate>
-		<Price 
-			baseprice="25">
-			<Price 
-				storeidentifier="merchantmedical" 
-				sold="true" 
-				multiplier="0.9" 
-				minavailable="2" />
-		</Price>
-		<Sprite />
-		<Body 
-			width="45" 
-			height="30" 
-			density="20" />
-		<MeleeWeapon 
-			slots="RightHand,LeftHand,Any" 
-			controlpose="true" 
-			aimpos="45,10" 
-			handle1="0,14" 
-			holdangle="90" 
-			reload="1" 
-			range="50" 
-			combatpriority="6" 
-			msg="ItemMsgPickUpSelect">
-			<Attack 
-				structuredamage="0" 
-				itemdamage="1" 
-				targetimpulse="2">
-				<Affliction 
-					identifier="blunttrauma" 
-					strength="1" />
-				<Affliction 
-					identifier="stun" 
-					strength="0.6" />
-				<StatusEffect 
-					type="OnUse" 
-					target="UseTarget">
-					<Conditional 
-						entitytype="eq Character" />
-					<Sound 
-						file="Content/Items/Weapons/Smack1.ogg" 
-						selectionmode="random" 
-						range="500" />
-					<Sound 
-						file="Content/Items/Weapons/Smack2.ogg" 
-						range="500" />
-				</StatusEffect>
-			</Attack>
-		</MeleeWeapon>
-		<ItemContainer 
-			capacity="12" 
-			keepopenwhenequipped="true" 
-			movableframe="true">
-			<Containable 
-				items="surgerytool" 
-				excludeditems="toolbelt,toolbox" />
-		</ItemContainer>
-		<aitarget 
-			sightrange="1000" 
-			soundrange="1000" 
-			fadeouttime="2" />
-	</Item> -->
 </Items>

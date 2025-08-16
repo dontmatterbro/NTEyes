@@ -33,13 +33,13 @@ partially done // need to adjust where items show up // --enhance the texture fo
 DONE  --add config
 DONE // client side effects need testing, do they rely on server or their own file?? // --add light boost option to config
 --eye damage causes NT symptoms, headache, confusion etc. 
+DONE --fix item hold positions, 
+CANCELLED -- //no need to, NT already does this // --redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
 
 --some way to prevent the symptoms of mismatch
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)
-
---redo hypotension effect, preferably slightly animate it -- use overlays/corners, like that mod they mentioned on discord (find its name idr)
 
 --decide what different types of creature eyes have what effects // 
 watcher: psychosis for nearby people
@@ -50,7 +50,6 @@ crawler: better vision outside the sub, worst vision inside
 
 --redo trello
 
---fix item hold positions, 
 --fix SFX (not high priority, but effects overall quality of the mod significantly)
 
 --add eye cream (edible) -> you can craft this using eyes, gives you some buffs idk make it funny
