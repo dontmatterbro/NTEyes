@@ -193,6 +193,8 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--empty for later inclusion if needed
+	mc_correctives = {},
 	--mechanical afflictions
 	mc_deadeyes = {},
 	--causes retinopathy at a chance
@@ -292,8 +294,13 @@ NTEYE.UpdateAfflictions = {
 			if c.afflictions[i].strength <= 0 then
 				return
 			end
+			--glasses prevent the negative effects of mismatch
+			if afflictionsTable.mc_correctives.strength > 0 then
+				return
+			end
+
 			NTC.SetSymptomTrue(character, "sym_headache", 10)
-			if HF.Chance(0.07) then
+			if HF.Chance(0.1) then
 				NTC.SetSymptomTrue(character, "sym_nausea", 10)
 			end
 		end,

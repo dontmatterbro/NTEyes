@@ -187,15 +187,23 @@
             origin="0.5082467,0.49508098"
             sourcerect="129,256,128,128" />
 
+    </Affliction>
+
+    <!-- Corrective Glasses -->
+    <Affliction
+        identifier="mc_correctives"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="1000"
+        maxstrength="2"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="211,211,84,255;211,100,20,255">
         <Effect
             minstrength="0"
             maxstrength="2"
-            minskillmultiplier="0.85"
-            maxskillmultiplier="0.85" />
-
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="768,0,128,128" 
-            origin="0,0" /> -->
+            strengthchange="1" />
     </Affliction>
 </Afflictions>

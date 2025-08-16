@@ -42,8 +42,8 @@ POSTPONED --decide what different types of creature eyes have what effects //
 watcher: psychosis for nearby people
 husk: heals really fast, pressure resistant
 crawler: better vision outside the sub, worst vision inside
+DONE //Corrective glasses // --some way to prevent the symptoms of mismatch
 
---some way to prevent the symptoms of mismatch
 
 --animations for eye damage (bionic eyes getting digital parasites, night vision malfunction etc.
 screen going black/red momentarily upon taking damage with regular eyes, blood lines over screen as eye damage increases)

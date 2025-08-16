@@ -76,6 +76,13 @@
                 scale="0.29"
                 sourcerect="768,512,128,128"
                 origin="0.525,0.51" />
+            <StatusEffect
+                type="OnWearing"
+                target="Character">
+                <Affliction
+                    identifier="mc_correctives"
+                    amount="100" />
+            </StatusEffect>
         </Wearable>
     </Item>
 
