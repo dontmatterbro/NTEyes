@@ -30,8 +30,8 @@ DONE // asset needs a touch up // fix eye jars //broken rn
 DONE? --redo affliction icons
 DONE? --correct item crafts and usage balance
 partially done // need to adjust where items show up // --enhance the texture for the eye jar (type of eye that shows outside when you put it inside)
-
-
+DONE  --add config
+DONE // client side effects need testing, do they rely on server or their own file?? // --add light boost option to config
 --eye damage causes NT symptoms, headache, confusion etc. 
 
 --some way to prevent the symptoms of mismatch
@@ -57,5 +57,3 @@ crawler: better vision outside the sub, worst vision inside
 
 --add eyejar storage icon
 
---add config
---add light boost option to config

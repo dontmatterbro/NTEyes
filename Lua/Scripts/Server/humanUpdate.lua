@@ -97,7 +97,7 @@ local function CauseCataracts(afflictionsTable, statsTable, character, limb, i)
 	--if damage is above 60, have a chance to cause cataracts
 	if afflictionsTable[i].strength >= 60 then
 		--get cataractChance from config
-		local cataractChance = NTConfig.Get("NTEYE_cataractChance", 0.003) -- 0.03% chance to cause cataracts on default
+		local cataractChance = 0.03 * NTConfig.Get("NTEYE_cataractChanceMultiplier", 1) -- 0.03% chance to cause cataracts on default
 		if HF.Chance(cataractChance) then
 			if HF.HasEyes(character) then
 				HF.AddAfflictionLimb(character, "mc_cataract", limb, 1)
@@ -185,8 +185,9 @@ NTEYE.UpdateAfflictions = {
 			if statsTable.stasis then
 				return
 			end
-			if afflictionsTable.mc_deadeye.strength > 0 then
-				if HF.Chance(0.005) then -- 0.5% chance to cause retinopathy
+			--give retinopathy if it is enabled and there is a dead eye
+			if afflictionsTable.mc_deadeye.strength > 0 and not NTConfig.Get("NTEYE_disableRetinopathy", false) then
+				if HF.Chance(0.007) then -- 0.7% chance to cause retinopathy
 					HF.SetAfflictionLimb(character, "mc_retinopathy", limb, 1)
 				end
 			end
@@ -295,7 +296,8 @@ NTEYE.UpdateAfflictions = {
 			local sepsisResistance = 0.4
 			local retinopathyResistance = 10
 			--set by; lower value, less damage
-			local pressureDamage = 3
+			local pressureDamage = 3 * NTConfig.Get("NTEYE_pressureDamageMultiplier", 1)
+
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true
@@ -377,7 +379,7 @@ NTEYE.UpdateAfflictions = {
 			local strokeResistance = 0.08
 			local sepsisResistance = 0.3
 			--set by; lower value, less damage
-			local pressureDamage = 2.5
+			local pressureDamage = 2.5 * NTConfig.Get("NTEYE_pressureDamageMultiplier", 1)
 			local regenRate = -0.1 --inverse for passive healing
 			--set if the eye is biological or not
 			local biological = true

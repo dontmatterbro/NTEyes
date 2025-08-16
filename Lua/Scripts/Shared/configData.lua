@@ -7,18 +7,34 @@ NTEYE.ConfigData = {
 		default = 0,
 		range = { -255, 255 },
 		type = "float",
+		description = "Boosts the amount of light (RGB alpha value) each eye has.",
 	},
 	NTEYE_eyeDamageMultiplier = {
-		name = "Eye Damage Multiplier",
+		name = "Eye Biological Damage Multiplier",
 		default = 1,
 		range = { 0, 10 },
 		type = "float",
+		description = "Multiplies the biological eye damage amount by the number set.",
 	},
-	NTEYE_cataractChance = {
-		name = "Cataract Chance",
-		default = 0.03,
+	NTEYE_pressureDamageMultiplier = {
+		name = "Eye Pressure Damage Multiplier",
+		default = 1,
 		range = { 0, 10 },
 		type = "float",
+		description = "Multiplies the water presure eye damage amount by the number set.",
+	},
+	NTEYE_cataractChanceMultiplier = {
+		name = "Cataract Chance Multiplier",
+		default = 1,
+		range = { 0, 10 },
+		type = "float",
+		description = "Multiplies the cataract chance value (0.03) by the number set.",
+	},
+	NTEYE_disableRetinopathy = {
+		name = "Disable Retinopathy",
+		default = false,
+		type = "bool",
+		description = "Disables the retinopathy chance upon having a dead eye and not removing it.",
 	},
 }
 
