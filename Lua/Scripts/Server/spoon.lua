@@ -25,7 +25,7 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 			end
 		else
 			--if target character is not human	// temporarily disabled
-			--NTEYE.ScoopMonster(targetCharacter, usingCharacter)
+			NTEYE.ScoopMonster(targetCharacter, usingCharacter)
 			--HF.SetAffliction(targetCharacter, "sr_removedeyes", 100) --add removed eyes to monster
 			return --temporarily disabled
 		end

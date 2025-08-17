@@ -23,10 +23,11 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 		and (
 			not (afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength > 0)
 			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
+			and not (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1)
 		)
 	then
 		--at a chance every tick, remove the eye
-		local removalChance = (afflictionsTable[i].strength / 8) --for mercy, every tick has a damage/8 (10% at 80 damage) chance to remove the eye
+		local removalChance = (afflictionsTable[i].strength / 800) --for mercy, every tick has a damage/8 (10% at 80 damage) chance to remove the eye
 		if HF.Chance(removalChance) then
 			--remove the dead eye's damage from total eye health
 			afflictionsTable[i].strength = afflictionsTable[i].strength - 50
@@ -57,7 +58,7 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1) --character may have 2 eyes of different types
 		)
 	then
-		local removalChance = (afflictionsTable[i].strength / 10) --for mercy (again), every tick has a damage/10 (4.5% at 45 damage) chance to remove the eye
+		local removalChance = (afflictionsTable[i].strength / 800) --for mercy (again), every tick has a damage/10 (4.5% at 45 damage) chance to remove the eye
 		if HF.Chance(removalChance) then
 			--remove the eye damage
 			afflictionsTable[i].strength = 0
@@ -101,10 +102,9 @@ local function CauseCataracts(afflictionsTable, statsTable, character, limb, i)
 		and (
 			not (afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength > 0)
 			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
+			and not (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1)
 		)
 	then
-		--at a chance every tick, add cataracts
-		local removalChance = (afflictionsTable[i].strength / 8) --for mercy, every tick has a damage/8 (10% at 80 damage) chance to remove the eye
 		--get cataractChance from config
 		local cataractChance = 0.03 * NTConfig.Get("NTEYE_cataractChanceMultiplier", 1) -- 0.03% chance to cause cataracts on default
 		if HF.Chance(cataractChance) then
@@ -125,6 +125,45 @@ local function CauseCataracts(afflictionsTable, statsTable, character, limb, i)
 		if HF.Chance(cataractChance) then
 			if HF.HasEyes(character) then
 				HF.AddAfflictionLimb(character, "mc_cataract", limb, 1)
+			end
+		end
+	end
+end
+
+local function CauseParasites(afflictionsTable, statsTable, character, limb, i)
+	--check if damage is above 60 and if there are 2 eyes
+	if
+		afflictionsTable[i].strength >= 60
+		and (
+			not (afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength > 0)
+			and not (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength > 0)
+			and not (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1)
+		)
+	then
+		--at a chance every tick, cause parasites
+		local parasiteChance = (afflictionsTable[i].strength / 600) --every tick has a damage/1000 (8% at 80 damage) chance to cause parasites
+		print(parasiteChance)
+		if HF.Chance(parasiteChance) then
+			if HF.HasEyes(character) then
+				HF.AddAfflictionLimb(character, "hud_parasite1", limb, 100)
+				print("set")
+			end
+		end
+	elseif --check the status of the other eye if only 1 of the same type can be found
+		(afflictionsTable[i].strength >= 30)
+		and (
+			(afflictionsTable.mc_deadeye and afflictionsTable.mc_deadeye.strength >= 1)
+			or (afflictionsTable.sr_removedeye and afflictionsTable.sr_removedeye.strength >= 1)
+			or (afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1) --character may have 2 eyes of different types
+		)
+	then
+		--at a chance every tick, cause parasites
+		local parasiteChance = (afflictionsTable[i].strength / 600) --every tick has a damage/10 (8% at 80 damage) chance to cause parasites
+		local parasiteDuration = 2
+
+		if HF.Chance(parasiteChance) then
+			if HF.HasEyes(character) then
+				HF.AddAfflictionLimb(character, "hud_parasite1", limb, 100)
 			end
 		end
 	end
@@ -388,6 +427,9 @@ NTEYE.UpdateAfflictions = {
 
 			--function to check for eye death
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
+
+			--cause parasites on screen if damage is too high
+			CauseParasites(afflictionsTable, statsTable, character, limb, i)
 		end,
 	},
 	dm_enhanced = {

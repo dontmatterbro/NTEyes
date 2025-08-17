@@ -41,20 +41,6 @@
         </Effect>
     </Affliction>
 
-    <!-- Magnification Lens -->
-    <Affliction
-        identifier="lt_magnification"
-        showiconthreshold="1000"
-        showinhealthscannerthreshold="0"
-        limbspecific="false"
-        indicatorlimb="Head"
-        maxstrength="100"
-        type="lens_type"
-        isbuff="true"
-        healableinmedicalclinic="false">
-        <Effect />
-    </Affliction>
-
     <!-- Night Vision Lens -->
     <Affliction
         identifier="lt_night"
@@ -86,6 +72,36 @@
             <StatValue
                 stattype="WeaponsSkillBonus"
                 value="10" />
+        </Effect>
+    </Affliction>
+
+    <!-- Digital Parasites (Cyber Eye Damage Symptoms) -->
+    <Affliction
+        identifier="hud_parasite1"
+        type="eye_mechanic"
+        indicatorlimb="Head"
+        limbspecific="false"
+        maxstrength="2">
+        <Effect
+            minstrength="0"
+            maxstrength="2"
+            strengthchange="-1"
+            minafflictionoverlayalphamultiplier="0.0"
+            maxafflictionoverlayalphamultiplier="0.7"
+            ScreenEffectFluctuationFrequency="0.6"
+            minradialdistort="0"
+            maxradialdistort="0.5"
+            mingrainstrength="0"
+            maxgrainstrength="5"
+            GrainColor="200,200,0,100">
+            <!-- local sfx -->
+            <StatusEffect
+                target="Character">
+                <Conditional
+                    IsLocalPlayer="true" />
+                <Sound
+                    file="%ModDir%/Sounds/parasite1.ogg" />
+            </StatusEffect>
         </Effect>
     </Affliction>
 </Afflictions>

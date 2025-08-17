@@ -54,6 +54,9 @@
         file="%ModDir%/Sounds/eye_beep.ogg" />
 
     <Other
+        file="%ModDir%/Sounds/parasite1.ogg" />
+
+    <Other
         file="%ModDir%/Textures/Overlays/blackoverlay.png" />
 
     <Other

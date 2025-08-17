@@ -76,7 +76,6 @@ NTEYE.EyeProperty = {
 NTEYE.LensProperty = {
 	{ affliction = "lt_medical", item = "it_medicallens" },
 	{ affliction = "lt_electrical", item = "it_electricallens" },
-	{ affliction = "lt_magnification", item = "it_magnificationlens" },
 	{ affliction = "lt_night", item = "it_nightlens" },
 	{ affliction = "lt_thermal", item = "it_thermallens" },
 }
@@ -838,11 +837,6 @@ NTEYE.ItemMethods.it_medicallens = function(item, usingCharacter, targetCharacte
 end
 --electrical lens
 NTEYE.ItemMethods.it_electricallens = function(item, usingCharacter, targetCharacter, targetLimb)
-	local limb = LimbType.Head
-	HF.ApplyLensItem(targetCharacter, usingCharacter, item)
-end
---magnification lens
-NTEYE.ItemMethods.it_magnificationlens = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 	HF.ApplyLensItem(targetCharacter, usingCharacter, item)
 end
