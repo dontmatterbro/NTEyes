@@ -410,7 +410,7 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient
 			HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", limb, 100, usingCharacter) --revert held lids removal
-			HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 100, usingCharacter) --revert popped eyes removal
+			--HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 100, usingCharacter) --revert popped eyes removal // don't they dont have eyes
 		else
 			--cause bleeding and pain if fail
 			HF.AddAfflictionLimb(targetCharacter, "severepain", limb, 100, usingCharacter)
