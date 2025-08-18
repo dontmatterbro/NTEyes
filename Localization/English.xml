@@ -187,47 +187,28 @@
     <!-- Damage Afflictions -->
     <afflictionname.dm_human>Human Eye Damage</afflictionname.dm_human>
 
-    <afflictiondescription.dm_human></afflictiondescription.dm_human>
-
     <afflictionname.dm_cyber>Cyber Eye Damage</afflictionname.dm_cyber>
-
-    <afflictiondescription.dm_cyber></afflictiondescription.dm_cyber>
 
     <afflictionname.dm_enhanced>Enhanced Eye Damage</afflictionname.dm_enhanced>
 
-    <afflictiondescription.dm_enhanced></afflictiondescription.dm_enhanced>
-
     <afflictionname.dm_plastic>Plastic Eye Damage</afflictionname.dm_plastic>
-
-    <afflictiondescription.dm_plastic></afflictiondescription.dm_plastic>
 
     <afflictionname.dm_crawler>Crawler Eye Damage</afflictionname.dm_crawler>
 
-    <afflictiondescription.dm_crawler></afflictiondescription.dm_crawler>
-
     <afflictionname.dm_mudraptor>Mudraptor Eye Damage</afflictionname.dm_mudraptor>
 
-    <afflictiondescription.dm_mudraptor></afflictiondescription.dm_mudraptor>
+    <afflictionname.dm_hammerhead>Hammerhead Eye Damage</afflictionname.dm_hammerhead>
 
     <afflictionname.dm_watcher>Watcher Eye Damage</afflictionname.dm_watcher>
 
-    <afflictiondescription.dm_watcher></afflictiondescription.dm_watcher>
-
     <afflictionname.dm_husk>Huskified Eye Damage</afflictionname.dm_husk>
-
-    <afflictiondescription.dm_husk></afflictiondescription.dm_husk>
 
     <afflictionname.dm_charybdis>Charybdis Eye Damage</afflictionname.dm_charybdis>
 
-    <afflictiondescription.dm_charybdis></afflictiondescription.dm_charybdis>
-
     <afflictionname.dm_latcher>Latcher Eye Damage</afflictionname.dm_latcher>
-
-    <afflictiondescription.dm_latcher></afflictiondescription.dm_latcher>
 
     <afflictionname.dm_terror>Terror Eye Damage</afflictionname.dm_terror>
 
-    <afflictiondescription.dm_terror></afflictiondescription.dm_terror>
 
     <!-- Eye Indicator Afflictions -->
     <afflictionname.vi_cyber>Cyber Eye</afflictionname.vi_cyber>
@@ -254,6 +235,10 @@
 
     <afflictiondescription.vi_mudraptor></afflictiondescription.vi_mudraptor>
 
+    <afflictionname.vi_hammerhead>Hammerhead Eye</afflictionname.vi_hammerhead>
+
+    <afflictiondescription.vi_hammerhead></afflictiondescription.vi_hammerhead>
+
     <afflictionname.vi_watcher>Watcher Eye</afflictionname.vi_watcher>
 
     <afflictiondescription.vi_watcher></afflictiondescription.vi_watcher>
@@ -276,22 +261,21 @@
 
     <!-- Lens Afflictions -->
     <afflictionname.lt_medical>Medical Lens</afflictionname.lt_medical>
-
-    <afflictiondescription.lt_medical></afflictiondescription.lt_medical>
+    <afflictiondescription.lt_medical>This patient has medical cyber lenses.</afflictiondescription.lt_medical>
 
     <afflictionname.lt_electrical>Electrical Lens</afflictionname.lt_electrical>
 
-    <afflictiondescription.lt_electrical></afflictiondescription.lt_electrical>
+    <afflictiondescription.lt_electrical>This patient has electrical cyber lenses.</afflictiondescription.lt_electrical>
 
     <afflictionname.lt_night>Night Vision Lens</afflictionname.lt_night>
 
-    <afflictiondescription.lt_night></afflictiondescription.lt_night>
+    <afflictiondescription.lt_night>This patient has night vision cyber lenses.</afflictiondescription.lt_night>
 
     <afflictionname.lt_thermal>Thermal Lens</afflictionname.lt_thermal>
 
-    <afflictiondescription.lt_thermal></afflictiondescription.lt_thermal>
+    <afflictiondescription.lt_thermal>This patient has thermal vision cyber lenses.</afflictiondescription.lt_thermal>
 
-    <!-- Hud İtems (These do not appear in-game) -->
+    <!-- Hud Items (These do not appear in-game) -->
     <entityname.misc_medicalhud>Medical Hud Item</entityname.misc_medicalhud>
     <entityname.misc_electricalhud>Electrical Hud Item</entityname.misc_electricalhud>
     <entityname.misc_thermalhud>Thermal Hud Item</entityname.misc_thermalhud>

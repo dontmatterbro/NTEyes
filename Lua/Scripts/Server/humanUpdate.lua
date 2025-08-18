@@ -955,11 +955,62 @@ NTEYE.UpdateAfflictions = {
 		end,
 	},
 	--lens afflictions
-	lt_medical = {},
-	lt_electrical = {},
-	lt_zoom = {},
-	lt_night = {},
-	lt_thermal = {},
+	lt_medical = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	lt_electrical = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	lt_night = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	lt_thermal = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 
 	--visual indicators
 	vi_human = {

@@ -1,4 +1,0 @@
-hide afflictions when they don't have to be shown, i.e.
-eyes removed and dead eyes should only be shown if there is retracted eyelids affliction, do it as NT does,
-keep the affliction value at 1 when there isn't retracted eyes, it there are increase affliction value. 
-humanUpdate can solve this easily, some XML configuration is required 
