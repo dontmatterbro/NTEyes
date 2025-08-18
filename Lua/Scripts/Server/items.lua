@@ -155,13 +155,14 @@ function HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
 						if HF.HasAffliction(targetCharacter, eye.type) then
 							HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", limb, 0, usingCharacter) --remove eye affliction
 							HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", limb, 0, usingCharacter) --remove eye connector affliction
+							HF.SetAfflictionLimb(targetCharacter, "mc_mismatch", limb, 0, usingCharacter) --remove mismatch affliction
 
 							HF.SetAfflictionLimb(targetCharacter, eye.type, limb, 100, usingCharacter) --add eye indicator affliction
 							HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, strength, usingCharacter) --add eye damage affliction
 
 							HF.AddAfflictionLimb(targetCharacter, "mc_visionsickness", limb, 50, usingCharacter) --add vision sickness
 							item.Condition = 0 --remove item
-						else
+						else --if it doesn't; add eye+mismatch
 							HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", limb, 0, usingCharacter) --remove eye affliction
 							HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", limb, 0, usingCharacter) --remove eye connector affliction
 
@@ -172,16 +173,17 @@ function HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
 							HF.AddAfflictionLimb(targetCharacter, "mc_visionsickness", limb, 50, usingCharacter) --add vision sickness
 							item.Condition = 0 --remove item
 						end
-					else --if two eyes removed:
+					else --if two eyes removed, add one eye
 						if HF.HasAffliction(targetCharacter, "sr_removedeyes") then
 							--add double eye
 							HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 0, usingCharacter) --remove eye affliction
 							HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", limb, 0, usingCharacter) --remove eye connector affliction
+							HF.SetAfflictionLimb(targetCharacter, "mc_mismatch", limb, 0, usingCharacter) --remove mismatch affliction
 
 							HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", limb, 100, usingCharacter) --add eye affliction
 							HF.SetAfflictionLimb(targetCharacter, eye.type, limb, 100, usingCharacter) --add eye affliction
 							HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, strength, usingCharacter) --add eye damage affliction
-
+							
 							HF.AddAfflictionLimb(targetCharacter, "mc_visionsickness", limb, 100, usingCharacter) --add vision sickness
 							item.Condition = 0 --remove item
 						end
@@ -410,7 +412,8 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient
 			HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", limb, 100, usingCharacter) --revert held lids removal
-			--HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 100, usingCharacter) --revert popped eyes removal // don't they dont have eyes
+			
+			--HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 100, usingCharacter) --revert popped eyes removal // they dont have eyes
 		else
 			--cause bleeding and pain if fail
 			HF.AddAfflictionLimb(targetCharacter, "severepain", limb, 100, usingCharacter)
@@ -428,7 +431,7 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 	end
 
 	--cornea incision
-	if HF.HasAffliction(targetCharacter, "sr_heldlid") and not HF.HasAffliction(targetCharacter, "sr_poppedeye") then
+	if HF.HasAffliction(targetCharacter, "sr_heldlid") and not (HF.HasAffliction(targetCharacter, "sr_poppedeye") or HF.HasAffliction(targetCharacter, "sr_removedeyes") )then
 		local skillrequired = 50
 		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
 			HF.AddAfflictionLimb(

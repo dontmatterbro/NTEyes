@@ -204,6 +204,6 @@
         <Effect
             minstrength="0"
             maxstrength="2"
-            strengthchange="1" />
+            strengthchange="-1" />
     </Affliction>
 </Afflictions>
