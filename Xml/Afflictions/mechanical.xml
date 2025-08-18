@@ -6,7 +6,7 @@
         identifier="mc_deadeyes"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="101"
+        showiconthreshold="1"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_mechanic"
@@ -16,7 +16,7 @@
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
             origin="0.5204671,0.4915201"
-            sourcerect="896,0,128,128" />
+            sourcerect="128,896,128,128" />
 
         <Effect
             minstrength="0"
@@ -64,7 +64,7 @@
         identifier="mc_deadeye"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="101"
+        showiconthreshold="1"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_mechanic"
@@ -74,7 +74,7 @@
         <icon
             texture="%ModDir%/Textures/AfflictionIcons.png"
             origin="0.5269446,0.50130546"
-            sourcerect="896,0,128,128" />
+            sourcerect="0,896,128,128" />
 
         <Effect
             minstrength="0"
@@ -186,7 +186,6 @@
             texture="%ModDir%/Textures/AfflictionIcons.png"
             origin="0.5082467,0.49508098"
             sourcerect="129,256,128,128" />
-
     </Affliction>
 
     <!-- Corrective Glasses -->

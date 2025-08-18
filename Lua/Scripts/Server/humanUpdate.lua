@@ -173,8 +173,34 @@ end
 NTEYE.UpdateAfflictions = {
 
 	--surgery afflictions
-	sr_removedeyes = {},
-	sr_removedeye = {},
+	sr_removedeyes = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	sr_removedeye = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 	sr_heldlid = {},
 	sr_poppedeye = {},
 	sr_eyeconnector = {},
@@ -235,7 +261,20 @@ NTEYE.UpdateAfflictions = {
 	--empty for later inclusion if needed
 	mc_correctives = {},
 	--mechanical afflictions
-	mc_deadeyes = {},
+	mc_deadeyes = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 	--causes retinopathy at a chance
 	mc_deadeye = {
 		--having a dead eye will have a chance to cause autoimmune retinopathy
@@ -255,6 +294,10 @@ NTEYE.UpdateAfflictions = {
 				if HF.Chance(0.007) then -- 0.7% chance to cause retinopathy
 					HF.AddAfflictionLimb(character, "mc_retinopathy", limb, 1)
 				end
+			end
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
 			end
 		end,
 	},
@@ -341,6 +384,11 @@ NTEYE.UpdateAfflictions = {
 			NTC.SetSymptomTrue(character, "sym_headache", 10)
 			if HF.Chance(0.1) then
 				NTC.SetSymptomTrue(character, "sym_nausea", 10)
+			end
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
 			end
 		end,
 	},
@@ -918,6 +966,8 @@ NTEYE.UpdateAfflictions = {
 		--add eye if no eye afflictions // works like the blood pressure from NT
 		max = 2,
 		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
 			local character = c.character
 			local limb = LimbType.Head
 			local afflictionTags = {
@@ -926,6 +976,11 @@ NTEYE.UpdateAfflictions = {
 				"eye_surgery",
 				"eye_mechanic",
 			}
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
 
 			--check if character has any eye afflictions
 			for _, affliction in ipairs(afflictionTags) do
@@ -937,14 +992,66 @@ NTEYE.UpdateAfflictions = {
 			HF.SetAfflictionLimb(character, "vi_human", limb, 100)
 		end,
 	},
-	vi_cyber = {},
-	vi_enhanced = {},
-	vi_plastic = {},
+	vi_cyber = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_enhanced = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_plastic = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 	vi_crawler = {},
 	vi_mudraptor = {},
 	vi_hammerhead = {},
 	vi_watcher = {},
-	vi_husk = {},
+	vi_husk = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 	vi_charybdis = {},
 	vi_latcher = {},
 	vi_terror = {},

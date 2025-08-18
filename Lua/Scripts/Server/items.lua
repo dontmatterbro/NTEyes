@@ -183,7 +183,7 @@ function HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
 							HF.SetAfflictionLimb(targetCharacter, "sr_removedeye", limb, 100, usingCharacter) --add eye affliction
 							HF.SetAfflictionLimb(targetCharacter, eye.type, limb, 100, usingCharacter) --add eye affliction
 							HF.AddAfflictionLimb(targetCharacter, eye.damage, limb, strength, usingCharacter) --add eye damage affliction
-							
+
 							HF.AddAfflictionLimb(targetCharacter, "mc_visionsickness", limb, 100, usingCharacter) --add vision sickness
 							item.Condition = 0 --remove item
 						end
@@ -412,7 +412,7 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 
 			HF.SetAfflictionLimb(targetCharacter, "sr_removedeyes", limb, 100, usingCharacter) --add removed eyes to patient
 			HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", limb, 100, usingCharacter) --revert held lids removal
-			
+
 			--HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 100, usingCharacter) --revert popped eyes removal // they dont have eyes
 		else
 			--cause bleeding and pain if fail
@@ -431,7 +431,12 @@ NTEYE.ItemMethods.it_scalpel_eye = function(item, usingCharacter, targetCharacte
 	end
 
 	--cornea incision
-	if HF.HasAffliction(targetCharacter, "sr_heldlid") and not (HF.HasAffliction(targetCharacter, "sr_poppedeye") or HF.HasAffliction(targetCharacter, "sr_removedeyes") )then
+	if
+		HF.HasAffliction(targetCharacter, "sr_heldlid")
+		and not (
+			HF.HasAffliction(targetCharacter, "sr_poppedeye") or HF.HasAffliction(targetCharacter, "sr_removedeyes")
+		)
+	then
 		local skillrequired = 50
 		if HF.GetSkillRequirementMet(usingCharacter, "medical", skillrequired) then
 			HF.AddAfflictionLimb(
