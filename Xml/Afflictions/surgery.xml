@@ -198,7 +198,7 @@
         indicatorlimb="Head"
         showiconthreshold="0"
         showinhealthscannerthreshold="100"
-        maxstrength="2"
+        maxstrength="100"
         type="eye_surgery"
         isbuff="true"
         iconcolors="84,211,211,255">

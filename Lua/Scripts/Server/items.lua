@@ -497,9 +497,10 @@ NTEYE.ItemMethods.it_organiclens = function(item, usingCharacter, targetCharacte
 		and HF.HasAffliction(targetCharacter, "sr_heldlid", 99)
 		and not HF.HasAffliction(targetCharacter, "sr_poppedeye", 99)
 	then
-		HF.AddAfflictionLimb(targetCharacter, "mc_cataract", limb, -100, usingCharacter) --remove cataracts
-		HF.AddAfflictionLimb(targetCharacter, "sr_emulsification", limb, -100, usingCharacter) --remove emulsification
-		HF.AddAfflictionLimb(targetCharacter, "sr_corneaincision", limb, -100, usingCharacter) --remove cornea incision
+		HF.SetAfflictionLimb(targetCharacter, "mc_cataract", limb, 0, usingCharacter) --remove cataracts
+		HF.SetAfflictionLimb(targetCharacter, "sr_emulsification", limb, 0, usingCharacter) --remove emulsification
+		HF.SetAfflictionLimb(targetCharacter, "sr_corneaincision", limb, 0, usingCharacter) --remove cornea incision
+
 		item.Condition = 0 --remove item
 	end
 end

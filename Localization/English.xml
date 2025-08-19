@@ -90,9 +90,7 @@
 
     <entityname.it_nightlens>Night Vision Lenses</entityname.it_nightlens>
 
-    <entitydescription.it_nightlens>Lenses that enhance vision in the dark.
-    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
-    </entitydescription.it_nightlens>
+    <entitydescription.it_nightlens>Lenses that enhance vision in the dark. They can't be turned off. What a bummer.</entitydescription.it_nightlens>
 
     <entityname.it_thermallens>Thermal Lenses</entityname.it_thermallens>
 
