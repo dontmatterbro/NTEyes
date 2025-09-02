@@ -43,7 +43,7 @@ NTEYE.ClientEffects = {
 	ce_night = {
 		affliction = "lt_night",
 		levelColor = Color(0, 200, 0, 200),
-		hullColor = Color(0, 200, 0, 200),
+		hullColor = Color(0, 245, 0, 245),
 	},
 	ce_thermal = {
 		affliction = "lt_thermal",
@@ -119,13 +119,17 @@ local function BlendColors(colors)
 	local configValue = NTConfig.Get("NTEYE_lightBoost", 0)
 
 	for _, c in ipairs(colors) do
-		r = r + c.R
-		g = g + c.G
-		b = b + c.B
+		r = r + c.R + configValue
+		g = g + c.G + configValue
+		b = b + c.B + configValue
 		a = a + c.A + configValue
 	end
-	--set alpha between 0-255
+	--set values between 0-255
+	r = math.min(255, math.max(0, r))
+	g = math.min(255, math.max(0, g))
+	b = math.min(255, math.max(0, b))
 	a = math.min(255, math.max(0, a))
+
 	--set the number of colors as a variable
 	local n = #colors
 	--divide the combined color values
@@ -137,7 +141,7 @@ function NTEYE.UpdateLights()
 	local ControlledCharacter = Character.Controlled
 	local LevelLight = Level.Loaded.LevelData.GenerationParams
 
-	--check if the player controls a character
+	--check if the player controls a character (gender check for Robotrauma)
 	--if not reset color values
 	if not ControlledCharacter or not (ControlledCharacter.IsMale or ControlledCharacter.IsFemale) then
 		LevelLight.AmbientLightColor = Color(100, 100, 100, 100)
@@ -162,6 +166,8 @@ function NTEYE.UpdateLights()
 	end
 	local LevelColor = BlendColors(levelColors)
 	local HullColor = BlendColors(hullColors)
+
+	--print("Level: " .. tostring(LevelColor) .. " Hull: " .. tostring(HullColor))
 
 	LevelLight.AmbientLightColor = LevelColor
 

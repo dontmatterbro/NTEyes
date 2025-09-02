@@ -1040,7 +1040,7 @@ NTEYE.UpdateAfflictions = {
 				end
 			end
 			--if no eye afflictions, give default eye indicator (human)
-			HF.SetAfflictionLimb(character, "vi_human", limb, 100)
+			HF.SetAfflictionLimb(character, "vi_human", limb, 1)
 		end,
 	},
 	vi_cyber = {

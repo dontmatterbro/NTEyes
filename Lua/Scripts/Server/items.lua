@@ -198,6 +198,13 @@ function HF.ApplyLensItem(targetCharacter, usingCharacter, item)
 		)
 	then
 		for _, lens in ipairs(NTEYE.LensProperty) do
+			--check if a lens is present, return if so
+			if HF.HasAffliction(targetCharacter, lens.affliction) then
+				return
+			end
+		end
+
+		for _, lens in ipairs(NTEYE.LensProperty) do
 			--check if right property is selected
 			if item.Prefab.Identifier == lens.item then
 				HF.SetAfflictionLimb(targetCharacter, lens.affliction, limb, 100, usingCharacter)
