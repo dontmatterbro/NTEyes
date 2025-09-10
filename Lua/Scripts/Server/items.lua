@@ -41,7 +41,7 @@ NTEYE.EyeProperty = {
 	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye", biological = true },
 	{ type = "vi_hammerhead", damage = "dm_hammerhead", item = "it_hammerheadeye", biological = true },
 	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye", biological = true },
-	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye", biological = true },
+	{ type = "vi_husk", damage = "dm_husk", item = "it_huskifiedeye", biological = true },
 	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye", biological = true },
 	{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye", biological = true },
 	{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye", biological = false },
