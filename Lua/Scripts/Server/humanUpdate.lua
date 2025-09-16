@@ -40,15 +40,6 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 			else
 				HF.SetAfflictionLimb(character, "sr_removedeye", limb, 100)
 			end
-			--if there is a mismatch, remove only the damaged eye and leave the other as is
-			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength > 0 then
-				local base = i:match("^dm_(.+)$")
-				if base then
-					HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
-					HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
-				end
-				--HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100) --this seems redundant aint it??
-			end
 		end
 	elseif --check the status of the other eye if only 1 of the same type can be found
 		(afflictionsTable[i].strength >= 45)
@@ -70,6 +61,12 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 			end
 			--remove the mismatch if there is one
 			if afflictionsTable.mc_mismatch and afflictionsTable.mc_mismatch.strength >= 1 then
+				--if there is a mismatch, remove only the damaged eye and leave the other as is
+				local base = i:match("^dm_(.+)$")
+				if base then
+					HF.SetAfflictionLimb(character, "vi_" .. base, limb, 0)
+					HF.SetAfflictionLimb(character, "dm_" .. base, limb, 0)
+				end
 				--dead or removed eye depending on if it is biological
 				if biological then
 					HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
@@ -298,6 +295,9 @@ NTEYE.UpdateAfflictions = {
 			--check if held lid is present, if so make affliction visible if it is already present
 			if afflictionsTable[i].strength > 0 then
 				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+			if HF.HasAffliction(c.character, "mc_deadeyes") or HF.HasAffliction(c.character, "sr_removedeyes") then
+				afflictionsTable[i].strength = 0
 			end
 		end,
 	},

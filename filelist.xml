@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Eyes 2.0" modversion="2.0.1h4" corepackage="False" steamworkshopid="3294574390" gameversion="1.9.8.0">
+<contentpackage name="NT Eyes 2.0" modversion="2.0.1h5" corepackage="False" steamworkshopid="3294574390" gameversion="1.9.8.0">
   <Afflictions file="%ModDir%/Xml/Afflictions/damage.xml" />
   <Afflictions file="%ModDir%/Xml/Afflictions/hud.xml" />
   <Afflictions file="%ModDir%/Xml/Afflictions/indicators.xml" />

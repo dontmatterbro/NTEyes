@@ -1,7 +1,7 @@
 NTEYE = {} --Double the eyes double the trouble
 NTEYE.Name = "Eyes"
-NTEYE.Version = "2.0.1h4"
-NTEYE.VersionNum = 020000104
+NTEYE.Version = "2.0.1h5"
+NTEYE.VersionNum = 020000105
 NTEYE.MinNTVersion = "A1.12.1"
 NTEYE.MinNTVersionNum = 01120100
 NTEYE.Path = table.pack(...)[1]
