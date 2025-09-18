@@ -173,7 +173,92 @@
         </Wearable>
     </Item>
 
-    <!-- Miscellenous Items -->
+    <!-- Eyepatch /NEEDS MECHANICS/ -->
+    <Item
+        identifier="it_eyepatch"
+        scale="0.17"
+        category="Equipment"
+        tags="smallitem,clothing"
+        cargocontaineridentifier="metalcrate"
+        impactsoundtag="impact_soft">
+        <PreferredContainer
+            primary="secarmcab"
+            secondary="armcab" />
+
+        <PreferredContainer
+            secondary="wrecksecarmcab"
+            spawnprobability="0.001" />
+
+        <Price
+            baseprice="1500">
+            <Price
+                locationtype="military"
+                multiplier="3"
+                maxavailable="1" />
+        </Price>
+
+        <Deconstruct
+            time="25">
+            <Item
+                identifier="iron" />
+            <Item
+                identifier="plastic" />
+        </Deconstruct>
+
+        <InventoryIcon
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="768,384,128,128"
+            origin="0.5,0.5" />
+
+        <Sprite
+            name="Eyepatch"
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="768,256,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="30"
+            height="15"
+            density="30" />
+
+        <Wearable
+            limbtype="Head"
+            slots="Any,Head"
+            msg="ItemMsgPickUpSelect">
+            <SkillModifier
+                skillidentifier="helm"
+                skillvalue="50" />
+
+            <SkillModifier
+                skillidentifier="weapons"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="medical"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="electrical"
+                skillvalue="-75" />
+
+            <SkillModifier
+                skillidentifier="mechanical"
+                skillvalue="-75" />
+
+            <sprite
+                name="Aviator Glasses Wearable"
+                texture="%ModDir%/Textures/ItemIcons.png"
+                limb="Head"
+                inheritlimbdepth="true"
+                inheritscale="true"
+                ignorelimbscale="true"
+                scale="0.29"
+                sourcerect="896,512,128,128"
+                origin="0.52,0.525" />
+        </Wearable>
+    </Item>
+
     <!-- Night Vision Goggles -->
     <Item
         identifier="it_nvg"
@@ -191,13 +276,13 @@
 
         <InventoryIcon
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,384,64,48"
+            sourcerect="896,384,128,128"
             origin="0.5,0.5" />
 
         <Sprite
             name="Night Vision Goggles"
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,468,64,44"
+            sourcerect="896,384,128,128"
             origin="0.5,0.5" />
 
         <Body
@@ -311,7 +396,7 @@
                 inheritlimbdepth="true"
                 inheritscale="true"
                 ignorelimbscale="true"
-                sourcerect="896,468,64,44"
+                sourcerect="896,256,128,128"
                 origin="0.4,0.6">
                 <LightComponent
                     LightColor="0,100,0,90"
@@ -366,6 +451,7 @@
         </CustomInterface>
     </Item>
 
+    <!-- Miscellenous Items -->
     <!-- Eye Regeneration Jar (Thanks Lukako) -->
     <Item
         identifier="it_eyejar"

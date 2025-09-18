@@ -164,84 +164,6 @@
         </Throwable>
     </Item>
 
-    <!-- Plastic Eye -->
-    <Item
-        identifier="it_plasticeye"
-        aliases="transplant_eyes_plastic"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="organcrate"
-        impacttolerance="5.5"
-        Tags="smallitem,organ"
-        maxstacksize="32"
-        maxstacksizecharacterinventory="8">
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="384,0,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Price
-            baseprice="70"
-            soldbydefault="false"
-            MinLevelDifficulty="0">
-            <Price
-                storeidentifier="merchantmedical"
-                multiplier="1"
-                sold="true"
-                maxavailable="8"
-                minavailable="2" />
-        </Price>
-
-        <Fabricate
-            suitablefabricators="medicalfabricator"
-            requiredtime="7">
-            <RequiredSkill
-                identifier="medical"
-                level="35" />
-            <RequiredItem
-                identifier="plastic"
-                amount="1" />
-        </Fabricate>
-
-        <Deconstruct
-            time="2">
-            <Item
-                identifier="silicon" />
-        </Deconstruct>
-
-        <Throwable
-            characterusable="true"
-            slots="Any,RightHand,LeftHand"
-            throwforce="4.0"
-            aimpos="35,-10"
-            msg="ItemMsgPickUpSelect">
-            <StatusEffect
-                type="OnImpact"
-                target="This"
-                Condition="-20.0" />
-
-            <!-- Plastic eyes won't gain or lose durability -->
-            <StatusEffect
-                type="OnFire"
-                target="This"
-                Condition="-50.0" />
-
-            <!-- Plastic eyes won't cause nausea on ground -->
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-        </Throwable>
-    </Item>
-
     <!-- Enhanced Eye -->
     <Item
         identifier="it_enhancedeye"
@@ -531,6 +453,84 @@
         </Throwable>
     </Item>
 
+    <!-- Plastic Eye -->
+    <Item
+        identifier="it_plasticeye"
+        aliases="transplant_eyes_plastic"
+        scale="0.1"
+        useinhealthinterface="True"
+        impactsoundtag="impact_soft"
+        cargocontaineridentifier="organcrate"
+        impacttolerance="5.5"
+        Tags="smallitem,organ"
+        maxstacksize="32"
+        maxstacksizecharacterinventory="8">
+        <Sprite
+            texture="%ModDir%/Textures/ItemIcons.png"
+            sourcerect="384,0,128,128"
+            depth="0.6"
+            origin="0.5,0.5" />
+
+        <Body
+            width="14"
+            height="22"
+            density="10" />
+
+        <Price
+            baseprice="70"
+            soldbydefault="false"
+            MinLevelDifficulty="0">
+            <Price
+                storeidentifier="merchantmedical"
+                multiplier="1"
+                sold="true"
+                maxavailable="8"
+                minavailable="2" />
+        </Price>
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="7">
+            <RequiredSkill
+                identifier="medical"
+                level="35" />
+            <RequiredItem
+                identifier="plastic"
+                amount="1" />
+        </Fabricate>
+
+        <Deconstruct
+            time="2">
+            <Item
+                identifier="silicon" />
+        </Deconstruct>
+
+        <Throwable
+            characterusable="true"
+            slots="Any,RightHand,LeftHand"
+            throwforce="4.0"
+            aimpos="35,-10"
+            msg="ItemMsgPickUpSelect">
+            <StatusEffect
+                type="OnImpact"
+                target="This"
+                Condition="-20.0" />
+
+            <!-- Plastic eyes won't gain or lose durability -->
+            <StatusEffect
+                type="OnFire"
+                target="This"
+                Condition="-50.0" />
+
+            <!-- Plastic eyes won't cause nausea on ground -->
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
+            </StatusEffect>
+        </Throwable>
+    </Item>
+
     <!-- Creature Eyes -->
     <!-- Crawler Eye  -->
     <Item
@@ -546,7 +546,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="638,0,128,128"
+            sourcerect="512,0,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -672,7 +672,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="640,-1,128,128"
+            sourcerect="640,0,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -798,7 +798,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="639,0,128,128"
+            sourcerect="768,0,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -913,7 +913,7 @@
 
     <!-- Huskified Eye -->
     <Item
-        identifier="it_huskifiedeye"
+        identifier="it_huskeye"
         scale="0.1"
         useinhealthinterface="True"
         impactsoundtag="impact_soft"
@@ -924,7 +924,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="512,0,128,128"
+            sourcerect="896,0,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -1017,7 +1017,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,0,128,128"
+            sourcerect="0,128,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -1128,132 +1128,6 @@
         </Throwable>
     </Item>
 
-    <!-- Charybdis Eye -->
-    <Item
-        identifier="it_charybdiseye"
-        scale="0.1"
-        useinhealthinterface="True"
-        impactsoundtag="impact_soft"
-        cargocontaineridentifier="organcrate"
-        impacttolerance="5.5"
-        Tags="smallitem,organ,eyejarcontainable"
-        maxstacksize="2"
-        maxstacksizecharacterinventory="2">
-        <Sprite
-            texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,0,128,128"
-            depth="0.6"
-            origin="0.5,0.5" />
-
-        <Body
-            width="14"
-            height="22"
-            density="10" />
-
-        <Deconstruct
-            time="7">
-            <Item
-                identifier="carbon" />
-            <Item
-                identifier="titanite" />
-        </Deconstruct>
-
-        <Throwable
-            characterusable="true"
-            slots="Any,RightHand,LeftHand"
-            throwforce="4.0"
-            aimpos="35,-10"
-            msg="ItemMsgPickUpSelect">
-            <StatusEffect
-                type="OnImpact"
-                target="This"
-                Condition="0.0"
-                setvalue="true">
-                <Explosion
-                    range="0.0"
-                    structuredamage="0"
-                    itemdamage="0"
-                    force="0.0"
-                    severlimbsprobability="0.0"
-                    decal="fruitsplatter1"
-                    decalsize="1.0" />
-
-                <ParticleEmitter
-                    particle="whitegoosplash"
-                    anglemin="0"
-                    anglemax="360"
-                    particleamount="2"
-                    velocitymin="0"
-                    velocitymax="0"
-                    scalemin="1.5"
-                    scalemax="2" />
-
-                <ParticleEmitter
-                    particle="fruitchunks"
-                    anglemin="0"
-                    anglemax="360"
-                    particleamount="10"
-                    velocitymin="200"
-                    velocitymax="300"
-                    scalemin="0.4"
-                    scalemax="0.8" />
-
-                <Remove />
-            </StatusEffect>
-
-            <!-- Reduce durability if the organ is left outside refrigiration -->
-            <StatusEffect
-                type="Always"
-                target="This"
-                condition="-0.1"
-                comparison="and">
-                <Conditional
-                    hastag="neq refrigerated"
-                    targetcontainer="true" />
-                <Conditional
-                    hastag="neq medicalfabricator"
-                    targetcontainer="true" />
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnContained"
-                target="This"
-                condition="0.1"
-                comparison="and">
-                <Conditional
-                    condition="gte 90" />
-                <Conditional
-                    hastag="refrigerated"
-                    targetcontainer="true" />
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnFire"
-                target="This"
-                Condition="-25.0" />
-
-            <!-- Alien body parts won't apply nausea -->
-            <StatusEffect
-                type="OnBroken"
-                target="This">
-                <Remove />
-            </StatusEffect>
-
-            <!-- Heal the organ if contained inside jar -->
-            <StatusEffect
-                type="OnContained"
-                target="This"
-                condition="0.05"
-                comparison="and">
-                <Conditional
-                    condition="gte 20" />
-                <Conditional
-                    hastag="eyecontainer"
-                    targetcontainer="true" />
-            </StatusEffect>
-        </Throwable>
-    </Item>
-
     <!-- Latcher Eye -->
     <Item
         identifier="it_latchereye"
@@ -1267,7 +1141,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,0,129,128"
+            sourcerect="128,128,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
@@ -1393,7 +1267,7 @@
         maxstacksizecharacterinventory="2">
         <Sprite
             texture="%ModDir%/Textures/ItemIcons.png"
-            sourcerect="896,0,128,128"
+            sourcerect="256,128,128,128"
             depth="0.6"
             origin="0.5,0.5" />
 
