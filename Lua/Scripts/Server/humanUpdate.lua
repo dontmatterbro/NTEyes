@@ -1085,10 +1085,62 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
-	vi_crawler = {},
-	vi_mudraptor = {},
-	vi_hammerhead = {},
-	vi_watcher = {},
+	vi_crawler = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_mudraptor = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_hammerhead = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_watcher = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 	vi_husk = {
 		max = 2,
 		update = function(c, i)

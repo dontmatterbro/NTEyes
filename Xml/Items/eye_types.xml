@@ -911,9 +911,10 @@
         </Throwable>
     </Item>
 
-    <!-- Huskified Eye -->
+    <!-- Husk Eye -->
     <Item
         identifier="it_huskeye"
+        aliases="transplant_eyes_husk"
         scale="0.1"
         useinhealthinterface="True"
         impactsoundtag="impact_soft"
@@ -1131,6 +1132,7 @@
     <!-- Latcher Eye -->
     <Item
         identifier="it_latchereye"
+        aliases="transplant_eyes_latcher"
         scale="0.1"
         useinhealthinterface="True"
         impactsoundtag="impact_soft"
@@ -1257,6 +1259,7 @@
     <!-- Terror Eye -->
     <Item
         identifier="it_terroreye"
+        aliases="transplant_eyes_terror"
         scale="0.1"
         useinhealthinterface="True"
         impactsoundtag="impact_soft"
@@ -1278,6 +1281,23 @@
 
         <Deconstruct
             time="200" />
+
+        <Fabricate
+            suitablefabricators="medicalfabricator"
+            requiredtime="40">
+            <RequiredSkill
+                identifier="medical"
+                level="80" />
+
+            <RequiredItem
+                identifier="it_watchereye" />
+
+            <RequiredItem
+                identifier="it_latchereye" />
+
+            <RequiredItem
+                identifier="deusizine" />
+        </Fabricate>
 
         <Throwable
             characterusable="true"
@@ -1322,37 +1342,7 @@
                 <Remove />
             </StatusEffect>
 
-            <!-- Reduce durability if the organ is left outside refrigiration -->
-            <StatusEffect
-                type="Always"
-                target="This"
-                condition="-0.1"
-                comparison="and">
-                <Conditional
-                    hastag="neq refrigerated"
-                    targetcontainer="true" />
-                <Conditional
-                    hastag="neq medicalfabricator"
-                    targetcontainer="true" />
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnContained"
-                target="This"
-                condition="0.1"
-                comparison="and">
-                <Conditional
-                    condition="gte 90" />
-                <Conditional
-                    hastag="refrigerated"
-                    targetcontainer="true" />
-            </StatusEffect>
-
-            <StatusEffect
-                type="OnFire"
-                target="This"
-                Condition="-25.0" />
-
+            <!-- Terror eye won't lose duriblity outside refrigiration -->
             <!-- Terror eye applies psychosis on nearby players -->
             <StatusEffect
                 type="OnNotContained"

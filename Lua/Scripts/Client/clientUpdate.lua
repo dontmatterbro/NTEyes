@@ -91,11 +91,6 @@ NTEYE.ClientEffects = {
 		levelColor = Color(85, 15, 150, 35),
 		hullColor = Color(85, 15, 150, 35),
 	},
-	ce_charybdis = {
-		affliction = "vi_charybdis",
-		levelColor = Color(75, 15, 30, 115),
-		hullColor = Color(75, 15, 30, 65),
-	},
 	ce_latcher = {
 		affliction = "vi_latcher",
 		levelColor = Color(0, 130, 130, 150),

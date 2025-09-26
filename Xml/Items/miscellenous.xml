@@ -263,7 +263,7 @@
     <Item
         identifier="it_nvg"
         aliases="nightgoggles"
-        scale="0.5"
+        scale="0.25"
         maxstacksize="1"
         category="Equipment"
         tags="smallitem"
@@ -287,7 +287,7 @@
 
         <Body
             width="70"
-            height="24"
+            height="60"
             density="15" />
 
         <Price
@@ -336,7 +336,7 @@
         </Deconstruct>
 
         <Turret
-            HudTint="15,90,15,45"
+            HudTint="15,90,15,60"
             drawhudwhenequipped="true">
             <StatusEffect
                 type="OnActive"
@@ -350,7 +350,7 @@
             <StatusEffect
                 type="OnActive"
                 target="this"
-                HudTint="15,90,15,45"
+                HudTint="15,90,15,60"
                 disabledeltatime="true"
                 setvalue="true">
                 <Conditional
@@ -373,14 +373,14 @@
             <StatusEffect
                 type="OnWearing"
                 target="Character"
-                ObstructVisionAmount="0.5"
+                ObstructVisionAmount="0.3"
                 setvalue="true"
                 disabledeltatime="true" />
 
             <StatusEffect
                 type="OnWearing"
                 target="Contained, Character"
-                Condition="-0.6"
+                Condition="-0.4"
                 comparison="And">
                 <Conditional
                     hasstatustag="powered"
@@ -396,8 +396,10 @@
                 inheritlimbdepth="true"
                 inheritscale="true"
                 ignorelimbscale="true"
-                sourcerect="896,256,128,128"
-                origin="0.4,0.6">
+                scale="0.4"
+                rotation="-3"
+                origin="0.47,0.69"
+                sourcerect="896,256,128,128">
                 <LightComponent
                     LightColor="0,100,0,90"
                     range="2000"
