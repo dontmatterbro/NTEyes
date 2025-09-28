@@ -79,7 +79,13 @@
 
         <Effect
             minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minscreendistort="0.6"
+            maxscreendistort="0.6"
+            minradialdistort="0.2"
+            maxradialdistort="0.2"
+            minskillmultiplier="0.5"
+            maxskillmultiplier="0.5" />
 
         <AfflictionOverlay
             texture="%ModDir%/Textures/Overlays/plasticoverlay.png" />
@@ -102,7 +108,11 @@
             sourcerect="512,0,128,128" />
         <Effect
             minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minscreendistort="0.1"
+            maxscreendistort="0.1"
+            minchromaticaberration="0.1"
+            maxchromaticaberration="0.1" />
     </Affliction>
 
     <!-- Crawler Eye -->
@@ -118,7 +128,11 @@
         healableinmedicalclinic="false">
         <Effect
             minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minradialdistort="0.7"
+            maxradialdistort="0.7"
+            minchromaticaberration="0.4"
+            maxchromaticaberration="0.4" />
     </Affliction>
 
     <!-- Mudraptor Eye -->
@@ -134,7 +148,13 @@
         healableinmedicalclinic="false">
         <Effect
             minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minradialdistort="0.7"
+            maxradialdistort="0.7"
+            minchromaticaberration="1"
+            maxchromaticaberration="1"
+            minskillmultiplier="0.9"
+            maxskillmultiplier="0.9" />
     </Affliction>
 
     <!-- Watcher Eye -->
@@ -150,23 +170,16 @@
         healableinmedicalclinic="false">
         <Effect
             minstrength="0"
-            maxstrength="2" />
-    </Affliction>
-
-    <!-- Charybdis Eye -->
-    <Affliction
-        identifier="vi_charybdis"
-        showiconthreshold="1"
-        showinhealthscannerthreshold="1000"
-        limbspecific="false"
-        indicatorlimb="Head"
-        maxstrength="2"
-        type="vi_type"
-        isbuff="true"
-        healableinmedicalclinic="false">
-        <Effect
-            minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minradialdistort="0.1"
+            maxradialdistort="0.1"
+            minskillmultiplier="1.1"
+            maxskillmultiplier="1.1">
+            <StatusEffect
+                target="NearbyCharacters"
+                range="50"
+                targetlimb="Head" />
+        </Effect>
     </Affliction>
 
     <!-- Latcher Eye -->
@@ -182,7 +195,11 @@
         healableinmedicalclinic="false">
         <Effect
             minstrength="0"
-            maxstrength="2" />
+            maxstrength="2"
+            minradialdistort="0.4"
+            maxradialdistort="0.4"
+            minchromaticaberration="0.3"
+            maxchromaticaberration="0.3" />
     </Affliction>
 
     <!-- Terror Eye -->
@@ -198,6 +215,43 @@
         healableinmedicalclinic="false">
         <Effect
             minstrength="0"
-            maxstrength="2" />
-    </Affliction>
-</Afflictions>
+            maxstrength="2"
+            minskillmultiplier="0.1"
+            maxskillmultiplier="0.1"
+            resistancefor="pressure, damage"
+            minresistance="0.5"
+            maxresistance="0.5">
+            <StatValue
+                stattype="WeaponsSkillBonus"
+                value="400" />
+
+            <StatusEffect
+                target="Character"
+                targetlimb="Head">
+                <Conditional
+                    IsLocalPlayer="True" />
+
+                <Explosion
+                    range="1"
+                    force="0"
+                    smoke="false"
+                    sparks="false"
+                    flames="false"
+                    shockwave="false"
+                    underwaterbubble="false"
+                    camerashake="5"
+                    camerashakerange="250"
+                    screencolor="255,0,0,60"
+                    screencolorrange="1000"
+                    screencolorduration="0.22" />
+
+                <Sound
+                    file="%ModDir%/Sounds/eyesofterror.ogg"
+                    loop="false"
+                    dontmuffle="true"
+                    volume="0.5" />
+            </StatusEffect>                
+                &gt;
+            </Effect>
+        </Affliction>
+    </Afflictions>

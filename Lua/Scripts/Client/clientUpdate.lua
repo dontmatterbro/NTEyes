@@ -133,6 +133,9 @@ local function BlendColors(colors)
 	--get the config value set
 	if configValue == nil then
 		getConfig()
+	end
+
+	if configValue == nil then
 		configValue = 0
 	end
 
