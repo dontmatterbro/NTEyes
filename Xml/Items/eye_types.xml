@@ -1279,9 +1279,6 @@
             height="22"
             density="10" />
 
-        <Deconstruct
-            time="200" />
-
         <Fabricate
             suitablefabricators="medicalfabricator"
             requiredtime="40">
@@ -1298,6 +1295,9 @@
             <RequiredItem
                 identifier="deusizine" />
         </Fabricate>
+
+        <Deconstruct
+            time="200" />
 
         <Throwable
             characterusable="true"

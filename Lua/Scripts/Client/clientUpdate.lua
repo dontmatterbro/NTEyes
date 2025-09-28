@@ -109,7 +109,7 @@ local configValue = nil
 --receive response for config value (clientSend.lua)
 Networking.Receive("SendConfigValue", function(message, client)
 	configValue = tonumber(message.ReadString())
-	print(configValue)
+	--print(configValue)
 end)
 
 --function to get config values from host

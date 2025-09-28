@@ -173,12 +173,17 @@
             maxstrength="2"
             minradialdistort="0.1"
             maxradialdistort="0.1"
-            minskillmultiplier="1.1"
-            maxskillmultiplier="1.1">
+            minskillmultiplier="1.25"
+            maxskillmultiplier="1.25">
             <StatusEffect
                 target="NearbyCharacters"
                 range="50"
-                targetlimb="Head" />
+                interval="1"
+                disabledeltatime="true">
+                <Affliction
+                    identifier="psychosis"
+                    amount="1" />
+            </StatusEffect>
         </Effect>
     </Affliction>
 
@@ -199,7 +204,8 @@
             minradialdistort="0.4"
             maxradialdistort="0.4"
             minchromaticaberration="0.3"
-            maxchromaticaberration="0.3" />
+            maxchromaticaberration="0.3" 
+            ThermalOverlayRange="1500" ThermalOverlayColor="0,255,255,150"/>
     </Affliction>
 
     <!-- Terror Eye -->

@@ -16,6 +16,7 @@
   <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
   <Other file="%ModDir%/Sounds/eye_error.ogg" />
   <Other file="%ModDir%/Sounds/eye_beep.ogg" />
+  <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
   <Other file="%ModDir%/Sounds/parasite1.ogg" />
   <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
   <Other file="%ModDir%/Textures/Overlays/gradientoverlay.png" />
