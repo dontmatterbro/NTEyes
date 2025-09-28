@@ -1,3 +1,4 @@
+--sound request receival
 local function handleSound(message, itemIdentifier)
 	local clientCharacterID = tostring(message.ReadString())
 	for _, character in pairs(Character.CharacterList) do
@@ -18,4 +19,11 @@ end)
 
 Networking.Receive("PlayBeepSound", function(message, client)
 	handleSound(message, "misc_sfx_beep")
+end)
+
+--config request receival
+Networking.Receive("GetConfigValue", function(message, client)
+	local message = Networking.Start("SendConfigValue")
+	message.WriteString(NTConfig.Get("NTEYE_lightBoost", 0))
+	Networking.Send(message)
 end)

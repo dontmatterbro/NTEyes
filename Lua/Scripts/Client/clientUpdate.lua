@@ -103,6 +103,26 @@ NTEYE.ClientEffects = {
 	},
 }
 
+--set local variable for config value outside of functions
+local configValue = nil
+
+--receive response for config value (clientSend.lua)
+Networking.Receive("SendConfigValue", function(message, client)
+	configValue = tonumber(message.ReadString())
+	print(configValue)
+end)
+
+--function to get config values from host
+local function getConfig()
+	--check if it is SP or not, if SP get the value, if MP ask for the value
+	if not Game.IsMultiplayer then
+		configValue = NTConfig.Get("NTEYE_lightBoost", 0)
+	else
+		--send a message to the server
+		NTEYE.GetConfigValue(target)
+	end
+end
+
 --function to blend colors by averaging
 local function BlendColors(colors)
 	if #colors == 0 then
@@ -111,7 +131,10 @@ local function BlendColors(colors)
 	--set default variables for RGB
 	local r, g, b, a = 0, 0, 0, 0
 	--get the config value set
-	local configValue = NTConfig.Get("NTEYE_lightBoost", 0)
+	if configValue == nil then
+		getConfig()
+		configValue = 0
+	end
 
 	for _, c in ipairs(colors) do
 		r = r + c.R + configValue
@@ -135,7 +158,6 @@ end
 function NTEYE.UpdateLights()
 	local ControlledCharacter = Character.Controlled
 	local LevelLight = Level.Loaded.LevelData.GenerationParams
-
 	--check if the player controls a character (gender check for Robotrauma)
 	--if not reset color values
 	if not ControlledCharacter or not (ControlledCharacter.IsMale or ControlledCharacter.IsFemale) then
@@ -146,7 +168,6 @@ function NTEYE.UpdateLights()
 		end
 		return
 	end
-
 	--define color tables
 	local levelColors, hullColors = {}, {}
 
@@ -161,7 +182,6 @@ function NTEYE.UpdateLights()
 	end
 	local LevelColor = BlendColors(levelColors)
 	local HullColor = BlendColors(hullColors)
-
 	--print("Level: " .. tostring(LevelColor) .. " Hull: " .. tostring(HullColor))
 
 	LevelLight.AmbientLightColor = LevelColor

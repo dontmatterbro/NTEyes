@@ -7,7 +7,7 @@ NTEYE.ConfigData = {
 		default = 0,
 		range = { -255, 255 },
 		type = "float",
-		description = "Boosts the amount of light (RGB alpha value) each eye has.",
+		description = "Boosts the amount of light (RGB alpha value) each eye has. 'cl_reloadlua' is required to take effect.",
 	},
 	NTEYE_eyeDamageMultiplier = {
 		name = "Eye Biological Damage Multiplier",

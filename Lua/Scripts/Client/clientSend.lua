@@ -20,3 +20,9 @@ function NTEYE.PlayBeepSound(target)
 	message.WriteString(target.ID)
 	Networking.Send(message)
 end
+
+--send a request to get config values
+function NTEYE.GetConfigValue()
+	local message = Networking.Start("GetConfigValue")
+	Networking.Send(message)
+end
