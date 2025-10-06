@@ -24,10 +24,9 @@ Hook.Add("NTEYE.Spoon", "NTEYE.Spoon", function(effect, deltaTime, item, targets
 				HF.AddAfflictionLimb(targetCharacter, "bleeding", limb, randomFigure) --give bleeding
 			end
 		else
-			--if target character is not human	// temporarily disabled
+			--if target character is not human
 			NTEYE.ScoopMonster(targetCharacter, usingCharacter)
-			--HF.SetAffliction(targetCharacter, "sr_removedeyes", 100) --add removed eyes to monster
-			return --temporarily disabled
+			HF.SetAffliction(targetCharacter, "sr_removedeyes", 100) --add removed eyes to monster
 		end
 		--manually update the afflictions if target is already dead
 		if targetCharacter.IsDead then

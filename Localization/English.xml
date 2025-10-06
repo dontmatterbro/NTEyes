@@ -7,7 +7,7 @@
     <!-- Surgery Items -->
     <entityname.it_spoon>The Spoon</entityname.it_spoon>
 
-    <entitydescription.it_spoon>A crude but efficient surgical device, designed to be used in a rush, inflicts great pain.</entitydescription.it_spoon>
+    <entitydescription.it_spoon>A crude but efficient surgical tool, designed to be used in a rush, inflicts great pain.</entitydescription.it_spoon>
 
     <entityname.it_eyedrop>Eye Drop</entityname.it_eyedrop>
 
@@ -19,20 +19,20 @@
 
     <entityname.it_eyeconnector>Eye Connector</entityname.it_eyeconnector>
 
-    <entitydescription.it_eyeconnector>A gooey muscle-nerve tissue that rapidly replicates and attaches to eyes.</entitydescription.it_eyeconnector>
+    <entitydescription.it_eyeconnector>A gooey muscle-nerve tissue that rapidly replicates and attaches to nerve endings.</entitydescription.it_eyeconnector>
 
     <!-- Eye Items -->
     <entityname.it_humaneye>Human Eye</entityname.it_humaneye>
 
-    <entitydescription.it_humaneye>A single human eye, who did it come from?</entitydescription.it_humaneye>
+    <entitydescription.it_humaneye>A human eye, who did it come from?</entitydescription.it_humaneye>
 
     <entityname.it_plasticeye>Plastic Eye</entityname.it_plasticeye>
 
-    <entitydescription.it_plasticeye>An improvised plastic "eye", looks more like a ball.</entitydescription.it_plasticeye>
+    <entitydescription.it_plasticeye>An improvised plastic "eye", sold in toyshops around Europa.</entitydescription.it_plasticeye>
 
     <entityname.it_enhancedeye>Enhanced Eye</entityname.it_enhancedeye>
 
-    <entitydescription.it_enhancedeye>A single human eye, enhanced by electronics and capable of utilizing vision enhancing lenses.</entitydescription.it_enhancedeye>
+    <entitydescription.it_enhancedeye>A human eye, enhanced by electronics and capable of utilizing vision enhancing lenses.</entitydescription.it_enhancedeye>
 
     <entityname.it_cybereye>Cybereye</entityname.it_cybereye>
 
@@ -40,11 +40,11 @@
 
     <entityname.it_crawlereye>Crawler Eye</entityname.it_crawlereye>
 
-    <entitydescription.it_crawlereye>An eye belonging to a very unfortunate crawler. May trigger unwanted effects.</entitydescription.it_crawlereye>
+    <entitydescription.it_crawlereye>An eye belonging to a very unfortunate crawler. May cause headaches if transplanted.</entitydescription.it_crawlereye>
 
     <entityname.it_mudraptoreye>Mudraptor Eye</entityname.it_mudraptoreye>
 
-    <entitydescription.it_mudraptoreye>A purple malformed eye, belongs to a mudraptor.</entitydescription.it_mudraptoreye>
+    <entitydescription.it_mudraptoreye>The malformed eye of a mudraptor, it's effects on humans are unknown.</entitydescription.it_mudraptoreye>
 
     <entityname.it_hammerheadeye>Hammerhead Eye</entityname.it_hammerheadeye>
 
@@ -58,17 +58,13 @@
 
     <entitydescription.it_watchereye>A red blob harvested from the Watcher, it has the necessary nerve endings to provide vision. Did anyone else hear that noise?</entitydescription.it_watchereye>
 
-    <entityname.it_charybdiseye>Charybdis Eye</entityname.it_charybdiseye>
-
-    <entitydescription.it_charybdiseye>An eye belonging to the mighty Charybdis, experts do not recommend transplanting it.</entitydescription.it_charybdiseye>
-
     <entityname.it_latchereye>Latcher Eye</entityname.it_latchereye>
 
-    <entitydescription.it_latchereye>An eye belonging to the mighty Latcher, experts do not recommend transplanting it.</entitydescription.it_latchereye>
+    <entitydescription.it_latchereye>An eye belonging to the mighty Latcher, experts do not recommend transplanting it to a human.</entitydescription.it_latchereye>
 
     <entityname.it_terroreye>Eye of Terror</entityname.it_terroreye>
 
-    <entitydescription.it_terroreye>An amalgamation of evil and banished, straight from the abyss.</entitydescription.it_terroreye>
+    <entitydescription.it_terroreye>An amalgamation of evil and banished, straight from the abyss, Jove help us.</entitydescription.it_terroreye>
 
     <!-- Lens Items -->
     <entityname.it_organiclens>Organic Lenses</entityname.it_organiclens>
@@ -77,15 +73,17 @@
 
     <entityname.it_medicallens>Medical Lenses</entityname.it_medicallens>
 
-    <entitydescription.it_medicallens>Lenses that act as a scanner and provides visual enhancements for medics.
-    ‖color:120,200,120‖ Press F on a limb to scan.‖color:end‖
-    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_medicallens>        
+        Lenses that act as a scanner and provides visual enhancements for medics.
+        ‖color:120,200,120‖ Press F on a limb to scan.‖color:end‖
+        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_medicallens>
 
     <entityname.it_electricallens>Electrical Lenses</entityname.it_electricallens>
 
-    <entitydescription.it_electricallens>Lenses that act as an electrical goggle and help engineers distinguish circuits.
-    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_electricallens>        
+        Lenses that act as an electrical goggle and help engineers distinguish circuits.
+        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_electricallens>
 
     <entityname.it_nightlens>Night Vision Lenses</entityname.it_nightlens>
@@ -94,18 +92,20 @@
 
     <entityname.it_thermallens>Thermal Lenses</entityname.it_thermallens>
 
-    <entitydescription.it_thermallens>Lenses with integrated infrared-vision.
-    ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
+    <entitydescription.it_thermallens>        
+        Lenses with integrated infrared-vision.
+        ‖color:200,200,120‖ Press F to turn on/off.‖color:end‖
     </entitydescription.it_thermallens>
 
-    <!-- Miscellaneous Items-->
+    <!-- Miscellaneous Items -->
     <entityname.it_glasses>Corrective Glasses</entityname.it_glasses>
 
     <entitydescription.it_glasses>An outdated device used to relieve vision-impairment.</entitydescription.it_glasses>
 
     <entityname.it_aviators>Aviator Glasses</entityname.it_aviators>
 
-    <entitydescription.it_aviators>An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.
+    <entitydescription.it_aviators>        
+        An ancient accessory that is said to be only used by commanders of airships. Gives a lot of confidence.
     </entitydescription.it_aviators>
 
     <entityname.it_nvg>Night Vision Goggles</entityname.it_nvg>
@@ -114,7 +114,8 @@
 
     <entityname.it_eyejar>Eye Regeneration Jar</entityname.it_eyejar>
 
-    <entitydescription.it_eyejar>A jar that utilizes stem cell regeneration to mend eyes slowly. Can be placed on the ground.
+    <entitydescription.it_eyejar>        
+        A jar that utilizes stem cell regeneration to mend eyes slowly. Can be placed on the ground.
     </entitydescription.it_eyejar>
 
     <!-- Afflictions -->
@@ -166,8 +167,9 @@
 
     <afflictionname.mc_retinopathy>Retinopathy</afflictionname.mc_retinopathy>
 
-    <afflictiondescription.mc_retinopathy>Immune system of this patient has detected eye tissue and is attacking it! 
-    Eye removal or immunosuppressants are required!
+    <afflictiondescription.mc_retinopathy>        
+        Immune system of this patient has detected eye tissue and is attacking it!
+        Eye removal or immunosuppressants are required!
     </afflictiondescription.mc_retinopathy>
 
     <afflictionname.mc_cataract>Cataract</afflictionname.mc_cataract>
@@ -207,7 +209,6 @@
 
     <afflictionname.dm_terror>Terror Eye Damage</afflictionname.dm_terror>
 
-
     <!-- Eye Indicator Afflictions -->
     <afflictionname.vi_cyber>Cyber Eye</afflictionname.vi_cyber>
 
@@ -227,38 +228,39 @@
 
     <afflictionname.vi_crawler>Crawler Eye</afflictionname.vi_crawler>
 
-    <afflictiondescription.vi_crawler></afflictiondescription.vi_crawler>
+    <afflictiondescription.vi_crawler />
 
     <afflictionname.vi_mudraptor>Mudraptor Eye</afflictionname.vi_mudraptor>
 
-    <afflictiondescription.vi_mudraptor></afflictiondescription.vi_mudraptor>
+    <afflictiondescription.vi_mudraptor />
 
     <afflictionname.vi_hammerhead>Hammerhead Eye</afflictionname.vi_hammerhead>
 
-    <afflictiondescription.vi_hammerhead></afflictiondescription.vi_hammerhead>
+    <afflictiondescription.vi_hammerhead />
 
     <afflictionname.vi_watcher>Watcher Eye</afflictionname.vi_watcher>
 
-    <afflictiondescription.vi_watcher></afflictiondescription.vi_watcher>
+    <afflictiondescription.vi_watcher />
 
     <afflictionname.vi_husk>Huskified Eye</afflictionname.vi_husk>
 
-    <afflictiondescription.vi_husk></afflictiondescription.vi_husk>
+    <afflictiondescription.vi_husk />
 
     <afflictionname.vi_charybdis>Charybdis Eye</afflictionname.vi_charybdis>
 
-    <afflictiondescription.vi_charybdis></afflictiondescription.vi_charybdis>
+    <afflictiondescription.vi_charybdis />
 
     <afflictionname.vi_latcher>Latcher Eye</afflictionname.vi_latcher>
 
-    <afflictiondescription.vi_latcher></afflictiondescription.vi_latcher>
+    <afflictiondescription.vi_latcher />
 
     <afflictionname.vi_terror>Terror Eye</afflictionname.vi_terror>
 
-    <afflictiondescription.vi_terror></afflictiondescription.vi_terror>
+    <afflictiondescription.vi_terror />
 
     <!-- Lens Afflictions -->
     <afflictionname.lt_medical>Medical Lens</afflictionname.lt_medical>
+
     <afflictiondescription.lt_medical>This patient has medical cyber lenses.</afflictiondescription.lt_medical>
 
     <afflictionname.lt_electrical>Electrical Lens</afflictionname.lt_electrical>
@@ -275,7 +277,9 @@
 
     <!-- Hud Items (These do not appear in-game) -->
     <entityname.misc_medicalhud>Medical Hud Item</entityname.misc_medicalhud>
+
     <entityname.misc_electricalhud>Electrical Hud Item</entityname.misc_electricalhud>
+
     <entityname.misc_thermalhud>Thermal Hud Item</entityname.misc_thermalhud>
 
     <!-- Overwrites -->

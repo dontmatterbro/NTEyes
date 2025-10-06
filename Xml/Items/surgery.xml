@@ -85,11 +85,18 @@
                     identifier="lacerations"
                     amount="2" />
             </Attack>
+
             <StatusEffect
                 type="OnUse"
                 target="UseTarget">
                 <LuaHook
                     name="NTEYE.Spoon" />
+            </StatusEffect>
+
+            <StatusEffect
+                type="OnBroken"
+                target="This">
+                <Remove />
             </StatusEffect>
         </MeleeWeapon>
 

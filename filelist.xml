@@ -1,28 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Eyes 2.0" modversion="2.0.1h5" corepackage="False" steamworkshopid="3294574390" gameversion="1.9.8.0">
-  <Afflictions file="%ModDir%/Xml/Afflictions/damage.xml" />
-  <Afflictions file="%ModDir%/Xml/Afflictions/hud.xml" />
-  <Afflictions file="%ModDir%/Xml/Afflictions/indicators.xml" />
-  <Afflictions file="%ModDir%/Xml/Afflictions/mechanical.xml" />
-  <Afflictions file="%ModDir%/Xml/Afflictions/surgery.xml" />
-  <Afflictions file="%ModDir%/Xml/Retro/retroAfflictions.xml" />
-  <Item file="%ModDir%/Xml/Items/eye_lenses.xml" />
-  <Item file="%ModDir%/Xml/Items/eye_types.xml" />
-  <Item file="%ModDir%/Xml/Items/hud.xml" />
-  <Item file="%ModDir%/Xml/Items/miscellenous.xml" />
-  <Item file="%ModDir%/Xml/Items/surgery.xml" />
-  <Text file="%ModDir%/Localization/English.xml" />
-  <Other file="%ModDir%/Sounds/eye_slowlaser.ogg" />
-  <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
-  <Other file="%ModDir%/Sounds/eye_error.ogg" />
-  <Other file="%ModDir%/Sounds/eye_beep.ogg" />
-  <Other file="%ModDir%/Sounds/eyesofterror.ogg" />
-  <Other file="%ModDir%/Sounds/parasite1.ogg" />
-  <Other file="%ModDir%/Textures/Overlays/blackoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/gradientoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/grayoverlay.png" />
-  <Other file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
-  <Other file="%ModDir%/Textures/AfflictionIcons.png" />
-  <Other file="%ModDir%/Textures/ItemIcons.png" />
-  <Other file="%ModDir%/metadata.xml" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<contentpackage
+    name="NT Eyes"
+    modversion="2.1.0"
+    corepackage="False"
+    steamworkshopid="3294574390"
+    gameversion="1.9.8.0">
+    <Afflictions
+        file="%ModDir%/Xml/Afflictions/damage.xml" />
+
+    <Afflictions
+        file="%ModDir%/Xml/Afflictions/hud.xml" />
+
+    <Afflictions
+        file="%ModDir%/Xml/Afflictions/indicators.xml" />
+
+    <Afflictions
+        file="%ModDir%/Xml/Afflictions/mechanical.xml" />
+
+    <Afflictions
+        file="%ModDir%/Xml/Afflictions/surgery.xml" />
+
+    <Afflictions
+        file="%ModDir%/Xml/Retro/retroAfflictions.xml" />
+
+    <Item
+        file="%ModDir%/Xml/Items/eye_lenses.xml" />
+
+    <Item
+        file="%ModDir%/Xml/Items/eye_types.xml" />
+
+    <Item
+        file="%ModDir%/Xml/Items/hud.xml" />
+
+    <Item
+        file="%ModDir%/Xml/Items/miscellenous.xml" />
+
+    <Item
+        file="%ModDir%/Xml/Items/surgery.xml" />
+
+    <Text
+        file="%ModDir%/Localization/English.xml" />
+
+    <Other
+        file="%ModDir%/Sounds/eye_slowlaser.ogg" />
+
+    <Other
+        file="%ModDir%/Sounds/eye_healthscanner.ogg" />
+
+    <Other
+        file="%ModDir%/Sounds/eye_error.ogg" />
+
+    <Other
+        file="%ModDir%/Sounds/eye_beep.ogg" />
+
+    <Other
+        file="%ModDir%/Sounds/eyesofterror.ogg" />
+
+    <Other
+        file="%ModDir%/Sounds/parasite1.ogg" />
+
+    <Other
+        file="%ModDir%/Textures/Overlays/blackoverlay.png" />
+
+    <Other
+        file="%ModDir%/Textures/Overlays/gradientoverlay.png" />
+
+    <Other
+        file="%ModDir%/Textures/Overlays/grayoverlay.png" />
+
+    <Other
+        file="%ModDir%/Textures/Overlays/plasticoverlay.png" />
+
+    <Other
+        file="%ModDir%/Textures/AfflictionIcons.png" />
+
+    <Other
+        file="%ModDir%/Textures/ItemIcons.png" />
+
+    <Other
+        file="%ModDir%/metadata.xml" />
 </contentpackage>
