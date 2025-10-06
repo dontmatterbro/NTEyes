@@ -126,6 +126,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="0,128,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2"
@@ -146,6 +150,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="128,128,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2"
@@ -168,6 +176,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="256,128,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2"
@@ -198,14 +210,19 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="384,128,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2"
             minradialdistort="0.4"
             maxradialdistort="0.4"
             minchromaticaberration="0.3"
-            maxchromaticaberration="0.3" 
-            ThermalOverlayRange="1500" ThermalOverlayColor="0,255,255,150"/>
+            maxchromaticaberration="0.3"
+            ThermalOverlayRange="1500"
+            ThermalOverlayColor="0,255,255,150" />
     </Affliction>
 
     <!-- Terror Eye -->
@@ -219,6 +236,10 @@
         type="vi_type"
         isbuff="true"
         healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="512,128,128,128" />
         <Effect
             minstrength="0"
             maxstrength="2"
