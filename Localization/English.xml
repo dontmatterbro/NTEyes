@@ -228,35 +228,31 @@
 
     <afflictionname.vi_crawler>Crawler Eye</afflictionname.vi_crawler>
 
-    <afflictiondescription.vi_crawler />
+    <afflictiondescription.vi_crawler>This patient has crawler eyes.</afflictiondescription.vi_crawler>
 
     <afflictionname.vi_mudraptor>Mudraptor Eye</afflictionname.vi_mudraptor>
 
-    <afflictiondescription.vi_mudraptor />
+    <afflictiondescription.vi_mudraptor>This patient has mudraptor eyes.</afflictiondescription.vi_mudraptor>
 
     <afflictionname.vi_hammerhead>Hammerhead Eye</afflictionname.vi_hammerhead>
 
-    <afflictiondescription.vi_hammerhead />
+    <afflictiondescription.vi_hammerhead>This patient has hammerhead eyes.</afflictiondescription.vi_hammerhead>
 
     <afflictionname.vi_watcher>Watcher Eye</afflictionname.vi_watcher>
 
-    <afflictiondescription.vi_watcher />
+    <afflictiondescription.vi_watcher>This patient has watcher eyes.</afflictiondescription.vi_watcher>
 
     <afflictionname.vi_husk>Huskified Eye</afflictionname.vi_husk>
 
-    <afflictiondescription.vi_husk />
-
-    <afflictionname.vi_charybdis>Charybdis Eye</afflictionname.vi_charybdis>
-
-    <afflictiondescription.vi_charybdis />
+    <afflictiondescription.vi_husk>This patient has husk eyes.</afflictiondescription.vi_husk>
 
     <afflictionname.vi_latcher>Latcher Eye</afflictionname.vi_latcher>
 
-    <afflictiondescription.vi_latcher />
+    <afflictiondescription.vi_latcher>This patient has latcher eyes.</afflictiondescription.vi_latcher>
 
     <afflictionname.vi_terror>Terror Eye</afflictionname.vi_terror>
 
-    <afflictiondescription.vi_terror />
+    <afflictiondescription.vi_terror>Hell is upon us.</afflictiondescription.vi_terror>
 
     <!-- Lens Afflictions -->
     <afflictionname.lt_medical>Medical Lens</afflictionname.lt_medical>

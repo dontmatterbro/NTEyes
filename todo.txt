@@ -1,6 +1,1 @@
 redo item descriptions and maybe names?
-
-fixed -- spoon gives an infinite amount of eyes from creatures, fix that
-
-should be fixed -- spoon does not get removed, stays at 0 condition
-done -- Monster eye(s) icons are missing, do those
