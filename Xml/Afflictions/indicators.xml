@@ -194,7 +194,7 @@
                 disabledeltatime="true">
                 <Affliction
                     identifier="psychosis"
-                    amount="1" />
+                    amount="0.5" />
             </StatusEffect>
         </Effect>
     </Affliction>
