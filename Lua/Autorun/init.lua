@@ -14,7 +14,7 @@ Timer.Wait(function()
 end, 1)
 
 Timer.Wait(function()
-	if SERVER and (NTC == nil) then --check if NT is installed
+	if SERVER or (CLIENT and not Game.IsMultiplayer) and (NTC == nil) then --check if NT is installed
 		print("Error loading NT Eyes 2.0: It SEEms Neurotrauma isn't loaded!")
 		return
 	end

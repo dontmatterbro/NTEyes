@@ -165,6 +165,33 @@
             maxskillmultiplier="0.9" />
     </Affliction>
 
+    <!-- Hammerhead Eye -->
+    <Affliction
+        identifier="vi_hammerhead"
+        showiconthreshold="1"
+        showinhealthscannerthreshold="1000"
+        limbspecific="false"
+        indicatorlimb="Head"
+        maxstrength="2"
+        type="vi_type"
+        isbuff="true"
+        healableinmedicalclinic="false">
+        <icon
+            texture="%ModDir%/Textures/AfflictionIcons.png"
+            origin="0.512293,0.50444984"
+            sourcerect="128,128,128,128" />
+        <Effect
+            minstrength="0"
+            maxstrength="2"
+            minradialdistort="0.1"
+            maxradialdistort="0.1"
+            minchromaticaberration="0.05"
+            maxchromaticaberration="0.05"
+            resistancefor="damage"
+            minresistance="0.1"
+            maxresistance="0.1" />
+    </Affliction>
+
     <!-- Watcher Eye -->
     <Affliction
         identifier="vi_watcher"

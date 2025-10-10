@@ -41,7 +41,7 @@ NTEYE.EyeProperty = {
 	{ type = "vi_mudraptor", damage = "dm_mudraptor", item = "it_mudraptoreye", biological = true },
 	{ type = "vi_hammerhead", damage = "dm_hammerhead", item = "it_hammerheadeye", biological = true },
 	{ type = "vi_watcher", damage = "dm_watcher", item = "it_watchereye", biological = true },
-	{ type = "vi_husk", damage = "dm_husk", item = "it_huskifiedeye", biological = true },
+	{ type = "vi_husk", damage = "dm_husk", item = "it_huskeye", biological = true },
 	{ type = "vi_charybdis", damage = "dm_charybdis", item = "it_charybdiseye", biological = true },
 	{ type = "vi_latcher", damage = "dm_latcher", item = "it_latchereye", biological = true },
 	{ type = "vi_terror", damage = "dm_terror", item = "it_terroreye", biological = false },
@@ -746,7 +746,7 @@ NTEYE.ItemMethods.it_hammerheadeye = function(item, usingCharacter, targetCharac
 	HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
 end
 --huskified eye
-NTEYE.ItemMethods.it_huskifiedeye = function(item, usingCharacter, targetCharacter, targetLimb)
+NTEYE.ItemMethods.it_huskeye = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 	--check if the item is used on the head
 	if targetLimb.type ~= limb then
@@ -775,7 +775,7 @@ NTEYE.ItemMethods.it_watchereye = function(item, usingCharacter, targetCharacter
 	--give eye affliction
 	HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
 end
---charybdis eye
+--[[charybdis eye
 NTEYE.ItemMethods.it_charybdiseye = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head
 	--check if the item is used on the head
@@ -789,7 +789,7 @@ NTEYE.ItemMethods.it_charybdiseye = function(item, usingCharacter, targetCharact
 
 	--give eye affliction
 	HF.ApplyEyeItem(targetCharacter, usingCharacter, item)
-end
+end --]]
 --latcher eye
 NTEYE.ItemMethods.it_latchereye = function(item, usingCharacter, targetCharacter, targetLimb)
 	local limb = LimbType.Head

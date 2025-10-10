@@ -1,3 +1,6 @@
 add trello eye damage values for monster eyes
 
 add pink eye?? infection to eyes, may cause eye damage or eye loss if left untreated.
+
+optimize blendcolor function
+take a look at client side updates and see if you can optimize them

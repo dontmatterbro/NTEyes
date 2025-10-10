@@ -81,6 +81,11 @@ NTEYE.ClientEffects = {
 		levelColor = Color(0, 65, 65, 70),
 		hullColor = Color(0, 50, 50, 55),
 	},
+	ce_hammerhead = {
+		affliction = "vi_hammerhead",
+		levelColor = Color(0, 85, 30, 85),
+		hullColor = Color(0, 60, 20, 60),
+	},
 	ce_watcher = {
 		affliction = "vi_watcher",
 		levelColor = Color(255, 0, 0, 115),

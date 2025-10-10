@@ -78,6 +78,19 @@
         healableinmedicalclinic="false"
         iconcolors="160,160,70,255;160,160,70,255" />
 
+    <!-- Hammerhead Eye Damage -->
+    <Affliction
+        identifier="dm_hammerhead"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="0"
+        maxstrength="100"
+        type="eye_type"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="160,160,70,255;160,160,70,255" />
+
     <!-- Watcher Eye Damage -->
     <Affliction
         identifier="dm_watcher"
