@@ -1,7 +1,7 @@
 NTEYE = {} --Eyes, eyes and more eyes
 NTEYE.Name = "Eyes"
-NTEYE.Version = "2.1.0"
-NTEYE.VersionNum = 020100000
+NTEYE.Version = "2.1.0h1"
+NTEYE.VersionNum = 020100001
 NTEYE.MinNTVersion = "A1.12.1"
 NTEYE.MinNTVersionNum = 01120100
 NTEYE.Path = table.pack(...)[1]
@@ -14,8 +14,8 @@ Timer.Wait(function()
 end, 1)
 
 Timer.Wait(function()
-	if SERVER or (CLIENT and not Game.IsMultiplayer) and (NTC == nil) then --check if NT is installed
-		print("Error loading NT Eyes 2.0: It SEEms Neurotrauma isn't loaded!")
+	if (SERVER or (CLIENT and not Game.IsMultiplayer)) and (NTC == nil) then --check if NT is installed
+		print("Error loading NT Eyes: It SEEms Neurotrauma isn't loaded!")
 		return
 	end
 

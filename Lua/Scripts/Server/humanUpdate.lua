@@ -816,57 +816,6 @@ NTEYE.UpdateAfflictions = {
 			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
 		end,
 	},
-	dm_charybdis = {
-		max = 100,
-		update = function(c, i)
-			--variables for optimization
-			local afflictionsTable = c.afflictions
-			local statsTable = c.stats
-			local character = c.character
-			local limb = LimbType.Head
-
-			--check if the correct eye type
-			if not (afflictionsTable.vi_charybdis.strength > 0) then
-				return
-			end
-			--check if stasis
-			if statsTable.stasis then
-				return
-			end
-
-			--variable declaration for gain
-			--divided by; higher value, less damage
-			local hypoxemiaResistance = 300
-			local strokeResistance = 0.05
-			local sepsisResistance = 0.02
-			--set by; lower value, less damage
-			local pressureDamage = 0
-			local regenRate = -0.1 --inverse for passive healing
-			--set if the eye is biological or not
-			local biological = true
-			--set the config multiplier
-			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
-			--sets biological damage gain for eyes (can be negative or positive)
-			local gain = (
-				regenRate * statsTable.healingrate -- passive regen
-				+ afflictionsTable.hypoxemia.strength / hypoxemiaResistance -- from hypoxemia
-				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
-				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
-				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
-
-			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
-			end
-			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
-			--function to check for eye death
-			PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, i, biological)
-		end,
-	},
 	dm_latcher = {
 		max = 100,
 		update = function(c, i)
@@ -1155,9 +1104,34 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
-	vi_charybdis = {},
-	vi_latcher = {},
-	vi_terror = {},
+	vi_latcher = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
+	vi_terror = {
+		max = 2,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+
+			--check if held lid is present, if so make affliction visible if it is already present
+			if afflictionsTable[i].strength > 0 then
+				afflictionsTable[i].strength = 1 + HF.BoolToNum(HF.HasAffliction(c.character, "sr_heldlid"), 99, 99)
+			end
+		end,
+	},
 }
 
 --add afflictions to NT.Afflictions
