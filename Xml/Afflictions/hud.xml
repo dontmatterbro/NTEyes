@@ -4,7 +4,7 @@
     <!-- Medical Lens -->
     <Affliction
         identifier="lt_medical"
-        showiconthreshold="1"
+        showiconthreshold="2"
         showinhealthscannerthreshold="0"
         limbspecific="false"
         indicatorlimb="Head"
@@ -19,7 +19,7 @@
             sourcerect="640,0,128,128" />
         <Effect
             minstrength="0"
-            maxstrength="1">
+            maxstrength="2">
             <StatValue
                 stattype="MedicalSkillBonus"
                 value="10" />
@@ -29,7 +29,7 @@
     <!-- Electrical Lens -->
     <Affliction
         identifier="lt_electrical"
-        showiconthreshold="1"
+        showiconthreshold="2"
         showinhealthscannerthreshold="0"
         limbspecific="false"
         indicatorlimb="Head"
@@ -44,7 +44,7 @@
             sourcerect="640,0,128,128" />
         <Effect
             minstrength="0"
-            maxstrength="1">
+            maxstrength="2">
             <StatValue
                 stattype="ElectricalSkillBonus"
                 value="10" />
@@ -56,7 +56,7 @@
         identifier="lt_night"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="2"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="lens_type"
@@ -75,7 +75,7 @@
         identifier="lt_thermal"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="2"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="lens_type"
@@ -88,7 +88,7 @@
             sourcerect="640,0,128,128" />
         <Effect
             minstrength="0"
-            maxstrength="1">
+            maxstrength="2">
             <StatValue
                 stattype="WeaponsSkillBonus"
                 value="10" />

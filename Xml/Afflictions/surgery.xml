@@ -6,7 +6,7 @@
         identifier="sr_removedeyes"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="2"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_surgery"
@@ -63,7 +63,7 @@
         indicatorlimb="Head"
         showiconthreshold="1"
         showinhealthscannerthreshold="0"
-        maxstrength="2"
+        maxstrength="1"
         type="eye_surgery"
         isbuff="false"
         healableinmedicalclinic="false"
@@ -74,7 +74,7 @@
             sourcerect="129,512,128,128" />
         <Effect
             minstrength="0"
-            maxstrength="2">
+            maxstrength="1">
             <StatusEffect
                 target="Character"
                 ObstructVisionAmount="0.7"
