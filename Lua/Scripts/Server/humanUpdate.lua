@@ -183,7 +183,7 @@ local function SetEyeIndicatorStrength(afflictionsTable, statsTable, character, 
 			end
 		else
 			--hide eye type
-			afflictionsTable[i].strength = 0.5
+			afflictionsTable[i].strength = 0.51 --should be >0.5 so that HF.HasAffliction finds it by default. exactly 0.5 is too low due to floating point imprecision.
 		end
 	end
 end
@@ -196,7 +196,7 @@ local function SetEyeAfflictionStrength(afflictionsTable, statsTable, character,
 			afflictionsTable[i].strength = maxStrength
 		else
 			--hide affliction
-			afflictionsTable[i].strength = 0.5
+			afflictionsTable[i].strength = 0.51 --should be >0.5 so that HF.HasAffliction finds it by default. exactly 0.5 is too low due to floating point imprecision.
 		end
 	end
 end
@@ -994,7 +994,7 @@ NTEYE.UpdateAfflictions = {
 				end
 			end
 			--if no eye afflictions, give default eye indicator (human)
-			HF.SetAfflictionLimb(character, "vi_human", limb, 0.5)
+			HF.SetAfflictionLimb(character, "vi_human", limb, 0.51) --should be >0.5 so that HF.HasAffliction finds it by default. exactly 0.5 is too low due to floating point imprecision.
 		end,
 	},
 	vi_cyber = {
