@@ -133,7 +133,7 @@ local function BlendColors(colors)
 	if #colors == 0 then
 		return Color(0, 0, 0, 0)
 	end
-	--set default variables for RGB
+	--set default variables for RGBA
 	local r, g, b, a = 0, 0, 0, 0
 	--get the config value set
 	if configValue == nil then
