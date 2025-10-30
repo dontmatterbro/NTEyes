@@ -4,7 +4,7 @@
     <!-- Human Eye -->
     <Affliction
         identifier="vi_human"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -24,7 +24,7 @@
     <!-- Cyber Eye -->
     <Affliction
         identifier="vi_cyber"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -44,7 +44,7 @@
     <!-- Enhanced Eye -->
     <Affliction
         identifier="vi_enhanced"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -64,7 +64,7 @@
     <!-- Plastic Eye -->
     <Affliction
         identifier="vi_plastic"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -94,7 +94,7 @@
     <!-- Huskified Eye -->
     <Affliction
         identifier="vi_husk"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -118,7 +118,7 @@
     <!-- Crawler Eye -->
     <Affliction
         identifier="vi_crawler"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -142,7 +142,7 @@
     <!-- Mudraptor Eye -->
     <Affliction
         identifier="vi_mudraptor"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -168,7 +168,7 @@
     <!-- Hammerhead Eye -->
     <Affliction
         identifier="vi_hammerhead"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -195,7 +195,7 @@
     <!-- Watcher Eye -->
     <Affliction
         identifier="vi_watcher"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -229,7 +229,7 @@
     <!-- Latcher Eye -->
     <Affliction
         identifier="vi_latcher"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
@@ -255,7 +255,7 @@
     <!-- Terror Eye -->
     <Affliction
         identifier="vi_terror"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         limbspecific="false"
         indicatorlimb="Head"
