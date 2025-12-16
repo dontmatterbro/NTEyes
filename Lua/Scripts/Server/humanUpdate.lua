@@ -322,6 +322,24 @@ NTEYE.UpdateAfflictions = {
 			end
 		end,
 	},
+	--pink eye
+	mc_pinkeye = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
+			end
+			--remove retinopathy if immunity is below 10%
+			if c.afflictions.immunity.strength < 11 then
+				afflictionsTable[i].strength = 0
+			end
+		end,
+	},
 	--triggers vision debuffs upon having cataracts, increases cataracts
 	mc_cataract = {
 		max = 100,

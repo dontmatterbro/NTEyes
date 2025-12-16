@@ -108,10 +108,24 @@
             minstrength="0"
             maxstrength="100"
             strengthchange="5" />
-        <!-- <icon 
-            texture="%ModDir%/Textures/AfflictionIcons.png" 
-            sourcerect="896,0,128,128"  
-            origin="0,0" /> -->
+    </Affliction>
+
+    <!-- Pink Eye -->
+    <Affliction
+        identifier="mc_pinkeye"
+        limbspecific="false"
+        indicatorlimb="Head"
+        showiconthreshold="101"
+        showinhealthscannerthreshold="5"
+        maxstrength="100"
+        type="eye_mechanic"
+        isbuff="false"
+        healableinmedicalclinic="false"
+        iconcolors="0,0,0,255;255,100,0,255">
+        <Effect
+            minstrength="0"
+            maxstrength="100"
+            strengthchange="1" />
     </Affliction>
 
     <!-- Cataract -->
