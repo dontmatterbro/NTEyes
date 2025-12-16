@@ -596,10 +596,11 @@ NTEYE.ItemMethods.fpgacircuit = function(item, usingCharacter, targetCharacter, 
 			or HF.HasAffliction(targetCharacter, "mc_deadeye")
 			or HF.HasAffliction(targetCharacter, "mc_mismatch")
 		then
-			HF.AddAfflictionLimb(targetCharacter, "dm_cyber", limb, -(item.Condition / 2.5), usingCharacter) --reduce eye damage
+			HF.AddAffliction(targetCharacter, "dm_cyber", -(item.Condition / 2.5), usingCharacter) --reduce eye damage
 			item.Condition = 0 --remove item
 		else --if target has 2 cyber eyes
-			HF.AddAfflictionLimb(targetCharacter, "dm_cyber", limb, -(item.Condition / 5), usingCharacter) --reduce eye damage
+			HF.AddAffliction(targetCharacter, "dm_cyber", -(item.Condition / 5), usingCharacter) --reduce eye damage
+			--changing these from AddAfflictionLimb to AddAffliction fixes the issue, idk why, and I am too tired to care
 			item.Condition = 0 --remove item
 		end
 	end
