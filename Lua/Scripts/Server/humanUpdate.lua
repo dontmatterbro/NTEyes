@@ -212,7 +212,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -238,7 +238,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -283,7 +283,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			--give retinopathy if it is enabled and there is a dead eye
@@ -310,7 +310,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -331,7 +331,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -350,7 +350,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			if c.afflictions[i].strength >= 20 then
@@ -370,7 +370,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -393,7 +393,7 @@ NTEYE.UpdateAfflictions = {
 		end,
 	},
 	--eye damage afflictions
-	dm_human = {
+	dm_human = { --there seems to be an issue with players getting eye damage on save load
 		max = 100,
 		update = function(c, i)
 			--variables for optimization
@@ -406,8 +406,9 @@ NTEYE.UpdateAfflictions = {
 			if not (afflictionsTable.vi_human.strength > 0) then
 				return
 			end
+
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -434,14 +435,10 @@ NTEYE.UpdateAfflictions = {
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ afflictionsTable.mc_retinopathy.strength / retinopathyResistance --from retinopathy
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 
@@ -465,7 +462,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -494,7 +491,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -517,14 +514,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 
@@ -548,7 +541,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -574,7 +567,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -597,14 +590,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 
@@ -626,7 +615,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -649,14 +638,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
@@ -677,7 +662,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -700,14 +685,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
@@ -728,7 +709,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -751,14 +732,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * configMultiplier
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
@@ -779,7 +756,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -802,14 +779,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
@@ -830,7 +803,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
@@ -853,14 +826,10 @@ NTEYE.UpdateAfflictions = {
 				+ HF.Clamp(afflictionsTable.stroke.strength, 0, 20) * strokeResistance -- from stroke
 				+ afflictionsTable.sepsis.strength / 100 * sepsisResistance -- from sepsis
 				+ PressureDamageCalculation(character, pressureDamage) -- from pressure
-			)
-				* NT.Deltatime
-				* configMultiplier
+			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
@@ -881,12 +850,14 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis then
+			if statsTable.stasis or not character then
 				return
 			end
 
 			--set if the eye is biological or not
 			local biological = false --very cool lore reasons I promise
+			--set the config multiplier
+			local configMultiplier = NTConfig.Get("NTEYE_eyeDamageMultiplier", 1)
 
 			--terror eyes do not receive biological damage and heal really fast
 			local gain = (
@@ -894,9 +865,7 @@ NTEYE.UpdateAfflictions = {
 			) * NT.Deltatime
 
 			if gain > 0 then
-				gain = gain
-					* NTC.GetMultiplier(character, "eyedamagegain") -- NTC multiplier
-					* NTConfig.Get("NT_eyedamageGain", 1) -- Config multiplier
+				gain = gain * configMultiplier -- Config multiplier
 			end
 			afflictionsTable[i].strength = afflictionsTable[i].strength + gain
 			--function to check for eye death
