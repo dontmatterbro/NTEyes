@@ -1,5 +1,10 @@
 --pressure damage calculation
 local function PressureDamageCalculation(character, pressureDamageValue)
+	--if the character is not enabled, return 0 (fixes load time pressure eye damage issues)
+	if not character.Enabled then
+		return 0
+	end
+
 	--this may be redundant, not a big deal tho
 	local pressureDamage = pressureDamageValue
 
@@ -10,10 +15,8 @@ local function PressureDamageCalculation(character, pressureDamageValue)
 
 	--return the damage value
 	return (
-		( --remove character.Enabled after base NT updates
-			(character.InPressure and character.Enabled)
-			and not (character.IsProtectedFromPressure or character.IsImmuneToPressure)
-		) and pressureDamage
+		(character.InPressure and not (character.IsProtectedFromPressure or character.IsImmuneToPressure))
+		and pressureDamage
 	) or 0
 end
 
@@ -214,7 +217,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -240,7 +243,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -285,7 +288,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			--give retinopathy if it is enabled and there is a dead eye
@@ -312,7 +315,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -321,6 +324,20 @@ NTEYE.UpdateAfflictions = {
 			--remove retinopathy if immunity is below 10%
 			if c.afflictions.immunity.strength < 11 then
 				afflictionsTable[i].strength = 0
+			end
+		end,
+	},
+	--pinkeye
+	mc_pinkeye = {
+		max = 100,
+		update = function(c, i)
+			local afflictionsTable = c.afflictions
+			local statsTable = c.stats
+			local character = c.character
+			local limb = LimbType.Head
+			--check if stasis
+			if statsTable.stasis then
+				return
 			end
 		end,
 	},
@@ -333,7 +350,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -352,7 +369,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			if c.afflictions[i].strength >= 20 then
@@ -372,7 +389,7 @@ NTEYE.UpdateAfflictions = {
 			local character = c.character
 			local limb = LimbType.Head
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 			if c.afflictions[i].strength <= 0 then
@@ -410,7 +427,7 @@ NTEYE.UpdateAfflictions = {
 			end
 
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -464,7 +481,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -493,7 +510,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -543,7 +560,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -569,7 +586,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -617,7 +634,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -664,7 +681,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -711,7 +728,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -758,7 +775,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -805,7 +822,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 
@@ -852,7 +869,7 @@ NTEYE.UpdateAfflictions = {
 				return
 			end
 			--check if stasis
-			if statsTable.stasis or not character then
+			if statsTable.stasis then
 				return
 			end
 

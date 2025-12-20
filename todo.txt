@@ -5,9 +5,11 @@ add pink eye?? infection to eyes, may cause eye damage or eye loss if left untre
 optimize blendcolor function
 take a look at client side updates and see if you can optimize them
 
+remove character check on humanupdate stasis checks
+
 
 URGENT FIXES
-POSSIBLE FIX?, require more testing, I can't reproduce the issue by myself --there seems to be an issue with players getting eye damage on save load
+FIXED--there seems to be an issue with players getting eye damage on save load
 happens after long load times, somehow character gets the affliction without spawning in, I've seen a similar thing discussed in NT discord
 
 FIXED, idk why, but it works now. --cyber eyes can't be repaired with surgery, negative values when using HF.AddAfflictionLimb may be broken, try changing the function
