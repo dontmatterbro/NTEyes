@@ -190,7 +190,6 @@ function NTEYE.UpdateLights()
 	end
 	local LevelColor = BlendColors(levelColors)
 	local HullColor = BlendColors(hullColors)
-	--print("Level: " .. tostring(LevelColor) .. " Hull: " .. tostring(HullColor))
 
 	LevelLight.AmbientLightColor = LevelColor
 
