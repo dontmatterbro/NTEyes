@@ -6,7 +6,7 @@
         identifier="mc_deadeyes"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="0"
         maxstrength="2"
         type="eye_mechanic"
@@ -64,9 +64,9 @@
         identifier="mc_deadeye"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="0"
-        maxstrength="2"
+        maxstrength="1"
         type="eye_mechanic"
         isbuff="false"
         healableinmedicalclinic="false"
@@ -78,7 +78,7 @@
 
         <Effect
             minstrength="0"
-            maxstrength="2">
+            maxstrength="1">
             <StatusEffect
                 target="Character"
                 ObstructVisionAmount="0.7"
@@ -175,7 +175,7 @@
         identifier="mc_mismatch"
         limbspecific="false"
         indicatorlimb="Head"
-        showiconthreshold="1"
+        showiconthreshold="0.99"
         showinhealthscannerthreshold="1000"
         maxstrength="2"
         type="eye_mechanic"
