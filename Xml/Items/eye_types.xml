@@ -156,7 +156,7 @@
                 condition="0.07"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -343,7 +343,7 @@
                 condition="0.035"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -651,7 +651,7 @@
                 condition="0.035"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -777,7 +777,7 @@
                 condition="0.035"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -903,7 +903,7 @@
                 condition="0.035"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -1121,7 +1121,7 @@
                 condition="0.035"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
@@ -1248,7 +1248,7 @@
                 condition="0.05"
                 comparison="and">
                 <Conditional
-                    condition="gte 20" />
+                    condition="gt 0" />
                 <Conditional
                     hastag="eyecontainer"
                     targetcontainer="true" />
