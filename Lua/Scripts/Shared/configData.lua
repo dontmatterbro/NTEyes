@@ -3,11 +3,11 @@ NTEYE.ConfigData = {
 	NTEYE_header1 = { name = NTEYE.Name, type = "category" },
 
 	NTEYE_lightBoost = {
-		name = "Light Boost",
+		name = "Default Light Level",
 		default = 0,
 		range = { -255, 255 },
 		type = "float",
-		description = "Boosts the amount of light (RGB alpha value) each eye has. 'cl_reloadlua' is required to take effect.",
+		description = "Modifies the amount of light (RGBA alpha value) each eye has. 'cl_reloadlua' is required to take effect.",
 	},
 	NTEYE_eyeDamageMultiplier = {
 		name = "Eye Biological Damage Multiplier",
@@ -34,7 +34,7 @@ NTEYE.ConfigData = {
 		name = "Disable Retinopathy",
 		default = false,
 		type = "bool",
-		description = "Disables the retinopathy chance upon having a dead eye and not removing it.",
+		description = "Disables the retinopathy chance upon having a dead eye.",
 	},
 }
 
