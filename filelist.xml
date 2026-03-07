@@ -12,6 +12,7 @@
   <Item file="%ModDir%/Xml/Items/miscellenous.xml" />
   <Item file="%ModDir%/Xml/Items/surgery.xml" />
   <Text file="%ModDir%/Localization/English.xml" />
+  <Text file="%ModDir%/Localization/Russian.xml" />
   <Other file="%ModDir%/Sounds/eye_slowlaser.ogg" />
   <Other file="%ModDir%/Sounds/eye_healthscanner.ogg" />
   <Other file="%ModDir%/Sounds/eye_error.ogg" />
