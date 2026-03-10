@@ -5,3 +5,4 @@ add pink eye?? infection to eyes, may cause eye damage or eye loss if left untre
 optimize blendcolor function
 take a look at client side updates and see if you can optimize them
 
+make laser eyes idk if possible check it out
