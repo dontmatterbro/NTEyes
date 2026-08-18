@@ -41,7 +41,7 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 			--biological eyes get dead eye, non-biological ones get removedeye
 			--this is important for retinopathy checks
 			if biological then
-				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+				HF.SetAfflictionLimb(character, "mc_deadeye", limb, 1)
 			else
 				HF.SetAfflictionLimb(character, "sr_removedeye", limb, 100)
 			end
@@ -74,7 +74,7 @@ local function PassiveEyeRemoval(afflictionsTable, statsTable, character, limb, 
 				end
 				--dead or removed eye depending on if it is biological
 				if biological then
-					HF.SetAfflictionLimb(character, "mc_deadeye", limb, 100)
+					HF.SetAfflictionLimb(character, "mc_deadeye", limb, 1)
 				else
 					HF.SetAfflictionLimb(character, "sr_removedeye", limb, 100)
 				end
@@ -306,7 +306,7 @@ NTEYE.UpdateAfflictions = {
 	--causes retinopathy at a chance
 	mc_deadeye = {
 		--having a dead eye will have a chance to cause autoimmune retinopathy
-		max = 100,
+		max = 2,
 		update = function(c, i)
 			--variables for optimization
 			local afflictionsTable = c.afflictions

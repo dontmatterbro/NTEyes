@@ -66,7 +66,7 @@
         indicatorlimb="Head"
         showiconthreshold="0.99"
         showinhealthscannerthreshold="0"
-        maxstrength="1"
+        maxstrength="2"
         type="eye_mechanic"
         isbuff="false"
         healableinmedicalclinic="false"
