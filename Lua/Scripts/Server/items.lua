@@ -240,6 +240,10 @@ NTEYE.ItemMethods.advretractors = function(item, usingCharacter, targetCharacter
 	if HF.HasAffliction(targetCharacter, "sr_heldlid") then
 		HF.SetAfflictionLimb(targetCharacter, "sr_heldlid", limb, 0, usingCharacter) --remove held lids
 		HF.SetAfflictionLimb(targetCharacter, "sr_poppedeye", limb, 0, usingCharacter) --remove popped eyes
+		HF.SetAfflictionLimb(targetCharacter, "sr_eyeconnector", limb, 0, usingCharacter) --remove eye connector
+		HF.SetAfflictionLimb(targetCharacter, "sr_corneaincision", limb, 0, usingCharacter) --remove cornea incision
+		HF.SetAfflictionLimb(targetCharacter, "sr_emulsification", limb, 0, usingCharacter) --remove emulsification
+		HF.SetAfflictionLimb(targetCharacter, "sr_lasersurgery", limb, 0, usingCharacter) --remove laser surgery
 	else
 		--check if surgery can be performed
 		if not HF.CanPerformSurgeryOn(targetCharacter) then
