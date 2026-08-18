@@ -78,7 +78,7 @@
 
         <Effect
             minstrength="0"
-            maxstrength="2">
+            maxstrength="1">
             <StatusEffect
                 target="Character"
                 ObstructVisionAmount="0.7"
