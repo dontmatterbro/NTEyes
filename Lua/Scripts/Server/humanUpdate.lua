@@ -15,7 +15,7 @@ local function PressureDamageCalculation(character, pressureDamageValue)
 
 	--return the damage value
 	return (
-		(character.InPressure and not (character.IsProtectedFromPressure or character.IsImmuneToPressure))
+		(character.InWater and character.InPressure and not (character.IsProtectedFromPressure or character.IsImmuneToPressure))
 		and pressureDamage
 	) or 0
 end
